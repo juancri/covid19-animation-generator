@@ -1,0 +1,17 @@
+{
+	"log":
+	{
+		"console":
+		{
+			"enabled": true,
+			"level": "info",
+			"timestamp": true
+		},
+		"local":
+		{
+			"enabled": false,
+			"level": "info",
+			"filename": "service.log"
+		}
+	}
+}

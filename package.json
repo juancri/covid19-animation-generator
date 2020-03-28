@@ -1,0 +1,27 @@
+{
+  "name": "covid19-animation-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "jsonfile": "^6.0.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-typescript": "^5.0.1",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "description": ""
+}
