@@ -11,9 +11,14 @@
 			"color": "#3BAB59"
 		},
 		{
-			"name": "Chile",
-			"code": "CL",
-			"color": "#4A8AF5"
+			"name": "China",
+			"code": "CN",
+			"color": "#5c3566"
+		},
+		{
+			"name": "Spain",
+			"code": "ES",
+			"color": "#edd400"
 		},
 		{
 			"name": "Korea, South",
@@ -21,14 +26,14 @@
 			"color": "#c4a000"
 		},
 		{
-			"name": "China",
-			"code": "CN",
-			"color": "#5c3566"
-		},
-		{
 			"name": "Brazil",
 			"code": "BR",
 			"color": "#c35c00"
+		},
+		{
+			"name": "Chile",
+			"code": "CL",
+			"color": "#4A8AF5"
 		}
 	],
 	"firstDate": "2020-03-10"
