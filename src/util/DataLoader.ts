@@ -35,9 +35,9 @@ export default class DataLoader
 				country: group.key(),
 				data: group
 					.selectMany(x => x.data)
-					.groupBy(x => x.date)
+					.groupBy(x => (+x.date))
 					.select(group2 => ({
-						date: group2.key(),
+						date: group2.first().date,
 						cases: group2.sum(x => x.cases)
 					}))
 					.orderBy(x => x.date)
