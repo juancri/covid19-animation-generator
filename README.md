@@ -17,13 +17,11 @@ Generates an animation based on COVID-19 daily data.
 
 ## Data
 
-This repository does not include the data. In order to download it, run:
+This repository does not include the data. In order to download it, run (requires wget):
 
 ```
 npm run download
 ```
-
-wget is required
 
 ## Running
 
@@ -31,11 +29,11 @@ wget is required
 
 ## Output
 
-The generated images will be in the output directory. Requires ImageMagick.
+The generated images will be in the output directory.
 
 ## Generate animation
 
-You can use convert to generate an animation.
+You can use convert to generate an animation. Requires ImageMagic (convert).
 
 ### GIF
 
@@ -48,6 +46,3 @@ convert -delay 20 -loop 1 output/*.svg -resize 500 output/animation.gif
 ```
 convert -delay 20 -loop 1 output/*.svg -resize 500 -type TrueColor output/animation.mp4
 ```
-
-
-

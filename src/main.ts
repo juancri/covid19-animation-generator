@@ -8,6 +8,7 @@ import DataLoader from './util/DataLoader';
 import ImageGenerator from './util/ImageGenerator';
 
 // Constants
+const INPUT_FILE = path.join(__dirname, '../resources/input.csv');
 const OUTPUT_PATH = path.join(__dirname, '../output');
 
 // Main
@@ -15,7 +16,7 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 {
 	// Read input
 	const config = await ConfigLoader.load ();
-	const data = await DataLoader.load (process.argv[2]);
+	const data = await DataLoader.load (INPUT_FILE);
 
 	// Generate
 	const generator = new ImageGenerator(data, config.countries);
