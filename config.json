@@ -31,6 +31,11 @@
 			"color": "#c35c00"
 		},
 		{
+			"name": "Argentina",
+			"code": "AR",
+			"color": "#CB00A1"
+		},
+		{
 			"name": "Chile",
 			"code": "CL",
 			"color": "#4A8AF5"
