@@ -3,17 +3,32 @@
 		{
 			"name": "US",
 			"code": "US",
-			"color": "#a40000"
+			"color": "#EC5144"
 		},
 		{
 			"name": "Italy",
 			"code": "IT",
-			"color": "#449a06"
+			"color": "#3BAB59"
 		},
 		{
 			"name": "Chile",
 			"code": "CL",
-			"color": "#204a87"
+			"color": "#4A8AF5"
+		},
+		{
+			"name": "Korea, South",
+			"code": "KR",
+			"color": "#c4a000"
+		},
+		{
+			"name": "China",
+			"code": "CN",
+			"color": "#5c3566"
+		},
+		{
+			"name": "Brazil",
+			"code": "BR",
+			"color": "#c35c00"
 		}
 	],
 	"firstDate": "2020-03-10"
