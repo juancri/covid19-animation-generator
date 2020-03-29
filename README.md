@@ -1,6 +1,9 @@
 # COVID-19 Animation Generator
 
-Generates an animation based on COVID-19 daily data
+Generates an animation based on COVID-19 daily data.
+
+- Explanation: [minutephysics: How To Tell If We're Beating COVID-19](https://www.youtube.com/watch?v=54XLXg4fYsc)
+- Data: [Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE](https://github.com/CSSEGISandData/COVID-19)
 
 ## Requirements
 
