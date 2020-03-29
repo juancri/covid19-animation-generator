@@ -1,17 +1,20 @@
 {
-	"log":
-	{
-		"console":
+	"countries": [
 		{
-			"enabled": true,
-			"level": "info",
-			"timestamp": true
+			"name": "US",
+			"code": "US",
+			"color": "#a40000"
 		},
-		"local":
 		{
-			"enabled": false,
-			"level": "info",
-			"filename": "service.log"
+			"name": "Italy",
+			"code": "IT",
+			"color": "#449a06"
+		},
+		{
+			"name": "Chile",
+			"code": "CL",
+			"color": "#204a87"
 		}
-	}
+	],
+	"firstDate": "2020-03-10"
 }
