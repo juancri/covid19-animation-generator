@@ -10,6 +10,10 @@ Generates an animation based on COVID-19 daily data.
 - Node 12.x
 - Gulp: ```npm install -g gulp```
 
+## Initialize
+
+- Run: ```npm install```
+
 ## Running tasks
 
 - Clean: ```gulp clean```
