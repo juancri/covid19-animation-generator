@@ -19,5 +19,5 @@ export interface CountryConfiguration {
 
 export interface Configuration {
 	countries: CountryConfiguration[];
-	firstDate: string;
+	startDate: string;
 }

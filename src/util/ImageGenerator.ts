@@ -57,9 +57,9 @@ export default class ImageGenerator
 
 	// Public methods
 
-	public async generateAll(outputDirectory: string) {
+	public async generateAll(outputDirectory: string, startDate: DateTime) {
 		const firstCountryData = this.data[0].data;
-		const first = firstCountryData[0].date;
+		const first = startDate;
 		const last = firstCountryData[firstCountryData.length - 1].date;
 
 		for (let current = first; current <= last; current = current.plus({ days: 1 }))
@@ -98,8 +98,6 @@ export default class ImageGenerator
 			// Filter data with date limit
 			const filteredData = countryData.data
 				.filter(d => d.cases && d.date <= date);
-			if (filteredData.length < 9)
-				continue;
 
 			// Draw lines
 			if (filteredData.length > 0)

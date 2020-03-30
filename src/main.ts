@@ -1,5 +1,6 @@
 
 // Dependencies
+import { DateTime } from 'luxon';
 import * as path from 'path';
 
 // Local
@@ -19,6 +20,7 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	const data = await DataLoader.load (INPUT_FILE);
 
 	// Generate
+	const startDate = DateTime.fromISO(config.startDate);
 	const generator = new ImageGenerator(data, config.countries);
-	await generator.generateAll(OUTPUT_PATH);
+	await generator.generateAll(OUTPUT_PATH, startDate);
 })();
