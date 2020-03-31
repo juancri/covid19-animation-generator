@@ -60,36 +60,51 @@ export default class ImageGenerator
 
 	// Public methods
 
-	public async generateAll(outputDirectory: string, startDate: DateTime, framesPerDay: number) {
+	public async generateAll(outputDirectory: string, startDate: DateTime,
+		framesPerDay: number, extraEndFrames: number) {
 		if (framesPerDay < 1)
 			throw new Error(`Invalid frames per day: ${framesPerDay}`);
 
 		const firstCountryData = this.data[0].data;
-		const first = startDate;
-		const last = firstCountryData[firstCountryData.length - 1].date;
+		const lastDate = firstCountryData[firstCountryData.length - 1].date;
 
 		let absoluteFrame = 0;
 		fs.mkdirSync(outputDirectory, { recursive: true });
 
-		for (let currentDay = first; currentDay <= last; currentDay = currentDay.plus({ days: 1 }))
+		for (let currentDay = startDate; currentDay <= lastDate; currentDay = currentDay.plus({ days: 1 }))
 		{
 			for (let frame = 1; frame <= framesPerDay; frame++)
 			{
 				absoluteFrame++;
-				const absoluteFrameString = absoluteFrame.toString().padStart(4, '0');
-				const outputFile = `${absoluteFrameString}.svg`;
-				const outputPath = path.join(outputDirectory, outputFile);
+
 				this.generateImage(
-					outputPath,
+					this.generateOutputPath(outputDirectory, absoluteFrame),
 					currentDay,
 					frame,
 					framesPerDay);
 			}
 		}
+
+		const lastOutputPath = this.generateOutputPath(outputDirectory, absoluteFrame);
+		for (let extraFrame = 1; extraFrame <= extraEndFrames; extraFrame++)
+		{
+			absoluteFrame++;
+			fs.copyFileSync(
+				lastOutputPath,
+				this.generateOutputPath(outputDirectory, absoluteFrame));
+		}
 	}
 
 
 	// Private methods
+
+	private generateOutputPath(outputDirectory: string, frame: number)
+	{
+		const frameString = frame.toString().padStart(4, '0');
+		const outputFile = `${frameString}.svg`;
+		const outputPath = path.join(outputDirectory, outputFile);
+		return outputPath;
+	}
 
 	private generateImage(outputPath: string, date: DateTime,
 		frame: number, totalFrames: number)

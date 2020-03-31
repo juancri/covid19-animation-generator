@@ -22,5 +22,9 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	// Generate
 	const startDate = DateTime.fromISO(config.startDate);
 	const generator = new ImageGenerator(data, config.countries);
-	await generator.generateAll(OUTPUT_PATH, startDate, config.framesPerDay);
+	await generator.generateAll(
+		OUTPUT_PATH,
+		startDate,
+		config.framesPerDay,
+		config.extraEndFrames);
 })();
