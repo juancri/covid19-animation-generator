@@ -49,6 +49,11 @@
 			"name": "Canada",
 			"code": "CA",
 			"color": "#00B028"
+		},
+		{
+			"name": "Germany",
+			"code": "DE",
+			"color": "#040060"
 		}
 	],
 	"startDate": "2020-03-01",
