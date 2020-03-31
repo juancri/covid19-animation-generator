@@ -3,57 +3,47 @@
 		{
 			"name": "US",
 			"code": "US",
-			"color": "#EC5144"
+			"color": "#ffa600"
 		},
 		{
 			"name": "Italy",
 			"code": "IT",
-			"color": "#3BAB59"
-		},
-		{
-			"name": "China",
-			"code": "CN",
-			"color": "#5c3566"
+			"color": "#ff7c43"
 		},
 		{
 			"name": "Spain",
 			"code": "ES",
-			"color": "#edd400"
+			"color": "#f95d6a"
 		},
 		{
 			"name": "Korea, South",
 			"code": "KR",
-			"color": "#c4a000"
+			"color": "#d45087"
 		},
 		{
 			"name": "Brazil",
 			"code": "BR",
-			"color": "#c35c00"
+			"color": "#a05195"
 		},
 		{
 			"name": "Argentina",
 			"code": "AR",
-			"color": "#CB00A1"
+			"color": "#665191"
 		},
 		{
 			"name": "Chile",
 			"code": "CL",
-			"color": "#4A8AF5"
+			"color": "#2f4b7c"
 		},
 		{
 			"name": "Japan",
 			"code": "JP",
-			"color": "#FF0000"
+			"color": "#00B0FF"
 		},
 		{
 			"name": "Canada",
 			"code": "CA",
-			"color": "#00B028"
-		},
-		{
-			"name": "Germany",
-			"code": "DE",
-			"color": "#040060"
+			"color": "#0076AC"
 		}
 	],
 	"startDate": "2020-03-01",

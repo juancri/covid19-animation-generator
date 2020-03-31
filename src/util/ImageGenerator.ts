@@ -25,14 +25,14 @@ const COUNTRY_LABEL_FONT = {
 	size: 30,
 	family: 'DejaVu Sans Mono',
 	anchor: 'end',
-	fill: 'black'
+	fill: 'white'
 };
-const COUNTRY_LABEL_OFFSET = [10, -10];
+const COUNTRY_LABEL_OFFSET = [10, -15];
 const DATE_FONT = {
 	size: 30,
 	family: 'DejaVu Sans Mono',
 	anchor: 'end',
-	fill: 'black'
+	fill: 'white'
 };
 const DATE_POSITION = [1000, 100];
 const LINE_STROKE = { width: 3, linecap: 'round' };
