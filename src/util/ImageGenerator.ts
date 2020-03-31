@@ -100,19 +100,19 @@ export default class ImageGenerator
 				.filter(d => d.cases && d.date <= date);
 
 			// Draw lines
-			if (filteredData.length > 0)
-			{
-				for (let index = 1; index < filteredData.length; index++)
-				{
-					if (!filteredData[index].cases)
-						continue;
-					const point1 = this.getPointFromDailyData(filteredData, index - 1);
-					const point2 = this.getPointFromDailyData(filteredData, index);
+			if (!filteredData.length)
+				continue;
 
-					// @ts-ignore
-					canvas.line(point1.x, point1.y, point2.x, point2.y)
-						.stroke({ color: countryConf.color, ...LINE_STROKE });
-				}
+			for (let index = 1; index < filteredData.length; index++)
+			{
+				if (!filteredData[index].cases)
+					continue;
+				const point1 = this.getPointFromDailyData(filteredData, index - 1);
+				const point2 = this.getPointFromDailyData(filteredData, index);
+
+				// @ts-ignore
+				canvas.line(point1.x, point1.y, point2.x, point2.y)
+					.stroke({ color: countryConf.color, ...LINE_STROKE });
 			}
 
 			// Draw circle
@@ -144,6 +144,8 @@ export default class ImageGenerator
 	{
 		const item = data[index];
 		const base = data[index - 7];
+		if (!item)
+			throw new Error(`Point not found for index: ${index}`);
 		const diff = Math.max(0, item.cases - (base?.cases || 0));
 		return {
 			x: BASE_X + Math.max(0, Math.log10(item.cases) - 1) * SCALE_X,
