@@ -14,6 +14,9 @@ import {CountryData, CountryConfiguration, DailyData} from './Types';
 // Register window
 registerWindow(window, window.document);
 
+// Local types
+interface Point { x: number, y: number};
+
 // Constants
 const BASE_IMAGE = fs.readFileSync(path.join(__dirname, '../../resources/base.svg')).toString();
 const CANVAS_SIZE = [1250, 1250];
@@ -57,19 +60,39 @@ export default class ImageGenerator
 
 	// Public methods
 
-	public async generateAll(outputDirectory: string, startDate: DateTime) {
+	public async generateAll(outputDirectory: string, startDate: DateTime, framesPerDay: number) {
+		if (framesPerDay < 1)
+			throw new Error(`Invalid frames per day: ${framesPerDay}`);
+
 		const firstCountryData = this.data[0].data;
 		const first = startDate;
 		const last = firstCountryData[firstCountryData.length - 1].date;
 
-		for (let current = first; current <= last; current = current.plus({ days: 1 }))
-			this.generateImage(outputDirectory, current);
+		let absoluteFrame = 0;
+		fs.mkdirSync(outputDirectory, { recursive: true });
+
+		for (let currentDay = first; currentDay <= last; currentDay = currentDay.plus({ days: 1 }))
+		{
+			for (let frame = 1; frame <= framesPerDay; frame++)
+			{
+				absoluteFrame++;
+				const absoluteFrameString = absoluteFrame.toString().padStart(4, '0');
+				const outputFile = `${absoluteFrameString}.svg`;
+				const outputPath = path.join(outputDirectory, outputFile);
+				this.generateImage(
+					outputPath,
+					currentDay,
+					frame,
+					framesPerDay);
+			}
+		}
 	}
 
 
 	// Private methods
 
-	private generateImage(outputDirectory: string, date: DateTime)
+	private generateImage(outputPath: string, date: DateTime,
+		frame: number, totalFrames: number)
 	{
 		// Init canvas
 		const canvas = SVG(window.document.documentElement);
@@ -88,6 +111,7 @@ export default class ImageGenerator
 			.move(...DATE_POSITION);
 
 		// Draw each country
+		const frameRatio = frame / totalFrames;
 		for (const countryConf of this.configuration)
 		{
 			// Get from data
@@ -100,7 +124,7 @@ export default class ImageGenerator
 				.filter(d => d.cases && d.date <= date);
 
 			// Draw lines
-			if (!filteredData.length)
+			if (filteredData.length < 2)
 				continue;
 
 			for (let index = 1; index < filteredData.length; index++)
@@ -109,20 +133,31 @@ export default class ImageGenerator
 					continue;
 				const point1 = this.getPointFromDailyData(filteredData, index - 1);
 				const point2 = this.getPointFromDailyData(filteredData, index);
+				const isLastPoint = index === filteredData.length - 1;
+				const correctedPoint2 = isLastPoint ?
+					this.getCorrectedPoint(point1, point2, frameRatio) :
+					point2;
 
-				// @ts-ignore
-				canvas.line(point1.x, point1.y, point2.x, point2.y)
+				canvas
+					// @ts-ignore
+					.line(
+						point1.x, point1.y,
+						correctedPoint2.x, correctedPoint2.y)
 					.stroke({ color: countryConf.color, ...LINE_STROKE });
 			}
 
 			// Draw circle
+			const previousPoint = this.getPointFromDailyData(filteredData, filteredData.length - 2);
 			const lastPoint = this.getPointFromDailyData(filteredData, filteredData.length - 1);
+			const correctedLastPoint = this.getCorrectedPoint(
+				previousPoint, lastPoint, frameRatio);
+
 			// @ts-ignore
 			canvas.circle(CIRCLE_SIZE)
 				.fill(countryConf.color)
 				.move(
-					lastPoint.x - CIRCLE_SIZE / 2,
-					lastPoint.y - CIRCLE_SIZE / 2);
+					correctedLastPoint.x - CIRCLE_SIZE / 2,
+					correctedLastPoint.y - CIRCLE_SIZE / 2);
 
 			// Draw title
 			canvas
@@ -130,13 +165,11 @@ export default class ImageGenerator
 				.text(countryConf.code)
 				.font(COUNTRY_LABEL_FONT)
 				.move(
-					lastPoint.x + COUNTRY_LABEL_OFFSET[0],
-					lastPoint.y + COUNTRY_LABEL_OFFSET[1]);
+					correctedLastPoint.x + COUNTRY_LABEL_OFFSET[0],
+					correctedLastPoint.y + COUNTRY_LABEL_OFFSET[1]);
 		}
 
 		// Save image
-		const outputPath = path.join(outputDirectory, `${date.toISODate()}.svg`);
-		fs.mkdirSync(outputDirectory, { recursive: true });
 		fs.writeFileSync(outputPath, canvas.svg());
 	}
 
@@ -151,5 +184,18 @@ export default class ImageGenerator
 			x: BASE_X + Math.max(0, Math.log10(item.cases) - 1) * SCALE_X,
 			y: BASE_Y - (Math.max(0, Math.log10(diff) - 1) * SCALE_Y)
 		};
+	}
+
+	private getCorrectedPoint(point1: Point, point2: Point, ratio: number)
+	{
+		return {
+			x: this.getCorrectedValue(point1.x, point2.x, ratio),
+			y: this.getCorrectedValue(point1.y, point2.y, ratio)
+		};
+	}
+
+	private getCorrectedValue(v1: number, v2: number, ratio: number)
+	{
+		return v1 + (v2 - v1) * ratio;
 	}
 }
