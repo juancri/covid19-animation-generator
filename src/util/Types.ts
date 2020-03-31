@@ -21,4 +21,5 @@ export interface Configuration {
 	countries: CountryConfiguration[];
 	startDate: string;
 	framesPerDay: number;
+	extraEndFrames: number;
 }

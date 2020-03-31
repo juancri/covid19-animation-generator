@@ -42,5 +42,6 @@
 		}
 	],
 	"startDate": "2020-03-01",
-	"framesPerDay": 15
+	"framesPerDay": 15,
+	"extraEndFrames": 150
 }
