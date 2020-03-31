@@ -41,12 +41,16 @@ You can use convert to generate an animation. Requires ImageMagic (convert).
 
 ### GIF
 
+Run:
+
 ```
-convert -delay 20 -loop 1 output/*.svg -resize 500 output/animation.gif
+rpm run gif
 ```
 
 ### Video
 
+Run:
+
 ```
-convert -delay 20 -loop 1 output/*.svg -resize 500 -type TrueColor output/animation.mp4
+npm run video
 ```

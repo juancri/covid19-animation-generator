@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "download": "wget https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv -O resources/input.csv"
+    "download": "wget https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv -O resources/input.csv",
+    "gif": "convert -delay 20 -loop 1 output/*.svg -resize 500 output/animation.gif",
+    "video": "convert -delay 20 output/*.svg -resize 500 -type TrueColor output/animation.mp4"
   },
   "author": "",
   "license": "ISC",
