@@ -27,7 +27,7 @@ const COUNTRY_LABEL_FONT = {
 	anchor: 'end',
 	fill: 'black'
 };
-const COUNTRY_LABEL_OFFSET = [10, -20];
+const COUNTRY_LABEL_OFFSET = [15, -20];
 const DATE_FONT = {
 	size: 30,
 	family: 'DejaVu Sans Mono',
