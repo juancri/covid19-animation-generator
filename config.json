@@ -44,6 +44,11 @@
 			"name": "Japan",
 			"code": "JP",
 			"color": "#FF0000"
+		},
+		{
+			"name": "Canada",
+			"code": "CA",
+			"color": "#00B028"
 		}
 	],
 	"startDate": "2020-03-01",
