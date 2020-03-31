@@ -39,6 +39,11 @@
 			"name": "Chile",
 			"code": "CL",
 			"color": "#4A8AF5"
+		},
+		{
+			"name": "Japan",
+			"code": "JP",
+			"color": "#FF0000"
 		}
 	],
 	"startDate": "2020-03-01",
