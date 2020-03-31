@@ -41,5 +41,6 @@
 			"color": "#4A8AF5"
 		}
 	],
-	"startDate": "2020-03-01"
+	"startDate": "2020-03-01",
+	"framesPerDay": 15
 }
