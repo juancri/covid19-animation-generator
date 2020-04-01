@@ -33,7 +33,7 @@
 		{
 			"name": "Chile",
 			"code": "CL",
-			"color": "#2f4b7c"
+			"color": "#FFFFFF"
 		},
 		{
 			"name": "Japan",
@@ -46,7 +46,46 @@
 			"color": "#0076AC"
 		}
 	],
-	"startDate": "2020-03-01",
-	"framesPerDay": 15,
-	"extraEndFrames": 150
+	"colorSchemas":
+	{
+		"dark-square":
+		{
+			"file": "dark-square.svg",
+			"canvasSize": [1250, 1250],
+			"base": [140, 1110],
+			"scale": [200, 200],
+			"circleSize": 15,
+			"countryLabel":
+			{
+				"font":
+				{
+					"size": 30,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "white"
+				},
+				"offset": [10, -15]
+			},
+			"date":
+			{
+				"font":
+				{
+					"size": 30,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "white"
+				},
+				"position": [1000, 100]
+			},
+			"lineStroke":
+			{
+				"width": 3,
+				"linecap": "round"
+			}
+		}
+	},
+	"defaultColorSchema": "dark-square",
+	"startDate": "2020-03-12",
+	"framesPerDay": 30,
+	"extraEndFrames": 300
 }

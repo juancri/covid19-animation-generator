@@ -9,7 +9,7 @@ import { SVG, registerWindow } from '@svgdotjs/svg.js';
 import * as window from 'svgdom';
 
 // Local
-import {CountryData, CountryConfiguration, DailyData} from './Types';
+import {CountryData, CountryConfiguration, DailyData, ColorSchema} from './Types';
 
 // Register window
 registerWindow(window, window.document);
@@ -18,28 +18,7 @@ registerWindow(window, window.document);
 interface Point { x: number, y: number};
 
 // Constants
-const BASE_IMAGE = fs.readFileSync(path.join(__dirname, '../../resources/base.svg')).toString();
-const CANVAS_SIZE = [1250, 1250];
-const CIRCLE_SIZE = 15;
-const COUNTRY_LABEL_FONT = {
-	size: 30,
-	family: 'DejaVu Sans Mono',
-	anchor: 'end',
-	fill: 'white'
-};
-const COUNTRY_LABEL_OFFSET = [10, -15];
-const DATE_FONT = {
-	size: 30,
-	family: 'DejaVu Sans Mono',
-	anchor: 'end',
-	fill: 'white'
-};
-const DATE_POSITION = [1000, 100];
-const LINE_STROKE = { width: 3, linecap: 'round' };
-const BASE_X = 140;
-const BASE_Y = 1110;
-const SCALE_X = 200;
-const SCALE_Y = 200;
+const RESOURCES_DIRECTORY = path.join(__dirname, '../../resources');
 
 export default class ImageGenerator
 {
@@ -47,14 +26,19 @@ export default class ImageGenerator
 
 	private data: CountryData[];
 	private configuration: CountryConfiguration[];
+	private color: ColorSchema;
 
 
 	// Constructor
 
-	public constructor (countryData: CountryData[], countryConfiguration: CountryConfiguration[])
+	public constructor (
+		countryData: CountryData[],
+		countryConfiguration: CountryConfiguration[],
+		colorSchema: ColorSchema)
 	{
 		this.data = countryData;
 		this.configuration = countryConfiguration;
+		this.color = colorSchema;
 	}
 
 
@@ -112,18 +96,18 @@ export default class ImageGenerator
 		// Init canvas
 		const canvas = SVG(window.document.documentElement);
 		// @ts-ignore
-		canvas.size(...CANVAS_SIZE);
+		canvas.size(...this.color.canvasSize);
 
 		// Load base image
 		canvas.clear();
-		canvas.svg(BASE_IMAGE);
+		canvas.svg(fs.readFileSync(path.join(RESOURCES_DIRECTORY, this.color.file)).toString());
 
 		// Write date
 		canvas
 			// @ts-ignore
 			.text(date.toISODate())
-			.font(DATE_FONT)
-			.move(...DATE_POSITION);
+			.font(this.color.date.font)
+			.move(...this.color.date.position);
 
 		// Draw each country
 		const frameRatio = frame / totalFrames;
@@ -158,7 +142,7 @@ export default class ImageGenerator
 					.line(
 						point1.x, point1.y,
 						correctedPoint2.x, correctedPoint2.y)
-					.stroke({ color: countryConf.color, ...LINE_STROKE });
+					.stroke({ color: countryConf.color, ...this.color.lineStroke });
 			}
 
 			// Draw circle
@@ -168,20 +152,20 @@ export default class ImageGenerator
 				previousPoint, lastPoint, frameRatio);
 
 			// @ts-ignore
-			canvas.circle(CIRCLE_SIZE)
+			canvas.circle(this.color.circleSize)
 				.fill(countryConf.color)
 				.move(
-					correctedLastPoint.x - CIRCLE_SIZE / 2,
-					correctedLastPoint.y - CIRCLE_SIZE / 2);
+					correctedLastPoint.x - this.color.circleSize / 2,
+					correctedLastPoint.y - this.color.circleSize / 2);
 
 			// Draw title
 			canvas
 				// @ts-ignore
 				.text(countryConf.code)
-				.font(COUNTRY_LABEL_FONT)
+				.font(this.color.countryLabel.font)
 				.move(
-					correctedLastPoint.x + COUNTRY_LABEL_OFFSET[0],
-					correctedLastPoint.y + COUNTRY_LABEL_OFFSET[1]);
+					correctedLastPoint.x + this.color.countryLabel.offset[0],
+					correctedLastPoint.y + this.color.countryLabel.offset[1]);
 		}
 
 		// Save image
@@ -196,8 +180,8 @@ export default class ImageGenerator
 			throw new Error(`Point not found for index: ${index}`);
 		const diff = Math.max(0, item.cases - (base?.cases || 0));
 		return {
-			x: BASE_X + Math.max(0, Math.log10(item.cases) - 1) * SCALE_X,
-			y: BASE_Y - (Math.max(0, Math.log10(diff) - 1) * SCALE_Y)
+			x: this.color.base[0] + Math.max(0, Math.log10(item.cases) - 1) * this.color.scale[0],
+			y: this.color.base[1] - (Math.max(0, Math.log10(diff) - 1) * this.color.scale[1])
 		};
 	}
 

@@ -21,7 +21,10 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 
 	// Generate
 	const startDate = DateTime.fromISO(config.startDate);
-	const generator = new ImageGenerator(data, config.countries);
+	const colorSchema = config.colorSchemas[config.defaultColorSchema];
+	if (!colorSchema)
+		throw new Error(`Color schema not found: ${config.defaultColorSchema}`);
+	const generator = new ImageGenerator(data, config.countries, colorSchema);
 	await generator.generateAll(
 		OUTPUT_PATH,
 		startDate,
