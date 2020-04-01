@@ -20,14 +20,13 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	const data = await DataLoader.load (INPUT_FILE);
 
 	// Generate
-	const startDate = DateTime.fromISO(config.startDate);
 	const colorSchema = config.colorSchemas[config.defaultColorSchema];
 	if (!colorSchema)
 		throw new Error(`Color schema not found: ${config.defaultColorSchema}`);
 	const generator = new ImageGenerator(data, config.countries, colorSchema);
 	await generator.generateAll(
 		OUTPUT_PATH,
-		startDate,
+		config.days,
 		config.framesPerDay,
 		config.extraEndFrames);
 })();

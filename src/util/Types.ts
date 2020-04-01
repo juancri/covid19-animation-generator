@@ -40,7 +40,7 @@ export interface ColorSchemas {
 
 export interface Configuration {
 	countries: CountryConfiguration[];
-	startDate: string;
+	days: number;
 	framesPerDay: number;
 	extraEndFrames: number;
 	colorSchemas: ColorSchemas;

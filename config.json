@@ -120,7 +120,7 @@
 		}
 	},
 	"defaultColorSchema": "dark-vertical",
-	"startDate": "2020-03-12",
+	"days": 20,
 	"framesPerDay": 30,
 	"extraEndFrames": 300
 }
