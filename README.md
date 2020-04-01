@@ -37,20 +37,10 @@ The generated images will be in the output directory.
 
 ## Generate animation
 
-You can use convert to generate an animation.
-
-### GIF
-
-Requires ImageMagick (convert). Run:
-
-```
-rpm run gif
-```
-
-### Video
-
-Requires ImageMagick (convert) and ffmpeg. Run:
+You can use convert to generate an animation. Requires ImageMagick (convert), parallel and ffmpeg. Run:
 
 ```
 npm run video
 ```
+
+The video will be here: ```output/animation.mp4```
