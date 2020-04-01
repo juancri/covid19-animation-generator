@@ -3,7 +3,7 @@
 		{
 			"name": "US",
 			"code": "US",
-			"color": "#ffa600"
+			"color": "white"
 		},
 		{
 			"name": "Italy",
@@ -33,7 +33,7 @@
 		{
 			"name": "Chile",
 			"code": "CL",
-			"color": "#FFFFFF"
+			"color": "#ffa600"
 		},
 		{
 			"name": "Japan",
@@ -82,9 +82,44 @@
 				"width": 3,
 				"linecap": "round"
 			}
+		},
+		"dark-vertical":
+		{
+			"file": "dark-vertical.svg",
+			"canvasSize": [1080, 1920],
+			"base": [109, 1625],
+			"scale": [187, 260],
+			"circleSize": 15,
+			"countryLabel":
+			{
+				"font":
+				{
+					"size": 30,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "white"
+				},
+				"offset": [10, -15]
+			},
+			"date":
+			{
+				"font":
+				{
+					"size": 60,
+					"family": "DejaVu Sans Mono",
+					"anchor": "start",
+					"fill": "#FFBD00"
+				},
+				"position": [364, 250]
+			},
+			"lineStroke":
+			{
+				"width": 3,
+				"linecap": "round"
+			}
 		}
 	},
-	"defaultColorSchema": "dark-square",
+	"defaultColorSchema": "dark-vertical",
 	"startDate": "2020-03-12",
 	"framesPerDay": 30,
 	"extraEndFrames": 300
