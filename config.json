@@ -73,7 +73,7 @@
 					"size": 30,
 					"family": "DejaVu Sans Mono",
 					"anchor": "end",
-					"fill": "white"
+					"fill": "#FFBD00"
 				},
 				"position": [1000, 100]
 			},
