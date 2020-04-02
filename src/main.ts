@@ -9,7 +9,6 @@ import DataLoader from './util/DataLoader';
 import ImageGenerator from './util/ImageGenerator';
 
 // Constants
-const INPUT_FILE = path.join(__dirname, '../resources/input.csv');
 const OUTPUT_PATH = path.join(__dirname, '../output');
 
 // Main
