@@ -43,6 +43,7 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 - ```node dist/main --source global```
 - ```node dist/main --schema dark-square```
 - ```node dist/main --source us --schema dark-vertical```
+- ```node dist/main --source us --schema dark-vertical --frames 20```
 
 ## Output
 
@@ -50,7 +51,7 @@ The generated images will be in the output directory
 
 ## Generate animation
 
-You can use convert to generate an animation. Requires ImageMagick (convert), parallel and ffmpeg. Run:
+You can use convert to generate an animation (60 fps). Requires ImageMagick (convert), parallel and ffmpeg. Run:
 
 ```
 npm run video
