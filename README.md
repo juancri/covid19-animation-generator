@@ -27,6 +27,7 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 
 ### Parameters
 
+- ```--help``` (optional): Displays a help message and exits.
 - ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
   - ```global```: Compare countries
   - ```us```: Compare states (US)

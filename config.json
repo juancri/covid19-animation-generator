@@ -159,10 +159,10 @@
 	},
 	"defaults":
 	{
-		"colorSchema": "dark-vertical",
-		"dataSource": "global",
+		"schema": "dark-vertical",
+		"source": "global",
 		"days": 20,
-		"framesPerDay": 30,
-		"extraEndFrames": 300
+		"frames": 30,
+		"extraFrames": 300
 	}
 }
