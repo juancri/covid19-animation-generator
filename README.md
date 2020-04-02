@@ -2,6 +2,8 @@
 
 Generates an animation based on COVID-19 daily data.
 
+![Sample](sample.gif)
+
 - Explanation: [minutephysics: How To Tell If We're Beating COVID-19](https://www.youtube.com/watch?v=54XLXg4fYsc)
 - Data: [Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE](https://github.com/CSSEGISandData/COVID-19)
 
