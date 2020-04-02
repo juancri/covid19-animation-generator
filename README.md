@@ -25,6 +25,22 @@ Generates an animation based on COVID-19 daily data.
 
 The data is automatically downloaded from the [JHU CSSE repository](https://github.com/CSSEGISandData/COVID-19)
 
+### Parameters
+
+- ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
+  - ```global```: Compare countries
+  - ```us```: Compare states (US)
+- ```--schema``` (optional): Sets the graph schema. Default: ```dark-vertical```. Possible values:
+  - ```dark-vertical```: Vertical dark theme (1080x1920)
+  - ```dark-square```: Square dark theme (1250x1250)
+
+#### Examples
+
+- ```node dist/main```
+- ```node dist/main --source global```
+- ```node dist/main --schema dark-square```
+- ```node dist/main --source us --schema dark-vertical```
+
 ## Output
 
 The generated images will be in the output directory

@@ -1,7 +1,7 @@
 
 // Dependencies
-import * as fs from 'fs';
 import * as path from 'path';
+import * as fs from 'fs-extra';
 import { DateTime } from 'luxon';
 // @ts-ignore
 import { SVG, registerWindow } from '@svgdotjs/svg.js';
@@ -45,7 +45,8 @@ export default class ImageGenerator
 	// Public methods
 
 	public async generateAll(outputDirectory: string, days: number,
-		framesPerDay: number, extraEndFrames: number) {
+		framesPerDay: number, extraEndFrames: number)
+	{
 		if (framesPerDay < 1)
 			throw new Error(`Invalid frames per day: ${framesPerDay}`);
 
@@ -55,6 +56,7 @@ export default class ImageGenerator
 
 		let absoluteFrame = 0;
 		fs.mkdirSync(outputDirectory, { recursive: true });
+		fs.emptyDirSync(outputDirectory);
 
 		for (let currentDate = firstDate; currentDate <= lastDate; currentDate = currentDate.plus({ days: 1 }))
 			for (let frame = 1; frame <= framesPerDay; frame++)
