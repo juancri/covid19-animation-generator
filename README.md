@@ -14,26 +14,20 @@ Generates an animation based on COVID-19 daily data.
 
 - Run: ```npm install```
 
-## Running tasks
+## Build
 
 - Clean: ```gulp clean```
 - Build: ```gulp build```
-
-## Data
-
-This repository does not include the data. In order to download it, run (requires wget):
-
-```
-npm run download
-```
 
 ## Running
 
 ```node dist/main```
 
+The data is automatically downloaded from the [JHU CSSE repository](https://github.com/CSSEGISandData/COVID-19)
+
 ## Output
 
-The generated images will be in the output directory.
+The generated images will be in the output directory
 
 ## Generate animation
 
