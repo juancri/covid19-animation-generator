@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@svgdotjs/svg.js": "^3.0.16",
+    "axios": "^0.19.2",
     "csvtojson": "^2.0.10",
     "eslint": "^6.8.0",
     "jsonfile": "^6.0.1",
