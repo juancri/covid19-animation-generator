@@ -157,9 +157,12 @@
 			]
 		}
 	},
-	"defaultColorSchema": "dark-vertical",
-	"defaultDataSource": "global",
-	"days": 20,
-	"framesPerDay": 30,
-	"extraEndFrames": 300
+	"defaults":
+	{
+		"colorSchema": "dark-vertical",
+		"dataSource": "global",
+		"days": 20,
+		"framesPerDay": 30,
+		"extraEndFrames": 300
+	}
 }

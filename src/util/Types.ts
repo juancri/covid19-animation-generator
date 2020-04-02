@@ -54,6 +54,11 @@ export interface Configuration {
 	framesPerDay: number;
 	extraEndFrames: number;
 	colorSchemas: ColorSchemas;
-	defaultColorSchema: string;
-	defaultDataSource: string;
+	defaults: {
+		colorSchema: string;
+		dataSource: string;
+		days: number,
+		framesPerDay: number,
+		extraEndFrames: number;
+	}
 }

@@ -33,6 +33,9 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 - ```--schema``` (optional): Sets the graph schema. Default: ```dark-vertical```. Possible values:
   - ```dark-vertical```: Vertical dark theme (1080x1920)
   - ```dark-square```: Square dark theme (1250x1250)
+- ```--days``` (optional): Number of days for which the animation will be generated. Default: 20.
+- ```--frames``` (optional): Number of frames per day. Default: 30.
+- ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
 
 #### Examples
 

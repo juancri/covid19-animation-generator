@@ -17,8 +17,11 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	// Read arguments and configuration
 	const argv = optimist.argv;
 	const config = await ConfigLoader.load ();
-	const dataSourceName = argv.source || config.defaultDataSource;
-	const colorSchemaName = argv.schema || config.defaultColorSchema;
+	const dataSourceName = argv.source || config.defaults.dataSource;
+	const colorSchemaName = argv.schema || config.defaults.colorSchema;
+	const days = argv.days || config.defaults.days;
+	const framesPerDay = argv.frames || config.defaults.framesPerDay;
+	const extraEndFrames = argv.extraFrames || config.defaults.extraEndFrames;
 
 	// Read data
 	const dataSource = config.dataSources[dataSourceName];
@@ -33,7 +36,7 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	const generator = new ImageGenerator(data, dataSource.series, colorSchema);
 	await generator.generateAll(
 		OUTPUT_PATH,
-		config.days,
-		config.framesPerDay,
-		config.extraEndFrames);
+		days,
+		framesPerDay,
+		extraEndFrames);
 })();
