@@ -9,7 +9,7 @@ import { SVG, registerWindow } from '@svgdotjs/svg.js';
 import * as window from 'svgdom';
 
 // Local
-import {CountryData, CountryConfiguration, DailyData, ColorSchema} from './Types';
+import {SeriesData, SeriesConfiguration, DailyData, ColorSchema} from './Types';
 
 // Register window
 registerWindow(window, window.document);
@@ -24,20 +24,20 @@ export default class ImageGenerator
 {
 	// Fields
 
-	private data: CountryData[];
-	private configuration: CountryConfiguration[];
+	private data: SeriesData[];
+	private configuration: SeriesConfiguration[];
 	private color: ColorSchema;
 
 
 	// Constructor
 
 	public constructor (
-		countryData: CountryData[],
-		countryConfiguration: CountryConfiguration[],
+		seriesData: SeriesData[],
+		seriesConfiguration: SeriesConfiguration[],
 		colorSchema: ColorSchema)
 	{
-		this.data = countryData;
-		this.configuration = countryConfiguration;
+		this.data = seriesData;
+		this.configuration = seriesConfiguration;
 		this.color = colorSchema;
 	}
 
@@ -49,8 +49,8 @@ export default class ImageGenerator
 		if (framesPerDay < 1)
 			throw new Error(`Invalid frames per day: ${framesPerDay}`);
 
-		const firstCountryData = this.data[0].data;
-		const lastDate = firstCountryData[firstCountryData.length - 1].date;
+		const firstSeriesData = this.data[0].data;
+		const lastDate = firstSeriesData[firstSeriesData.length - 1].date;
 		const firstDate = lastDate.plus({ days: (-1 * days) + 1 });
 
 		let absoluteFrame = 0;
@@ -101,17 +101,17 @@ export default class ImageGenerator
 			.font(this.color.date.font)
 			.move(...this.color.date.position);
 
-		// Draw each country
+		// Draw each series
 		const frameRatio = frame / totalFrames;
-		for (const countryConf of this.configuration)
+		for (const seriesConf of this.configuration)
 		{
 			// Get from data
-			const countryData = this.data.find(d => d.country === countryConf.name);
-			if (!countryData)
-				throw new Error(`Country not found: ${countryConf.name}`);
+			const seriesData = this.data.find(d => d.name === seriesConf.name);
+			if (!seriesData)
+				throw new Error(`Series not found: ${seriesConf.name}`);
 
 			// Filter data with date limit
-			const filteredData = countryData.data
+			const filteredData = seriesData.data
 				.filter(d => d.cases && d.date <= date);
 
 			// Draw lines
@@ -134,7 +134,7 @@ export default class ImageGenerator
 					.line(
 						point1.x, point1.y,
 						correctedPoint2.x, correctedPoint2.y)
-					.stroke({ color: countryConf.color, ...this.color.lineStroke });
+					.stroke({ color: seriesConf.color, ...this.color.lineStroke });
 			}
 
 			// Draw circle
@@ -145,7 +145,7 @@ export default class ImageGenerator
 
 			// @ts-ignore
 			canvas.circle(this.color.circleSize)
-				.fill(countryConf.color)
+				.fill(seriesConf.color)
 				.move(
 					correctedLastPoint.x - this.color.circleSize / 2,
 					correctedLastPoint.y - this.color.circleSize / 2);
@@ -153,11 +153,11 @@ export default class ImageGenerator
 			// Draw title
 			canvas
 				// @ts-ignore
-				.text(countryConf.code)
-				.font(this.color.countryLabel.font)
+				.text(seriesConf.code)
+				.font(this.color.seriesLabel.font)
 				.move(
-					correctedLastPoint.x + this.color.countryLabel.offset[0],
-					correctedLastPoint.y + this.color.countryLabel.offset[1]);
+					correctedLastPoint.x + this.color.seriesLabel.offset[0],
+					correctedLastPoint.y + this.color.seriesLabel.offset[1]);
 		}
 
 		// Save image

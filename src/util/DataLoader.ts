@@ -1,23 +1,28 @@
 
 // Dependencies
+import axios from 'axios';
 import * as csv from 'csvtojson';
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 // Local
-import { CountryData } from './Types';
+import { DataSource, SeriesData } from './Types';
 
 // Constants
-const COUNTRY_NAME_COLUMN = 'Country/Region';
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
 
 export default class DataLoader
 {
-	public static async load(filePath: string): Promise<CountryData[]>
+	public static async load(dataSource: DataSource): Promise<SeriesData[]>
 	{
-		const csvData = await csv().fromFile(filePath);
+		const response = await axios({
+			method: 'get',
+			url: dataSource.url,
+			responseType: 'stream'
+		});
+		const csvData = await csv().fromStream(response.data);
 		const data = csvData.map(item => ({
-			country: item[COUNTRY_NAME_COLUMN],
+			name: item[dataSource.nameColumn],
 			data: Object
 				.keys(item)
 				.map(k => DATE_REGEXP.exec(k))
@@ -30,9 +35,9 @@ export default class DataLoader
 
 		return Enumerable
 			.from(data)
-			.groupBy(x => x.country)
+			.groupBy(x => x.name)
 			.select(group => ({
-				country: group.key(),
+				name: group.key(),
 				data: group
 					.selectMany(x => x.data)
 					.groupBy(x => (+x.date))

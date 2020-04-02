@@ -6,12 +6,12 @@ export interface DailyData {
 	cases: number;
 }
 
-export interface CountryData {
-	country: string;
+export interface SeriesData {
+	name: string;
 	data: DailyData[];
 }
 
-export interface CountryConfiguration {
+export interface SeriesConfiguration {
 	name: string;
 	code: string;
 	color: string;
@@ -23,7 +23,7 @@ export interface ColorSchema {
 	base: number[],
 	scale: number[],
 	circleSize: number,
-	countryLabel: {
+	seriesLabel: {
 		font: object;
 		offset: number[];
 	},
@@ -38,11 +38,22 @@ export interface ColorSchemas {
 	[key: string]: ColorSchema;
 }
 
+export interface DataSource {
+	url: string;
+	nameColumn: string;
+	series: SeriesConfiguration[];
+}
+
+export interface DataSources {
+	[key: string]: DataSource;
+}
+
 export interface Configuration {
-	countries: CountryConfiguration[];
+	dataSources: DataSources;
 	days: number;
 	framesPerDay: number;
 	extraEndFrames: number;
 	colorSchemas: ColorSchemas;
 	defaultColorSchema: string;
+	defaultDataSource: string;
 }

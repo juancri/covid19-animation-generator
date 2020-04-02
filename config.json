@@ -1,51 +1,4 @@
 {
-	"countries": [
-		{
-			"name": "US",
-			"code": "US",
-			"color": "white"
-		},
-		{
-			"name": "Italy",
-			"code": "IT",
-			"color": "#ff7c43"
-		},
-		{
-			"name": "Spain",
-			"code": "ES",
-			"color": "#f95d6a"
-		},
-		{
-			"name": "Korea, South",
-			"code": "KR",
-			"color": "#d45087"
-		},
-		{
-			"name": "Brazil",
-			"code": "BR",
-			"color": "#a05195"
-		},
-		{
-			"name": "Argentina",
-			"code": "AR",
-			"color": "#665191"
-		},
-		{
-			"name": "Chile",
-			"code": "CL",
-			"color": "#ffa600"
-		},
-		{
-			"name": "Japan",
-			"code": "JP",
-			"color": "#00B0FF"
-		},
-		{
-			"name": "Canada",
-			"code": "CA",
-			"color": "#0076AC"
-		}
-	],
 	"colorSchemas":
 	{
 		"dark-square":
@@ -55,7 +8,7 @@
 			"base": [140, 1110],
 			"scale": [200, 200],
 			"circleSize": 15,
-			"countryLabel":
+			"seriesLabel":
 			{
 				"font":
 				{
@@ -90,7 +43,7 @@
 			"base": [109, 1625],
 			"scale": [187, 260],
 			"circleSize": 15,
-			"countryLabel":
+			"seriesLabel":
 			{
 				"font":
 				{
@@ -119,7 +72,93 @@
 			}
 		}
 	},
+	"dataSources": {
+		"global": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+			"nameColumn": "Country/Region",
+			"series":
+			[
+				{
+					"name": "US",
+					"code": "US",
+					"color": "white"
+				},
+				{
+					"name": "Italy",
+					"code": "IT",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Spain",
+					"code": "ES",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Korea, South",
+					"code": "KR",
+					"color": "#d45087"
+				},
+				{
+					"name": "Brazil",
+					"code": "BR",
+					"color": "#a05195"
+				},
+				{
+					"name": "Argentina",
+					"code": "AR",
+					"color": "#665191"
+				},
+				{
+					"name": "Chile",
+					"code": "CL",
+					"color": "#ffa600"
+				},
+				{
+					"name": "Japan",
+					"code": "JP",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "Canada",
+					"code": "CA",
+					"color": "#0076AC"
+				}
+			]
+		},
+		"us": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
+			"nameColumn": "Province_State",
+			"series": [
+				{
+					"name": "California",
+					"code": "CA",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "New York",
+					"code": "NY",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Washington",
+					"code": "WA",
+					"color": "#ffa600"
+				},
+				{
+					"name": "New Jersey",
+					"code": "NJ",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "Florida",
+					"code": "FL",
+					"color": "#0076AC"
+				}
+			]
+		}
+	},
 	"defaultColorSchema": "dark-vertical",
+	"defaultDataSource": "global",
 	"days": 20,
 	"framesPerDay": 30,
 	"extraEndFrames": 300
