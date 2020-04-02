@@ -1,6 +1,5 @@
 
 // Dependencies
-import { DateTime } from 'luxon';
 import * as path from 'path';
 
 // Local
