@@ -122,6 +122,16 @@
 					"name": "Canada",
 					"code": "CA",
 					"color": "#0076AC"
+				},
+				{
+					"name": "China",
+					"code": "CN",
+					"color": "#E28888"
+				},
+				{
+					"name": "Ecuador",
+					"code": "EC",
+					"color": "#9BFF84"
 				}
 			]
 		},
