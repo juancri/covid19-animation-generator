@@ -62,7 +62,9 @@ export default class ImageGenerator
 
 		const firstSeriesData = this.data[0].data;
 		const lastDate = firstSeriesData[firstSeriesData.length - 1].date;
-		const firstDate = lastDate.plus({ days: (-1 * days) + 1 });
+		const firstDate = days === 0 ?
+			firstSeriesData[0].date :
+			lastDate.plus({ days: (-1 * days) + 1 });
 
 		let absoluteFrame = 0;
 		fs.mkdirSync(outputDirectory, { recursive: true });

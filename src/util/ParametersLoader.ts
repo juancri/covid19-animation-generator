@@ -6,7 +6,7 @@ const PARAMETERS = {
 	source: 'Sets the data source',
 	schema: 'Sets the color schema',
 	layout: 'Sets the output layout',
-	days: 'Number of days for which the animation will be generated',
+	days: 'Number of days for which the animation will be generated. Use 0 to plot all days.',
 	frames: 'Number of frames per day',
 	extraFrames: 'Number of extra frames for the last image'
 };
@@ -31,7 +31,9 @@ export default class ParametersLoader
 	{
 		const options: any = {};
 		for (const name of Object.keys(PARAMETERS))
-			options[name] = argv[name] || defaults[name];
+			options[name] = Object.keys(argv).includes(name) ?
+				argv[name] :
+				defaults[name];
 		return options;
 	}
 }

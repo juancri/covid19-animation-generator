@@ -42,7 +42,7 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
   - ```vertical```: Vertical layout (1080x1920)
   - ```horizontal```: Horizontal layout (1920x1080)
   - ```dark-square```: Square dark theme (1250x1250)
-- ```--days``` (optional): Number of days for which the animation will be generated. Default: 20.
+- ```--days``` (optional): Number of days for which the animation will be generated. Default: 20. Use 0 to plot all days.
 - ```--frames``` (optional): Number of frames per day. Default: 30.
 - ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
 
