@@ -1,6 +1,6 @@
 # COVID-19 Animation Generator
 
-![Node.js CI](https://github.com/juancri/covid19-animation-generator/workflows/Node.js%20CI/badge.svg)
+[![Node.js CI](https://github.com/juancri/covid19-animation-generator/workflows/Node.js%20CI/badge.svg)](https://github.com/juancri/covid19-animation-generator/actions)
 
 Generates an animation based on COVID-19 daily data.
 
