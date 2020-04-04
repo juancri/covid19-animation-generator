@@ -158,7 +158,7 @@ export default class ImageGenerator
 				previousPoint, lastPoint, frameRatio);
 
 			// @ts-ignore
-			canvas.circle(this.color.circleSize)
+			canvas.circle(this.layout.circleSize)
 				.fill(seriesConf.color)
 				.move(
 					correctedLastPoint.x - this.layout.circleSize / 2,
