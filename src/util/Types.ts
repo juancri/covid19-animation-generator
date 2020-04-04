@@ -18,24 +18,31 @@ export interface SeriesConfiguration {
 }
 
 export interface ColorSchema {
-	file: string;
-	canvasSize: number[],
-	base: number[],
-	scale: number[],
-	circleSize: number,
 	seriesLabel: {
 		font: object;
 		offset: number[];
 	},
 	date: {
 		font: object;
-		position: number[];
 	},
 	lineStroke: object;
 }
 
 export interface ColorSchemas {
 	[key: string]: ColorSchema;
+}
+
+export interface Layout {
+	canvasSize: number[];
+	base: number[],
+	scale: number[];
+	circleSize: number;
+	datePosition: number[];
+	dateFont: object;
+}
+
+export interface Layouts {
+	[key: string]: Layout;
 }
 
 export interface DataSource {
@@ -54,6 +61,7 @@ export interface Configuration {
 	framesPerDay: number;
 	extraEndFrames: number;
 	colorSchemas: ColorSchemas;
+	layouts: Layouts;
 	defaults: {
 		schema: string;
 		source: string;

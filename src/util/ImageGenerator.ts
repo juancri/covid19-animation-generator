@@ -9,7 +9,7 @@ import { SVG, registerWindow } from '@svgdotjs/svg.js';
 import * as window from 'svgdom';
 
 // Local
-import {SeriesData, SeriesConfiguration, DailyData, ColorSchema} from './Types';
+import {SeriesData, SeriesConfiguration, DailyData, ColorSchema, Layout} from './Types';
 
 // Register window
 registerWindow(window, window.document);
@@ -24,9 +24,11 @@ export default class ImageGenerator
 {
 	// Fields
 
+	private baseImage: string;
 	private data: SeriesData[];
 	private configuration: SeriesConfiguration[];
 	private color: ColorSchema;
+	private layout: Layout;
 
 
 	// Constructor
@@ -34,11 +36,19 @@ export default class ImageGenerator
 	public constructor (
 		seriesData: SeriesData[],
 		seriesConfiguration: SeriesConfiguration[],
-		colorSchema: ColorSchema)
+		colorSchemaName: string,
+		colorSchema: ColorSchema,
+		layoutName: string,
+		layout: Layout)
 	{
 		this.data = seriesData;
 		this.configuration = seriesConfiguration;
 		this.color = colorSchema;
+		this.layout = layout;
+
+		const baseFileName = `${colorSchemaName}-${layoutName}.svg`;
+		const baseFilePath = path.join(RESOURCES_DIRECTORY, baseFileName);
+		this.baseImage = fs.readFileSync(baseFilePath).toString();
 	}
 
 
@@ -90,18 +100,18 @@ export default class ImageGenerator
 		// Init canvas
 		const canvas = SVG(window.document.documentElement);
 		// @ts-ignore
-		canvas.size(...this.color.canvasSize);
+		canvas.size(...this.layout.canvasSize);
 
 		// Load base image
 		canvas.clear();
-		canvas.svg(fs.readFileSync(path.join(RESOURCES_DIRECTORY, this.color.file)).toString());
+		canvas.svg(this.baseImage);
 
 		// Write date
 		canvas
 			// @ts-ignore
 			.text(date.toISODate())
-			.font(this.color.date.font)
-			.move(...this.color.date.position);
+			.font({ ...this.color.date.font, ...this.layout.dateFont })
+			.move(...this.layout.datePosition);
 
 		// Draw each series
 		const frameRatio = frame / totalFrames;
@@ -149,8 +159,8 @@ export default class ImageGenerator
 			canvas.circle(this.color.circleSize)
 				.fill(seriesConf.color)
 				.move(
-					correctedLastPoint.x - this.color.circleSize / 2,
-					correctedLastPoint.y - this.color.circleSize / 2);
+					correctedLastPoint.x - this.layout.circleSize / 2,
+					correctedLastPoint.y - this.layout.circleSize / 2);
 
 			// Draw title
 			canvas
@@ -174,8 +184,8 @@ export default class ImageGenerator
 			throw new Error(`Point not found for index: ${index}`);
 		const diff = Math.max(0, item.cases - (base?.cases || 0));
 		return {
-			x: this.color.base[0] + Math.max(0, Math.log10(item.cases) - 1) * this.color.scale[0],
-			y: this.color.base[1] - (Math.max(0, Math.log10(diff) - 1) * this.color.scale[1])
+			x: this.layout.base[0] + Math.max(0, Math.log10(item.cases) - 1) * this.layout.scale[0],
+			y: this.layout.base[1] - (Math.max(0, Math.log10(diff) - 1) * this.layout.scale[1])
 		};
 	}
 

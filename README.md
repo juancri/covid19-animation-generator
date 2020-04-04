@@ -35,8 +35,12 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 - ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
   - ```global```: Compare countries
   - ```us```: Compare states (US)
-- ```--schema``` (optional): Sets the graph schema. Default: ```dark-vertical```. Possible values:
-  - ```dark-vertical```: Vertical dark theme (1080x1920)
+- ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
+  - ```dark```: Dark theme
+- ```--layout``` (optional): Sets the output layout. Default: ```vertical```. Possible values:
+  - ```square```: Square layout (1250x1250)
+  - ```vertical```: Vertical layout (1080x1920)
+  - ```horizontal```: Horizontal layout (1920x1080)
   - ```dark-square```: Square dark theme (1250x1250)
 - ```--days``` (optional): Number of days for which the animation will be generated. Default: 20.
 - ```--frames``` (optional): Number of frames per day. Default: 30.
