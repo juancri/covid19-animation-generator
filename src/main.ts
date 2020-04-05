@@ -3,10 +3,10 @@
 import * as path from 'path';
 
 // Local
-import ConfigLoader from './util/ConfigLoader';
-import DataLoader from './util/DataLoader';
-import ImageGenerator from './util/ImageGenerator';
-import ParameterLoader from './util/ParametersLoader';
+import ConfigLoader from './configuration/ConfigLoader';
+import DataLoader from './data/DataLoader';
+import ImageGenerator from './drawing/ImageGenerator';
+import ParameterLoader from './parameters/ParametersLoader';
 
 // Constants
 const OUTPUT_PATH = path.join(__dirname, '../output');

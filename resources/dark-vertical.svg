@@ -26,7 +26,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="513.21421"
+     inkscape:cx="-195.30679"
      inkscape:cy="1028.0148"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -108,131 +108,15 @@
          x="-89.44149"
          y="14.29239"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#ffffff;stroke-width:0.24779183">new confirmed cases (last week)</tspan></text>
-    <text
+    <flowRoot
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="19.315901"
-       y="225.05673"
-       id="text139"><tspan
-         sodipodi:role="line"
-         id="tspan137"
-         x="19.315901"
-         y="225.05673"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">10</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="72.39949"
-       y="225.05673"
-       id="text139-2"><tspan
-         sodipodi:role="line"
-         id="tspan137-9"
-         x="72.39949"
-         y="225.05673"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">100</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="123.81628"
-       y="225.1503"
-       id="text139-2-1"><tspan
-         sodipodi:role="line"
-         x="123.81628"
-         y="225.1503"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183"
-         id="tspan4703">1K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="272.61526"
-       y="225.1503"
-       id="text139-2-1-7"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-2-0"
-         x="272.61526"
-         y="225.1503"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">1M</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="171.3923"
-       y="225.05673"
-       id="text139-2-1-6"><tspan
-         sodipodi:role="line"
-         x="171.3923"
-         y="225.05673"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183"
-         id="tspan4703-0">10K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="218.96834"
-       y="225.05673"
-       id="text139-2-1-6-6"><tspan
-         sodipodi:role="line"
-         x="218.96834"
-         y="225.05673"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183"
-         id="tspan4703-0-2">100K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="-156.24161"
-       y="26.185022"
-       id="text139-2-6"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-1"
-         x="-156.24161"
-         y="26.185022"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">100</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="-85.597855"
-       y="26.097908"
-       id="text139-2-6-8"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-1-7"
-         x="-85.597855"
-         y="26.097908"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">1K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="-18.922857"
-       y="26.41507"
-       id="text139-2-6-8-9-0"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-1-7-2-2"
-         x="-18.922857"
-         y="26.41507"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">10K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="47.752144"
-       y="26.185022"
-       id="text139-2-6-8-9-0-3"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-1-7-2-2-7"
-         x="47.752144"
-         y="26.185022"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">100K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.60778141px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.24779183"
-       x="120.77715"
-       y="26.097908"
-       id="text139-2-6-8-9-0-3-5"
-       transform="rotate(-90)"><tspan
-         sodipodi:role="line"
-         id="tspan137-9-1-7-2-2-7-9"
-         x="120.77715"
-         y="26.097908"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#cccccc;fill-opacity:1;stroke-width:0.24779183">1M</tspan></text>
-  </g>
+       id="flowRoot842"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:26.66666667px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion844"><rect
+           id="rect846"
+           width="41.581772"
+           height="92.260849"
+           x="67.882248"
+           y="1624.0924" /></flowRegion><flowPara
+         id="flowPara848"></flowPara></flowRoot>  </g>
 </svg>

@@ -1,14 +1,20 @@
 
 import { DateTime } from 'luxon';
 
-export interface DailyData {
+export interface DataPoint {
 	date: DateTime;
-	cases: number;
+	value: number;
 }
 
-export interface SeriesData {
+export interface TimeSeries {
 	name: string;
-	data: DailyData[];
+	data: DataPoint[];
+}
+
+export interface PlotPoint {
+	date: DateTime;
+	x: number;
+	y: number;
 }
 
 export interface SeriesConfiguration {
@@ -18,6 +24,7 @@ export interface SeriesConfiguration {
 }
 
 export interface ColorSchema {
+	background: string;
 	seriesLabel: {
 		font: object;
 		offset: number[];
@@ -28,21 +35,19 @@ export interface ColorSchema {
 	lineStroke: object;
 }
 
-export interface ColorSchemas {
-	[key: string]: ColorSchema;
+export interface PlotArea {
+	left: number;
+	right: number;
+	top: number;
+	bottom: number;
 }
 
 export interface Layout {
 	canvasSize: number[];
-	base: number[],
-	scale: number[];
+	plotArea: PlotArea;
 	circleSize: number;
 	datePosition: number[];
 	dateFont: object;
-}
-
-export interface Layouts {
-	[key: string]: Layout;
 }
 
 export interface DataSource {
@@ -51,22 +56,29 @@ export interface DataSource {
 	series: SeriesConfiguration[];
 }
 
-export interface DataSources {
-	[key: string]: DataSource;
-}
-
 export interface Configuration {
-	dataSources: DataSources;
+	dataSources: { [key: string]: DataSource };
 	days: number;
 	framesPerDay: number;
 	extraEndFrames: number;
-	colorSchemas: ColorSchemas;
-	layouts: Layouts;
+	colorSchemas: { [key: string]: ColorSchema };
+	layouts: { [key: string]: Layout; };
 	defaults: {
 		schema: string;
 		source: string;
 		days: number,
 		frames: number,
 		extraFrames: number;
+	}
+}
+
+export interface Scale {
+	horizontal: {
+		min: number;
+		max: number;
+	};
+	vertical: {
+		min: number;
+		max: number;
 	}
 }

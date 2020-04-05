@@ -2,7 +2,7 @@
 import * as jsonfile from 'jsonfile';
 import * as path from 'path';
 
-import { Configuration } from './Types';
+import { Configuration } from '../util/Types';
 
 const CONFIG_FILE_PATH = path.join(__dirname, '../../config.json');
 

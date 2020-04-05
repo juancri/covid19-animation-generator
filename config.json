@@ -3,6 +3,24 @@
 	{
 		"dark":
 		{
+			"background": "#2E2E2E",
+			"axisLabel": {
+				"font": {
+					"size": 30,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "white"
+				}
+			},
+			"scale": {
+				"lineColor": "#CCCCCC",
+				"labelFont": {
+					"size": 10,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "#CCCCCC"
+				}
+			},
 			"seriesLabel":
 			{
 				"font":
@@ -36,8 +54,12 @@
 		"square":
 		{
 			"canvasSize": [1250, 1250],
-			"base": [140, 1110],
-			"scale": [200, 200],
+			"plotArea": {
+				"left": 140,
+				"right": 1140,
+				"top": 110,
+				"bottom": 1110
+			},
 			"circleSize": 15,
 			"datePosition": [1000, 100],
 			"dateFont":
@@ -60,8 +82,12 @@
 		"vertical":
 		{
 			"canvasSize": [1080, 1920],
-			"base": [109, 1625],
-			"scale": [187, 260],
+			"plotArea": {
+				"left": 109,
+				"right": 1044,
+				"top": 325,
+				"bottom": 1625
+			},
 			"circleSize": 15,
 			"datePosition": [364, 250],
 			"dateFont":
@@ -74,6 +100,12 @@
 			"canvasSize": [1920, 1080],
 			"base": [140, 940],
 			"scale": [333, 171],
+			"plotArea": {
+				"left": 140,
+				"right": 1806,
+				"top": 85,
+				"bottom": 940
+			},
 			"circleSize": 15,
 			"datePosition": [960, 100],
 			"dateFont":

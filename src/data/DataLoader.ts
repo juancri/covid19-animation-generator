@@ -6,14 +6,14 @@ import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 // Local
-import { DataSource, SeriesData } from './Types';
+import { DataSource, TimeSeries } from '../util/Types';
 
 // Constants
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
 
 export default class DataLoader
 {
-	public static async load(dataSource: DataSource): Promise<SeriesData[]>
+	public static async load(dataSource: DataSource): Promise<TimeSeries[]>
 	{
 		const response = await axios({
 			method: 'get',
@@ -29,7 +29,7 @@ export default class DataLoader
 				.filter(match => match)
 				.map(match => ({
 					date: DateTime.fromString(match![0], 'L/d/yy'),
-					cases: parseInt(item[match![0]], 0)
+					value: parseInt(item[match![0]], 0)
 				}))
 		}));
 
@@ -43,7 +43,7 @@ export default class DataLoader
 					.groupBy(x => (+x.date))
 					.select(group2 => ({
 						date: group2.first().date,
-						cases: group2.sum(x => x.cases)
+						value: group2.sum(x => x.value)
 					}))
 					.orderBy(x => x.date)
 					.toArray()
