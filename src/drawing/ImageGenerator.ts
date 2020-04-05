@@ -14,12 +14,6 @@ import {TimeSeries, SeriesConfiguration, DataPoint, ColorSchema, Layout} from '.
 // Register window
 registerWindow(window, window.document);
 
-// Local types
-interface Point { x: number, y: number};
-
-// Constants
-const RESOURCES_DIRECTORY = path.join(__dirname, '../../resources');
-
 export default class ImageGenerator
 {
 	// Fields
@@ -32,33 +26,23 @@ export default class ImageGenerator
 
 	// Constructor
 
-	public constructor (
-		seriesData: TimeSeries[],
-		seriesConfiguration: SeriesConfiguration[],
-		colorSchemaName: string,
-		colorSchema: ColorSchema,
-		layoutName: string,
-		layout: Layout)
+	public constructor (series: TimeSeries[], configuration: SeriesConfiguration[],
+		color: ColorSchema, layout: Layout)
 	{
-		this.series = seriesData;
-		this.configuration = seriesConfiguration;
-		this.color = colorSchema;
+		this.series = series;
+		this.configuration = configuration;
+		this.color = color;
 		this.layout = layout;
-
-		const baseFileName = `${colorSchemaName}-${layoutName}.svg`;
-		const baseFilePath = path.join(RESOURCES_DIRECTORY, baseFileName);
 	}
 
 
 	// Public methods
 
 	public async generateAll(outputDirectory: string, days: number,
-		framesPerDay: number, extraEndFrames: number)
+		frames: number, extraFrames: number)
 	{
-		if (framesPerDay < 1)
-			throw new Error(`Invalid frames per day: ${framesPerDay}`);
-
-
+		if (frames < 1)
+			throw new Error(`Invalid frames per day: ${frames}`);
 	}
 
 
