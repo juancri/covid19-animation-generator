@@ -104,7 +104,7 @@
 				{
 					"name": "Argentina",
 					"code": "AR",
-					"color": "#665191"
+					"color": "#9988BC"
 				},
 				{
 					"name": "Chile",
@@ -130,6 +130,11 @@
 					"name": "Ecuador",
 					"code": "EC",
 					"color": "#9BFF84"
+				},
+				{
+					"name": "Mexico",
+					"code": "MX",
+					"color": "#00FFF8"
 				}
 			]
 		},
