@@ -1,6 +1,8 @@
 
 import { DateTime } from 'luxon';
 
+// Data source
+
 export interface DataPoint {
 	date: DateTime;
 	value: number;
@@ -11,11 +13,7 @@ export interface TimeSeries {
 	data: DataPoint[];
 }
 
-export interface PlotPoint {
-	date: DateTime;
-	x: number;
-	y: number;
-}
+// Config
 
 export interface SeriesConfiguration {
 	name: string;
@@ -81,4 +79,23 @@ export interface Scale {
 		min: number;
 		max: number;
 	}
+}
+
+// Plot
+
+export interface FrameInfo {
+	date: DateTime;
+	ratio: number;
+}
+
+export interface PlotSeries {
+	code: string;
+	color: string;
+	points: PlotPoint[];
+}
+
+export interface PlotPoint {
+	date: DateTime;
+	x: number;
+	y: number;
 }

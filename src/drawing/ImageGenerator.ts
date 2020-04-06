@@ -1,27 +1,21 @@
-
-// Dependencies
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import { DateTime } from 'luxon';
-// @ts-ignore
-import { SVG, registerWindow } from '@svgdotjs/svg.js';
-// @ts-ignore
-import * as window from 'svgdom';
-
-// Local
-import {TimeSeries, SeriesConfiguration, DataPoint, ColorSchema, Layout} from '../util/Types';
-
-// Register window
-registerWindow(window, window.document);
+import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
+import AnimationFrameInfoGenerator from './AnimationFrameInfoGenerator';
+import SvgWriter from './SvgWriter';
+import DataFrameFilter from './DataFrameFilter';
+import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
+import ScaledPointsGenerator from './ScaledPointsGenerator';
+import CanvasPointsGenerator from './CanvasPointsGenerator';
 
 export default class ImageGenerator
 {
 	// Fields
 
-	private series: TimeSeries[];
-	private configuration: SeriesConfiguration[];
+	private canvasGenerator: CanvasPointsGenerator;
 	private color: ColorSchema;
+	private filter: DataFrameFilter;
 	private layout: Layout;
+	private scaledGenerator: ScaledPointsGenerator;
+	private series: PlotSeries[];
 
 
 	// Constructor
@@ -29,107 +23,105 @@ export default class ImageGenerator
 	public constructor (series: TimeSeries[], configuration: SeriesConfiguration[],
 		color: ColorSchema, layout: Layout)
 	{
-		this.series = series;
-		this.configuration = configuration;
 		this.color = color;
 		this.layout = layout;
+		this.series = this.createPlotSeries(series, configuration);
+		this.filter = new DataFrameFilter(this.series);
+		this.scaledGenerator = new ScaledPointsGenerator({
+			horizontal: { min: 1, max: 6 }, // log10
+			vertical: { min: 1, max: 6 } // log10
+		});
+		this.canvasGenerator = new CanvasPointsGenerator(layout.plotArea);
 	}
 
 
 	// Public methods
 
-	public async generateAll(outputDirectory: string, days: number,
-		frames: number, extraFrames: number)
+	public async generate(outputDirectory: string,
+		frames: number, extraFrames: number, days: number)
 	{
-		if (frames < 1)
-			throw new Error(`Invalid frames per day: ${frames}`);
+		// Setup bounderies
+		const writer = new SvgWriter(outputDirectory, this.layout.canvasSize, this.color.background);
+		const frameInfoGenerator = new AnimationFrameInfoGenerator(this.series, frames, extraFrames, days);
+
+		for (const frameInfo of frameInfoGenerator.generate())
+			this.drawFrame(frameInfo, writer);
 	}
 
 
 	// Private methods
 
-	private generateOutputPath(outputDirectory: string, frame: number)
+	private createPlotSeries(series: TimeSeries[], configuration: SeriesConfiguration[]): PlotSeries[]
 	{
-		const frameString = frame.toString().padStart(4, '0');
-		const outputFile = `${frameString}.svg`;
-		const outputPath = path.join(outputDirectory, outputFile);
-		return outputPath;
+		return configuration.map(seriesConf =>
+		{
+			const found = series.find(s => s.name === seriesConf.name);
+			if (!found)
+				throw new Error(`Time series not found: ${seriesConf.name}`);
+			return {
+				code: seriesConf.code,
+				color: seriesConf.color,
+				points: Log10PlotPointsGenerator.generate(found.data)
+			};
+		});
 	}
 
-	private generateImage(outputPath: string, date: DateTime,
-		frame: number, totalFrames: number)
+	private drawFrame(frameInfo: FrameInfo, writer: SvgWriter)
 	{
-		// Init canvas
-		const canvas = SVG(window.document.documentElement);
-		// @ts-ignore
-		canvas.size(...this.layout.canvasSize);
+		writer.clean();
 
-		// Draw background
-		canvas.clear();
-
-		// Write date
-		canvas
-			// @ts-ignore
-			.text(date.toISODate())
-			.font({ ...this.color.date.font, ...this.layout.dateFont })
-			.move(...this.layout.datePosition);
-
-		// Draw each series
-		const frameRatio = frame / totalFrames;
-		for (const seriesConf of this.configuration)
+		const filteredData = this.filter.apply(frameInfo);
+		for (const series of filteredData)
 		{
-			// Get from data
-			const seriesData = this.series.find(d => d.name === seriesConf.name);
-			if (!seriesData)
-				throw new Error(`Series not found: ${seriesConf.name}`);
-
-			// Filter data with date limit
-			const filteredData = seriesData.data
-				.filter(d => d.value && d.date <= date);
-
-			// Draw lines
-			if (filteredData.length < 2)
-				continue;
-
-			for (let index = 1; index < filteredData.length; index++)
-			{
-				if (!filteredData[index].value)
-					continue;
-				// const point1 = this.getPointFromDailyData(filteredData, index - 1);
-				// const point2 = this.getPointFromDailyData(filteredData, index);
-
-				// canvas
-				// 	// @ts-ignore
-				// 	.line(
-				// 		point1.x, point1.y,
-				// 		correctedPoint2.x, correctedPoint2.y)
-				// 	.stroke({ color: seriesConf.color, ...this.color.lineStroke });
-			}
-
-			// Draw circle
-			// const previousPoint = this.getPointFromDailyData(filteredData, filteredData.length - 2);
-			// const lastPoint = this.getPointFromDailyData(filteredData, filteredData.length - 1);
-			// const correctedLastPoint = this.getCorrectedPoint(
-			// 	previousPoint, lastPoint, frameRatio);
-
-			// @ts-ignore
-			// canvas.circle(this.layout.circleSize)
-			// 	.fill(seriesConf.color)
-			// 	.move(
-			// 		correctedLastPoint.x - this.layout.circleSize / 2,
-			// 		correctedLastPoint.y - this.layout.circleSize / 2);
-
-			// Draw title
-			// canvas
-			// 	// @ts-ignore
-			// 	.text(seriesConf.code)
-			// 	.font(this.color.seriesLabel.font)
-			// 	.move(
-			// 		correctedLastPoint.x + this.color.seriesLabel.offset[0],
-			// 		correctedLastPoint.y + this.color.seriesLabel.offset[1]);
+			const points = series.points
+				.map(point => this.scaledGenerator.generate(point))
+				.map(point => this.canvasGenerator.generate(point));
+			this.drawSeriesLines(points, series.color, writer);
+			this.drawSeriesCircle(points, series.color, writer);
+			this.drawSeriesLabel(points, series.code, writer);
 		}
 
-		// Save image
-		// fs.writeFileSync(outputPath, canvas.svg());
+		// Temp
+		writer.drawText(
+			`Hello world ${frameInfo.date} ${frameInfo.ratio}`,
+			this.color.date.font,
+			[0, 0]);
+
+		writer.save();
+	}
+
+	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter)
+	{
+		if (points.length < 2)
+			return;
+
+		for (let index = 1; index < points.length - 1; index++)
+		{
+			const point1 = points[index - 1];
+			const point2 = points[index];
+			writer.drawLine(
+				{ color, ...this.color.lineStroke },
+				[point1.x, point1.y], [point2.x, point2.y]);
+		}
+	}
+
+	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter)
+	{
+		if (!points.length)
+			return;
+
+		const point = points[points.length - 1];
+		writer.drawCircle(this.layout.circleSize, color, [point.x, point.y]);
+	}
+
+	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter)
+	{
+		if (!points.length)
+			return;
+
+		const point = points[points.length - 1];
+		const x = point.x + this.color.seriesLabel.offset[0];
+		const y = point.y + this.color.seriesLabel.offset[1];
+		writer.drawText(label, this.color.seriesLabel.font, [x, y]);
 	}
 }

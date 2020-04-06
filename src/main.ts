@@ -26,7 +26,7 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	const dataSource = config.dataSources[options.source];
 	if (!dataSource)
 		throw new Error(`Data source not found: ${options.source}`);
-	const data = await DataLoader.load (dataSource);
+	const timeSeries = await DataLoader.load (dataSource);
 
 	// Generate
 	const colorSchema = config.colorSchemas[options.schema];
@@ -36,15 +36,13 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 	if (!layout)
 		throw new Error(`Layout not found: ${options.layout}`);
 	const generator = new ImageGenerator(
-		data,
+		timeSeries,
 		dataSource.series,
-		options.schema,
 		colorSchema,
-		options.layout,
 		layout);
-	await generator.generateAll(
+	await generator.generate(
 		OUTPUT_PATH,
-		options.days,
 		options.frames,
-		options.extraFrames);
+		options.extraFrames,
+		options.days);
 })();

@@ -13,7 +13,7 @@ export default class ScaledPointsGenerator {
 		this.verticalScale = scale.vertical.max - scale.vertical.min;
 	}
 
-	public generate(point: PlotPoint)
+	public generate(point: PlotPoint): PlotPoint
 	{
 		return {
 			date: point.date,

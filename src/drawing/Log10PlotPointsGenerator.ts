@@ -1,8 +1,5 @@
-import { TimeSeries, DataPoint, PlotPoint } from '@/util/Types';
+import { DataPoint, PlotPoint } from '@/util/Types';
 
-/**
- * Applies formulas and the plot scale to the data series
- */
 export default class Log10PlotPointsGenerator
 {
 	public static generate(points: DataPoint[]): PlotPoint[]
