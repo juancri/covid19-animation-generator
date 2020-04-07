@@ -47,12 +47,21 @@ export default class SvgWriter
 				position[1] - circleSize / 2);
 	}
 
-	public drawLine(stroke: object, from: number[], to: number[]) {
+	public drawLine(stroke: object, from: number[], to: number[], mask: any = null) {
 		const coordinates = [...from, ...to];
 		if (coordinates.some(c => c === -Infinity || c === +Infinity))
 			return;
-		this.canvas
+		const line = this.canvas
 			.line(...coordinates)
+			.stroke(stroke);
+		if (mask)
+			line.maskWith(mask);
+	}
+
+	public drawPolyline(polyline: string, stroke: object)
+	{
+		this.canvas.polyline(polyline)
+			.fill('none')
 			.stroke(stroke);
 	}
 

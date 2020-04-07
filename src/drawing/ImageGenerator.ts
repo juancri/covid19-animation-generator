@@ -95,14 +95,11 @@ export default class ImageGenerator
 		if (points.length < 2)
 			return;
 
-		for (let index = 1; index < points.length - 1; index++)
-		{
-			const point1 = points[index - 1];
-			const point2 = points[index];
-			writer.drawLine(
-				{ color, ...this.color.lineStroke },
-				[point1.x, point1.y], [point2.x, point2.y]);
-		}
+		const polyline = points
+			.map(point => `${point.x},${point.y}`)
+			.join(' ');
+		const stroke = { color, ...this.color.lineStroke };
+		writer.drawPolyline(polyline, stroke);
 	}
 
 	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter)
