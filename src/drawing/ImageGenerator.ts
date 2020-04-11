@@ -5,6 +5,11 @@ import DataFrameFilter from './DataFrameFilter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaledPointsGenerator from './ScaledPointsGenerator';
 import CanvasPointsGenerator from './CanvasPointsGenerator';
+import { DateTime } from 'luxon';
+
+const SIGNATURE = 'jc';
+const X_LABEL = 'x label';
+const Y_LABEL = 'y label';
 
 export default class ImageGenerator
 {
@@ -70,48 +75,48 @@ export default class ImageGenerator
 	{
 		writer.clean();
 
+		const group = writer.createGroup();
 		const filteredData = this.filter.apply(frameInfo);
 		for (const series of filteredData)
 		{
+			// Draw series
 			const points = series.points
 				.map(point => this.scaledGenerator.generate(point))
 				.map(point => this.canvasGenerator.generate(point));
-			this.drawSeriesLines(points, series.color, writer);
-			this.drawSeriesCircle(points, series.color, writer);
-			this.drawSeriesLabel(points, series.code, writer);
-		}
+			this.drawSeriesLines(points, series.color, writer, group);
+			this.drawSeriesCircle(points, series.color, writer, group);
+			this.drawSeriesLabel(points, series.code, writer, group);
+			writer.applyMask(group, this.layout.plotArea);
 
-		// Temp
-		writer.drawText(
-			`Hello world ${frameInfo.date} ${frameInfo.ratio}`,
-			this.color.date.font,
-			[0, 0]);
+			// Draw other items
+			this.drawScale(writer);
+			this.drawDate(writer, frameInfo.date);
+			this.drawSignature(writer);
+		}
 
 		writer.save();
 	}
 
-	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter)
+	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
 	{
 		if (points.length < 2)
 			return;
 
-		const polyline = points
-			.map(point => `${point.x},${point.y}`)
-			.join(' ');
 		const stroke = { color, ...this.color.lineStroke };
-		writer.drawPolyline(polyline, stroke);
+		writer.drawPolyline(points, stroke, group);
 	}
 
-	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter)
+	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
 	{
 		if (!points.length)
 			return;
 
 		const point = points[points.length - 1];
-		writer.drawCircle(this.layout.circleSize, color, [point.x, point.y]);
+		writer.drawCircle(this.layout.circleSize, color,
+			[point.x, point.y], group);
 	}
 
-	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter)
+	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter, group: any)
 	{
 		if (!points.length)
 			return;
@@ -119,6 +124,43 @@ export default class ImageGenerator
 		const point = points[points.length - 1];
 		const x = point.x + this.color.seriesLabel.offset[0];
 		const y = point.y + this.color.seriesLabel.offset[1];
-		writer.drawText(label, this.color.seriesLabel.font, [x, y]);
+		writer.drawText(label, this.color.seriesLabel.font,
+			[x, y], group);
+	}
+
+	private drawScale(writer: SvgWriter)
+	{
+		// Lines
+		const area = this.layout.plotArea;
+		const scale = this.color.scale;
+		const stroke = scale.lineStroke;
+		const points = [
+			{ x: area.left, y: area.top },
+			{ x: area.left, y: area.bottom },
+			{ x: area.right, y: area.bottom }
+		];
+		writer.drawPolyline(points, stroke);
+
+		// Label X
+		writer.drawText(X_LABEL, scale.axisFont, [100, 100], null, 90);
+
+		// Label Y
+		writer.drawText(Y_LABEL, scale.axisFont, [200, 200]);
+	}
+
+	private drawDate(writer: SvgWriter, date: DateTime)
+	{
+		writer.drawText(
+			date.toISODate(),
+			this.color.date.font,
+			this.layout.datePosition);
+	}
+
+	private drawSignature(writer: SvgWriter)
+	{
+		// writer.drawText(
+		// 	SIGNATURE,
+		// 	this.layout.signature.font,
+		// 	this.layout.signature.position);
 	}
 }

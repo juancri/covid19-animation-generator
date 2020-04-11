@@ -4,21 +4,25 @@
 		"dark":
 		{
 			"background": "#2E2E2E",
-			"axisLabel": {
+			"scale":
+			{
+				"lineStroke":
+				{
+					"width": 3,
+					"linecap": "round",
+					"color": "#CCCCCC"
+				},
 				"font": {
-					"size": 30,
-					"family": "DejaVu Sans Mono",
-					"anchor": "end",
-					"fill": "white"
-				}
-			},
-			"scale": {
-				"lineColor": "#CCCCCC",
-				"labelFont": {
 					"size": 10,
 					"family": "DejaVu Sans Mono",
 					"anchor": "end",
 					"fill": "#CCCCCC"
+				},
+				"axisFont": {
+					"size": 30,
+					"family": "DejaVu Sans Mono",
+					"anchor": "end",
+					"fill": "white"
 				}
 			},
 			"seriesLabel":
@@ -37,6 +41,7 @@
 				"font":
 				{
 
+					"size": 40,
 					"family": "DejaVu Sans Mono",
 					"anchor": "end",
 					"fill": "#FFBD00"
@@ -61,7 +66,7 @@
 				"bottom": 1110
 			},
 			"circleSize": 15,
-			"datePosition": [1000, 100],
+			"datePosition": [900, 100],
 			"dateFont":
 			{
 				"size": 30

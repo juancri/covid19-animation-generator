@@ -18,7 +18,7 @@ export default class DataFrameFilter
 				.filter(point => point.date <= frame.date)
 				.map((point, index) =>
 				{
-					if (point.date < frame.date || frame.ratio === 1)
+					if (index === 0 || point.date < frame.date || frame.ratio === 1)
 						return point;
 
 					const previous = serie.points[index - 1];

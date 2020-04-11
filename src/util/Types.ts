@@ -23,6 +23,11 @@ export interface SeriesConfiguration {
 
 export interface ColorSchema {
 	background: string;
+	scale: {
+		lineStroke: object;
+		font: object;
+		axisFont: object;
+	},
 	seriesLabel: {
 		font: object;
 		offset: number[];
@@ -94,8 +99,11 @@ export interface PlotSeries {
 	points: PlotPoint[];
 }
 
-export interface PlotPoint {
-	date: DateTime;
+export interface Point {
 	x: number;
 	y: number;
+}
+
+export interface PlotPoint extends Point {
+	date: DateTime;
 }

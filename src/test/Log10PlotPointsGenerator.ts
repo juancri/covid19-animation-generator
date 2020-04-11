@@ -21,15 +21,13 @@ lab.experiment('Log10PlotPointsGenerator', () =>
 	lab.test('two items', async () =>
 	{
 		const source: DataPoint[] = [
-			{ date: DateTime.fromISO('2020-01-01'), value: 1 },
-			{ date: DateTime.fromISO('2020-01-02'), value: 2 }
+			{ date: DateTime.fromISO('2020-01-01'), value: 10 },
+			{ date: DateTime.fromISO('2020-01-02'), value: 100 }
 		];
 		const result = Log10PlotPointsGenerator.generate(source);
-		expect(result.length).equals(2);
-		expect(result[0].x).equals(Math.log10(1));
-		expect(result[0].y).equals(Math.log10(0));
-		expect(result[1].x).equals(Math.log10(2));
-		expect(result[1].y).equals(Math.log10(1));
+		expect(result.length).equals(1);
+		expect(result[0].x).equals(Math.log10(100));
+		expect(result[0].y).equals(Math.log10(100 - 10));
 	});
 
 	lab.test('eight items', async () =>
@@ -45,8 +43,8 @@ lab.experiment('Log10PlotPointsGenerator', () =>
 			{ date: DateTime.fromISO('2020-01-08'), value: 8 }
 		];
 		const result = Log10PlotPointsGenerator.generate(source);
-		expect(result.length).equals(8);
-		expect(result[7].y).equals(Math.log10(8 - 1));
+		expect(result.length).equals(7);
+		expect(result[6].y).equals(Math.log10(8 - 1));
 	});
 
 	lab.test('ten items', async () =>
@@ -64,10 +62,10 @@ lab.experiment('Log10PlotPointsGenerator', () =>
 			{ date: DateTime.fromISO('2020-01-10'), value: 30 }
 		];
 		const result = Log10PlotPointsGenerator.generate(source);
-		expect(result.length).equals(10);
-		expect(result[7].y).equals(Math.log10(10 - 1));
-		expect(result[8].y).equals(Math.log10(20 - 2));
-		expect(result[9].y).equals(Math.log10(30 - 3));
+		expect(result.length).equals(9);
+		expect(result[6].y).equals(Math.log10(10 - 1));
+		expect(result[7].y).equals(Math.log10(20 - 2));
+		expect(result[8].y).equals(Math.log10(30 - 3));
 	});
 });
 

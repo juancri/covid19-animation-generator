@@ -5,6 +5,7 @@ import * as fs from 'fs-extra';
 import { SVG, registerWindow } from '@svgdotjs/svg.js';
 // @ts-ignore
 import * as window from 'svgdom';
+import { PlotArea, Point } from '@/util/Types';
 
 // Register window
 registerWindow(window, window.document);
@@ -29,6 +30,18 @@ export default class SvgWriter
 		fs.emptyDirSync(outputDirectory);
 	}
 
+	public applyMask(group: any, area: PlotArea)
+	{
+		const width = area.right - area.left;
+		const height = area.bottom - area.top;
+		const rectangle = this.canvas
+			.rect(width, height)
+			.move(area.left, area.top)
+			.fill('white');
+		const mask = this.canvas.mask().add(rectangle);
+		group.maskWith(mask);
+	}
+
 	public clean()
 	{
 		this.canvas.clear();
@@ -37,14 +50,21 @@ export default class SvgWriter
 			.fill(this.background);
 	}
 
-	public drawCircle(circleSize: number, color: string, position: number[])
+	public createGroup()
 	{
-		this.canvas
+		return this.canvas.group();
+	}
+
+	public drawCircle(circleSize: number, color: string, position: number[], group: any = null)
+	{
+		const circle = this.canvas
 			.circle(circleSize)
 			.fill(color)
 			.move(
 				position[0] - circleSize / 2,
 				position[1] - circleSize / 2);
+		if (group)
+			group.add(circle);
 	}
 
 	public drawLine(stroke: object, from: number[], to: number[], mask: any = null) {
@@ -58,19 +78,28 @@ export default class SvgWriter
 			line.maskWith(mask);
 	}
 
-	public drawPolyline(polyline: string, stroke: object)
+	public drawPolyline(points: Point[], stroke: object, group: any = null)
 	{
-		this.canvas.polyline(polyline)
+		const polyline = points
+			.map(point => `${point.x},${point.y}`)
+			.join(' ');
+		const element = this.canvas.polyline(polyline)
 			.fill('none')
 			.stroke(stroke);
+		if (group)
+			group.add(element);
 	}
 
-	public drawText(text: string, font: object, position: number[])
+	public drawText(text: string, font: object, position: number[], group: any = null, rotate: number|null = null)
 	{
-		this.canvas
+		const element = this.canvas
 			.text(text)
 			.font(font)
 			.move(...position);
+		if (rotate)
+			element.rotate(rotate);
+		if (group)
+			group.add(element);
 	}
 
 	public save()
