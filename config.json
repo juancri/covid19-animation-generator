@@ -107,11 +107,6 @@
 					"color": "#9988BC"
 				},
 				{
-					"name": "Chile",
-					"code": "CL",
-					"color": "#ffa600"
-				},
-				{
 					"name": "Japan",
 					"code": "JP",
 					"color": "#00B0FF"
@@ -135,6 +130,11 @@
 					"name": "Mexico",
 					"code": "MX",
 					"color": "#00FFF8"
+				},
+				{
+					"name": "Chile",
+					"code": "CL",
+					"color": "#ffa600"
 				}
 			]
 		},
