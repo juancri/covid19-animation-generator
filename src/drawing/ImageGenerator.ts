@@ -8,8 +8,8 @@ import CanvasPointsGenerator from './CanvasPointsGenerator';
 import { DateTime } from 'luxon';
 
 const SIGNATURE = 'jc';
-const X_LABEL = 'x label';
-const Y_LABEL = 'y label';
+const X_LABEL = 'total confirmed cases (log)';
+const Y_LABEL = 'new confirmed cases (log, last week)';
 
 export default class ImageGenerator
 {
@@ -142,10 +142,12 @@ export default class ImageGenerator
 		writer.drawPolyline(points, stroke);
 
 		// Label X
-		writer.drawText(X_LABEL, scale.axisFont, [100, 100], null, 90);
+		const middleAreaX = (area.left + area.right) / 2;
+		writer.drawText(X_LABEL, scale.axisFont, [middleAreaX, area.bottom]);
 
 		// Label Y
-		writer.drawText(Y_LABEL, scale.axisFont, [200, 200]);
+		const middleAreaY = (area.top + area.bottom) / 2;
+		writer.drawText(Y_LABEL, scale.axisFont, [area.left, middleAreaY], null, -90);
 	}
 
 	private drawDate(writer: SvgWriter, date: DateTime)

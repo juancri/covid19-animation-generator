@@ -19,9 +19,9 @@
 					"fill": "#CCCCCC"
 				},
 				"axisFont": {
-					"size": 30,
+					"size": 50,
 					"family": "DejaVu Sans Mono",
-					"anchor": "end",
+					"anchor": "middle",
 					"fill": "white"
 				}
 			},
