@@ -90,16 +90,30 @@ export default class SvgWriter
 			group.add(element);
 	}
 
-	public drawText(text: string, font: object, position: number[], group: any = null, rotate: number|null = null)
+	public drawText(text: string, font: object, position: number[], group: any = null)
 	{
 		const element = this.canvas
 			.text(text)
 			.font(font)
 			.move(...position);
-		if (rotate)
-			element.rotate(rotate);
 		if (group)
 			group.add(element);
+	}
+
+	public drawBoxedText(box: number[], fontSize: number, text: string, rotate: number|null = null) {
+		const [x, y, width, height] = box;
+		const group = this.canvas.group()
+			.attr({ 'transform-origin': '0 0'});
+		group.rect(width, height).fill('blue');
+		group
+			.text(text)
+			.fill('white')
+			.font({ size: `${fontSize}px` })
+			.attr({'text-anchor': 'middle'})
+			.move(width / 2, 0);
+		if (rotate)
+			group.rotate(rotate);
+		group.move(x, y);
 	}
 
 	public save()

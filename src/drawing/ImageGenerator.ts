@@ -142,12 +142,13 @@ export default class ImageGenerator
 		writer.drawPolyline(points, stroke);
 
 		// Label X
-		const middleAreaX = (area.left + area.right) / 2;
-		writer.drawText(X_LABEL, scale.axisFont, [middleAreaX, area.bottom]);
+		const areaWidth = area.right - area.left;
+		console.log('drawBoxedText', [area.left, area.bottom, areaWidth, 30], 30, X_LABEL);
+		writer.drawBoxedText([area.left, area.bottom, areaWidth, 30], 30, X_LABEL);
 
 		// Label Y
 		const middleAreaY = (area.top + area.bottom) / 2;
-		writer.drawText(Y_LABEL, scale.axisFont, [area.left, middleAreaY], null, -90);
+		writer.drawBoxedText([0, middleAreaY - 30, areaWidth, 30], 30, Y_LABEL, -90);
 	}
 
 	private drawDate(writer: SvgWriter, date: DateTime)
