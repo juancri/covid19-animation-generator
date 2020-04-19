@@ -1,6 +1,6 @@
 import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
 import AnimationFrameInfoGenerator from './AnimationFrameInfoGenerator';
-import SvgWriter from './SvgWriter';
+import SvgWriter from './CanvasWriter';
 import DataFrameFilter from './DataFrameFilter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaledPointsGenerator from './ScaledPointsGenerator';
