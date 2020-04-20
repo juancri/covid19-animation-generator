@@ -38,6 +38,13 @@ export interface ColorSchema {
 	lineStroke: object;
 }
 
+export interface Box {
+	left: number;
+	right: number;
+	top: number;
+	bottom: number;
+}
+
 export interface PlotArea {
 	left: number;
 	right: number;

@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import { createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
 import { PlotArea, Point } from '@/util/Types';
-import { runInThisContext } from 'vm';
 
 export default class CanvasWriter
 {
@@ -43,20 +42,33 @@ export default class CanvasWriter
 		// TODO: Implement
 	}
 
-	public drawCircle(circleSize: number, color: string, center: number[], group: any = null)
+	public drawCircle(radius: number, color: string, center: number[], group: any = null)
 	{
 		this.ctx.beginPath();
-		this.ctx.ellipse(100, 100, 50, 75, Math.PI / 4, 0, 2 * Math.PI);
-		this.ctx.stroke();
+		this.ctx.ellipse(center[0], center[1], radius, radius, 0, 0, 0);
+		this.ctx.fillStyle = color;
+		this.ctx.fill();
+		// TODO: Group
 	}
 
-	public drawLine(stroke: object, from: number[], to: number[], mask: any = null) {
-		// TODO: Implement
+	public drawLine(color: string, lineWidth: number, from: Point, to: Point, mask: any = null) {
+		// FIXME: Remove this method?
+		this.drawPolyline(color, lineWidth, [from, to]);
 	}
 
-	public drawPolyline(points: Point[], stroke: object, group: any = null)
+	public drawPolyline(color: string, lineWidth: number, points: Point[])
 	{
-		// TODO: Implement
+		if (points.length < 2)
+			return;
+
+		this.ctx.strokeStyle = color;
+		this.ctx.lineWidth = lineWidth;
+		this.ctx.beginPath();
+		const first = points[0];
+		this.ctx.moveTo(first.x, first.y);
+		for (let index = 1; index < points.length; index++)
+			this.ctx.lineTo(points[index].x, points[index].y);
+		this.ctx.stroke();
 	}
 
 	public drawText(text: string, font: object, position: number[], group: any = null)
