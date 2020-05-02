@@ -54,7 +54,6 @@ export default class CanvasWriter
 	}
 
 	public drawLine(color: string, lineWidth: number, from: Point, to: Point, mask: any = null) {
-		// FIXME: Remove this method?
 		this.drawPolyline(color, lineWidth, [from, to]);
 	}
 
