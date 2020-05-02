@@ -24,18 +24,17 @@ export interface SeriesConfiguration {
 export interface ColorSchema {
 	background: string;
 	scale: {
-		lineStroke: object;
+		color: string;
 		font: object;
-		axisFont: object;
+		axisLabelFont: object;
 	},
 	seriesLabel: {
 		font: object;
-		offset: number[];
+		offset: Point;
 	},
 	date: {
 		font: object;
-	},
-	lineStroke: object;
+	}
 }
 
 export interface Box {

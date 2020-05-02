@@ -7,7 +7,6 @@ import ScaledPointsGenerator from './ScaledPointsGenerator';
 import CanvasPointsGenerator from './CanvasPointsGenerator';
 import { DateTime } from 'luxon';
 
-const SIGNATURE = 'jc';
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
 
@@ -50,7 +49,7 @@ export default class ImageGenerator
 		const frameInfoGenerator = new AnimationFrameInfoGenerator(this.series, frames, extraFrames, days);
 
 		for (const frameInfo of frameInfoGenerator.generate())
-			this.drawFrame(frameInfo, writer);
+			await this.drawFrame(frameInfo, writer);
 	}
 
 
@@ -71,7 +70,7 @@ export default class ImageGenerator
 		});
 	}
 
-	private drawFrame(frameInfo: FrameInfo, writer: SvgWriter)
+	private async drawFrame(frameInfo: FrameInfo, writer: SvgWriter)
 	{
 		writer.clean();
 
@@ -94,7 +93,7 @@ export default class ImageGenerator
 			this.drawSignature(writer);
 		}
 
-		writer.save();
+		await writer.save();
 	}
 
 	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
@@ -102,8 +101,8 @@ export default class ImageGenerator
 		if (points.length < 2)
 			return;
 
-		const stroke = { color, ...this.color.lineStroke };
-		writer.drawPolyline(points, stroke, group);
+		// TODO: const stroke = { color, ...this.color.lineStroke };
+		writer.drawPolyline(color, 1, points);
 	}
 
 	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
@@ -122,8 +121,8 @@ export default class ImageGenerator
 			return;
 
 		const point = points[points.length - 1];
-		const x = point.x + this.color.seriesLabel.offset[0];
-		const y = point.y + this.color.seriesLabel.offset[1];
+		const x = point.x + this.color.seriesLabel.offset.x;
+		const y = point.y + this.color.seriesLabel.offset.y;
 		writer.drawText(label, this.color.seriesLabel.font,
 			[x, y], group);
 	}
@@ -132,14 +131,12 @@ export default class ImageGenerator
 	{
 		// Lines
 		const area = this.layout.plotArea;
-		const scale = this.color.scale;
-		const stroke = scale.lineStroke;
 		const points = [
 			{ x: area.left, y: area.top },
 			{ x: area.left, y: area.bottom },
 			{ x: area.right, y: area.bottom }
 		];
-		writer.drawPolyline(points, stroke);
+		writer.drawPolyline(this.color.scale.color, 1, points);
 
 		// Label X
 		const areaWidth = area.right - area.left;
