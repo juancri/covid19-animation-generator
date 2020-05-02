@@ -136,7 +136,7 @@ export default class ImageGenerator
 			{ x: area.left, y: area.bottom },
 			{ x: area.right, y: area.bottom }
 		];
-		writer.drawPolyline(this.color.scale.color, 1, points);
+		writer.drawPolyline(this.color.scale.color, 2, points);
 
 		// Label X
 		const areaWidth = area.right - area.left;
