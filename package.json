@@ -12,13 +12,11 @@
     "axios": "^0.19.2",
     "canvas": "^2.6.1",
     "csvtojson": "^2.0.10",
-    "eslint": "^6.8.0",
     "fs-extra": "^9.0.0",
     "jsonfile": "^6.0.1",
     "linq": "^3.2.2",
     "luxon": "^1.22.2",
-    "optimist": "^0.6.1",
-    "winston": "^3.2.1"
+    "optimist": "^0.6.1"
   },
   "devDependencies": {
     "@hapi/code": "^8.0.1",
@@ -30,6 +28,7 @@
     "@types/optimist": "0.0.29",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.2.0",
