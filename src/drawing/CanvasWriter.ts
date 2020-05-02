@@ -3,7 +3,8 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import { createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
 import { PlotArea, Point } from '@/util/Types';
-import pipePromise from '../util/pipePromise';
+// @ts-ignore
+import * as promisePipe from 'promisepipe';
 
 export default class CanvasWriter
 {
@@ -88,7 +89,7 @@ export default class CanvasWriter
 		const fileName = `${this.frame}.jpg`;
 		const filePath = path.join(this.outputDirectory, fileName);
 		const output = fs.createWriteStream(filePath);
-		await pipePromise(input.pipe(output));
+		await promisePipe(input, output);
 		this.frame++;
 	}
 }

@@ -12,7 +12,7 @@ import ParameterLoader from './parameters/ParametersLoader';
 const OUTPUT_PATH = path.join(__dirname, '../output');
 
 // Main
-(async () =>
+const main = async () =>
 {
 	// Help
 	if (ParameterLoader.help())
@@ -45,4 +45,15 @@ const OUTPUT_PATH = path.join(__dirname, '../output');
 		options.frames,
 		options.extraFrames,
 		options.days);
+};
+
+(async () =>
+{
+	try {
+		await main();
+	}
+	catch (e)
+	{
+		console.log(e);
+	}
 })();

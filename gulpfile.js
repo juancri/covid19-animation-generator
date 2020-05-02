@@ -4,6 +4,7 @@ const clean = require ('gulp-clean');
 const eslint = require ('gulp-eslint');
 const lab = require ('gulp-lab');
 const ts = require ('gulp-typescript');
+const sourcemaps = require('gulp-sourcemaps');
 
 const tsProject = ts.createProject ('tsconfig.json');
 
@@ -27,7 +28,9 @@ gulp.task ('lint', () => gulp
 
 gulp.task ('compile', () => gulp
 	.src ('src/**/*.ts')
+	.pipe(sourcemaps.init())
 	.pipe (tsProject())
+	.pipe(sourcemaps.write('.', { sourceRoot: '../src', includeContent: false }))
 	.pipe (gulp.dest ('dist')));
 
 gulp.task ('test', () => gulp

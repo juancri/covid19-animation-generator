@@ -101,8 +101,8 @@ export default class ImageGenerator
 		if (points.length < 2)
 			return;
 
-		// TODO: const stroke = { color, ...this.color.lineStroke };
-		writer.drawPolyline(color, 1, points);
+		// TODO: Use a parameter?
+		writer.drawPolyline(color, 3, points);
 	}
 
 	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
@@ -140,7 +140,6 @@ export default class ImageGenerator
 
 		// Label X
 		const areaWidth = area.right - area.left;
-		console.log('drawBoxedText', [area.left, area.bottom, areaWidth, 30], 30, X_LABEL);
 		writer.drawBoxedText([area.left, area.bottom, areaWidth, 30], 30, X_LABEL);
 
 		// Label Y

@@ -39,6 +39,9 @@ export default class AnimationFrameInfoGenerator
 		}
 
 		// Extra frames
+		if (this.extraFrames < 1)
+			return;
+
 		for (let currentExtra = 1; currentExtra <= this.extraFrames; currentExtra++)
 			yield { date: this.lastDate, ratio: 1 };
 	}
