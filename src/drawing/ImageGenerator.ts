@@ -117,9 +117,11 @@ export default class ImageGenerator
 			return;
 
 		const point = points[points.length - 1];
-		const x = point.x + this.color.seriesLabel.offset.x;
-		const y = point.y + this.color.seriesLabel.offset.y;
-		writer.drawText(label, this.color.seriesLabel.font, this.color.seriesLabel.color, { x, y });
+		const x = point.x + this.color.series.offset.x;
+		const y = point.y + this.color.series.offset.y;
+		writer.drawText(
+			label, this.color.series.font, this.color.series.color,
+			{ x, y }, this.layout.plotArea);
 	}
 
 	private drawScale(writer: SvgWriter)
@@ -134,12 +136,22 @@ export default class ImageGenerator
 		writer.drawPolyline(this.color.scale.color, 2, points);
 
 		// Label X
-		const areaWidth = area.right - area.left;
-		writer.drawBoxedText([area.left, area.bottom, areaWidth, 30], 30, X_LABEL);
+		const boxX = {
+			left: area.left,
+			right: area.right,
+			top: area.bottom,
+			bottom: area.bottom + this.color.axis.offset
+		};
+		writer.drawBoxedText(X_LABEL, this.color.axis.font, this.color.axis.color, boxX);
 
 		// Label Y
-		const middleAreaY = (area.top + area.bottom) / 2;
-		writer.drawBoxedText([0, middleAreaY - 30, areaWidth, 30], 30, Y_LABEL, -90);
+		const boxY = {
+			left: area.left - this.color.axis.offset,
+			right: area.left,
+			top: area.top,
+			bottom: area.bottom
+		};
+		writer.drawBoxedText(Y_LABEL, this.color.axis.font, this.color.axis.color, boxY, -90);
 	}
 
 	private drawDate(writer: SvgWriter, date: DateTime)

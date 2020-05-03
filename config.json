@@ -7,26 +7,15 @@
 			"scale":
 			{
 				"color": "#ccc",
-				"lineStroke":
-				{
-					"width": 3,
-					"linecap": "round",
-					"color": "#CCCCCC"
-				},
-				"font": {
-					"size": 10,
-					"family": "DejaVu Sans Mono",
-					"anchor": "end",
-					"fill": "#CCCCCC"
-				},
-				"axisFont": {
-					"size": 50,
-					"family": "DejaVu Sans Mono",
-					"anchor": "middle",
-					"fill": "white"
-				}
+				"font": "10px DejaVu Sans Mono",
+				"offset": 5
 			},
-			"seriesLabel":
+			"axis": {
+				"color": "white",
+				"font": "30px DejaVu Sans Mono",
+				"offset": 100
+			},
+			"series":
 			{
 				"font": "30px DejaVu Sans Mono",
 				"color": "white",
@@ -36,11 +25,6 @@
 			{
 				"font": "40px DejaVu Sans Mono",
 				"color": "#FFBD00"
-			},
-			"lineStroke":
-			{
-				"width": 3,
-				"linecap": "round"
 			}
 		}
 	},

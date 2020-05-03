@@ -67,16 +67,34 @@ export default class CanvasWriter
 		});
 	}
 
-	public drawText(text: string, font: string, color: string, position: Point)
+	public drawText(text: string, font: string, color: string, position: Point, box: Box | null = null)
 	{
-		this.ctx.font = font;
-		this.ctx.fillStyle = color;
-		this.ctx.fillText(text, position.x, position.y);
+		this.useMaskBox(box, () =>
+		{
+			this.ctx.font = font;
+			this.ctx.fillStyle = color;
+			this.ctx.fillText(text, position.x, position.y);
+		});
 	}
 
-	public drawBoxedText(box: number[], fontSize: number, text: string, rotate: number|null = null)
+	public drawBoxedText(text: string, font: string, color: string, box: Box, rotate: number|null = null)
 	{
-		// TODO: Implement
+		const centerX = (box.left + box.right) / 2;
+		const centerY = (box.bottom + box.top) / 2;
+		this.useMaskBox(box, () =>
+		{
+			if (rotate)
+			{
+				this.ctx.translate(centerX, centerY);
+				this.ctx.rotate(rotate * Math.PI / 180);
+				this.ctx.translate(-centerX, -centerY);
+			}
+			this.ctx.font = font;
+			this.ctx.fillStyle = color;
+			this.ctx.textAlign = 'center';
+			this.ctx.textBaseline = 'middle';
+			this.ctx.fillText(text, centerX, centerY);
+		});
 	}
 
 	public async save()

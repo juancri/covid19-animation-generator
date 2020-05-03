@@ -25,10 +25,15 @@ export interface ColorSchema {
 	background: string;
 	scale: {
 		color: string;
-		font: object;
-		axisLabelFont: object;
+		font: string;
+		offset: number;
 	},
-	seriesLabel: {
+	axis: {
+		color: string;
+		font: string;
+		offset: number;
+	},
+	series: {
 		font: string;
 		color: string;
 		offset: Point;
