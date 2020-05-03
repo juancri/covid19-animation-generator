@@ -74,7 +74,6 @@ export default class ImageGenerator
 	{
 		writer.clean();
 
-		const group = writer.createGroup();
 		const filteredData = this.filter.apply(frameInfo);
 		for (const series of filteredData)
 		{
@@ -82,10 +81,9 @@ export default class ImageGenerator
 			const points = series.points
 				.map(point => this.scaledGenerator.generate(point))
 				.map(point => this.canvasGenerator.generate(point));
-			this.drawSeriesLines(points, series.color, writer, group);
-			this.drawSeriesCircle(points, series.color, writer, group);
-			this.drawSeriesLabel(points, series.code, writer, group);
-			writer.applyMask(group, this.layout.plotArea);
+			this.drawSeriesLines(points, series.color, writer);
+			this.drawSeriesCircle(points, series.color, writer);
+			this.drawSeriesLabel(points, series.code, writer);
 
 			// Draw other items
 			this.drawScale(writer);
@@ -96,26 +94,24 @@ export default class ImageGenerator
 		await writer.save();
 	}
 
-	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
+	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter)
 	{
 		if (points.length < 2)
 			return;
 
-		// TODO: Use a parameter?
-		writer.drawPolyline(color, 3, points);
+		writer.drawPolyline(color, 3, points, this.layout.plotArea);
 	}
 
-	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter, group: any)
+	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter)
 	{
 		if (!points.length)
 			return;
 
 		const point = points[points.length - 1];
-		writer.drawCircle(this.layout.circleSize, color,
-			[point.x, point.y], group);
+		writer.drawCircle(this.layout.circleSize, color, point, this.layout.plotArea);
 	}
 
-	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter, group: any)
+	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter)
 	{
 		if (!points.length)
 			return;
@@ -123,8 +119,7 @@ export default class ImageGenerator
 		const point = points[points.length - 1];
 		const x = point.x + this.color.seriesLabel.offset.x;
 		const y = point.y + this.color.seriesLabel.offset.y;
-		writer.drawText(label, this.color.seriesLabel.font,
-			[x, y], group);
+		writer.drawText(label, this.color.seriesLabel.font, { x, y });
 	}
 
 	private drawScale(writer: SvgWriter)

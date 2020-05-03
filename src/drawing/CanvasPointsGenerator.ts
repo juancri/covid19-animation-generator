@@ -1,4 +1,4 @@
-import { PlotArea, PlotPoint } from '../util/Types';
+import { Box, PlotPoint } from '../util/Types';
 import { DateTime } from 'luxon';
 
 const SOME_DATE = DateTime.utc();
@@ -6,11 +6,11 @@ const POINT_ZERO = { date: SOME_DATE, x: 0, y: 0 };
 
 export default class CanvasPointsGenerator
 {
-	private area: PlotArea;
+	private area: Box;
 	private honrizontalSize: number;
 	private verticalSize: number;
 
-	public constructor(plotArea: PlotArea)
+	public constructor(plotArea: Box)
 	{
 		this.area = plotArea;
 		this.honrizontalSize = plotArea.right - plotArea.left;

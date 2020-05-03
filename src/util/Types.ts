@@ -44,18 +44,11 @@ export interface Box {
 	bottom: number;
 }
 
-export interface PlotArea {
-	left: number;
-	right: number;
-	top: number;
-	bottom: number;
-}
-
 export interface Layout {
 	canvasSize: number[];
-	plotArea: PlotArea;
+	plotArea: Box;
 	circleSize: number;
-	datePosition: number[];
+	datePosition: Point;
 	dateFont: object;
 }
 

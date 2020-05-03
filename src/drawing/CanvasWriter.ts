@@ -2,7 +2,7 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { PlotArea, Point } from '@/util/Types';
+import { Point, Box } from '@/util/Types';
 // @ts-ignore
 import * as promisePipe from 'promisepipe';
 
@@ -27,11 +27,6 @@ export default class CanvasWriter
 		fs.emptyDirSync(outputDirectory);
 	}
 
-	public applyMask(group: any, area: PlotArea)
-	{
-		// TODO: Implement
-	}
-
 	public clean()
 	{
 		this.ctx.clearRect(0, 0, this.size[0], this.size[1]);
@@ -39,40 +34,40 @@ export default class CanvasWriter
 		this.ctx.fillRect(0, 0, this.size[0], this.size[1]);
 	}
 
-	public createGroup()
+	public drawCircle(radius: number, color: string, center: Point, box: Box | null = null)
 	{
-		// TODO: Implement
+		this.useMaskBox(box, () =>
+		{
+			this.ctx.beginPath();
+			this.ctx.ellipse(center.x, center.y, radius, radius, 0, 0, 2 * Math.PI);
+			this.ctx.fillStyle = color;
+			this.ctx.fill();
+		});
 	}
 
-	public drawCircle(radius: number, color: string, center: number[], group: any = null)
-	{
-		this.ctx.beginPath();
-		this.ctx.ellipse(center[0], center[1], radius, radius, 0, 0, 0);
-		this.ctx.fillStyle = color;
-		this.ctx.fill();
-		// TODO: Group
+	public drawLine(color: string, lineWidth: number, from: Point, to: Point, box: Box|null = null) {
+		this.drawPolyline(color, lineWidth, [from, to], box);
 	}
 
-	public drawLine(color: string, lineWidth: number, from: Point, to: Point, mask: any = null) {
-		this.drawPolyline(color, lineWidth, [from, to]);
-	}
-
-	public drawPolyline(color: string, lineWidth: number, points: Point[])
+	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null)
 	{
 		if (points.length < 2)
 			return;
 
-		this.ctx.strokeStyle = color;
-		this.ctx.lineWidth = lineWidth;
-		this.ctx.beginPath();
-		const first = points[0];
-		this.ctx.moveTo(first.x, first.y);
-		for (let index = 1; index < points.length; index++)
-			this.ctx.lineTo(points[index].x, points[index].y);
-		this.ctx.stroke();
+		this.useMaskBox(box, () =>
+		{
+			this.ctx.strokeStyle = color;
+			this.ctx.lineWidth = lineWidth;
+			this.ctx.beginPath();
+			const first = points[0];
+			this.ctx.moveTo(first.x, first.y);
+			for (let index = 1; index < points.length; index++)
+				this.ctx.lineTo(points[index].x, points[index].y);
+			this.ctx.stroke();
+		});
 	}
 
-	public drawText(text: string, font: object, position: number[], group: any = null)
+	public drawText(text: string, font: object, position: Point)
 	{
 		// TODO: Implement
 	}
@@ -90,5 +85,24 @@ export default class CanvasWriter
 		const output = fs.createWriteStream(filePath);
 		await promisePipe(input, output);
 		this.frame++;
+	}
+
+	private useMaskBox(box: Box | null, f: () => void) {
+		try {
+			if (box) {
+				this.ctx.save();
+				const boxWidth = box.right - box.left;
+				const boxHeight = box.bottom - box.top;
+				this.ctx.beginPath();
+				this.ctx.rect(box.left, box.top, boxWidth, boxHeight);
+				this.ctx.clip();
+			}
+
+			f();
+		}
+		finally {
+			if (box)
+				this.ctx.restore();
+		}
 	}
 }
