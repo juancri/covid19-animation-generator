@@ -1,12 +1,17 @@
 import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
 import AnimationFrameInfoGenerator from './AnimationFrameInfoGenerator';
-import SvgWriter from './CanvasWriter';
+import CanvasWriter from './CanvasWriter';
 import DataFrameFilter from './DataFrameFilter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaledPointsGenerator from './ScaledPointsGenerator';
 import CanvasPointsGenerator from './CanvasPointsGenerator';
+import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 import { DateTime } from 'luxon';
 
+const SCALE = {
+	horizontal: { min: 2, max: 7 }, // log10
+	vertical: { min: 1, max: 6 } // log10
+};
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
 
@@ -31,10 +36,7 @@ export default class ImageGenerator
 		this.layout = layout;
 		this.series = this.createPlotSeries(series, configuration);
 		this.filter = new DataFrameFilter(this.series);
-		this.scaledGenerator = new ScaledPointsGenerator({
-			horizontal: { min: 1, max: 6 }, // log10
-			vertical: { min: 1, max: 6 } // log10
-		});
+		this.scaledGenerator = new ScaledPointsGenerator(SCALE);
 		this.canvasGenerator = new CanvasPointsGenerator(layout.plotArea);
 	}
 
@@ -45,7 +47,7 @@ export default class ImageGenerator
 		frames: number, extraFrames: number, days: number)
 	{
 		// Setup bounderies
-		const writer = new SvgWriter(outputDirectory, this.layout.canvasSize, this.color.background);
+		const writer = new CanvasWriter(outputDirectory, this.layout.canvasSize, this.color.background);
 		const frameInfoGenerator = new AnimationFrameInfoGenerator(this.series, frames, extraFrames, days);
 
 		for (const frameInfo of frameInfoGenerator.generate())
@@ -70,7 +72,7 @@ export default class ImageGenerator
 		});
 	}
 
-	private async drawFrame(frameInfo: FrameInfo, writer: SvgWriter)
+	private async drawFrame(frameInfo: FrameInfo, writer: CanvasWriter)
 	{
 		writer.clean();
 
@@ -88,13 +90,12 @@ export default class ImageGenerator
 			// Draw other items
 			this.drawScale(writer);
 			this.drawDate(writer, frameInfo.date);
-			this.drawSignature(writer);
 		}
 
 		await writer.save();
 	}
 
-	private drawSeriesLines(points: PlotPoint[], color: string, writer: SvgWriter)
+	private drawSeriesLines(points: PlotPoint[], color: string, writer: CanvasWriter)
 	{
 		if (points.length < 2)
 			return;
@@ -102,7 +103,7 @@ export default class ImageGenerator
 		writer.drawPolyline(color, 3, points, this.layout.plotArea);
 	}
 
-	private drawSeriesCircle(points: PlotPoint[], color: string, writer: SvgWriter)
+	private drawSeriesCircle(points: PlotPoint[], color: string, writer: CanvasWriter)
 	{
 		if (!points.length)
 			return;
@@ -111,7 +112,7 @@ export default class ImageGenerator
 		writer.drawCircle(this.layout.circleSize, color, point, this.layout.plotArea);
 	}
 
-	private drawSeriesLabel(points: PlotPoint[], label: string, writer: SvgWriter)
+	private drawSeriesLabel(points: PlotPoint[], label: string, writer: CanvasWriter)
 	{
 		if (!points.length)
 			return;
@@ -124,7 +125,7 @@ export default class ImageGenerator
 			{ x, y }, this.layout.plotArea);
 	}
 
-	private drawScale(writer: SvgWriter)
+	private drawScale(writer: CanvasWriter)
 	{
 		// Lines
 		const area = this.layout.plotArea;
@@ -135,7 +136,11 @@ export default class ImageGenerator
 		];
 		writer.drawPolyline(this.color.scale.color, 2, points);
 
-		// Label X
+		// Scale labels
+		this.drawScaleLabels(writer, true);
+		this.drawScaleLabels(writer, false);
+
+		// Axis Label X
 		const boxX = {
 			left: area.left,
 			right: area.right,
@@ -144,7 +149,7 @@ export default class ImageGenerator
 		};
 		writer.drawBoxedText(X_LABEL, this.color.axis.font, this.color.axis.color, boxX);
 
-		// Label Y
+		// Axis Label Y
 		const boxY = {
 			left: area.left - this.color.axis.offset,
 			right: area.left,
@@ -154,20 +159,51 @@ export default class ImageGenerator
 		writer.drawBoxedText(Y_LABEL, this.color.axis.font, this.color.axis.color, boxY, -90);
 	}
 
-	private drawDate(writer: SvgWriter, date: DateTime)
+	private drawScaleLabels(writer: CanvasWriter, horizontal: boolean)
+	{
+		const area = this.layout.plotArea;
+		const areaWidth = horizontal ?
+			area.right - area.left :
+			area.bottom - area.top;
+		const scale = horizontal ? SCALE.horizontal : SCALE.vertical;
+		const start = horizontal ? area.left : area.bottom;
+		const reverse = !horizontal;
+		const skipFirst = !horizontal;
+		const rotate = horizontal ? 0 : -90;
+		const areaSegment = areaWidth / (scale.max - scale.min);
+		for (let labelValue = scale.min; labelValue <= scale.max; labelValue++)
+		{
+			if (labelValue === scale.min && skipFirst)
+				continue;
+
+			const labelText = ScaleLabelGenerator.generate(Math.pow(10, labelValue));
+			const offset = areaSegment * (labelValue - scale.min);
+			const pos = reverse ?
+				start - offset :
+				start + offset;
+			const box = {
+				left: horizontal ? pos - 50 : area.left - this.color.scale.offset,
+				right: horizontal ? pos + 50 : area.left,
+				top: horizontal ? area.bottom : pos - 50,
+				bottom: horizontal ?
+					area.bottom + this.color.scale.offset :
+					pos + 50
+			};
+			writer.drawBoxedText(
+				labelText,
+				this.color.scale.font,
+				this.color.scale.color,
+				box,
+				rotate);
+		}
+	}
+
+	private drawDate(writer: CanvasWriter, date: DateTime)
 	{
 		writer.drawText(
 			date.toISODate(),
 			this.color.date.font,
 			this.color.date.color,
 			this.layout.datePosition);
-	}
-
-	private drawSignature(writer: SvgWriter)
-	{
-		// writer.drawText(
-		// 	SIGNATURE,
-		// 	this.layout.signature.font,
-		// 	this.layout.signature.position);
 	}
 }

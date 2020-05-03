@@ -7,8 +7,8 @@
 			"scale":
 			{
 				"color": "#ccc",
-				"font": "10px DejaVu Sans Mono",
-				"offset": 5
+				"font": "30px DejaVu Sans Mono",
+				"offset": 50
 			},
 			"axis": {
 				"color": "white",
