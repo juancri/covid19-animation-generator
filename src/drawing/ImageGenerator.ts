@@ -171,14 +171,11 @@ export default class ImageGenerator
 			this.scaleGenerator.getScale().vertical;
 		const start = horizontal ? area.left : area.bottom;
 		const reverse = !horizontal;
-		const skipFirst = !horizontal;
 		const rotate = horizontal ? 0 : -90;
 		const areaSegment = areaWidth / (scale.max - scale.min);
-		for (let labelValue = scale.min; labelValue <= scale.max; labelValue++)
+		const min = Math.ceil(scale.min);
+		for (let labelValue = min; labelValue <= scale.max; labelValue++)
 		{
-			if (labelValue === scale.min && skipFirst)
-				continue;
-
 			const labelText = ScaleLabelGenerator.generate(Math.pow(10, labelValue));
 			const offset = areaSegment * (labelValue - scale.min);
 			const pos = reverse ?
@@ -188,9 +185,7 @@ export default class ImageGenerator
 				left: horizontal ? pos - 50 : area.left - this.color.scale.offset,
 				right: horizontal ? pos + 50 : area.left,
 				top: horizontal ? area.bottom : pos - 50,
-				bottom: horizontal ?
-					area.bottom + this.color.scale.offset :
-					pos + 50
+				bottom: horizontal ? area.bottom + this.color.scale.offset : pos + 50
 			};
 			writer.drawBoxedText(
 				labelText,
