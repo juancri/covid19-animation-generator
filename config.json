@@ -28,25 +28,14 @@
 			},
 			"seriesLabel":
 			{
-				"font":
-				{
-					"size": 30,
-					"family": "DejaVu Sans Mono",
-					"anchor": "end",
-					"fill": "white"
-				},
-				"offset": [10, -15]
+				"font": "30px DejaVu Sans Mono",
+				"color": "white",
+				"offset": { "x": 10, "y": 10 }
 			},
 			"date":
 			{
-				"font":
-				{
-
-					"size": 40,
-					"family": "DejaVu Sans Mono",
-					"anchor": "end",
-					"fill": "#FFBD00"
-				}
+				"font": "40px DejaVu Sans Mono",
+				"color": "#FFBD00"
 			},
 			"lineStroke":
 			{
@@ -67,7 +56,7 @@
 				"bottom": 1110
 			},
 			"circleSize": 7,
-			"datePosition": [900, 100],
+			"datePosition": { "x": 900, "y": 100 },
 			"dateFont":
 			{
 				"size": 30
@@ -95,7 +84,7 @@
 				"bottom": 1625
 			},
 			"circleSize": 7,
-			"datePosition": [364, 250],
+			"datePosition": { "x": 364, "y": 250 },
 			"dateFont":
 			{
 				"size": 60
@@ -113,7 +102,7 @@
 				"bottom": 940
 			},
 			"circleSize": 7,
-			"datePosition": [960, 100],
+			"datePosition": { "x": 960, "y": 100 },
 			"dateFont":
 			{
 				"size": 60

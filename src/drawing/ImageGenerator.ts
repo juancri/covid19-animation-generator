@@ -119,7 +119,7 @@ export default class ImageGenerator
 		const point = points[points.length - 1];
 		const x = point.x + this.color.seriesLabel.offset.x;
 		const y = point.y + this.color.seriesLabel.offset.y;
-		writer.drawText(label, this.color.seriesLabel.font, { x, y });
+		writer.drawText(label, this.color.seriesLabel.font, this.color.seriesLabel.color, { x, y });
 	}
 
 	private drawScale(writer: SvgWriter)
@@ -147,6 +147,7 @@ export default class ImageGenerator
 		writer.drawText(
 			date.toISODate(),
 			this.color.date.font,
+			this.color.date.color,
 			this.layout.datePosition);
 	}
 

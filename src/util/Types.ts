@@ -29,11 +29,13 @@ export interface ColorSchema {
 		axisLabelFont: object;
 	},
 	seriesLabel: {
-		font: object;
+		font: string;
+		color: string;
 		offset: Point;
 	},
 	date: {
-		font: object;
+		font: string;
+		color: string;
 	}
 }
 

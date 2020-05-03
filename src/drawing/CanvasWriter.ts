@@ -67,9 +67,11 @@ export default class CanvasWriter
 		});
 	}
 
-	public drawText(text: string, font: object, position: Point)
+	public drawText(text: string, font: string, color: string, position: Point)
 	{
-		// TODO: Implement
+		this.ctx.font = font;
+		this.ctx.fillStyle = color;
+		this.ctx.fillText(text, position.x, position.y);
 	}
 
 	public drawBoxedText(box: number[], fontSize: number, text: string, rotate: number|null = null)
