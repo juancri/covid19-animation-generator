@@ -12,8 +12,8 @@
 			},
 			"axis": {
 				"color": "white",
-				"font": "30px DejaVu Sans Mono",
-				"offset": 100
+				"font": "40px DejaVu Sans Mono",
+				"offset": 150
 			},
 			"series":
 			{
