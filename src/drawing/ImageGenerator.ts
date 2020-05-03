@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
 import AnimationFrameInfoGenerator from './AnimationFrameInfoGenerator';
 import CanvasWriter from './CanvasWriter';
@@ -6,12 +8,8 @@ import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaledPointsGenerator from './ScaledPointsGenerator';
 import CanvasPointsGenerator from './CanvasPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
-import { DateTime } from 'luxon';
+import ScaleGenerator from './ScaleGenerator';
 
-const SCALE = {
-	horizontal: { min: 2, max: 7 }, // log10
-	vertical: { min: 1, max: 6 } // log10
-};
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
 
@@ -23,7 +21,8 @@ export default class ImageGenerator
 	private color: ColorSchema;
 	private filter: DataFrameFilter;
 	private layout: Layout;
-	private scaledGenerator: ScaledPointsGenerator;
+	private scaleGenerator: ScaleGenerator;
+	private scaledPointsGenerator: ScaledPointsGenerator;
 	private series: PlotSeries[];
 
 
@@ -36,7 +35,8 @@ export default class ImageGenerator
 		this.layout = layout;
 		this.series = this.createPlotSeries(series, configuration);
 		this.filter = new DataFrameFilter(this.series);
-		this.scaledGenerator = new ScaledPointsGenerator(SCALE);
+		this.scaleGenerator = new ScaleGenerator(this.filter);
+		this.scaledPointsGenerator = new ScaledPointsGenerator(this.scaleGenerator);
 		this.canvasGenerator = new CanvasPointsGenerator(layout.plotArea);
 	}
 
@@ -75,13 +75,14 @@ export default class ImageGenerator
 	private async drawFrame(frameInfo: FrameInfo, writer: CanvasWriter)
 	{
 		writer.clean();
-
-		const filteredData = this.filter.apply(frameInfo);
-		for (const series of filteredData)
+		this.filter.apply(frameInfo);
+		this.scaleGenerator.apply();
+		this.scaledPointsGenerator.apply();
+		for (const series of this.filter.getFiltered())
 		{
 			// Draw series
 			const points = series.points
-				.map(point => this.scaledGenerator.generate(point))
+				.map(point => this.scaledPointsGenerator.generate(point))
 				.map(point => this.canvasGenerator.generate(point));
 			this.drawSeriesLines(points, series.color, writer);
 			this.drawSeriesCircle(points, series.color, writer);
@@ -165,7 +166,9 @@ export default class ImageGenerator
 		const areaWidth = horizontal ?
 			area.right - area.left :
 			area.bottom - area.top;
-		const scale = horizontal ? SCALE.horizontal : SCALE.vertical;
+		const scale = horizontal ?
+			this.scaleGenerator.getScale().horizontal :
+			this.scaleGenerator.getScale().vertical;
 		const start = horizontal ? area.left : area.bottom;
 		const reverse = !horizontal;
 		const skipFirst = !horizontal;

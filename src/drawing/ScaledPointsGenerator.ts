@@ -1,16 +1,25 @@
 import { Scale, PlotPoint } from '../util/Types';
+import ScaleGenerator from './ScaleGenerator';
 
 export default class ScaledPointsGenerator {
 
+	private scaleGenerator: ScaleGenerator;
+	private scale: Scale;
 	private horizontalScale: number;
 	private verticalScale: number;
-	private scale: Scale;
 
-	public constructor(scale: Scale)
+	public constructor(scaleGenerator: ScaleGenerator)
 	{
-		this.scale = scale;
-		this.horizontalScale = scale.horizontal.max - scale.horizontal.min;
-		this.verticalScale = scale.vertical.max - scale.vertical.min;
+		this.scaleGenerator = scaleGenerator;
+		this.scale = this.scaleGenerator.getScale();
+		this.horizontalScale = this.scale.horizontal.max - this.scale.horizontal.min;
+		this.verticalScale = this.scale.vertical.max - this.scale.vertical.min;
+	}
+
+	public apply() {
+		this.scale = this.scaleGenerator.getScale();
+		this.horizontalScale = this.scale.horizontal.max - this.scale.horizontal.min;
+		this.verticalScale = this.scale.vertical.max - this.scale.vertical.min;
 	}
 
 	public generate(point: PlotPoint): PlotPoint

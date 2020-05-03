@@ -3,15 +3,22 @@ import { PlotSeries, FrameInfo } from '../util/Types';
 export default class DataFrameFilter
 {
 	private series: PlotSeries[];
+	private filtered: PlotSeries[];
 
 	public constructor(series: PlotSeries[])
 	{
 		this.series = series;
+		this.filtered = [];
 	}
 
-	public apply(frame: FrameInfo): PlotSeries[]
+	public getFiltered()
 	{
-		return this.series.map(serie => ({
+		return this.filtered;
+	}
+
+	public apply(frame: FrameInfo)
+	{
+		this.filtered = this.series.map(serie => ({
 			code: serie.code,
 			color: serie.color,
 			points: serie.points
