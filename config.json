@@ -6,6 +6,7 @@
 			"background": "#2E2E2E",
 			"scale":
 			{
+				"color": "#ccc",
 				"lineStroke":
 				{
 					"width": 3,
