@@ -94,9 +94,14 @@ export interface Scale {
 
 // Plot
 
+export interface Animation {
+	generate: () => Generator<FrameInfo>
+}
+
 export interface FrameInfo {
 	date: DateTime;
-	ratio: number;
+	series: TimeSeries[];
+	scale: Scale;
 }
 
 export interface PlotSeries {

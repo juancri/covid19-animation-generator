@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
 import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
-import AnimationFrameInfoGenerator from './AnimationFrameInfoGenerator';
+import AnimationGenerator from '../animation/AnimationGenerator';
 import CanvasWriter from './CanvasWriter';
 import DataFrameFilter from './DataFrameFilter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
@@ -48,7 +48,7 @@ export default class ImageGenerator
 	{
 		// Setup bounderies
 		const writer = new CanvasWriter(outputDirectory, this.layout.canvasSize, this.color.background);
-		const frameInfoGenerator = new AnimationFrameInfoGenerator(this.series, frames, extraFrames, days);
+		const frameInfoGenerator = new AnimationGenerator(this.series, frames, extraFrames, days);
 
 		for (const frameInfo of frameInfoGenerator.generate())
 			await this.drawFrame(frameInfo, writer);

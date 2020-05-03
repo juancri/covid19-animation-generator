@@ -2,7 +2,7 @@
 import * as Code from '@hapi/code';
 import * as Lab from '@hapi/lab';
 import { DateTime } from 'luxon';
-import AnimationFrameInfoGenerator from '../drawing/AnimationFrameInfoGenerator';
+import AnimationGenerator from '../animation/AnimationGenerator';
 
 // Constants
 const expect = Code.expect;
@@ -28,49 +28,49 @@ lab.experiment('AnimationFrameInfoGenerator', () =>
 {
 	lab.test('single day with 0 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries1, 10, 5, 0);
+		const generator = new AnimationGenerator(plotSeries1, 10, 5, 0);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(6);
 	});
 
 	lab.test('single day with 1 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries1, 10, 5, 1);
+		const generator = new AnimationGenerator(plotSeries1, 10, 5, 1);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(6);
 	});
 
 	lab.test('single day with 5 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries1, 10, 5, 5);
+		const generator = new AnimationGenerator(plotSeries1, 10, 5, 5);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(6);
 	});
 
 	lab.test('two days with 0 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries2, 10, 5, 5);
+		const generator = new AnimationGenerator(plotSeries2, 10, 5, 5);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(16);
 	});
 
 	lab.test('two days with 1 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries2, 10, 5, 1);
+		const generator = new AnimationGenerator(plotSeries2, 10, 5, 1);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(6);
 	});
 
 	lab.test('two days with 2 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries2, 10, 5, 2);
+		const generator = new AnimationGenerator(plotSeries2, 10, 5, 2);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(16);
 	});
 
 	lab.test('two days with 5 limit', async () =>
 	{
-		const generator = new AnimationFrameInfoGenerator(plotSeries2, 10, 5, 5);
+		const generator = new AnimationGenerator(plotSeries2, 10, 5, 5);
 		const result = Array.from(generator.generate());
 		expect(result.length).equals(16);
 	});

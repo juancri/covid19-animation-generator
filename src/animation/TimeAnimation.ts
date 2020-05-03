@@ -1,22 +1,19 @@
-import { FrameInfo, PlotSeries } from '../util/Types';
+import { PlotSeries, FrameInfo } from '../util/Types';
 import { DateTime } from 'luxon';
 
-export default class AnimationFrameInfoGenerator
+export default class TimeAnimation
 {
-	private days: number;
-	private extraFrames: number;
-	private firstDate: DateTime;
-	private frames: number;
-	private lastDate: DateTime;
 	private series: PlotSeries[];
+	private frames: number;
+	private days: number;
+	private firstDate: DateTime;
+	private lastDate: DateTime;
 
-	public constructor(series: PlotSeries[], frames: number,
-		extraFrames: number, days: number)
+	public constructor(series: PlotSeries[], frames: number, days: number)
 	{
 		// Save
 		this.series = series;
 		this.frames = frames;
-		this.extraFrames = extraFrames;
 		this.days = days;
 
 		// Calculate
@@ -26,10 +23,8 @@ export default class AnimationFrameInfoGenerator
 
 	public *generate(): Generator<FrameInfo>
 	{
-		// Initial frame
 		yield { date: this.firstDate, ratio: 1 };
 
-		// Regular animation frames
 		let current = this.firstDate.plus({ days: 1 });
 		while (current <= this.lastDate)
 		{
@@ -37,17 +32,7 @@ export default class AnimationFrameInfoGenerator
 				yield { date: current, ratio: frame / this.frames };
 			current = current.plus({ days: 1 });
 		}
-
-		// Extra frames
-		if (this.extraFrames < 1)
-			return;
-
-		for (let currentExtra = 1; currentExtra <= this.extraFrames; currentExtra++)
-			yield { date: this.lastDate, ratio: 1 };
 	}
-
-
-	// Private methods
 
 	private getFirstDate()
 	{
