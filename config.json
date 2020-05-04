@@ -179,6 +179,88 @@
 					"color": "#ffa600"
 				}
 			]
+		},
+		"chile": {
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
+			"nameColumn": "region",
+			"series":
+			[
+				{
+					"name": "Arica y Parinacota",
+					"code": "Arica",
+					"color": "white"
+				},
+				{
+					"name": "Tarapacá",
+					"code": "Tarapacá",
+					"color": "white"
+				},
+				{
+					"name": "Antofagasta",
+					"code": "Antofagasta",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Atacama",
+					"code": "Atacama",
+					"color": "white"
+				},
+				{
+					"name": "Coquimbo",
+					"code": "Coquimbo",
+					"color": "white"
+				},
+				{
+					"name": "Valparaíso",
+					"code": "Valparaíso",
+					"color": "#665191"
+				},
+				{
+					"name": "Metropolitana",
+					"code": "Metropolitana",
+					"color": "#ffa600"
+				},
+				{
+					"name": "O’Higgins",
+					"code": "O’Higgins",
+					"color": "white"
+				},
+				{
+					"name": "Maule",
+					"code": "Maule",
+					"color": "#0076AC"
+				},
+				{
+					"name": "Ñuble",
+					"code": "Ñuble",
+					"color": "#E28888"
+				},
+				{
+					"name": "Biobío",
+					"code": "Biobío",
+					"color": "#9BFF84"
+				},
+				{
+					"name": "Araucanía",
+					"code": "Araucanía",
+					"color": "#d45087"
+				},
+				{
+					"name": "Los Ríos",
+					"code": "Los Ríos",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Los Lagos",
+					"code": "Los Lagos",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "Magallanes",
+					"code": "Magallanes",
+					"color": "#a05195"
+				}
+			]
 		}
 	},
 	"defaults":
