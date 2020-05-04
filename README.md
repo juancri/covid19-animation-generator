@@ -27,7 +27,7 @@ Generates an animation based on COVID-19 daily data.
 
 ```node dist/main```
 
-The data is automatically downloaded from the [JHU CSSE repository](https://github.com/CSSEGISandData/COVID-19)
+The data is automatically downloaded from the [JHU CSSE repository](https://github.com/CSSEGISandData/COVID-19) and [Datos covid19 en Chile by Jorge Perez](https://github.com/jorgeperezrojas/covid19-data)
 
 ### Parameters
 
@@ -35,13 +35,13 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 - ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
   - ```global```: Compare countries
   - ```us```: Compare states (US)
+  - ```chile```: Compare regions (Chile)
 - ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
 - ```--layout``` (optional): Sets the output layout. Default: ```vertical```. Possible values:
   - ```square```: Square layout (1250x1250)
   - ```vertical```: Vertical layout (1080x1920)
   - ```horizontal```: Horizontal layout (1920x1080)
-  - ```dark-square```: Square dark theme (1250x1250)
 - ```--days``` (optional): Number of days for which the animation will be generated. Default: 20. Use 0 to plot all days.
 - ```--frames``` (optional): Number of frames per day. Default: 30.
 - ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
@@ -50,17 +50,17 @@ The data is automatically downloaded from the [JHU CSSE repository](https://gith
 
 - ```node dist/main```
 - ```node dist/main --source global```
-- ```node dist/main --schema dark-square```
-- ```node dist/main --source us --schema dark-vertical```
-- ```node dist/main --source us --schema dark-vertical --frames 20```
+- ```node dist/main --layout square```
+- ```node dist/main --source us --layout vertical```
+- ```node dist/main --source us --layout vertical --frames 20```
 
 ## Output
 
-The generated images will be in the output directory
+The generated images will be in the ```output``` directory
 
 ## Generate animation
 
-You can use convert to generate an animation (60 fps). Requires ImageMagick (convert), parallel and ffmpeg. Run:
+You can generate an animation (60 fps). Requires ffmpeg. Run:
 
 ```
 npm run video
