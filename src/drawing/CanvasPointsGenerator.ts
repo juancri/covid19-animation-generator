@@ -2,7 +2,7 @@ import { Box, PlotSeries } from '../util/Types';
 
 export default class CanvasPointsGenerator
 {
-	public static generate(plotArea: Box, series: PlotSeries[])
+	public static generate(series: PlotSeries[], plotArea: Box)
 	{
 		const honrizontalSize = plotArea.right - plotArea.left;
 		const verticalSize = plotArea.bottom - plotArea.top;

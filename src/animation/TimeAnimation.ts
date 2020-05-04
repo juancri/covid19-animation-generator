@@ -37,7 +37,10 @@ export default class TimeAnimation
 		}
 	}
 
-	public getScale(frameFilterInfo: FrameFilterInfo, filteredSeries: PlotSeries[]) {
+	public getScale(filteredSeries: PlotSeries[],
+		frameFilterInfo: FrameFilterInfo,
+		frameIndex: number,
+		stepFrameIndex: number) {
 		return DynamicScaleGenerator.generate(filteredSeries);
 	}
 

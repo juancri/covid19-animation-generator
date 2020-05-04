@@ -21,7 +21,10 @@ export default class FixedFrameAnimation
 			yield this.frameFilterInfo;
 	}
 
-	public getScale(frameFilterInfo: FrameFilterInfo, filteredSeries: PlotSeries[]) {
+	public getScale(filteredSeries: PlotSeries[],
+		frameFilterInfo: FrameFilterInfo,
+		frameIndex: number,
+		stepFrameIndex: number) {
 		if (this.scale === null)
 			this.scale = DynamicScaleGenerator.generate(filteredSeries);
 		return this.scale;

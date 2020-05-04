@@ -107,7 +107,11 @@ export interface FrameInfo {
 
 export interface Animation {
 	getFrames: () => Generator<FrameFilterInfo>;
-	getScale: (frameFilterInfo: FrameFilterInfo, filteredSeries: PlotSeries[]) => Scale;
+	getScale: (
+		filteredSeries: PlotSeries[],
+		frameFilterInfo: FrameFilterInfo,
+		frameIndex: number,
+		stepFrameIndex: number) => Scale;
 }
 
 export interface PlotSeries {
