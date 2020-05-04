@@ -15,12 +15,13 @@ export default class AnimationPipeline
 	public constructor(series: PlotSeries[], plotArea: Box, frames: number,
 		extraFrames: number, days: number)
 	{
+		const lastCode = series[series.length - 1].code;
 		this.series = series;
 		this.plotArea = plotArea;
 		this.animations = [
 			new TimeAnimation(series, frames, days),
 			new FixedFrameAnimation(series, extraFrames / 2),
-			new ZoomAnimation(series, 'CL'), // FIXME: constant?
+			new ZoomAnimation(series, lastCode),
 			new FixedFrameAnimation(series, extraFrames)
 		];
 	}
