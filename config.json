@@ -46,18 +46,6 @@
 				"size": 30
 			}
 		},
-		"square-10m":
-		{
-			"canvasSize": [1250, 1250],
-			"base": [140, 1110],
-			"scale": [166.66, 166.66],
-			"circleSize": 15,
-			"datePosition": [1000, 100],
-			"dateFont":
-			{
-				"size": 30
-			}
-		},
 		"vertical":
 		{
 			"canvasSize": [1080, 1920],
