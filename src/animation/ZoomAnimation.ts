@@ -1,5 +1,6 @@
-import { FrameFilterInfo, PlotSeries, Scale, PlotPoint } from '../util/Types';
+import { FrameFilterInfo, PlotSeries, Scale } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
+import EasingAnimation from './EasingAnimation';
 
 const STEPS = [
 	{ frames: 240, zoom: true },
@@ -57,7 +58,7 @@ export default class ZoomAnimation
 			};
 		}
 
-		const factor = this.getFactor(stepFrameIndex) * ZOOM_RATIO;
+		const factor = EasingAnimation.easeInOutQuad(this.getFactor(stepFrameIndex)) * ZOOM_RATIO;
 		return {
 			horizontal:
 			{
