@@ -7,9 +7,13 @@ import { DateTime } from 'luxon';
 
 // Local
 import { DataSource, TimeSeries } from '../util/Types';
+import ChileComunasPreprocessor from './ChileComunasPreprocessor';
 
 // Constants
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
+const PRE_PROCESSORS: { [key: string]: (input: any[]) => any[] } = {
+	'chile-comunas': ChileComunasPreprocessor.process
+};
 
 export default class DataLoader
 {
@@ -20,7 +24,14 @@ export default class DataLoader
 			url: dataSource.url,
 			responseType: 'stream'
 		});
-		const csvData = await csv().fromStream(response.data);
+		let csvData = await csv().fromStream(response.data);
+		if (dataSource.preProcessor)
+		{
+			const preProcessor = PRE_PROCESSORS[dataSource.preProcessor];
+			if (!preProcessor)
+				throw new Error(`Pre-processor not found: ${dataSource.preProcessor}`);
+			csvData = preProcessor(csvData);
+		}
 		const data = csvData.map(item => ({
 			name: item[dataSource.nameColumn],
 			data: Object

@@ -62,6 +62,7 @@ export interface Layout {
 export interface DataSource {
 	url: string;
 	nameColumn: string;
+	preProcessor: string;
 	series: SeriesConfiguration[];
 }
 
