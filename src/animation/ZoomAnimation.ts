@@ -4,8 +4,8 @@ import EasingAnimation from './EasingAnimation';
 
 const STEPS = [
 	{ frames: 240, zoom: true },
-	{ frames: 60, zoom: null },
-	{ frames: 180, zoom: false }
+	{ frames: 120, zoom: null },
+	{ frames: 240, zoom: false }
 ];
 
 const TOTAL_FRAMES = STEPS.map(s => s.frames).reduce((a, b) => a + b, 0);
@@ -58,7 +58,7 @@ export default class ZoomAnimation
 			};
 		}
 
-		const factor = EasingAnimation.easeInOutQuad(this.getFactor(stepFrameIndex)) * ZOOM_RATIO;
+		const factor = EasingAnimation.easeInOutCubic(this.getFactor(stepFrameIndex)) * ZOOM_RATIO;
 		return {
 			horizontal:
 			{
