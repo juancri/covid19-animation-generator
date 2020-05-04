@@ -1,4 +1,4 @@
-import { DataPoint, PlotPoint } from '@/util/Types';
+import { DataPoint, PlotPoint } from '../util/Types';
 
 export default class Log10PlotPointsGenerator
 {

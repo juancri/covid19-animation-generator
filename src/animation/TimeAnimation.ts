@@ -1,5 +1,6 @@
-import { PlotSeries, FrameInfo } from '../util/Types';
+import { PlotSeries, FrameFilterInfo } from '../util/Types';
 import { DateTime } from 'luxon';
+import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
 export default class TimeAnimation
 {
@@ -21,10 +22,12 @@ export default class TimeAnimation
 		this.firstDate = this.getFirstDate();
 	}
 
-	public *generate(): Generator<FrameInfo>
+	public *getFrames(): Generator<FrameFilterInfo>
 	{
+		// First day with ratio 1
 		yield { date: this.firstDate, ratio: 1 };
 
+		// Rest of the days
 		let current = this.firstDate.plus({ days: 1 });
 		while (current <= this.lastDate)
 		{
@@ -32,6 +35,10 @@ export default class TimeAnimation
 				yield { date: current, ratio: frame / this.frames };
 			current = current.plus({ days: 1 });
 		}
+	}
+
+	public getScale(frameFilterInfo: FrameFilterInfo, filteredSeries: PlotSeries[]) {
+		return DynamicScaleGenerator.generate(filteredSeries);
 	}
 
 	private getFirstDate()

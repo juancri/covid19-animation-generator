@@ -1,14 +1,10 @@
 import { DateTime } from 'luxon';
 
-import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries, PlotPoint } from '../util/Types';
-import AnimationGenerator from '../animation/AnimationGenerator';
+import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries } from '../util/Types';
+import AnimationPipeline from '../animation/AnimationPipeline';
 import CanvasWriter from './CanvasWriter';
-import DataFrameFilter from './DataFrameFilter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
-import ScaledPointsGenerator from './ScaledPointsGenerator';
-import CanvasPointsGenerator from './CanvasPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
-import ScaleGenerator from './ScaleGenerator';
 
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
@@ -17,12 +13,8 @@ export default class ImageGenerator
 {
 	// Fields
 
-	private canvasGenerator: CanvasPointsGenerator;
 	private color: ColorSchema;
-	private filter: DataFrameFilter;
 	private layout: Layout;
-	private scaleGenerator: ScaleGenerator;
-	private scaledPointsGenerator: ScaledPointsGenerator;
 	private series: PlotSeries[];
 
 
@@ -34,10 +26,6 @@ export default class ImageGenerator
 		this.color = color;
 		this.layout = layout;
 		this.series = this.createPlotSeries(series, configuration);
-		this.filter = new DataFrameFilter(this.series);
-		this.scaleGenerator = new ScaleGenerator(this.filter);
-		this.scaledPointsGenerator = new ScaledPointsGenerator(this.scaleGenerator);
-		this.canvasGenerator = new CanvasPointsGenerator(layout.plotArea);
 	}
 
 
@@ -47,8 +35,12 @@ export default class ImageGenerator
 		frames: number, extraFrames: number, days: number)
 	{
 		// Setup bounderies
-		const writer = new CanvasWriter(outputDirectory, this.layout.canvasSize, this.color.background);
-		const frameInfoGenerator = new AnimationGenerator(this.series, frames, extraFrames, days);
+		const writer = new CanvasWriter(
+			outputDirectory, this.layout.canvasSize,
+			this.color.background);
+		const frameInfoGenerator = new AnimationPipeline(
+			this.series, this.layout.plotArea,
+			frames, extraFrames, days);
 
 		for (const frameInfo of frameInfoGenerator.generate())
 			await this.drawFrame(frameInfo, writer);
@@ -72,61 +64,55 @@ export default class ImageGenerator
 		});
 	}
 
-	private async drawFrame(frameInfo: FrameInfo, writer: CanvasWriter)
+	private async drawFrame(frame: FrameInfo, writer: CanvasWriter)
 	{
 		writer.clean();
-		this.filter.apply(frameInfo);
-		this.scaleGenerator.apply();
-		this.scaledPointsGenerator.apply();
-		for (const series of this.filter.getFiltered())
+		for (const series of frame.series)
 		{
 			// Draw series
-			const points = series.points
-				.map(point => this.scaledPointsGenerator.generate(point))
-				.map(point => this.canvasGenerator.generate(point));
-			this.drawSeriesLines(points, series.color, writer);
-			this.drawSeriesCircle(points, series.color, writer);
-			this.drawSeriesLabel(points, series.code, writer);
+			this.drawSeriesLines(series, writer);
+			this.drawSeriesCircle(series, writer);
+			this.drawSeriesLabel(series, writer);
 
 			// Draw other items
-			this.drawScale(writer);
-			this.drawDate(writer, frameInfo.date);
+			this.drawScale(writer, frame);
+			this.drawDate(writer, frame.date);
 		}
 
 		await writer.save();
 	}
 
-	private drawSeriesLines(points: PlotPoint[], color: string, writer: CanvasWriter)
+	private drawSeriesLines(series: PlotSeries, writer: CanvasWriter)
 	{
-		if (points.length < 2)
+		if (series.points.length < 2)
 			return;
 
-		writer.drawPolyline(color, 3, points, this.layout.plotArea);
+		writer.drawPolyline(series.color, 3, series.points, this.layout.plotArea);
 	}
 
-	private drawSeriesCircle(points: PlotPoint[], color: string, writer: CanvasWriter)
+	private drawSeriesCircle(series: PlotSeries, writer: CanvasWriter)
 	{
-		if (!points.length)
+		if (!series.points.length)
 			return;
 
-		const point = points[points.length - 1];
-		writer.drawCircle(this.layout.circleSize, color, point, this.layout.plotArea);
+		const point = series.points[series.points.length - 1];
+		writer.drawCircle(this.layout.circleSize, series.color, point, this.layout.plotArea);
 	}
 
-	private drawSeriesLabel(points: PlotPoint[], label: string, writer: CanvasWriter)
+	private drawSeriesLabel(series: PlotSeries, writer: CanvasWriter)
 	{
-		if (!points.length)
+		if (!series.points.length)
 			return;
 
-		const point = points[points.length - 1];
+		const point = series.points[series.points.length - 1];
 		const x = point.x + this.color.series.offset.x;
 		const y = point.y + this.color.series.offset.y;
 		writer.drawText(
-			label, this.color.series.font, this.color.series.color,
+			series.code, this.color.series.font, this.color.series.color,
 			{ x, y }, this.layout.plotArea);
 	}
 
-	private drawScale(writer: CanvasWriter)
+	private drawScale(writer: CanvasWriter, frame: FrameInfo)
 	{
 		// Lines
 		const area = this.layout.plotArea;
@@ -138,8 +124,8 @@ export default class ImageGenerator
 		writer.drawPolyline(this.color.scale.color, 2, points);
 
 		// Scale labels
-		this.drawScaleLabels(writer, true);
-		this.drawScaleLabels(writer, false);
+		this.drawScaleLabels(writer, frame, true);
+		this.drawScaleLabels(writer, frame, false);
 
 		// Axis Label X
 		const boxX = {
@@ -160,15 +146,15 @@ export default class ImageGenerator
 		writer.drawBoxedText(Y_LABEL, this.color.axis.font, this.color.axis.color, boxY, -90);
 	}
 
-	private drawScaleLabels(writer: CanvasWriter, horizontal: boolean)
+	private drawScaleLabels(writer: CanvasWriter, frame: FrameInfo, horizontal: boolean)
 	{
 		const area = this.layout.plotArea;
 		const areaWidth = horizontal ?
 			area.right - area.left :
 			area.bottom - area.top;
 		const scale = horizontal ?
-			this.scaleGenerator.getScale().horizontal :
-			this.scaleGenerator.getScale().vertical;
+			frame.scale.horizontal :
+			frame.scale.vertical;
 		const start = horizontal ? area.left : area.bottom;
 		const reverse = !horizontal;
 		const rotate = horizontal ? 0 : -90;

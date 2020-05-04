@@ -81,6 +81,8 @@ export interface Configuration {
 	}
 }
 
+// Ploy
+
 export interface Scale {
 	horizontal: {
 		min: number;
@@ -92,16 +94,20 @@ export interface Scale {
 	}
 }
 
-// Plot
-
-export interface Animation {
-	generate: () => Generator<FrameInfo>
+export interface FrameFilterInfo {
+	date: DateTime;
+	ratio: number;
 }
 
 export interface FrameInfo {
 	date: DateTime;
-	series: TimeSeries[];
+	series: PlotSeries[];
 	scale: Scale;
+}
+
+export interface Animation {
+	getFrames: () => Generator<FrameFilterInfo>;
+	getScale: (frameFilterInfo: FrameFilterInfo, filteredSeries: PlotSeries[]) => Scale;
 }
 
 export interface PlotSeries {

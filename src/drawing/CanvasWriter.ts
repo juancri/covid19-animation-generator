@@ -2,7 +2,7 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { Point, Box } from '@/util/Types';
+import { Point, Box } from '../util/Types';
 // @ts-ignore
 import * as promisePipe from 'promisepipe';
 
