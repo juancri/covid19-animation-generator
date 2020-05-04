@@ -55,5 +55,6 @@ const main = async () =>
 	catch (e)
 	{
 		console.log(e);
+		process.exit(1);
 	}
 })();
