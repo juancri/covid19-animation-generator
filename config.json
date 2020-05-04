@@ -164,11 +164,6 @@
 					"color": "#f95d6a"
 				},
 				{
-					"name": "Washington",
-					"code": "WA",
-					"color": "#ffa600"
-				},
-				{
 					"name": "New Jersey",
 					"code": "NJ",
 					"color": "#00B0FF"
@@ -177,6 +172,11 @@
 					"name": "Florida",
 					"code": "FL",
 					"color": "#0076AC"
+				},
+				{
+					"name": "Washington",
+					"code": "WA",
+					"color": "#ffa600"
 				}
 			]
 		}
