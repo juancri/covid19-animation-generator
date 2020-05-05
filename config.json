@@ -263,8 +263,7 @@
 			]
 		},
 		"chile-comunas": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/long_confirmados_comunas_interpolado.csv",
-			"preProcessor": "chile-comunas",
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
 			"nameColumn": "comuna",
 			"series":
 			[
