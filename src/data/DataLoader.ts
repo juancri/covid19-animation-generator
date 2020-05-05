@@ -1,12 +1,11 @@
 
 // Dependencies
-import axios from 'axios';
-import * as csv from 'csvtojson';
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 // Local
 import { DataSource, TimeSeries } from '../util/Types';
+import Downloader from '../util/Downloader';
 
 // Constants
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
@@ -15,12 +14,7 @@ export default class DataLoader
 {
 	public static async load(dataSource: DataSource): Promise<TimeSeries[]>
 	{
-		const response = await axios({
-			method: 'get',
-			url: dataSource.url,
-			responseType: 'stream'
-		});
-		const csvData = await csv().fromStream(response.data);
+		const csvData = await Downloader.download(dataSource.url);
 		const data = csvData.map(item => ({
 			name: item[dataSource.nameColumn],
 			data: Object
@@ -46,8 +40,9 @@ export default class DataLoader
 						value: group2.sum(x => x.value)
 					}))
 					.orderBy(x => x.date)
-					.toArray()
-
+					.toArray(),
+				// Milestones should be loaded later
+				milestones: null
 			}))
 			.toArray();
 	}
