@@ -180,6 +180,74 @@
 				}
 			]
 		},
+		"washington":
+		{
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
+			"nameColumn": "Combined_Key",
+			"series":
+			[
+				{
+					"name": "Pierce, Washington, US",
+					"code": "Pierce",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Snohomish, Washington, US",
+					"code": "Snohomish",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Spokane, Washington, US",
+					"code": "Spokane",
+					"color": "#d45087"
+				},
+				{
+					"name": "Clark, Washington, US",
+					"code": "Clark",
+					"color": "#a05195"
+				},
+				{
+					"name": "Thurston, Washington, US",
+					"code": "Thurston",
+					"color": "#9988BC"
+				},
+				{
+					"name": "Kitsap, Washington, US",
+					"code": "Kitsap",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "Yakima, Washington, US",
+					"code": "Yakima",
+					"color": "#0076AC"
+				},
+				{
+					"name": "Whatcom, Washington, US",
+					"code": "Whatcom",
+					"color": "#E28888"
+				},
+				{
+					"name": "Benton, Washington, US",
+					"code": "Benton",
+					"color": "#9BFF84"
+				},
+				{
+					"name": "Skagit, Washington, US",
+					"code": "Skagit",
+					"color": "#00FFF8"
+				},
+				{
+					"name": "Cowlitz, Washington, US",
+					"code": "Cowlitz",
+					"color": "white"
+				},
+				{
+					"name": "King, Washington, US",
+					"code": "King",
+					"color": "#ffa600"
+				}
+			]
+		},
 		"chile": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
 			"nameColumn": "region",

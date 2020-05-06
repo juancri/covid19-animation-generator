@@ -17,8 +17,8 @@ export default class DynamicScaleGenerator
 				.where(x => !!x)
 				.toArray());
 
-		const min = Math.max(lastPoints.min(), 0);
-		const max = lastPoints.max();
+		const min = Math.max(lastPoints.min(), 1);
+		const max = Math.max(lastPoints.max(), 1);
 		return {
 			horizontal: {
 				min: min - MARGIN,
