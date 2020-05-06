@@ -8,6 +8,7 @@ import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
+const WATERMARK_LABEL = 'instagram.com/covid19statsvideos';
 
 export default class ImageGenerator
 {
@@ -77,6 +78,7 @@ export default class ImageGenerator
 			// Draw other items
 			this.drawScale(writer, frame);
 			this.drawDate(writer, frame.date);
+			this.drawWatermark(writer);
 		}
 
 		await writer.save();
@@ -189,5 +191,14 @@ export default class ImageGenerator
 			this.color.date.font,
 			this.color.date.color,
 			this.layout.datePosition);
+	}
+
+	private drawWatermark(writer: CanvasWriter)
+	{
+		writer.drawText(
+			WATERMARK_LABEL,
+			this.color.watermark.font,
+			this.color.watermark.color,
+			this.layout.watermarkPosition);
 	}
 }

@@ -25,6 +25,10 @@
 			{
 				"font": "40px DejaVu Sans Mono",
 				"color": "#FFBD00"
+			},
+			"watermark": {
+				"font": "30px DejaVu Sans Mono",
+				"color": "#FFD155"
 			}
 		}
 	},
@@ -44,7 +48,8 @@
 			"dateFont":
 			{
 				"size": 30
-			}
+			},
+			"watermarkPosition": { "x": 50, "y": 70 }
 		},
 		"vertical":
 		{
@@ -60,7 +65,8 @@
 			"dateFont":
 			{
 				"size": 60
-			}
+			},
+			"watermarkPosition": { "x": 100, "y": 100 }
 		},
 		"horizontal":
 		{
@@ -78,7 +84,8 @@
 			"dateFont":
 			{
 				"size": 60
-			}
+			},
+			"watermarkPosition": { "x": 100, "y": 100 }
 		}
 	},
 	"dataSources": {
