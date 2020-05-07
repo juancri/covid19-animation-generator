@@ -28,7 +28,7 @@
 			},
 			"watermark": {
 				"font": "30px DejaVu Sans Mono",
-				"color": "#FFD155"
+				"color": "#B8B8B8"
 			}
 		}
 	},
@@ -49,7 +49,7 @@
 			{
 				"size": 30
 			},
-			"watermarkPosition": { "x": 50, "y": 70 }
+			"watermarkPosition": { "x": 250, "y": 95 }
 		},
 		"vertical":
 		{
