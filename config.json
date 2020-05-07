@@ -28,7 +28,8 @@
 			},
 			"watermark": {
 				"font": "30px DejaVu Sans Mono",
-				"color": "#B8B8B8"
+				"background": "#101010",
+				"color": "#FFB000"
 			}
 		}
 	},
@@ -44,12 +45,17 @@
 				"bottom": 1110
 			},
 			"circleSize": 7,
-			"datePosition": { "x": 900, "y": 100 },
+			"datePosition": { "x": 900, "y": 150 },
 			"dateFont":
 			{
 				"size": 30
 			},
-			"watermarkPosition": { "x": 250, "y": 95 }
+			"watermarkArea": {
+				"left": 0,
+				"right": 1250,
+				"top": 0,
+				"bottom": 50
+			}
 		},
 		"vertical":
 		{
@@ -66,7 +72,12 @@
 			{
 				"size": 60
 			},
-			"watermarkPosition": { "x": 100, "y": 100 }
+			"watermarkArea": {
+				"left": 0,
+				"right": 1080,
+				"top": 0,
+				"bottom": 50
+			}
 		},
 		"horizontal":
 		{
@@ -85,7 +96,12 @@
 			{
 				"size": 60
 			},
-			"watermarkPosition": { "x": 100, "y": 100 }
+			"watermarkArea": {
+				"left": 0,
+				"right": 1920,
+				"top": 0,
+				"bottom": 50
+			}
 		}
 	},
 	"dataSources": {

@@ -44,6 +44,7 @@ export interface ColorSchema {
 	},
 	watermark: {
 		font: string;
+		background: string;
 		color: string;
 	}
 }
@@ -60,8 +61,8 @@ export interface Layout {
 	plotArea: Box;
 	circleSize: number;
 	datePosition: Point;
-	watermarkPosition: Point;
 	dateFont: object;
+	watermarkArea: Box;
 }
 
 export interface DataSource {

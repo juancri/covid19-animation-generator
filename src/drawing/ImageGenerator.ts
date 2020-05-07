@@ -195,10 +195,13 @@ export default class ImageGenerator
 
 	private drawWatermark(writer: CanvasWriter)
 	{
-		writer.drawText(
+		writer.drawFilledRectangle(
+			this.layout.watermarkArea,
+			this.color.watermark.background);
+		writer.drawBoxedText(
 			WATERMARK_LABEL,
 			this.color.watermark.font,
 			this.color.watermark.color,
-			this.layout.watermarkPosition);
+			this.layout.watermarkArea);
 	}
 }

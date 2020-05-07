@@ -97,6 +97,14 @@ export default class CanvasWriter
 		});
 	}
 
+	public drawFilledRectangle(box: Box, color: string)
+	{
+		const width = box.right - box.left;
+		const height = box.bottom - box.top;
+		this.ctx.fillStyle = color;
+		this.ctx.fillRect(box.left, box.top, width, height);
+	}
+
 	public async save()
 	{
 		const input = this.canvas.createJPEGStream();
