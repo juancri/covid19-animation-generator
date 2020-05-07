@@ -40,7 +40,7 @@ The data is downloaded automatically
   - ```chile```: Compare regions (Chile)
 - ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
-- ```--layout``` (optional): Sets the output layout. Default: ```vertical```. Possible values:
+- ```--layout``` (optional): Sets the output layout. Default: ```square```. Possible values:
   - ```square```: Square layout (1250x1250)
   - ```vertical```: Vertical layout (1080x1920)
   - ```horizontal```: Horizontal layout (1920x1080)

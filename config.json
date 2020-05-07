@@ -414,7 +414,7 @@
 	"defaults":
 	{
 		"schema": "dark",
-		"layout": "vertical",
+		"layout": "square",
 		"source": "global",
 		"days": 20,
 		"frames": 30,
