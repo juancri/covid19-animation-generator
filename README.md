@@ -47,6 +47,8 @@ The data is downloaded automatically
 - ```--days``` (optional): Number of days for which the animation will be generated. Default: 20. Use 0 to plot all days.
 - ```--frames``` (optional): Number of frames per day. Default: 30.
 - ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
+- ```--horizontalAxisLabel``` (optional): Horizontal axis label. Default: "total confirmed cases (log)".
+- ```--verticalAxisLabel``` (optional): Vertical axis label. Default: "new confirmed cases (log, last week)".
 
 #### Examples
 

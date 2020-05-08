@@ -9,8 +9,6 @@ import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
 const ICON_PATH = path.join(__dirname, '../../assets/insta40.png');
-const X_LABEL = 'total confirmed cases (log)';
-const Y_LABEL = 'new confirmed cases (log, last week)';
 const WATERMARK_LABEL = '@covid19statsvideos';
 
 export default class ImageGenerator
@@ -20,15 +18,20 @@ export default class ImageGenerator
 	private color: ColorSchema;
 	private layout: Layout;
 	private series: PlotSeries[];
+	private horizontalAxisLabel: string;
+	private verticalAxisLabel: string;
 
 
 	// Constructor
 
 	public constructor (series: TimeSeries[], configuration: SeriesConfiguration[],
-		color: ColorSchema, layout: Layout)
+		color: ColorSchema, layout: Layout,
+		horizontalAxisLabel: string, verticalAxisLabel: string)
 	{
 		this.color = color;
 		this.layout = layout;
+		this.horizontalAxisLabel = horizontalAxisLabel;
+		this.verticalAxisLabel = verticalAxisLabel;
 		this.series = this.createPlotSeries(series, configuration);
 	}
 
@@ -139,7 +142,11 @@ export default class ImageGenerator
 			top: area.bottom,
 			bottom: area.bottom + this.color.axis.offset
 		};
-		writer.drawBoxedText(X_LABEL, this.color.axis.font, this.color.axis.color, boxX);
+		writer.drawBoxedText(
+			this.horizontalAxisLabel,
+			this.color.axis.font,
+			this.color.axis.color,
+			boxX);
 
 		// Axis Label Y
 		const boxY = {
@@ -148,7 +155,11 @@ export default class ImageGenerator
 			top: area.top,
 			bottom: area.bottom
 		};
-		writer.drawBoxedText(Y_LABEL, this.color.axis.font, this.color.axis.color, boxY, -90);
+		writer.drawBoxedText(
+			this.verticalAxisLabel,
+			this.color.axis.font,
+			this.color.axis.color,
+			boxY, -90);
 	}
 
 	private drawScaleLabels(writer: CanvasWriter, frame: FrameInfo, horizontal: boolean)

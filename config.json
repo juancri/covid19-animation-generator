@@ -490,6 +490,8 @@
 		"source": "global",
 		"days": 20,
 		"frames": 30,
-		"extraFrames": 300
+		"extraFrames": 300,
+		"horizontalAxisLabel": "total confirmed cases (log)",
+		"verticalAxisLabel": "new confirmed cases (log, last week)"
 	}
 }

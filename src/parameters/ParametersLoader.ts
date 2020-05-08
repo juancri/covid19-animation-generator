@@ -8,7 +8,9 @@ const PARAMETERS = {
 	layout: 'Sets the output layout',
 	days: 'Number of days for which the animation will be generated. Use 0 to plot all days.',
 	frames: 'Number of frames per day',
-	extraFrames: 'Number of extra frames for the last image'
+	extraFrames: 'Number of extra frames for the last image',
+	horizontalAxisLabel: 'Horizontal axis label',
+	verticalAxisLabel: 'Vertical axis label'
 };
 const argv = optimist.argv;
 

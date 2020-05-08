@@ -39,7 +39,9 @@ const main = async () =>
 		timeSeries,
 		dataSource.series,
 		colorSchema,
-		layout);
+		layout,
+		options.horizontalAxisLabel,
+		options.verticalAxisLabel);
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,
