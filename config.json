@@ -172,6 +172,63 @@
 				}
 			]
 		},
+		"southamerica": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+			"nameColumn": "Country/Region",
+			"series":
+			[
+				{
+					"name": "Argentina",
+					"code": "AR",
+					"color": "white"
+				},
+				{
+					"name": "Brazil",
+					"code": "BR",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Bolivia",
+					"code": "BO",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Uruguay",
+					"code": "UY",
+					"color": "#d45087"
+				},
+				{
+					"name": "Paraguay",
+					"code": "PY",
+					"color": "#a05195"
+				},
+				{
+					"name": "Peru",
+					"code": "PE",
+					"color": "#9988BC"
+				},
+				{
+					"name": "Ecuador",
+					"code": "EC",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "Colombia",
+					"code": "CO",
+					"color": "#0076AC"
+				},
+				{
+					"name": "Venezuela",
+					"code": "VE",
+					"color": "#E28888"
+				},
+				{
+					"name": "Chile",
+					"code": "CL",
+					"color": "#ffa600"
+				}
+			]
+		},
 		"us": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
 			"nameColumn": "Province_State",
