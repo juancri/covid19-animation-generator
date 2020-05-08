@@ -58,8 +58,16 @@
 					"top": 0,
 					"bottom": 80
 				},
-				"iconPosition": { "x": 345, "y": 20 },
-				"textPosition": { "x": 405, "y": 55 }
+				"icons":
+				{
+					"twitter": { "x": 35, "y": 20 },
+					"instagram": { "x": 595, "y": 20 }
+				},
+				"labels":
+				{
+					"/covid19statsvid": { "x": 70, "y": 55 },
+					"/covid19statsvideos": { "x": 640, "y": 55 }
+				}
 			}
 		},
 		"vertical":
@@ -85,8 +93,16 @@
 					"top": 0,
 					"bottom": 80
 				},
-				"iconPosition": { "x": 345, "y": 20 },
-				"textPosition": { "x": 405, "y": 55 }
+				"icons":
+				{
+					"twitter": { "x": 35, "y": 20 },
+					"instagram": { "x": 595, "y": 20 }
+				},
+				"labels":
+				{
+					"/covid19statsvid": { "x": 70, "y": 55 },
+					"/covid19statsvideos": { "x": 640, "y": 55 }
+				}
 			}
 		},
 		"horizontal":
@@ -114,8 +130,16 @@
 					"top": 0,
 					"bottom": 80
 				},
-				"iconPosition": { "x": 765, "y": 20 },
-				"textPosition": { "x": 825, "y": 55 }
+				"icons":
+				{
+					"twitter": { "x": 35, "y": 20 },
+					"instagram": { "x": 595, "y": 20 }
+				},
+				"labels":
+				{
+					"/covid19statsvid": { "x": 70, "y": 55 },
+					"/covid19statsvideos": { "x": 640, "y": 55 }
+				}
 			}
 		}
 	},

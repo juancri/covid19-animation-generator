@@ -65,8 +65,12 @@ export interface Layout {
 	watermark:
 	{
 		area: Box;
-		iconPosition: Point;
-		textPosition: Point;
+		icons: {
+			[key: string]: Point
+		},
+		labels: {
+			[key: string]: Point
+		}
 	}
 }
 

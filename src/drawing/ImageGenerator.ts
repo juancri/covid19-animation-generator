@@ -8,8 +8,7 @@ import CanvasWriter from './CanvasWriter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
-const ICON_PATH = path.join(__dirname, '../../assets/insta40.png');
-const WATERMARK_LABEL = '@covid19statsvideos';
+const ICON_DIRECTORY = path.join(__dirname, '../../assets');
 
 export default class ImageGenerator
 {
@@ -217,16 +216,23 @@ export default class ImageGenerator
 
 	private async drawWatermark(writer: CanvasWriter)
 	{
+		// Background
 		writer.drawFilledRectangle(
 			this.layout.watermark.area,
 			this.color.watermark.background);
-		await writer.drawImage(
-			ICON_PATH,
-			this.layout.watermark.iconPosition);
-		writer.drawText(
-			WATERMARK_LABEL,
-			this.color.watermark.font,
-			this.color.watermark.color,
-			this.layout.watermark.textPosition);
+
+		// Icons
+		for (const key of Object.keys(this.layout.watermark.icons))
+			await writer.drawImage(
+				path.join(ICON_DIRECTORY, `${key}.png`),
+				this.layout.watermark.icons[key]);
+
+		// Labels
+		for (const key of Object.keys(this.layout.watermark.labels))
+			writer.drawText(
+				key,
+				this.color.watermark.font,
+				this.color.watermark.color,
+				this.layout.watermark.labels[key]);
 	}
 }
