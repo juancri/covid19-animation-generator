@@ -35,9 +35,12 @@ The data is downloaded automatically
 
 - ```--help``` (optional): Displays a help message and exits.
 - ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
-  - ```global```: Compare countries
+  - ```global```: Compare countries (including Chile, US and others)
+  - ```southamerica```: Compare main countries in South America
   - ```us```: Compare states (US)
+  - ```washington```: Compare Washington State counties (US)
   - ```chile```: Compare regions (Chile)
+  - ```chile-comunas```: Compare communes (Chile)
 - ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
 - ```--layout``` (optional): Sets the output layout. Default: ```square```. Possible values:
