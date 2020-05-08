@@ -11,6 +11,11 @@ Generates an animation based on COVID-19 daily data.
   - [Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE](https://github.com/CSSEGISandData/COVID-19)
   - [Datos covid19 en Chile by Jorge Perez](https://github.com/jorgeperezrojas/covid19-data)
 
+## About
+
+- Created by [JC Olivares](https://twitter.com/juancriolivares).
+- Animations posted on Instagram: [@covid19statsvideos](https://instagram.com/covid19statsvideos)
+
 ## Requirements
 
 - Node 12.x
