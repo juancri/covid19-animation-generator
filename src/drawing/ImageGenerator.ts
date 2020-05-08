@@ -175,6 +175,14 @@ export default class ImageGenerator
 				top: horizontal ? area.bottom : pos - 50,
 				bottom: horizontal ? area.bottom + this.color.scale.offset : pos + 50
 			};
+
+			writer.drawCircle(
+				4,
+				this.color.scale.color,
+				{
+					x: horizontal ? pos : area.left,
+					y: horizontal ? area.bottom : pos
+				});
 			writer.drawBoxedText(
 				labelText,
 				this.color.scale.font,
