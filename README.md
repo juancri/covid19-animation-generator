@@ -52,7 +52,7 @@ The data is downloaded automatically
   - ```square```: Square layout (1250x1250)
   - ```vertical```: Vertical layout (1080x1920)
   - ```horizontal```: Horizontal layout (1920x1080)
-- ```--days``` (optional): Number of days for which the animation will be generated. Default: 20. Use 0 to plot all days.
+- ```--days``` (optional): Number of days for which the animation will be generated. Default: 30. Use 0 to plot all days.
 - ```--frames``` (optional): Number of frames per day. Default: 30.
 - ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
 - ```--horizontalAxisLabel``` (optional): Horizontal axis label. Default: "total confirmed cases (log)".

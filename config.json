@@ -512,7 +512,7 @@
 		"schema": "dark",
 		"layout": "square",
 		"source": "global",
-		"days": 20,
+		"days": 30,
 		"frames": 30,
 		"extraFrames": 300,
 		"horizontalAxisLabel": "total confirmed cases (log)",
