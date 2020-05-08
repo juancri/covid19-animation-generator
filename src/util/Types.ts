@@ -62,7 +62,12 @@ export interface Layout {
 	circleSize: number;
 	datePosition: Point;
 	dateFont: object;
-	watermarkArea: Box;
+	watermark:
+	{
+		area: Box;
+		iconPosition: Point;
+		textPosition: Point;
+	}
 }
 
 export interface DataSource {

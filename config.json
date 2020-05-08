@@ -24,10 +24,10 @@
 			"date":
 			{
 				"font": "40px DejaVu Sans Mono",
-				"color": "#FFBD00"
+				"color": "#FF544F"
 			},
 			"watermark": {
-				"font": "30px DejaVu Sans Mono",
+				"font": "50px DejaVu Sans Mono",
 				"background": "#101010",
 				"color": "#FFB000"
 			}
@@ -50,11 +50,16 @@
 			{
 				"size": 30
 			},
-			"watermarkArea": {
-				"left": 0,
-				"right": 1250,
-				"top": 0,
-				"bottom": 50
+			"watermark":
+			{
+				"area": {
+					"left": 0,
+					"right": 1250,
+					"top": 0,
+					"bottom": 80
+				},
+				"iconPosition": { "x": 345, "y": 20 },
+				"textPosition": { "x": 405, "y": 55 }
 			}
 		},
 		"vertical":
@@ -72,11 +77,16 @@
 			{
 				"size": 60
 			},
-			"watermarkArea": {
-				"left": 0,
-				"right": 1080,
-				"top": 0,
-				"bottom": 50
+			"watermark":
+			{
+				"area": {
+					"left": 0,
+					"right": 1080,
+					"top": 0,
+					"bottom": 80
+				},
+				"iconPosition": { "x": 345, "y": 20 },
+				"textPosition": { "x": 405, "y": 55 }
 			}
 		},
 		"horizontal":
@@ -96,11 +106,16 @@
 			{
 				"size": 60
 			},
-			"watermarkArea": {
-				"left": 0,
-				"right": 1920,
-				"top": 0,
-				"bottom": 50
+			"watermark":
+			{
+				"area": {
+					"left": 0,
+					"right": 1920,
+					"top": 0,
+					"bottom": 80
+				},
+				"iconPosition": { "x": 765, "y": 20 },
+				"textPosition": { "x": 825, "y": 55 }
 			}
 		}
 	},

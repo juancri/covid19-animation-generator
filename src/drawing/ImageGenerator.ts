@@ -1,3 +1,5 @@
+
+import * as path from 'path';
 import { DateTime } from 'luxon';
 
 import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries } from '../util/Types';
@@ -6,9 +8,10 @@ import CanvasWriter from './CanvasWriter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
+const ICON_PATH = path.join(__dirname, '../../assets/insta40.png');
 const X_LABEL = 'total confirmed cases (log)';
 const Y_LABEL = 'new confirmed cases (log, last week)';
-const WATERMARK_LABEL = 'instagram.com/covid19statsvideos';
+const WATERMARK_LABEL = '@covid19statsvideos';
 
 export default class ImageGenerator
 {
@@ -78,7 +81,7 @@ export default class ImageGenerator
 			// Draw other items
 			this.drawScale(writer, frame);
 			this.drawDate(writer, frame.date);
-			this.drawWatermark(writer);
+			await this.drawWatermark(writer);
 		}
 
 		await writer.save();
@@ -201,15 +204,18 @@ export default class ImageGenerator
 			this.layout.datePosition);
 	}
 
-	private drawWatermark(writer: CanvasWriter)
+	private async drawWatermark(writer: CanvasWriter)
 	{
 		writer.drawFilledRectangle(
-			this.layout.watermarkArea,
+			this.layout.watermark.area,
 			this.color.watermark.background);
-		writer.drawBoxedText(
+		await writer.drawImage(
+			ICON_PATH,
+			this.layout.watermark.iconPosition);
+		writer.drawText(
 			WATERMARK_LABEL,
 			this.color.watermark.font,
 			this.color.watermark.color,
-			this.layout.watermarkArea);
+			this.layout.watermark.textPosition);
 	}
 }

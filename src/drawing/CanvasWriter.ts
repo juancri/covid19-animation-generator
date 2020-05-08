@@ -1,7 +1,7 @@
 
 import * as path from 'path';
 import * as fs from 'fs-extra';
-import { createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
+import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
 import { Point, Box } from '../util/Types';
 // @ts-ignore
 import * as promisePipe from 'promisepipe';
@@ -103,6 +103,12 @@ export default class CanvasWriter
 		const height = box.bottom - box.top;
 		this.ctx.fillStyle = color;
 		this.ctx.fillRect(box.left, box.top, width, height);
+	}
+
+	public async drawImage(imagePath: string, point: Point)
+	{
+		const image = await loadImage(imagePath);
+		this.ctx.drawImage(image, point.x, point.y);
 	}
 
 	public async save()
