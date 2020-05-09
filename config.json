@@ -60,13 +60,13 @@
 				},
 				"icons":
 				{
-					"twitter": { "x": 35, "y": 20 },
-					"instagram": { "x": 595, "y": 20 }
+					"twitter": { "x": 35, "y": 22 },
+					"instagram": { "x": 595, "y": 22 }
 				},
 				"labels":
 				{
-					"/covid19statsvid": { "x": 70, "y": 55 },
-					"/covid19statsvideos": { "x": 640, "y": 55 }
+					"/covid19statsvid": { "x": 70, "y": 57 },
+					"/covid19statsvideos": { "x": 640, "y": 57 }
 				}
 			}
 		},
@@ -95,13 +95,13 @@
 				},
 				"icons":
 				{
-					"twitter": { "x": 35, "y": 20 },
-					"instagram": { "x": 595, "y": 20 }
+					"twitter": { "x": 35, "y": 22 },
+					"instagram": { "x": 595, "y": 22 }
 				},
 				"labels":
 				{
-					"/covid19statsvid": { "x": 70, "y": 55 },
-					"/covid19statsvideos": { "x": 640, "y": 55 }
+					"/covid19statsvid": { "x": 70, "y": 57 },
+					"/covid19statsvideos": { "x": 640, "y": 57 }
 				}
 			}
 		},
