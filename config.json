@@ -65,8 +65,8 @@
 				},
 				"labels":
 				{
-					"/covid19statsvid": { "x": 70, "y": 57 },
-					"/covid19statsvideos": { "x": 640, "y": 57 }
+					"covid19statsvid": { "x": 80, "y": 57 },
+					"covid19statsvideos": { "x": 645, "y": 57 }
 				}
 			}
 		},
@@ -100,8 +100,8 @@
 				},
 				"labels":
 				{
-					"/covid19statsvid": { "x": 70, "y": 57 },
-					"/covid19statsvideos": { "x": 640, "y": 57 }
+					"covid19statsvid": { "x": 80, "y": 57 },
+					"covid19statsvideos": { "x": 645, "y": 57 }
 				}
 			}
 		},
@@ -137,8 +137,8 @@
 				},
 				"labels":
 				{
-					"/covid19statsvid": { "x": 70, "y": 55 },
-					"/covid19statsvideos": { "x": 640, "y": 55 }
+					"covid19statsvid": { "x": 80, "y": 57 },
+					"covid19statsvideos": { "x": 645, "y": 57 }
 				}
 			}
 		}
