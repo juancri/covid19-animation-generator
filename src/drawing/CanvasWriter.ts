@@ -111,10 +111,11 @@ export default class CanvasWriter
 		this.ctx.drawImage(image, point.x, point.y);
 	}
 
-	public async save()
+	public async save(forcedName: string|null = null)
 	{
 		const input = this.canvas.createJPEGStream();
-		const fileName = `${this.frame}.jpg`;
+		const name = forcedName || this.frame.toString();
+		const fileName = `${name}.jpg`;
 		const filePath = path.join(this.outputDirectory, fileName);
 		const output = fs.createWriteStream(filePath);
 		await promisePipe(input, output);

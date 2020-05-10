@@ -34,6 +34,11 @@
 			"timebar": {
 				"background": "#202020",
 				"foreground": "#FFB000"
+			},
+			"coverOverlay": {
+				"font": "100px DejaVu Sans Mono",
+				"background": "rgba(36, 36, 36, 0.5)",
+				"color": "white"
 			}
 		}
 	},
@@ -80,11 +85,19 @@
 				"right": 1250,
 				"top": 1245,
 				"bottom": 1250
+			},
+			"coverOverlay":
+			{
+				"left": 0,
+				"right": 1250,
+				"top": 625,
+				"bottom": 0
 			}
 		}
 	},
 	"dataSources": {
 		"global": {
+			"name": "Global (Chile + others)",
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
 			"series":
@@ -458,6 +471,7 @@
 		"horizontalAxisLabel": "total confirmed cases (log)",
 		"verticalAxisLabel": "new confirmed cases (log, last week)",
 		"zoomEasing": "easeInOutCubic",
-		"timebarEasing": "linear"
+		"timebarEasing": "linear",
+		"title": "{{{dataSourceTitle}}}, ${{{date}}}"
 	}
 }

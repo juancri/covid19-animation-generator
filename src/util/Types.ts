@@ -52,6 +52,11 @@ export interface ColorSchema {
 	timebar: {
 		background: string;
 		foreground: string;
+	},
+	coverOverlay: {
+		font: string;
+		background: string;
+		color: string;
 	}
 }
 
@@ -79,6 +84,7 @@ export interface Layout {
 		}
 	},
 	timebar: Box;
+	coverOverlay: Box;
 }
 
 export interface PreProcessorConfig {
@@ -87,6 +93,7 @@ export interface PreProcessorConfig {
 }
 
 export interface DataSource {
+	title: string | null;
 	url: string;
 	nameColumn: string;
 	preProcessor?: PreProcessorConfig | string;
@@ -127,6 +134,8 @@ export interface Scale {
 export interface FrameFilterInfo {
 	date: DateTime;
 	ratio: number;
+	name?: string;
+	drawCover?: boolean;
 }
 
 export interface FrameInfo {
@@ -135,16 +144,18 @@ export interface FrameInfo {
 	scale: Scale;
 	currentFrame: number;
 	totalFrames: number;
+	drawCover?: boolean;
+	name?: string;
 }
 
 export interface Animation {
 	countFrames: () => number;
 	getFrames: () => Generator<FrameFilterInfo>;
-	getScale: (
+	getScale?: (
 		filteredSeries: PlotSeries[],
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
-		stepFrameIndex: number) => Scale;
+		stepFrameIndex: number) => Scale | null;
 }
 
 export interface PlotSeries {

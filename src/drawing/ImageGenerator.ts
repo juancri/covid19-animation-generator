@@ -17,6 +17,7 @@ export default class ImageGenerator
 {
 	// Fields
 
+	private title: string;
 	private color: ColorSchema;
 	private layout: Layout;
 	private series: PlotSeries[];
@@ -28,11 +29,18 @@ export default class ImageGenerator
 
 	// Constructor
 
-	public constructor (series: TimeSeries[], configuration: SeriesConfiguration[],
-		color: ColorSchema, layout: Layout,
-		horizontalAxisLabel: string, verticalAxisLabel: string,
-		zoomEasing: EasingFunction, timebarEasing: EasingFunction)
+	public constructor (
+		title: string,
+		series: TimeSeries[],
+		configuration: SeriesConfiguration[],
+		color: ColorSchema,
+		layout: Layout,
+		horizontalAxisLabel: string,
+		verticalAxisLabel: string,
+		zoomEasing: EasingFunction,
+		timebarEasing: EasingFunction)
 	{
+		this.title = title;
 		this.color = color;
 		this.layout = layout;
 		this.horizontalAxisLabel = horizontalAxisLabel;
@@ -83,7 +91,6 @@ export default class ImageGenerator
 		writer.clean();
 		for (const series of frame.series)
 		{
-			// Draw series
 			this.drawSeriesLines(series, writer);
 			this.drawSeriesCircle(series, writer);
 			this.drawSeriesLabel(series, writer);
@@ -92,10 +99,18 @@ export default class ImageGenerator
 		// Draw other items
 		this.drawScale(writer, frame);
 		this.drawDate(writer, frame.date);
-		this.drawTimebar(writer, frame);
-		await this.drawWatermark(writer);
+		if (frame.drawCover)
+		{
+			this.drawCoverOverlay(writer);
+		}
+		else
+		{
+			this.drawTimebar(writer, frame);
+			await this.drawWatermark(writer);
+		}
 
-		await writer.save();
+		await writer.save(frame.name || null);
+
 	}
 
 	private drawSeriesLines(series: PlotSeries, writer: CanvasWriter)
@@ -260,5 +275,20 @@ export default class ImageGenerator
 				this.color.watermark.font,
 				this.color.watermark.color,
 				this.layout.watermark.labels[key]);
+	}
+
+	private drawCoverOverlay(writer: CanvasWriter)
+	{
+		// Background
+		writer.drawFilledRectangle(
+			this.layout.coverOverlay,
+			this.color.coverOverlay.background);
+
+		// Text
+		writer.drawBoxedText(
+			this.title,
+			this.color.coverOverlay.font,
+			this.color.coverOverlay.color,
+			this.layout.coverOverlay);
 	}
 }

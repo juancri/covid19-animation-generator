@@ -1,30 +1,32 @@
 
 import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
 
-export default class FixedFrameAnimation implements Animation
+const NAME = 'cover';
+
+export default class CoverFrameAnimation implements Animation
 {
-	private frames: number;
 	private frameFilterInfo: FrameFilterInfo;
 
-	public constructor(series: PlotSeries[], frames: number)
+	public constructor(series: PlotSeries[])
 	{
-		this.frames = frames;
 		const date = this.getLastDate(series);
-		this.frameFilterInfo = { date, ratio: 1 };
+		this.frameFilterInfo = {
+			date,
+			ratio: 1,
+			drawCover: true,
+			name: NAME
+		};
 	}
+
 	public countFrames(): number
 	{
-		return this.frames;
+		return 1;
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>
 	{
-		for (let current = 1; current <= this.frames; current++)
-			yield this.frameFilterInfo;
+		yield this.frameFilterInfo;
 	}
-
-
-	// Private methods
 
 	private getLastDate(series: PlotSeries[])
 	{

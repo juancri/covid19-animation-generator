@@ -9,6 +9,7 @@ import ImageGenerator from './drawing/ImageGenerator';
 import ParameterLoader from './parameters/ParametersLoader';
 import DataSourceFilter from './util/DataSourceFilter';
 import EasingLoader from './util/EasingLoader';
+import TitleGenerator from './util/TitleGenerator';
 
 // Constants
 const LAYOUT_NAME = 'square';
@@ -40,7 +41,9 @@ const main = async () =>
 	const layout = config.layouts[LAYOUT_NAME];
 	if (!layout)
 		throw new Error(`Layout not found: ${LAYOUT_NAME}`);
+	const title = TitleGenerator.generate(dataSource, options.title);
 	const generator = new ImageGenerator(
+		title,
 		timeSeries,
 		dataSource.series,
 		colorSchema,

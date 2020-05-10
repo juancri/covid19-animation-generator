@@ -13,6 +13,7 @@
     "canvas": "^2.6.1",
     "csvtojson": "^2.0.10",
     "fs-extra": "^9.0.0",
+    "handlebars": "^4.7.6",
     "jsonfile": "^6.0.1",
     "linq": "^3.2.2",
     "luxon": "^1.24.1",

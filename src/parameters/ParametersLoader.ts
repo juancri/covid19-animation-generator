@@ -12,7 +12,8 @@ const PARAMETERS = {
 	verticalAxisLabel: 'Vertical axis label',
 	filter: 'Filter series by code (multiple codes separated by comma)',
 	zoomEasing: 'Easing function for the zoom effect',
-	timebarEasing: 'Easing function for the timebar'
+	timebarEasing: 'Easing function for the timebar',
+	title: 'Sets the image title for the cover image'
 };
 const argv = optimist.argv;
 
