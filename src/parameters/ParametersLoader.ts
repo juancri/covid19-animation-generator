@@ -9,7 +9,8 @@ const PARAMETERS = {
 	frames: 'Number of frames per day',
 	extraFrames: 'Number of extra frames for the last image',
 	horizontalAxisLabel: 'Horizontal axis label',
-	verticalAxisLabel: 'Vertical axis label'
+	verticalAxisLabel: 'Vertical axis label',
+	filter: 'Filter series by code (multiple codes separated by comma)'
 };
 const argv = optimist.argv;
 

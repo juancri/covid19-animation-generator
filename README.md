@@ -46,6 +46,7 @@ The data is downloaded automatically
   - ```washington```: Compare Washington State counties (US)
   - ```chile```: Compare regions (Chile)
   - ```chile-comunas```: Compare communes (Chile)
+- ```--filter``` (optional): Filters the series configurations from the datasource using its code. Multiple codes can be included, separated by comma.
 - ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
 - ```--days``` (optional): Number of days for which the animation will be generated. Default: 30. Use 0 to plot all days.

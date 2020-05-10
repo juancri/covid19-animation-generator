@@ -7,6 +7,7 @@ import ConfigLoader from './configuration/ConfigLoader';
 import DataLoader from './data/DataLoader';
 import ImageGenerator from './drawing/ImageGenerator';
 import ParameterLoader from './parameters/ParametersLoader';
+import DataSourceFilter from './util/DataSourceFilter';
 
 // Constants
 const LAYOUT_NAME = 'square';
@@ -24,9 +25,11 @@ const main = async () =>
 	const options = ParameterLoader.load(config.defaults);
 
 	// Read data
-	const dataSource = config.dataSources[options.source];
+	let dataSource = config.dataSources[options.source];
 	if (!dataSource)
 		throw new Error(`Data source not found: ${options.source}`);
+	if (options.filter)
+		dataSource = DataSourceFilter.apply(dataSource, options.filter);
 	const timeSeries = await DataLoader.load (dataSource);
 
 	// Generate
