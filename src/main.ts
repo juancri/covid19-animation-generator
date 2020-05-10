@@ -9,6 +9,7 @@ import ImageGenerator from './drawing/ImageGenerator';
 import ParameterLoader from './parameters/ParametersLoader';
 
 // Constants
+const LAYOUT_NAME = 'square';
 const OUTPUT_PATH = path.join(__dirname, '../output');
 
 // Main
@@ -32,9 +33,9 @@ const main = async () =>
 	const colorSchema = config.colorSchemas[options.schema];
 	if (!colorSchema)
 		throw new Error(`Color schema not found: ${options.schema}`);
-	const layout = config.layouts[options.layout];
+	const layout = config.layouts[LAYOUT_NAME];
 	if (!layout)
-		throw new Error(`Layout not found: ${options.layout}`);
+		throw new Error(`Layout not found: ${LAYOUT_NAME}`);
 	const generator = new ImageGenerator(
 		timeSeries,
 		dataSource.series,

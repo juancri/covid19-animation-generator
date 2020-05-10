@@ -5,7 +5,6 @@ const PARAMETERS = {
 	help: 'This help message',
 	source: 'Sets the data source',
 	schema: 'Sets the color schema',
-	layout: 'Sets the output layout',
 	days: 'Number of days for which the animation will be generated. Use 0 to plot all days.',
 	frames: 'Number of frames per day',
 	extraFrames: 'Number of extra frames for the last image',
