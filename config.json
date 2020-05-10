@@ -61,12 +61,13 @@
 				"icons":
 				{
 					"twitter": { "x": 35, "y": 22 },
-					"instagram": { "x": 595, "y": 22 }
+					"instagram": { "x": 575, "y": 22 },
+					"facebook": { "x": 625, "y": 22 }
 				},
 				"labels":
 				{
 					"covid19statsvid": { "x": 80, "y": 57 },
-					"covid19statsvideos": { "x": 645, "y": 57 }
+					"covid19statsvideos": { "x": 685, "y": 57 }
 				}
 			}
 		}
