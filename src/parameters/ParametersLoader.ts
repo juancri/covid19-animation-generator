@@ -10,7 +10,9 @@ const PARAMETERS = {
 	extraFrames: 'Number of extra frames for the last image',
 	horizontalAxisLabel: 'Horizontal axis label',
 	verticalAxisLabel: 'Vertical axis label',
-	filter: 'Filter series by code (multiple codes separated by comma)'
+	filter: 'Filter series by code (multiple codes separated by comma)',
+	zoomEasing: 'Easing function for the zoom effect',
+	timebarEasing: 'Easing function for the timebar'
 };
 const argv = optimist.argv;
 

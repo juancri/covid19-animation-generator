@@ -456,6 +456,8 @@
 		"frames": 30,
 		"extraFrames": 300,
 		"horizontalAxisLabel": "total confirmed cases (log)",
-		"verticalAxisLabel": "new confirmed cases (log, last week)"
+		"verticalAxisLabel": "new confirmed cases (log, last week)",
+		"zoomEasing": "easeInOutCubic",
+		"timebarEasing": "linear"
 	}
 }

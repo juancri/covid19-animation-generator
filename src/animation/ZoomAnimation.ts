@@ -1,6 +1,5 @@
-import { Animation, FrameFilterInfo, PlotSeries, Scale } from '../util/Types';
+import { Animation, FrameFilterInfo, PlotSeries, Scale, EasingFunction } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
-import Easing from '../util/Easing';
 
 const STEPS = [
 	{ frames: 240, zoom: true },
@@ -17,10 +16,12 @@ export default class ZoomAnimation implements Animation
 	private frame: FrameFilterInfo;
 	private scale: Scale | null;
 	private target: Scale | null;
+	private easing: EasingFunction;
 
-	public constructor(series: PlotSeries[], code: string)
+	public constructor(series: PlotSeries[], code: string, easing: EasingFunction)
 	{
 		this.code = code;
+		this.easing = easing;
 		this.frame = {
 			date: this.getLastDate(series),
 			ratio: 1
@@ -63,7 +64,7 @@ export default class ZoomAnimation implements Animation
 			};
 		}
 
-		const factor = Easing.easeInOutCubic(this.getFactor(stepFrameIndex)) * ZOOM_RATIO;
+		const factor = this.easing(this.getFactor(stepFrameIndex)) * ZOOM_RATIO;
 		return {
 			horizontal:
 			{

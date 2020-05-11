@@ -2,7 +2,10 @@
 import * as path from 'path';
 import { DateTime } from 'luxon';
 
-import { TimeSeries, SeriesConfiguration, ColorSchema, Layout, FrameInfo, PlotSeries } from '../util/Types';
+import {
+	TimeSeries, SeriesConfiguration, ColorSchema, Layout,
+	FrameInfo, PlotSeries, EasingFunction
+} from '../util/Types';
 import AnimationPipeline from '../animation/AnimationPipeline';
 import CanvasWriter from './CanvasWriter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
@@ -19,18 +22,23 @@ export default class ImageGenerator
 	private series: PlotSeries[];
 	private horizontalAxisLabel: string;
 	private verticalAxisLabel: string;
+	private zoomEasing: EasingFunction;
+	private timebarEasing: EasingFunction;
 
 
 	// Constructor
 
 	public constructor (series: TimeSeries[], configuration: SeriesConfiguration[],
 		color: ColorSchema, layout: Layout,
-		horizontalAxisLabel: string, verticalAxisLabel: string)
+		horizontalAxisLabel: string, verticalAxisLabel: string,
+		zoomEasing: EasingFunction, timebarEasing: EasingFunction)
 	{
 		this.color = color;
 		this.layout = layout;
 		this.horizontalAxisLabel = horizontalAxisLabel;
 		this.verticalAxisLabel = verticalAxisLabel;
+		this.zoomEasing = zoomEasing;
+		this.timebarEasing = timebarEasing;
 		this.series = this.createPlotSeries(series, configuration);
 	}
 
@@ -46,7 +54,7 @@ export default class ImageGenerator
 			this.color.background);
 		const frameInfoGenerator = new AnimationPipeline(
 			this.series, this.layout.plotArea,
-			frames, extraFrames, days);
+			frames, extraFrames, days, this.zoomEasing);
 
 		for (const frameInfo of frameInfoGenerator.generate())
 			await this.drawFrame(frameInfo, writer);
@@ -224,7 +232,7 @@ export default class ImageGenerator
 
 		// Foreground
 		const fullWidth = timebar.right - timebar.left;
-		const ratio = frame.currentFrame / frame.totalFrames;
+		const ratio = this.timebarEasing(frame.currentFrame / frame.totalFrames);
 		const barWidth = fullWidth * ratio;
 		const barRight = timebar.left + barWidth;
 		writer.drawFilledRectangle(

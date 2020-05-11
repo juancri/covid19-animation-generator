@@ -1,4 +1,4 @@
-import { FrameInfo, PlotSeries, Animation, Box } from '../util/Types';
+import { FrameInfo, PlotSeries, Animation, Box, EasingFunction } from '../util/Types';
 import TimeAnimation from './TimeAnimation';
 import FixedFrameAnimation from './FixedFrameAnimation';
 import DataFrameFilter from '../drawing/DataFrameFilter';
@@ -13,7 +13,7 @@ export default class AnimationPipeline
 	private animations: Animation[];
 
 	public constructor(series: PlotSeries[], plotArea: Box, frames: number,
-		extraFrames: number, days: number)
+		extraFrames: number, days: number, zoonEasing: EasingFunction)
 	{
 		const lastCode = series[series.length - 1].code;
 		this.series = series;
@@ -21,7 +21,7 @@ export default class AnimationPipeline
 		this.animations = [
 			new TimeAnimation(series, frames, days),
 			new FixedFrameAnimation(series, extraFrames / 2),
-			new ZoomAnimation(series, lastCode),
+			new ZoomAnimation(series, lastCode, zoonEasing),
 			new FixedFrameAnimation(series, extraFrames)
 		];
 	}

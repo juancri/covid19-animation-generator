@@ -1,7 +1,9 @@
 
 // Source: https://gist.github.com/gre/1650294
 
-export default {
+import { EasingFunction } from './Types';
+
+const functions: { [key: string]: EasingFunction } = {
 	// no easing, no acceleration
 	linear: (t: number) => t,
 
@@ -47,3 +49,14 @@ export default {
 		16 * t * t * t * t * t :
 		1 + 16 * (--t) * t * t * t * t
 };
+
+export default class EasingLoader
+{
+	public static load(name: string): EasingFunction
+	{
+		const found = functions[name];
+		if (!found)
+			throw new Error(`Easing function not found: ${name}`);
+		return found;
+	}
+}

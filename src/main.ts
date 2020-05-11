@@ -8,6 +8,7 @@ import DataLoader from './data/DataLoader';
 import ImageGenerator from './drawing/ImageGenerator';
 import ParameterLoader from './parameters/ParametersLoader';
 import DataSourceFilter from './util/DataSourceFilter';
+import EasingLoader from './util/EasingLoader';
 
 // Constants
 const LAYOUT_NAME = 'square';
@@ -45,7 +46,9 @@ const main = async () =>
 		colorSchema,
 		layout,
 		options.horizontalAxisLabel,
-		options.verticalAxisLabel);
+		options.verticalAxisLabel,
+		EasingLoader.load(options.zoomEasing),
+		EasingLoader.load(options.timebarEasing));
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,

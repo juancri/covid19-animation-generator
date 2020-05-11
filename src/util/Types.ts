@@ -104,6 +104,8 @@ export interface Configuration {
 
 // Ploy
 
+export type EasingFunction = (p: number) => number;
+
 export interface Scale {
 	horizontal: {
 		min: number;

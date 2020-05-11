@@ -54,6 +54,8 @@ The data is downloaded automatically
 - ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
 - ```--horizontalAxisLabel``` (optional): Horizontal axis label. Default: "total confirmed cases (log)".
 - ```--verticalAxisLabel``` (optional): Vertical axis label. Default: "new confirmed cases (log, last week)".
+- ```--zoomEasing``` (optional): Easing function for the zoom effect. Default: ```easeInOutCubic```.
+- ```--timebarEasing``` (optional): Easing function for the timebar. Default: ```linear```.
 
 #### Examples
 
