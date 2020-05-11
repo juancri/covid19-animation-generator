@@ -79,12 +79,12 @@ export default class ImageGenerator
 			this.drawSeriesLines(series, writer);
 			this.drawSeriesCircle(series, writer);
 			this.drawSeriesLabel(series, writer);
-
-			// Draw other items
-			this.drawScale(writer, frame);
-			this.drawDate(writer, frame.date);
-			await this.drawWatermark(writer);
 		}
+
+		// Draw other items
+		this.drawScale(writer, frame);
+		this.drawDate(writer, frame.date);
+		await this.drawWatermark(writer);
 
 		await writer.save();
 	}
