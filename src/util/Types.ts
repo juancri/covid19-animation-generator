@@ -13,6 +13,8 @@ export interface TimeSeries {
 	data: DataPoint[];
 }
 
+export type PreProcessor = (series: TimeSeries[], params: any) => TimeSeries[];
+
 // Config
 
 export interface SeriesConfiguration {
@@ -79,10 +81,15 @@ export interface Layout {
 	timebar: Box;
 }
 
+export interface PreProcessorConfig {
+	name: string;
+	parameters: any;
+}
+
 export interface DataSource {
 	url: string;
 	nameColumn: string;
-	preProcessor: string;
+	preProcessor?: PreProcessorConfig | string;
 	series: SeriesConfiguration[];
 }
 

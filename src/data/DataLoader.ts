@@ -6,6 +6,7 @@ import { DateTime } from 'luxon';
 // Local
 import { DataSource, TimeSeries } from '../util/Types';
 import Downloader from '../util/Downloader';
+import PreProcessorLoader from './PreProcessorLoader';
 
 // Constants
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
@@ -27,7 +28,7 @@ export default class DataLoader
 				}))
 		}));
 
-		return Enumerable
+		const rawData = Enumerable
 			.from(data)
 			.groupBy(x => x.name)
 			.select(group => ({
@@ -45,5 +46,8 @@ export default class DataLoader
 				milestones: null
 			}))
 			.toArray();
+
+		const preProcessedData = PreProcessorLoader.load(dataSource.preProcessor, rawData);
+		return preProcessedData;
 	}
 }
