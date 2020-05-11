@@ -84,6 +84,7 @@ export default class ImageGenerator
 		// Draw other items
 		this.drawScale(writer, frame);
 		this.drawDate(writer, frame.date);
+		this.drawTimebar(writer, frame);
 		await this.drawWatermark(writer);
 
 		await writer.save();
@@ -212,6 +213,23 @@ export default class ImageGenerator
 			this.color.date.font,
 			this.color.date.color,
 			this.layout.datePosition);
+	}
+
+	private drawTimebar(writer: CanvasWriter, frame: FrameInfo)
+	{
+		const timebar = this.layout.timebar;
+		writer.drawFilledRectangle(
+			timebar,
+			this.color.timebar.background);
+
+		// Foreground
+		const fullWidth = timebar.right - timebar.left;
+		const ratio = frame.currentFrame / frame.totalFrames;
+		const barWidth = fullWidth * ratio;
+		const barRight = timebar.left + barWidth;
+		writer.drawFilledRectangle(
+			{ ...timebar, right: barRight },
+			this.color.timebar.foreground);
 	}
 
 	private async drawWatermark(writer: CanvasWriter)

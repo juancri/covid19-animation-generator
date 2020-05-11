@@ -1,4 +1,4 @@
-import { FrameFilterInfo, PlotSeries, Scale } from '../util/Types';
+import { Animation, FrameFilterInfo, PlotSeries, Scale } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 import EasingAnimation from './EasingAnimation';
 
@@ -11,7 +11,7 @@ const STEPS = [
 const TOTAL_FRAMES = STEPS.map(s => s.frames).reduce((a, b) => a + b, 0);
 const ZOOM_RATIO = 0.6;
 
-export default class ZoomAnimation
+export default class ZoomAnimation implements Animation
 {
 	private code: string;
 	private frame: FrameFilterInfo;
@@ -27,6 +27,11 @@ export default class ZoomAnimation
 		};
 		this.scale = null;
 		this.target = null;
+	}
+
+	public countFrames(): number
+	{
+		return TOTAL_FRAMES;
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>

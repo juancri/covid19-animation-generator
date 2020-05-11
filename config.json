@@ -30,6 +30,10 @@
 				"font": "50px DejaVu Sans Mono",
 				"background": "#101010",
 				"color": "#FFB000"
+			},
+			"timebar": {
+				"background": "#202020",
+				"foreground": "#FFB000"
 			}
 		}
 	},
@@ -69,6 +73,13 @@
 					"covid19statsvid": { "x": 80, "y": 57 },
 					"covid19statsvideos": { "x": 685, "y": 57 }
 				}
+			},
+			"timebar":
+			{
+				"left": 0,
+				"right": 1250,
+				"top": 1240,
+				"bottom": 1250
 			}
 		}
 	},

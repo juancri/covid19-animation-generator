@@ -1,7 +1,7 @@
-import { PlotSeries, FrameFilterInfo, Scale } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo, Scale } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
-export default class FixedFrameAnimation
+export default class FixedFrameAnimation implements Animation
 {
 	private frames: number;
 	private frameFilterInfo: FrameFilterInfo;
@@ -13,6 +13,10 @@ export default class FixedFrameAnimation
 		const date = this.getLastDate(series);
 		this.frameFilterInfo = { date, ratio: 1 };
 		this.scale = null;
+	}
+	public countFrames(): number
+	{
+		return this.frames;
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>

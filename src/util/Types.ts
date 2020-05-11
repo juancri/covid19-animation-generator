@@ -46,6 +46,10 @@ export interface ColorSchema {
 		font: string;
 		background: string;
 		color: string;
+	},
+	timebar: {
+		background: string;
+		foreground: string;
 	}
 }
 
@@ -71,7 +75,8 @@ export interface Layout {
 		labels: {
 			[key: string]: Point
 		}
-	}
+	},
+	timebar: Box;
 }
 
 export interface DataSource {
@@ -119,9 +124,12 @@ export interface FrameInfo {
 	date: DateTime;
 	series: PlotSeries[];
 	scale: Scale;
+	currentFrame: number;
+	totalFrames: number;
 }
 
 export interface Animation {
+	countFrames: () => number;
 	getFrames: () => Generator<FrameFilterInfo>;
 	getScale: (
 		filteredSeries: PlotSeries[],

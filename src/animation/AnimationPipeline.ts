@@ -28,6 +28,9 @@ export default class AnimationPipeline
 
 	public *generate(): Generator<FrameInfo>
 	{
+		const totalFrames = this.animations
+			.map(animation => animation.countFrames())
+			.reduce((a, b) => a + b, 0);
 		let frameIndex = 1;
 		for (const animation of this.animations)
 		{
@@ -38,7 +41,13 @@ export default class AnimationPipeline
 				const scale = animation.getScale(filtered, frame, frameIndex, stepFrameIndex);
 				const scaled = ScaledPointsGenerator.generate(filtered, scale);
 				const canvas = CanvasPointsGenerator.generate(scaled, this.plotArea);
-				yield { date: frame.date, series: canvas, scale };
+				yield {
+					date: frame.date,
+					series: canvas,
+					currentFrame: frameIndex,
+					totalFrames,
+					scale
+				};
 				frameIndex++;
 				stepFrameIndex++;
 			}

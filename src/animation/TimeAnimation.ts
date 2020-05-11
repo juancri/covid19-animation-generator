@@ -1,8 +1,8 @@
-import { PlotSeries, FrameFilterInfo } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
 import { DateTime } from 'luxon';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
-export default class TimeAnimation
+export default class TimeAnimation implements Animation
 {
 	private series: PlotSeries[];
 	private frames: number;
@@ -20,6 +20,11 @@ export default class TimeAnimation
 		// Calculate
 		this.lastDate = this.getLastDate();
 		this.firstDate = this.getFirstDate();
+	}
+
+	public countFrames(): number
+	{
+		return 1 + this.frames * (this.days - 1);
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>
