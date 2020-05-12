@@ -37,8 +37,8 @@
 			},
 			"coverOverlay": {
 				"font": "100px DejaVu Sans Mono",
-				"background": "rgba(36, 36, 36, 0.5)",
-				"color": "white"
+				"background": "transparent",
+				"color": "transparent"
 			}
 		}
 	},
