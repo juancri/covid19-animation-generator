@@ -2,7 +2,7 @@
 import * as Enumerable from 'linq';
 import { Scale, PlotSeries } from '../util/Types';
 
-const MARGIN = 0.5;
+const MARGIN = 0.2;
 
 export default class DynamicScaleGenerator
 {

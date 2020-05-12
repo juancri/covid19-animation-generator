@@ -170,7 +170,7 @@ export default class ImageGenerator
 		const y = point.y + this.color.series.offset.y;
 		writer.drawText(
 			series.code, this.color.series.font, this.color.series.color,
-			{ x, y }, this.layout.plotArea);
+			{ x, y }, this.layout.seriesLabelsArea);
 	}
 
 	private drawScale(writer: CanvasWriter, frame: FrameInfo)

@@ -70,6 +70,7 @@ export interface Box {
 export interface Layout {
 	canvasSize: number[];
 	plotArea: Box;
+	seriesLabelsArea: Box;
 	circleSize: number;
 	datePosition: Point;
 	dateFont: object;

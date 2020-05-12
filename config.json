@@ -49,7 +49,13 @@
 			"canvasSize": [1250, 1250],
 			"plotArea": {
 				"left": 140,
-				"right": 1140,
+				"right": 1100,
+				"top": 110,
+				"bottom": 1110
+			},
+			"seriesLabelsArea": {
+				"left": 140,
+				"right": 1240,
 				"top": 110,
 				"bottom": 1110
 			},
