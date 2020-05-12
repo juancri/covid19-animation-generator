@@ -1,5 +1,5 @@
 
-import * as optimist from 'optimist';
+import * as minimist from 'minimist';
 
 const PARAMETERS = {
 	help: 'This help message',
@@ -14,14 +14,15 @@ const PARAMETERS = {
 	zoomEasing: 'Easing function for the zoom effect',
 	timebarEasing: 'Easing function for the timebar',
 	title: 'Sets the image title for the cover image',
-	dateFormat: 'Sets the date format'
+	dateFormat: 'Sets the date format',
+	drawMarkers: 'Draw series markers over the scale'
 };
-const argv = optimist.argv;
 
 export default class ParametersLoader
 {
 	public static help()
 	{
+		const argv = minimist(process.argv.slice(2));
 		if (!argv.help)
 			return false;
 
@@ -33,13 +34,8 @@ export default class ParametersLoader
 		return true;
 	}
 
-	public static load(defaults: any)
+	public static load(defaultValues: any)
 	{
-		const options: any = {};
-		for (const name of Object.keys(PARAMETERS))
-			options[name] = Object.keys(argv).includes(name) ?
-				argv[name] :
-				defaults[name];
-		return options;
+		return minimist(process.argv.slice(2), { default: defaultValues });
 	}
 }

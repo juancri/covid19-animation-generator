@@ -473,6 +473,7 @@
 		"zoomEasing": "easeInOutCubic",
 		"timebarEasing": "linear",
 		"title": "{{{dataSourceTitle}}}, ${{{date}}}",
-		"dateFormat": "yyyy-MM-dd"
+		"dateFormat": "yyyy-MM-dd",
+		"drawMarkers": false
 	}
 }

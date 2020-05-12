@@ -17,7 +17,7 @@
     "jsonfile": "^6.0.1",
     "linq": "^3.2.2",
     "luxon": "^1.24.1",
-    "optimist": "^0.6.1",
+    "minimist": "^1.2.5",
     "promisepipe": "^3.0.0"
   },
   "devDependencies": {
@@ -26,8 +26,8 @@
     "@types/fs-extra": "^8.1.0",
     "@types/jsonfile": "^5.0.0",
     "@types/luxon": "^1.24.0",
+    "@types/minimist": "^1.2.0",
     "@types/node": "^13.13.5",
-    "@types/optimist": "0.0.29",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
     "eslint": "^7.0.0",

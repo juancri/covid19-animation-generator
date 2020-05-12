@@ -52,7 +52,8 @@ const main = async () =>
 		options.verticalAxisLabel,
 		EasingLoader.load(options.zoomEasing),
 		EasingLoader.load(options.timebarEasing),
-		options.dateFormat);
+		options.dateFormat,
+		options.drawMarkers);
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,

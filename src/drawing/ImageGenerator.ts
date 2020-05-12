@@ -12,6 +12,8 @@ import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
 const ICON_DIRECTORY = path.join(__dirname, '../../assets');
+const MARKER_LENGTH = 12;
+const MARKER_WIDTH = 5;
 
 export default class ImageGenerator
 {
@@ -26,6 +28,7 @@ export default class ImageGenerator
 	private zoomEasing: EasingFunction;
 	private timebarEasing: EasingFunction;
 	private dateFormat: string;
+	private drawMarkers: boolean;
 
 
 	// Constructor
@@ -40,7 +43,8 @@ export default class ImageGenerator
 		verticalAxisLabel: string,
 		zoomEasing: EasingFunction,
 		timebarEasing: EasingFunction,
-		dateFormat: string)
+		dateFormat: string,
+		drawMarkers: boolean)
 	{
 		this.title = title;
 		this.color = color;
@@ -51,6 +55,7 @@ export default class ImageGenerator
 		this.timebarEasing = timebarEasing;
 		this.dateFormat = dateFormat;
 		this.series = this.createPlotSeries(series, configuration);
+		this.drawMarkers = drawMarkers;
 	}
 
 
@@ -97,6 +102,8 @@ export default class ImageGenerator
 			this.drawSeriesLines(series, writer);
 			this.drawSeriesCircle(series, writer);
 			this.drawSeriesLabel(series, writer);
+			if (this.drawMarkers)
+				this.drawSeriesMarkers(series, writer);
 		}
 
 		// Draw other items
@@ -131,6 +138,26 @@ export default class ImageGenerator
 
 		const point = series.points[series.points.length - 1];
 		writer.drawCircle(this.layout.circleSize, series.color, point, this.layout.plotArea);
+	}
+
+	private drawSeriesMarkers(series: PlotSeries, writer: CanvasWriter)
+	{
+		if (!series.points.length)
+			return;
+
+		const point = series.points[series.points.length - 1];
+		const leftPoint = { x: this.layout.plotArea.left, y: point.y };
+		const bottomPoint = { x: point.x, y: this.layout.plotArea.bottom };
+		writer.drawLine(
+			series.color,
+			MARKER_WIDTH,
+			{ x: leftPoint.x - MARKER_LENGTH, y: leftPoint.y },
+			{ x: leftPoint.x + MARKER_LENGTH, y: leftPoint.y });
+		writer.drawLine(
+			series.color,
+			MARKER_WIDTH,
+			{ x: bottomPoint.x, y: bottomPoint.y - MARKER_LENGTH },
+			{ x: bottomPoint.x, y: bottomPoint.y + MARKER_LENGTH });
 	}
 
 	private drawSeriesLabel(series: PlotSeries, writer: CanvasWriter)
