@@ -402,6 +402,11 @@
 					"color": "#00B0FF"
 				},
 				{
+					"name": "Aysén",
+					"code": "Aysén",
+					"color": "#328CFF"
+				},
+				{
 					"name": "Magallanes",
 					"code": "Magallanes",
 					"color": "#a05195"
