@@ -113,6 +113,7 @@ export interface Configuration {
 		days: number,
 		frames: number,
 		extraFrames: number;
+		dateFormat: string;
 	}
 }
 

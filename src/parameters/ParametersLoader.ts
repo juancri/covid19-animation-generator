@@ -13,7 +13,8 @@ const PARAMETERS = {
 	filter: 'Filter series by code (multiple codes separated by comma)',
 	zoomEasing: 'Easing function for the zoom effect',
 	timebarEasing: 'Easing function for the timebar',
-	title: 'Sets the image title for the cover image'
+	title: 'Sets the image title for the cover image',
+	dateFormat: 'Sets the date format'
 };
 const argv = optimist.argv;
 

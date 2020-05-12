@@ -25,6 +25,7 @@ export default class ImageGenerator
 	private verticalAxisLabel: string;
 	private zoomEasing: EasingFunction;
 	private timebarEasing: EasingFunction;
+	private dateFormat: string;
 
 
 	// Constructor
@@ -38,7 +39,8 @@ export default class ImageGenerator
 		horizontalAxisLabel: string,
 		verticalAxisLabel: string,
 		zoomEasing: EasingFunction,
-		timebarEasing: EasingFunction)
+		timebarEasing: EasingFunction,
+		dateFormat: string)
 	{
 		this.title = title;
 		this.color = color;
@@ -47,6 +49,7 @@ export default class ImageGenerator
 		this.verticalAxisLabel = verticalAxisLabel;
 		this.zoomEasing = zoomEasing;
 		this.timebarEasing = timebarEasing;
+		this.dateFormat = dateFormat;
 		this.series = this.createPlotSeries(series, configuration);
 	}
 
@@ -232,7 +235,7 @@ export default class ImageGenerator
 	private drawDate(writer: CanvasWriter, date: DateTime)
 	{
 		writer.drawText(
-			date.toISODate(),
+			date.toFormat(this.dateFormat),
 			this.color.date.font,
 			this.color.date.color,
 			this.layout.datePosition);

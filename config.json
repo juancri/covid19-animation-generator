@@ -472,6 +472,7 @@
 		"verticalAxisLabel": "new confirmed cases (log, last week)",
 		"zoomEasing": "easeInOutCubic",
 		"timebarEasing": "linear",
-		"title": "{{{dataSourceTitle}}}, ${{{date}}}"
+		"title": "{{{dataSourceTitle}}}, ${{{date}}}",
+		"dateFormat": "yyyy-MM-dd"
 	}
 }
