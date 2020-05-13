@@ -1,13 +1,13 @@
 import { Animation, FrameFilterInfo, PlotSeries, Scale, EasingFunction } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
-const STEPS = [
+interface ZoomStep { frames: number, zoom: boolean | number };
+const MAIN_STEPS: ZoomStep[] = [
 	{ frames: 240, zoom: true },
-	{ frames: 120, zoom: null },
+	{ frames: 120, zoom: 1 },
 	{ frames: 240, zoom: false }
 ];
 
-const TOTAL_FRAMES = STEPS.map(s => s.frames).reduce((a, b) => a + b, 0);
 const ZOOM_RATIO = 0.6;
 
 export default class ZoomAnimation implements Animation
@@ -17,8 +17,10 @@ export default class ZoomAnimation implements Animation
 	private scale: Scale | null;
 	private target: Scale | null;
 	private easing: EasingFunction;
+	private steps: ZoomStep[];
 
-	public constructor(series: PlotSeries[], code: string, easing: EasingFunction)
+	public constructor(series: PlotSeries[], code: string,
+		easing: EasingFunction, initialFrames: number)
 	{
 		this.code = code;
 		this.easing = easing;
@@ -28,16 +30,21 @@ export default class ZoomAnimation implements Animation
 		};
 		this.scale = null;
 		this.target = null;
+		this.steps = [
+			{ frames: initialFrames, zoom: 0 },
+			...MAIN_STEPS];
 	}
 
 	public countFrames(): number
 	{
-		return TOTAL_FRAMES;
+		return this.steps
+			.map(s => s.frames)
+			.reduce((a, b) => a + b, 0);
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>
 	{
-		for (let i = 1; i <= TOTAL_FRAMES; i++)
+		for (let i = 1; i <= this.countFrames(); i++)
 			yield this.frame;
 	}
 
@@ -82,12 +89,12 @@ export default class ZoomAnimation implements Animation
 	private getFactor(index: number)
 	{
 		let current = index;
-		for (const step of STEPS)
+		for (const step of this.steps)
 		{
 			if (current <= step.frames)
 			{
-				if (step.zoom === null)
-					return 1;
+				if (typeof step.zoom === 'number')
+					return step.zoom;
 				return step.zoom ?
 					current / step.frames :
 					1 - (current / step.frames);

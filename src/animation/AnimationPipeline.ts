@@ -6,6 +6,7 @@ import ScaledPointsGenerator from '../drawing/ScaledPointsGenerator';
 import CanvasPointsGenerator from '../drawing/CanvasPointsGenerator';
 import ZoomAnimation from './ZoomAnimation';
 import CoverFrameAnimation from './CoverFrameAnimation';
+import EmptyAnimation from './EmptyAnimation';
 
 export default class AnimationPipeline
 {
@@ -14,15 +15,17 @@ export default class AnimationPipeline
 	private animations: Animation[];
 
 	public constructor(series: PlotSeries[], plotArea: Box, frames: number,
-		extraFrames: number, days: number, zoonEasing: EasingFunction)
+		extraFrames: number, days: number, zoonEasing: EasingFunction,
+		skipZoom: boolean)
 	{
 		const lastCode = series[series.length - 1].code;
 		this.series = series;
 		this.plotArea = plotArea;
 		this.animations = [
 			new TimeAnimation(series, frames, days),
-			new FixedFrameAnimation(series, extraFrames / 2),
-			new ZoomAnimation(series, lastCode, zoonEasing),
+			skipZoom ?
+				new EmptyAnimation() :
+				new ZoomAnimation(series, lastCode, zoonEasing, extraFrames / 2),
 			new FixedFrameAnimation(series, extraFrames),
 			new CoverFrameAnimation(series)
 		];

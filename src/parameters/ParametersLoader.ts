@@ -15,7 +15,9 @@ const PARAMETERS = {
 	timebarEasing: 'Easing function for the timebar',
 	title: 'Sets the image title for the cover image',
 	dateFormat: 'Sets the date format',
-	drawMarkers: 'Draw series markers over the scale'
+	drawMarkers: 'Draw series markers over the scale',
+	skipZoom: 'Skips the zoom animation',
+	hideWatermark: 'Hides the watermark'
 };
 
 export default class ParametersLoader

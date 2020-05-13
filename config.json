@@ -485,6 +485,8 @@
 		"timebarEasing": "linear",
 		"title": "{{{dataSourceTitle}}}, ${{{date}}}",
 		"dateFormat": "yyyy-MM-dd",
-		"drawMarkers": false
+		"drawMarkers": false,
+		"skipZoom": false,
+		"hideWatermark": false
 	}
 }

@@ -53,7 +53,9 @@ const main = async () =>
 		EasingLoader.load(options.zoomEasing),
 		EasingLoader.load(options.timebarEasing),
 		options.dateFormat,
-		options.drawMarkers);
+		options.drawMarkers,
+		options.skipZoom,
+		options.hideWatermark);
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,

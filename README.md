@@ -58,6 +58,8 @@ The data is downloaded automatically
 - ```--timebarEasing``` (optional): Easing function for the timebar. Default: ```linear```.
 - ```--dateFormat``` (optional): Sets the date format based on the [Luxon tokens](https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens). Default: ```yyyy-MM-dd```.
 - ```--drawMarkers``` (optional): Draws series markers over the scale. Disabled by default.
+- ```--skipZoom``` (optional): Skips the zoom effect. Enabled by default.
+- ```--hideWatermark``` (optional): Hides the watermark. Enabled by default.
 
 #### Examples
 

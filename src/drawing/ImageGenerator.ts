@@ -29,6 +29,8 @@ export default class ImageGenerator
 	private timebarEasing: EasingFunction;
 	private dateFormat: string;
 	private drawMarkers: boolean;
+	private skipZoom: boolean;
+	private hideWatermark: boolean;
 
 
 	// Constructor
@@ -44,7 +46,9 @@ export default class ImageGenerator
 		zoomEasing: EasingFunction,
 		timebarEasing: EasingFunction,
 		dateFormat: string,
-		drawMarkers: boolean)
+		drawMarkers: boolean,
+		skipZoom: boolean,
+		hideWatermark: boolean)
 	{
 		this.title = title;
 		this.color = color;
@@ -56,6 +60,8 @@ export default class ImageGenerator
 		this.dateFormat = dateFormat;
 		this.series = this.createPlotSeries(series, configuration);
 		this.drawMarkers = drawMarkers;
+		this.skipZoom = skipZoom;
+		this.hideWatermark = hideWatermark;
 	}
 
 
@@ -70,7 +76,8 @@ export default class ImageGenerator
 			this.color.background);
 		const frameInfoGenerator = new AnimationPipeline(
 			this.series, this.layout.plotArea,
-			frames, extraFrames, days, this.zoomEasing);
+			frames, extraFrames, days, this.zoomEasing,
+			this.skipZoom);
 
 		for (const frameInfo of frameInfoGenerator.generate())
 			await this.drawFrame(frameInfo, writer);
@@ -295,6 +302,10 @@ export default class ImageGenerator
 
 	private async drawWatermark(writer: CanvasWriter)
 	{
+		// Check
+		if (this.hideWatermark)
+			return;
+
 		// Background
 		writer.drawFilledRectangle(
 			this.layout.watermark.area,
