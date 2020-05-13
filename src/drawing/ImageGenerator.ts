@@ -166,6 +166,14 @@ export default class ImageGenerator
 			return;
 
 		const point = series.points[series.points.length - 1];
+
+		// Draw only if the point is visible
+		if (point.x < this.layout.plotArea.left ||
+			point.x > this.layout.plotArea.right ||
+			point.y < this.layout.plotArea.top ||
+			point.y > this.layout.plotArea.bottom)
+			return;
+
 		const x = point.x + this.color.series.offset.x;
 		const y = point.y + this.color.series.offset.y;
 		writer.drawText(
