@@ -14,7 +14,7 @@ Generates an animation based on COVID-19 daily data.
 ## About
 
 - Created by [JC Olivares](https://twitter.com/juancriolivares).
-- Animations posted on Instagram: [@covid19statsvideos](https://instagram.com/covid19statsvideos)
+- Animations posted on Instagram [@covid19statsvideos](https://instagram.com/covid19statsvideos) and Twitter [@covid19statsvid](https://twitter.com/covid19statsvid)
 
 ## Requirements
 
