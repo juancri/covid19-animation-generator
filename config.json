@@ -131,7 +131,7 @@
 				{
 					"name": "Brazil",
 					"code": "BR",
-					"color": "#a05195"
+					"color": "#D940C4"
 				},
 				{
 					"name": "Argentina",
@@ -146,17 +146,12 @@
 				{
 					"name": "Canada",
 					"code": "CA",
-					"color": "#0076AC"
+					"color": "#5FB9E1"
 				},
 				{
 					"name": "China",
 					"code": "CN",
 					"color": "#E28888"
-				},
-				{
-					"name": "Ecuador",
-					"code": "EC",
-					"color": "#9BFF84"
 				},
 				{
 					"name": "Mexico",
@@ -203,17 +198,12 @@
 				{
 					"name": "Peru",
 					"code": "PE",
-					"color": "#9988BC"
-				},
-				{
-					"name": "Ecuador",
-					"code": "EC",
-					"color": "#00B0FF"
+					"color": "#8040FD"
 				},
 				{
 					"name": "Colombia",
 					"code": "CO",
-					"color": "#0076AC"
+					"color": "#2B98CB"
 				},
 				{
 					"name": "Venezuela",
