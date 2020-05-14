@@ -24,7 +24,12 @@ export default class TimeAnimation implements Animation
 
 	public countFrames(): number
 	{
-		return 1 + this.frames * (this.days - 1);
+		const maxDiff = Math.floor(this.lastDate.diff(this.firstDate).as('days'));
+		const realDays = this.days === 0 ?
+			maxDiff :
+			Math.min(maxDiff, this.days - 1);
+
+		return 1 + this.frames * realDays;
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>
