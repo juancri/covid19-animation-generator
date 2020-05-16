@@ -34,6 +34,10 @@ const main = async () =>
 		dataSource = DataSourceFilter.apply(dataSource, options.filter);
 	const timeSeries = await DataLoader.load (dataSource);
 
+	// Warnings
+	if (dataSource.series.length === 1 && !options.drawMarkers)
+		console.log('The datasource contains only 1 series. You should consider using drawMarkers.');
+
 	// Generate
 	const colorSchema = config.colorSchemas[options.schema];
 	if (!colorSchema)
