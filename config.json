@@ -477,6 +477,7 @@
 		"dateFormat": "yyyy-MM-dd",
 		"drawMarkers": false,
 		"skipZoom": false,
-		"hideWatermark": false
+		"hideWatermark": false,
+		"seriesLineWidth": 3
 	}
 }

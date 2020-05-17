@@ -60,6 +60,7 @@ The data is downloaded automatically
 - ```--drawMarkers``` (optional): Draws series markers over the scale. Disabled by default.
 - ```--skipZoom``` (optional): Skips the zoom effect. Enabled by default.
 - ```--hideWatermark``` (optional): Hides the watermark. Enabled by default.
+- ```--seriesLineWidth``` (optional): Series line width. Default: ```3```.
 
 #### Examples
 

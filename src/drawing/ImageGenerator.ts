@@ -31,6 +31,7 @@ export default class ImageGenerator
 	private drawMarkers: boolean;
 	private skipZoom: boolean;
 	private hideWatermark: boolean;
+	private seriesLineWidth: number;
 
 
 	// Constructor
@@ -48,7 +49,8 @@ export default class ImageGenerator
 		dateFormat: string,
 		drawMarkers: boolean,
 		skipZoom: boolean,
-		hideWatermark: boolean)
+		hideWatermark: boolean,
+		seriesLineWidth: number)
 	{
 		this.title = title;
 		this.color = color;
@@ -58,10 +60,11 @@ export default class ImageGenerator
 		this.zoomEasing = zoomEasing;
 		this.timebarEasing = timebarEasing;
 		this.dateFormat = dateFormat;
-		this.series = this.createPlotSeries(series, configuration);
 		this.drawMarkers = drawMarkers;
 		this.skipZoom = skipZoom;
 		this.hideWatermark = hideWatermark;
+		this.seriesLineWidth = seriesLineWidth;
+		this.series = this.createPlotSeries(series, configuration);
 	}
 
 
@@ -135,7 +138,7 @@ export default class ImageGenerator
 		if (series.points.length < 2)
 			return;
 
-		writer.drawPolyline(series.color, 3, series.points, this.layout.plotArea);
+		writer.drawPolyline(series.color, this.seriesLineWidth, series.points, this.layout.plotArea);
 	}
 
 	private drawSeriesCircle(series: PlotSeries, writer: CanvasWriter)

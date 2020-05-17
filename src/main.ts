@@ -59,7 +59,8 @@ const main = async () =>
 		options.dateFormat,
 		options.drawMarkers,
 		options.skipZoom,
-		options.hideWatermark);
+		options.hideWatermark,
+		options.seriesLineWidth);
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,

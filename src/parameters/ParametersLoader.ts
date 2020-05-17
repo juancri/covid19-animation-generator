@@ -17,7 +17,8 @@ const PARAMETERS = {
 	dateFormat: 'Sets the date format',
 	drawMarkers: 'Draw series markers over the scale',
 	skipZoom: 'Skips the zoom animation',
-	hideWatermark: 'Hides the watermark'
+	hideWatermark: 'Hides the watermark',
+	seriesLineWidth: 'Series line width'
 };
 
 export default class ParametersLoader
