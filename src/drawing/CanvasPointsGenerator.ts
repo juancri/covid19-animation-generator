@@ -12,7 +12,8 @@ export default class CanvasPointsGenerator
 			points: serie.points.map(point => ({
 				date: point.date,
 				x: plotArea.left + honrizontalSize * point.x,
-				y: plotArea.bottom - verticalSize * point.y
+				y: plotArea.bottom - verticalSize * point.y,
+				parent: point
 			}))
 		}));
 	}

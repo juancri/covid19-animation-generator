@@ -173,4 +173,5 @@ export interface Point {
 
 export interface PlotPoint extends Point {
 	date: DateTime;
+	parent?: PlotPoint;
 }

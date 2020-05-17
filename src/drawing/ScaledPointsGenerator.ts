@@ -12,7 +12,8 @@ export default class ScaledPointsGenerator {
 			points: serie.points.map(point => ({
 				date: point.date,
 				x: (point.x - scale.horizontal.min) / horizontalScale,
-				y: (point.y - scale.vertical.min) / verticalScale
+				y: (point.y - scale.vertical.min) / verticalScale,
+				parent: point
 			}))
 		}));
 	}
