@@ -18,7 +18,11 @@ const PARAMETERS = {
 	drawMarkers: 'Draw series markers over the scale',
 	skipZoom: 'Skips the zoom animation',
 	hideWatermark: 'Hides the watermark',
-	seriesLineWidth: 'Series line width'
+	seriesLineWidth: 'Series line width',
+	horizontalMin: 'Horizontal scale minimum',
+	horizontalMax: 'Horizontal scale maximum',
+	verticalMin: 'Vertical scale minimum',
+	verticalMax: 'Vertical scale maximum'
 };
 
 export default class ParametersLoader

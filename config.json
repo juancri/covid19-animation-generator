@@ -478,6 +478,10 @@
 		"drawMarkers": false,
 		"skipZoom": false,
 		"hideWatermark": false,
-		"seriesLineWidth": 3
+		"seriesLineWidth": 3,
+		"horizontalMin": null,
+		"horizontalMax": null,
+		"verticalMin": null,
+		"verticalMax": null
 	}
 }

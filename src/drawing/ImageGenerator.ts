@@ -10,6 +10,7 @@ import AnimationPipeline from '../animation/AnimationPipeline';
 import CanvasWriter from './CanvasWriter';
 import Log10PlotPointsGenerator from './Log10PlotPointsGenerator';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
+import DynamicScaleGenerator from '@/scale/DynamicScaleGenerator';
 
 const ICON_DIRECTORY = path.join(__dirname, '../../assets');
 const MARKER_LENGTH = 12;
@@ -32,6 +33,7 @@ export default class ImageGenerator
 	private skipZoom: boolean;
 	private hideWatermark: boolean;
 	private seriesLineWidth: number;
+	private scaleGenerator: DynamicScaleGenerator;
 
 
 	// Constructor
@@ -50,7 +52,8 @@ export default class ImageGenerator
 		drawMarkers: boolean,
 		skipZoom: boolean,
 		hideWatermark: boolean,
-		seriesLineWidth: number)
+		seriesLineWidth: number,
+		scaleGenerator: DynamicScaleGenerator)
 	{
 		this.title = title;
 		this.color = color;
@@ -64,6 +67,7 @@ export default class ImageGenerator
 		this.skipZoom = skipZoom;
 		this.hideWatermark = hideWatermark;
 		this.seriesLineWidth = seriesLineWidth;
+		this.scaleGenerator = scaleGenerator;
 		this.series = this.createPlotSeries(series, configuration);
 	}
 
@@ -80,7 +84,7 @@ export default class ImageGenerator
 		const frameInfoGenerator = new AnimationPipeline(
 			this.series, this.layout.plotArea,
 			frames, extraFrames, days, this.zoomEasing,
-			this.skipZoom);
+			this.skipZoom, this.scaleGenerator);
 
 		for (const frameInfo of frameInfoGenerator.generate())
 			await this.drawFrame(frameInfo, writer);

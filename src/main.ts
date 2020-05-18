@@ -10,6 +10,7 @@ import ParameterLoader from './parameters/ParametersLoader';
 import DataSourceFilter from './util/DataSourceFilter';
 import EasingLoader from './util/EasingLoader';
 import TitleGenerator from './util/TitleGenerator';
+import DynamicScaleGenerator from './scale/DynamicScaleGenerator';
 
 // Constants
 const LAYOUT_NAME = 'square';
@@ -60,7 +61,12 @@ const main = async () =>
 		options.drawMarkers,
 		options.skipZoom,
 		options.hideWatermark,
-		options.seriesLineWidth);
+		options.seriesLineWidth,
+		new DynamicScaleGenerator(
+			options.horizontalMin,
+			options.horizontalMax,
+			options.verticalMin,
+			options.verticalMax));
 	await generator.generate(
 		OUTPUT_PATH,
 		options.frames,

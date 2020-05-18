@@ -6,7 +6,22 @@ const MARGIN = 0.2;
 
 export default class DynamicScaleGenerator
 {
-	public static generate(series: PlotSeries[]): Scale {
+	private horizontalMin: number | null;
+	private horizontalMax: number | null;
+	private verticalMin: number | null;
+	private verticalMax: number | null;
+
+	public constructor(
+		horizontalMin: number | null, horizontalMax: number | null,
+		verticalMin: number | null, verticalMax: number | null)
+	{
+		this.horizontalMin = horizontalMin;
+		this.horizontalMax = horizontalMax;
+		this.verticalMin = verticalMin;
+		this.verticalMax = verticalMax;
+	}
+
+	public generate(series: PlotSeries[]): Scale {
 		const lastPoints = Enumerable.from(
 			Enumerable
 				.from(series)
@@ -21,12 +36,12 @@ export default class DynamicScaleGenerator
 		const max = Math.max(lastPoints.max(), 1);
 		return {
 			horizontal: {
-				min: min - MARGIN,
-				max: max + MARGIN
+				min: this.horizontalMin || (min - MARGIN),
+				max: this.horizontalMax || (max + MARGIN)
 			},
 			vertical: {
-				min: min - MARGIN,
-				max: max + MARGIN
+				min: this.verticalMin || (min - MARGIN),
+				max: this.verticalMax || (max + MARGIN)
 			}
 		};
 	}

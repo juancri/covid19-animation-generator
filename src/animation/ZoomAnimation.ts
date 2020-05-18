@@ -18,9 +18,11 @@ export default class ZoomAnimation implements Animation
 	private target: Scale | null;
 	private easing: EasingFunction;
 	private steps: ZoomStep[];
+	private scaleGenerator: DynamicScaleGenerator;
 
 	public constructor(series: PlotSeries[], code: string,
-		easing: EasingFunction, initialFrames: number)
+		easing: EasingFunction, initialFrames: number,
+		scaleGenerator: DynamicScaleGenerator)
 	{
 		this.code = code;
 		this.easing = easing;
@@ -30,6 +32,7 @@ export default class ZoomAnimation implements Animation
 		};
 		this.scale = null;
 		this.target = null;
+		this.scaleGenerator = scaleGenerator;
 		this.steps = [
 			{ frames: initialFrames, zoom: 0 },
 			...MAIN_STEPS];
@@ -52,7 +55,7 @@ export default class ZoomAnimation implements Animation
 		frameIndex: number, stepFrameIndex: number): Scale
 	{
 		if (!this.scale)
-			this.scale = DynamicScaleGenerator.generate(filteredSeries);
+			this.scale = this.scaleGenerator.generate(filteredSeries);
 		if (!this.target)
 		{
 			const series = filteredSeries.find(serie => serie.code === this.code);

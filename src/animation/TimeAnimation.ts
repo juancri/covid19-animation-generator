@@ -9,13 +9,15 @@ export default class TimeAnimation implements Animation
 	private days: number;
 	private firstDate: DateTime;
 	private lastDate: DateTime;
+	private scaleGenerator: DynamicScaleGenerator;
 
-	public constructor(series: PlotSeries[], frames: number, days: number)
+	public constructor(series: PlotSeries[], frames: number, days: number, scaleGenerator: DynamicScaleGenerator)
 	{
 		// Save
 		this.series = series;
 		this.frames = frames;
 		this.days = days;
+		this.scaleGenerator = scaleGenerator;
 
 		// Calculate
 		this.lastDate = this.getLastDate();
@@ -51,7 +53,7 @@ export default class TimeAnimation implements Animation
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
 		stepFrameIndex: number) {
-		return DynamicScaleGenerator.generate(filteredSeries);
+		return this.scaleGenerator.generate(filteredSeries);
 	}
 
 	private getFirstDate()
