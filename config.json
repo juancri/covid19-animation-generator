@@ -217,6 +217,68 @@
 				}
 			]
 		},
+		"gdp": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+			"nameColumn": "Country/Region",
+			"series":
+			[
+				{
+					"name": "Barbados",
+					"code": "Barbados",
+					"color": "#88FF35"
+				},
+				{
+					"name": "Uruguay",
+					"code": "Uruguay",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Hungary",
+					"code": "Hungría",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Oman",
+					"code": "Omán",
+					"color": "#d45087"
+				},
+				{
+					"name": "Panama",
+					"code": "Panamá",
+					"color": "#a05195"
+				},
+				{
+					"name": "Maldives",
+					"code": "Maldivas",
+					"color": "#8040FD"
+				},
+				{
+					"name": "Croatia",
+					"code": "Croacia",
+					"color": "#2B98CB"
+				},
+				{
+					"name": "Poland",
+					"code": "Polonia",
+					"color": "#E28888"
+				},
+				{
+					"name": "Romania",
+					"code": "Rumania",
+					"color": "#00FF60"
+				},
+				{
+					"name": "Costa Rica",
+					"code": "Costa Rica",
+					"color": "#FF3535"
+				},
+				{
+					"name": "Chile",
+					"code": "Chile",
+					"color": "#ffa600"
+				}
+			]
+		},
 		"us": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
 			"nameColumn": "Province_State",
