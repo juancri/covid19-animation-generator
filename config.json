@@ -341,6 +341,199 @@
 				}
 			]
 		},
+		"ocde": {
+			"name": "Global (Chile + others)",
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+			"nameColumn": "Country/Region",
+			"series":
+			[
+				{
+					"name": "Australia",
+					"code": "AU",
+					"color": "#F06AFF"
+				},
+				{
+					"name": "Austria",
+					"code": "AT",
+					"color": "#FF6A6F"
+				},
+				{
+					"name": "Belgium",
+					"code": "BE",
+					"color": "#72CDFF"
+				},
+				{
+					"name": "Canada",
+					"code": "CA",
+					"color": "#5FB9E1"
+				},
+				{
+					"name": "Colombia",
+					"code": "CO",
+					"color": "#72FFFF"
+				},
+				{
+					"name": "Czechia",
+					"code": "CZ",
+					"color": "#72FFB7"
+				},
+				{
+					"name": "Denmark",
+					"code": "DK",
+					"color": "#7AFF72"
+				},
+				{
+					"name": "Estonia",
+					"code": "EE",
+					"color": "#BAFF72"
+				},
+				{
+					"name": "Finland",
+					"code": "FI",
+					"color": "#FFF972"
+				},
+				{
+					"name": "France",
+					"code": "FR",
+					"color": "#FFBB72"
+				},
+				{
+					"name": "Germany",
+					"code": "DE",
+					"color": "#FF7772"
+				},
+				{
+					"name": "Greece",
+					"code": "GR",
+					"color": "#FF729D"
+				},
+				{
+					"name": "Hungary",
+					"code": "HU",
+					"color": "#FF72CE"
+				},
+				{
+					"name": "Iceland",
+					"code": "IS",
+					"color": "#E072FF"
+				},
+				{
+					"name": "Ireland",
+					"code": "IE",
+					"color": "#B272FF"
+				},
+				{
+					"name": "Israel",
+					"code": "IL",
+					"color": "#8672FF"
+				},
+				{
+					"name": "Italy",
+					"code": "IT",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Japan",
+					"code": "JP",
+					"color": "#72AEFF"
+				},
+				{
+					"name": "Korea, South",
+					"code": "KR",
+					"color": "#d45087"
+				},
+				{
+					"name": "Latvia",
+					"code": "LV",
+					"color": "#1263CF"
+				},
+				{
+					"name": "Lithuania",
+					"code": "LT",
+					"color": "#12CACF"
+				},
+				{
+					"name": "Luxembourg",
+					"code": "LU",
+					"color": "#12CF91"
+				},
+				{
+					"name": "Mexico",
+					"code": "MX",
+					"color": "#00FFF8"
+				},
+				{
+					"name": "Netherlands",
+					"code": "NL",
+					"color": "#00FF02"
+				},
+				{
+					"name": "New Zealand",
+					"code": "NZ",
+					"color": "#76FF00"
+				},
+				{
+					"name": "Norway",
+					"code": "NO",
+					"color": "#FAFF00"
+				},
+				{
+					"name": "Poland",
+					"code": "PL",
+					"color": "#FFAA00"
+				},
+				{
+					"name": "Portugal",
+					"code": "PT",
+					"color": "#FF4D00"
+				},
+				{
+					"name": "Slovakia",
+					"code": "SK",
+					"color": "#FF0024"
+				},
+				{
+					"name": "Slovenia",
+					"code": "SI",
+					"color": "#FF006A"
+				},
+				{
+					"name": "Spain",
+					"code": "ES",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Sweden",
+					"code": "SE",
+					"color": "#D940C4"
+				},
+				{
+					"name": "Switzerland",
+					"code": "CH",
+					"color": "#9988BC"
+				},
+				{
+					"name": "Turkey",
+					"code": "TR",
+					"color": "#00B0FF"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "UK",
+					"color": "#E28888"
+				},
+				{
+					"name": "US",
+					"code": "US",
+					"color": "#FF00B3"
+				},
+				{
+					"name": "Chile",
+					"code": "CL",
+					"color": "#FFA600"
+				}
+			]
+		},
 		"us": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
 			"nameColumn": "Province_State",
