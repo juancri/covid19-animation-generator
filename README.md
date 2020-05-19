@@ -61,10 +61,10 @@ The data is downloaded automatically
 - ```--skipZoom``` (optional): Skips the zoom effect. Enabled by default.
 - ```--hideWatermark``` (optional): Hides the watermark. Enabled by default.
 - ```--seriesLineWidth``` (optional): Series line width. Default: ```3```.
-- ```horizontalMin``` (optional): Horizontal scale minimum. Default: dynamic.
-- ```horizontalMax``` (optional): Horizontal scale maximum. Default: dynamic.
-- ```verticalMin``` (optional): Vertical scale minimum. Default: dynamic.
-- ```verticalMax``` (optional): Vertical scale maximum. Default: dynamic.
+- ```--horizontalMin``` (optional): Horizontal scale minimum. Default: dynamic.
+- ```--horizontalMax``` (optional): Horizontal scale maximum. Default: dynamic.
+- ```--verticalMin``` (optional): Vertical scale minimum. Default: dynamic.
+- ```--verticalMax``` (optional): Vertical scale maximum. Default: dynamic.
 
 #### Examples
 
