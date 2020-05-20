@@ -36,12 +36,12 @@ export default class DynamicScaleGenerator
 		const max = Math.max(lastPoints.max(), 1);
 		return {
 			horizontal: {
-				min: this.horizontalMin || (min - MARGIN),
-				max: this.horizontalMax || (max + MARGIN)
+				min: this.horizontalMin ?? (min - MARGIN),
+				max: this.horizontalMax ?? (max + MARGIN)
 			},
 			vertical: {
-				min: this.verticalMin || (min - MARGIN),
-				max: this.verticalMax || (max + MARGIN)
+				min: this.verticalMin ?? (min - MARGIN),
+				max: this.verticalMax ?? (max + MARGIN)
 			}
 		};
 	}
