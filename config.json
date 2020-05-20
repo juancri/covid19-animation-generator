@@ -720,6 +720,19 @@
 				}
 			]
 		},
+		"chile-sum": {
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
+			"nameColumn": "region",
+			"preProcessor": "sum",
+			"series":
+			[
+				{
+					"name": "sum",
+					"code": "Chile",
+					"color": "#ffa600"
+				}
+			]
+		},
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
 			"nameColumn": "comuna",
