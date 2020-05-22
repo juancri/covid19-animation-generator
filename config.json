@@ -641,12 +641,12 @@
 				{
 					"name": "Arica y Parinacota",
 					"code": "Arica",
-					"color": "white"
+					"color": "#E28888"
 				},
 				{
 					"name": "Tarapacá",
 					"code": "Tarapacá",
-					"color": "white"
+					"color": "#3EB4EA"
 				},
 				{
 					"name": "Antofagasta",
@@ -656,12 +656,12 @@
 				{
 					"name": "Atacama",
 					"code": "Atacama",
-					"color": "white"
+					"color": "#E28888"
 				},
 				{
 					"name": "Coquimbo",
 					"code": "Coquimbo",
-					"color": "white"
+					"color": "#AC83FF"
 				},
 				{
 					"name": "Valparaíso",
