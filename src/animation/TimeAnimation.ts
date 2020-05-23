@@ -1,5 +1,8 @@
-import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
+
+import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
+
+import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
 export default class TimeAnimation implements Animation
@@ -58,7 +61,14 @@ export default class TimeAnimation implements Animation
 
 	private getFirstDate()
 	{
-		const possibleDate = this.series[0].points[0].date;
+		const possibleDate = Enumerable
+			.from(this.series)
+			.select(serie => serie.points)
+			.where(points => !!points && !!points.length)
+			.select(points => points[0])
+			.select(point => point.date)
+			.orderBy(date => +date)
+			.firstOrDefault();
 		if (this.days === 0)
 			return possibleDate;
 
