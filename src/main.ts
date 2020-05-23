@@ -38,6 +38,8 @@ const main = async () =>
 	// Warnings
 	if (dataSource.series.length === 1 && !options.drawMarkers)
 		console.log('The datasource contains only 1 series. You should consider using drawMarkers.');
+	if (dataSource.series.length === 1 && options.seriesLineWidth < 5)
+		console.log('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
 
 	// Generate
 	const colorSchema = config.colorSchemas[options.schema];
