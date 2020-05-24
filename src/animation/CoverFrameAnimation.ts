@@ -1,5 +1,5 @@
 
-import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
 
 const NAME = 'cover';
 
@@ -7,9 +7,9 @@ export default class CoverFrameAnimation implements Animation
 {
 	private frameFilterInfo: FrameFilterInfo;
 
-	public constructor(series: PlotSeries[])
+	public constructor(context: AnimationContext)
 	{
-		const date = this.getLastDate(series);
+		const date = this.getLastDate(context.series);
 		this.frameFilterInfo = {
 			date,
 			ratio: 1,

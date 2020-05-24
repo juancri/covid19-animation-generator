@@ -1,15 +1,15 @@
 
-import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
 
 export default class FixedFrameAnimation implements Animation
 {
 	private frames: number;
 	private frameFilterInfo: FrameFilterInfo;
 
-	public constructor(series: PlotSeries[], frames: number)
+	public constructor(context: AnimationContext)
 	{
-		this.frames = frames;
-		const date = this.getLastDate(series);
+		this.frames = context.options.frames;
+		const date = this.getLastDate(context.series);
 		this.frameFilterInfo = { date, ratio: 1 };
 	}
 	public countFrames(): number

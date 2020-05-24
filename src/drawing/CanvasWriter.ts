@@ -2,36 +2,35 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { Point, Box } from '../util/Types';
+import { Point, Box, Layout } from '../util/Types';
 // @ts-ignore
 import * as promisePipe from 'promisepipe';
 
 export default class CanvasWriter
 {
-	private background: string;
+	private layout: Layout;
+	private outputPath: string;
 	private canvas: Canvas;
 	private ctx: CanvasRenderingContext2D;
 	private frame: number;
-	private outputDirectory: string;
-	private size: number[];
 
-	public constructor(outputDirectory: string, size: number[], background: string)
+	public constructor(layout: Layout, outputPath: string)
 	{
-		this.outputDirectory = outputDirectory;
-		this.size = size;
-		this.background = background;
+		this.layout = layout;
+		this.outputPath = outputPath;
+
 		this.frame = 1;
-		this.canvas = createCanvas(size[0], size[1]);
+		const [ width, height ] = this.layout.canvasSize;
+		this.canvas = createCanvas(width, height);
 		this.ctx = this.canvas.getContext('2d');
-		fs.mkdirSync(outputDirectory, { recursive: true });
-		fs.emptyDirSync(outputDirectory);
+		fs.mkdirSync(this.outputPath, { recursive: true });
+		fs.emptyDirSync(this.outputPath);
 	}
 
 	public clean()
 	{
-		this.ctx.clearRect(0, 0, this.size[0], this.size[1]);
-		this.ctx.fillStyle = this.background;
-		this.ctx.fillRect(0, 0, this.size[0], this.size[1]);
+		const [ width, height ] = this.layout.canvasSize;
+		this.ctx.clearRect(0, 0, width, height);
 	}
 
 	public drawCircle(radius: number, color: string, center: Point, box: Box | null = null)
@@ -116,7 +115,7 @@ export default class CanvasWriter
 		const input = this.canvas.createJPEGStream();
 		const name = forcedName || this.frame.toString();
 		const fileName = `${name}.jpg`;
-		const filePath = path.join(this.outputDirectory, fileName);
+		const filePath = path.join(this.outputPath, fileName);
 		const output = fs.createWriteStream(filePath);
 		await promisePipe(input, output);
 		this.frame++;

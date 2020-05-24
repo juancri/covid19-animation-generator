@@ -1,5 +1,6 @@
 
 import { DateTime } from 'luxon';
+import CanvasWriter from '../drawing/CanvasWriter';
 
 // Data source
 
@@ -101,6 +102,30 @@ export interface DataSource {
 	series: SeriesConfiguration[];
 }
 
+export interface Options
+{
+	schema: string;
+	source: string;
+	days: number,
+	frames: number,
+	extraFrames: number;
+	dateFormat: string;
+	horizontalAxisLabel: string;
+	verticalAxisLabel: string;
+	filter: string | null;
+	zoomEasing: string;
+	timebarEasing: string;
+	title: string;
+	drawMarkers: boolean;
+	skipZoom: boolean;
+	hideWatermark: boolean;
+	seriesLineWidth: number;
+	horizontalMin: number;
+	horizontalMax: number;
+	verticalMin: number;
+	verticalMax: number;
+}
+
 export interface Configuration {
 	dataSources: { [key: string]: DataSource };
 	days: number;
@@ -108,17 +133,10 @@ export interface Configuration {
 	extraEndFrames: number;
 	colorSchemas: { [key: string]: ColorSchema };
 	layouts: { [key: string]: Layout; };
-	defaults: {
-		schema: string;
-		source: string;
-		days: number,
-		frames: number,
-		extraFrames: number;
-		dateFormat: string;
-	}
+	defaults: Options;
 }
 
-// Ploy
+// Plot
 
 export type EasingFunction = (p: number) => number;
 
@@ -174,4 +192,13 @@ export interface Point {
 export interface PlotPoint extends Point {
 	date: DateTime;
 	parent?: PlotPoint;
+}
+
+export interface AnimationContext {
+	config: Configuration;
+	options: Options;
+	series: PlotSeries[];
+	color: ColorSchema;
+	layout: Layout;
+	writer: CanvasWriter;
 }

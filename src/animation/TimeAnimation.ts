@@ -2,27 +2,18 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { Animation, PlotSeries, FrameFilterInfo } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 
 export default class TimeAnimation implements Animation
 {
-	private series: PlotSeries[];
-	private frames: number;
-	private days: number;
+	private context: AnimationContext;
 	private firstDate: DateTime;
 	private lastDate: DateTime;
-	private scaleGenerator: DynamicScaleGenerator;
 
-	public constructor(series: PlotSeries[], frames: number, days: number, scaleGenerator: DynamicScaleGenerator)
+	public constructor(context: AnimationContext)
 	{
-		// Save
-		this.series = series;
-		this.frames = frames;
-		this.days = days;
-		this.scaleGenerator = scaleGenerator;
-
-		// Calculate
+		this.context = context;
 		this.lastDate = this.getLastDate();
 		this.firstDate = this.getFirstDate();
 	}
@@ -30,11 +21,11 @@ export default class TimeAnimation implements Animation
 	public countFrames(): number
 	{
 		const maxDiff = Math.floor(this.lastDate.diff(this.firstDate).as('days'));
-		const realDays = this.days === 0 ?
+		const realDays = this.context.options.days === 0 ?
 			maxDiff :
-			Math.min(maxDiff, this.days - 1);
+			Math.min(maxDiff, this.context.options.days - 1);
 
-		return 1 + this.frames * realDays;
+		return 1 + this.context.options.frames * realDays;
 	}
 
 	public *getFrames(): Generator<FrameFilterInfo>
@@ -46,8 +37,8 @@ export default class TimeAnimation implements Animation
 		let current = this.firstDate.plus({ days: 1 });
 		while (current <= this.lastDate)
 		{
-			for (let frame = 1; frame <= this.frames; frame++)
-				yield { date: current, ratio: frame / this.frames };
+			for (let frame = 1; frame <= this.context.options.frames; frame++)
+				yield { date: current, ratio: frame / this.context.options.frames };
 			current = current.plus({ days: 1 });
 		}
 	}
@@ -56,29 +47,31 @@ export default class TimeAnimation implements Animation
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
 		stepFrameIndex: number) {
-		return this.scaleGenerator.generate(filteredSeries);
+		return DynamicScaleGenerator.generate(this.context, filteredSeries);
 	}
 
 	private getFirstDate()
 	{
 		const possibleDate = Enumerable
-			.from(this.series)
+			.from(this.context.series)
 			.select(serie => serie.points)
 			.where(points => !!points && !!points.length)
 			.select(points => points[0])
 			.select(point => point.date)
 			.orderBy(date => +date)
 			.firstOrDefault();
-		if (this.days === 0)
+		if (this.context.options.days === 0)
 			return possibleDate;
 
-		const requestedDate = this.lastDate.plus({ days: (-1 * this.days) + 1 });
+		const requestedDate = this.lastDate.plus({
+			days: (-1 * this.context.options.days) + 1
+		});
 		return DateTime.max(requestedDate, possibleDate);
 	}
 
 	private getLastDate()
 	{
-		const firstPoints = this.series[0].points;
+		const firstPoints = this.context.series[0].points;
 		const lastIndex = firstPoints.length - 1;
 		const lastDataPoint = firstPoints[lastIndex];
 		return lastDataPoint.date;

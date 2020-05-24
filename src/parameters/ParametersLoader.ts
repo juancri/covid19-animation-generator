@@ -1,5 +1,6 @@
 
 import * as minimist from 'minimist';
+import { Options } from '../util/Types';
 
 const PARAMETERS = {
 	help: 'This help message',
@@ -41,8 +42,9 @@ export default class ParametersLoader
 		return true;
 	}
 
-	public static load(defaultValues: any)
+	public static load(defaultValues: Options): Options
 	{
+		// @ts-ignore
 		return minimist(process.argv.slice(2), { default: defaultValues });
 	}
 }

@@ -1,27 +1,12 @@
 
 import * as Enumerable from 'linq';
-import { Scale, PlotSeries } from '../util/Types';
+import { Scale, PlotSeries, AnimationContext } from '../util/Types';
 
 const MARGIN = 0.2;
 
 export default class DynamicScaleGenerator
 {
-	private horizontalMin: number | null;
-	private horizontalMax: number | null;
-	private verticalMin: number | null;
-	private verticalMax: number | null;
-
-	public constructor(
-		horizontalMin: number | null, horizontalMax: number | null,
-		verticalMin: number | null, verticalMax: number | null)
-	{
-		this.horizontalMin = horizontalMin;
-		this.horizontalMax = horizontalMax;
-		this.verticalMin = verticalMin;
-		this.verticalMax = verticalMax;
-	}
-
-	public generate(series: PlotSeries[]): Scale {
+	public static generate(context: AnimationContext, series: PlotSeries[]): Scale {
 		const lastPoints = Enumerable.from(
 			Enumerable
 				.from(series)
@@ -36,12 +21,12 @@ export default class DynamicScaleGenerator
 		const max = Math.max(lastPoints.max(), 1);
 		return {
 			horizontal: {
-				min: this.horizontalMin ?? (min - MARGIN),
-				max: this.horizontalMax ?? (max + MARGIN)
+				min: context.options.horizontalMin ?? (min - MARGIN),
+				max: context.options.horizontalMax ?? (max + MARGIN)
 			},
 			vertical: {
-				min: this.verticalMin ?? (min - MARGIN),
-				max: this.verticalMax ?? (max + MARGIN)
+				min: context.options.verticalMin ?? (min - MARGIN),
+				max: context.options.verticalMax ?? (max + MARGIN)
 			}
 		};
 	}

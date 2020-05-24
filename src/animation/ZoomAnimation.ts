@@ -1,5 +1,6 @@
-import { Animation, FrameFilterInfo, PlotSeries, Scale, EasingFunction } from '../util/Types';
+import { Animation, FrameFilterInfo, PlotSeries, Scale, EasingFunction, AnimationContext } from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
+import EasingLoader from '../util/EasingLoader';
 
 interface ZoomStep { frames: number, zoom: boolean | number };
 const MAIN_STEPS: ZoomStep[] = [
@@ -12,29 +13,25 @@ const ZOOM_RATIO = 0.6;
 
 export default class ZoomAnimation implements Animation
 {
-	private code: string;
+	private context: AnimationContext;
 	private frame: FrameFilterInfo;
 	private scale: Scale | null;
 	private target: Scale | null;
 	private easing: EasingFunction;
 	private steps: ZoomStep[];
-	private scaleGenerator: DynamicScaleGenerator;
 
-	public constructor(series: PlotSeries[], code: string,
-		easing: EasingFunction, initialFrames: number,
-		scaleGenerator: DynamicScaleGenerator)
+	public constructor(context: AnimationContext)
 	{
-		this.code = code;
-		this.easing = easing;
+		this.context = context;
+		this.easing = EasingLoader.load(context.options.zoomEasing);
 		this.frame = {
-			date: this.getLastDate(series),
+			date: this.getLastDate(context.series),
 			ratio: 1
 		};
 		this.scale = null;
 		this.target = null;
-		this.scaleGenerator = scaleGenerator;
 		this.steps = [
-			{ frames: initialFrames, zoom: 0 },
+			{ frames: context.options.extraFrames / 2, zoom: 0 },
 			...MAIN_STEPS];
 	}
 
@@ -55,12 +52,13 @@ export default class ZoomAnimation implements Animation
 		frameIndex: number, stepFrameIndex: number): Scale
 	{
 		if (!this.scale)
-			this.scale = this.scaleGenerator.generate(filteredSeries);
+			this.scale = DynamicScaleGenerator.generate(this.context, filteredSeries);
 		if (!this.target)
 		{
-			const series = filteredSeries.find(serie => serie.code === this.code);
+			const code = this.context.series[this.context.series.length - 1].code;
+			const series = filteredSeries.find(serie => serie.code === code);
 			if (!series)
-				throw new Error(`Series not found: ${this.code}`);
+				throw new Error(`Series not found: ${code}`);
 			const targetCenter = series.points[series.points.length - 1];
 			this.target = {
 				horizontal: {
