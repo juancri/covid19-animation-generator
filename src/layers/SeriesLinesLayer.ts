@@ -14,7 +14,6 @@ export default class SeriesLinesLayer implements Layer
 	{
 		for (const series of frame.series)
 		{
-			// Implement
 			if (series.points.length < 2)
 				return;
 
