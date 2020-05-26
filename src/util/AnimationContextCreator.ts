@@ -11,7 +11,7 @@ import LayoutLoader from './LayoutLoader';
 import PlotSeriesLoader from './PlotSeriesLoader';
 
 // Constants
-const OUTPUT_PATH = path.join(__dirname, '../output');
+const OUTPUT_PATH = path.join(__dirname, '../../output');
 
 export default class AnimationContextCreator
 {
@@ -21,14 +21,12 @@ export default class AnimationContextCreator
 		const options = ParametersLoader.load(config.defaults);
 		const layout = LayoutLoader.load(config);
 		const writer = new CanvasWriter(layout, OUTPUT_PATH);
+		const series = await PlotSeriesLoader.load(config, options);
+		const color = ColorSchemaLoader.load(config, options);
 
 		return {
-			config,
-			options,
-			layout,
-			writer,
-			series: await PlotSeriesLoader.load(config, options),
-			color: ColorSchemaLoader.load(config, options),
+			config, options, layout,
+			writer, series, color
 		};
 	}
 }
