@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: sudo apt install libcairo2-dev libpango1.0-dev libgif-dev
     - run: npm install
     - run: node node_modules/gulp-cli/bin/gulp.js
       env:
