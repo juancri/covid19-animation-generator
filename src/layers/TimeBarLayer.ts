@@ -15,6 +15,10 @@ export default class TimeBarLayer implements Layer
 
 	public async draw (frame: FrameInfo)
 	{
+		// TODO: Is this the right property to check?
+		if (frame.drawCover)
+			return;
+
 		// Background
 		const timebar = this.context.layout.timebar;
 		this.context.writer.drawFilledRectangle(

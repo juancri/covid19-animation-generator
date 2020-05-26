@@ -19,6 +19,9 @@ export default class WatermarkLayer implements Layer
 		// Check
 		if (this.context.options.hideWatermark)
 			return;
+		// FIXME: Is this the right property?
+		if (frame.drawCover)
+			return;
 
 		// Background
 		this.context.writer.drawFilledRectangle(
