@@ -1,61 +1,66 @@
 
-import { FrameInfo, AnimationContext, Layer } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer, Box, Point } from '../util/Types';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
 const LINE_WIDTH = 2;
+const CIRCLE_WIDTH = 4;
 
 export default class ScaleLayer implements Layer
 {
 	private context: AnimationContext;
+	private area: Box;
+	private points: Point[];
+	private boxX: Box;
+	private boxY: Box;
 
 	public constructor(context: AnimationContext)
 	{
 		this.context = context;
+		this.area = this.context.layout.plotArea;
+		this.points = [
+			{ x: this.area.left, y: this.area.top },
+			{ x: this.area.left, y: this.area.bottom },
+			{ x: this.area.right, y: this.area.bottom }
+		];
+		this.boxX = {
+			left: this.area.left,
+			right: this.area.right,
+			top: this.area.bottom,
+			bottom: this.area.bottom + this.context.color.axis.offset
+		};
+		this.boxY = {
+			left: this.area.left - this.context.color.axis.offset,
+			right: this.area.left,
+			top: this.area.top,
+			bottom: this.area.bottom
+		};
 	}
 
 	public async draw (frame: FrameInfo)
 	{
 		// Lines
-		const area = this.context.layout.plotArea;
-		const points = [
-			{ x: area.left, y: area.top },
-			{ x: area.left, y: area.bottom },
-			{ x: area.right, y: area.bottom }
-		];
 		this.context.writer.drawPolyline(
 			this.context.color.scale.color,
 			LINE_WIDTH,
-			points);
+			this.points);
 
 		// Scale labels
 		this.drawScaleLabels(frame, true);
 		this.drawScaleLabels(frame, false);
 
 		// Axis Label X
-		const boxX = {
-			left: area.left,
-			right: area.right,
-			top: area.bottom,
-			bottom: area.bottom + this.context.color.axis.offset
-		};
 		this.context.writer.drawBoxedText(
 			this.context.options.horizontalAxisLabel,
 			this.context.color.axis.font,
 			this.context.color.axis.color,
-			boxX);
+			this.boxX);
 
 		// Axis Label Y
-		const boxY = {
-			left: area.left - this.context.color.axis.offset,
-			right: area.left,
-			top: area.top,
-			bottom: area.bottom
-		};
 		this.context.writer.drawBoxedText(
 			this.context.options.verticalAxisLabel,
 			this.context.color.axis.font,
 			this.context.color.axis.color,
-			boxY, -90);
+			this.boxY, -90);
 	}
 
 	private drawScaleLabels(frame: FrameInfo, horizontal: boolean)
@@ -95,7 +100,7 @@ export default class ScaleLayer implements Layer
 			};
 
 			this.context.writer.drawCircle(
-				4,
+				CIRCLE_WIDTH,
 				this.context.color.scale.color,
 				{
 					x: horizontal ? pos : area.left,

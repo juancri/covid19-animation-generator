@@ -35,6 +35,7 @@ export default class ImageGenerator
 
 		for (const frame of frameInfoGenerator.generate())
 		{
+			context.writer.clean();
 			for (const layer of layers)
 				await layer.draw(frame);
 

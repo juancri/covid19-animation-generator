@@ -15,7 +15,7 @@ export default class SeriesLinesLayer implements Layer
 		for (const series of frame.series)
 		{
 			if (series.points.length < 2)
-				return;
+				continue;
 
 			this.context.writer.drawPolyline(
 				series.color,

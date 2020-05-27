@@ -19,16 +19,16 @@ export default class SeriesMarkersLayer implements Layer
 
 		for (const series of frame.series)
 		{
-			if (!series.points.length)
+			if (series.points.length < 2)
 				continue;
 
-			const point = series.points[series.points.length - 1];
+			const lastPoint = series.points[series.points.length - 1];
 			const leftPoint = {
 				x: this.context.layout.plotArea.left,
-				y: point.y
+				y: lastPoint.y
 			};
 			const bottomPoint = {
-				x: point.x,
+				x: lastPoint.x,
 				y: this.context.layout.plotArea.bottom
 			};
 			this.context.writer.drawLine(
