@@ -22,6 +22,13 @@ export default class SeriesLinesLayer implements Layer
 				this.context.options.seriesLineWidth,
 				series.points,
 				this.context.layout.plotArea);
+
+			const lastPoint = series.points[series.points.length - 1];
+			this.context.writer.drawCircle(
+				this.context.layout.circleSize,
+				series.color,
+				lastPoint,
+				this.context.layout.plotArea);
 		}
 	}
 }

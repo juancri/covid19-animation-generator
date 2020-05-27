@@ -4,7 +4,6 @@ import AnimationGenerator from '../animation/AnimationGenerator';
 import BackgroundLayer from '../layers/BackgroundLayer';
 import DateLayer from '../layers/DateLayer';
 import ScaleLayer from '../layers/ScaleLayer';
-import SeriesCirclesLayer from '../layers/SeriesCirclesLayer';
 import SeriesLinesLayer from '../layers/SeriesLinesLayer';
 import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
 import TimeBarLayer from '../layers/TimeBarLayer';
@@ -22,7 +21,6 @@ export default class ImageGenerator
 
 			// Series
 			new SeriesLinesLayer(context),
-			new SeriesCirclesLayer(context),
 			new SeriesLabelsLayer(context),
 
 			// Scale and makers
@@ -34,6 +32,7 @@ export default class ImageGenerator
 			new TimeBarLayer(context),
 			new WatermarkLayer(context)
 		];
+
 		for (const frame of frameInfoGenerator.generate())
 		{
 			for (const layer of layers)
