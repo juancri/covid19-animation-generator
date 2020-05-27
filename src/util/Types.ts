@@ -202,3 +202,9 @@ export interface AnimationContext {
 	layout: Layout;
 	writer: CanvasWriter;
 }
+
+export interface Layer
+{
+	draw(frame: FrameInfo): Promise<void>;
+}
+

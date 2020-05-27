@@ -1,6 +1,6 @@
-import { FrameInfo, AnimationContext } from '../util/Types';
+
+import { FrameInfo, AnimationContext, Layer } from '../util/Types';
 import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
-import Layer from './Layer';
 
 const LINE_WIDTH = 2;
 

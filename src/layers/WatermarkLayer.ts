@@ -1,7 +1,6 @@
 
 import * as path from 'path';
-import { FrameInfo, AnimationContext } from '../util/Types';
-import Layer from './Layer';
+import { FrameInfo, AnimationContext, Layer } from '../util/Types';
 
 const ICON_DIRECTORY = path.join(__dirname, '../../assets');
 
@@ -19,6 +18,7 @@ export default class WatermarkLayer implements Layer
 		// Check
 		if (this.context.options.hideWatermark)
 			return;
+
 		// FIXME: Is this the right property?
 		if (frame.drawCover)
 			return;

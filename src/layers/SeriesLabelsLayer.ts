@@ -1,5 +1,4 @@
-import { FrameInfo, AnimationContext } from '../util/Types';
-import Layer from './Layer';
+import { FrameInfo, AnimationContext, Layer } from '../util/Types';
 
 export default class SeriesLabelsLayer implements Layer
 {

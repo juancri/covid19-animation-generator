@@ -1,7 +1,6 @@
 
-import { AnimationContext } from '../util/Types';
+import { AnimationContext, Layer } from '../util/Types';
 import AnimationGenerator from '../animation/AnimationGenerator';
-import Layer from '../layers/Layer';
 import BackgroundLayer from '../layers/BackgroundLayer';
 import DateLayer from '../layers/DateLayer';
 import ScaleLayer from '../layers/ScaleLayer';

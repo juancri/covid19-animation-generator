@@ -1,5 +1,4 @@
-import { FrameInfo, AnimationContext } from '../util/Types';
-import Layer from './Layer';
+import { FrameInfo, AnimationContext, Layer } from '../util/Types';
 
 const MARKER_LENGTH = 12;
 const MARKER_WIDTH = 5;
@@ -15,6 +14,9 @@ export default class SeriesMarkersLayer implements Layer
 
 	public async draw (frame: FrameInfo)
 	{
+		if (!this.context.options.drawMarkers)
+			return;
+
 		for (const series of frame.series)
 		{
 			if (!series.points.length)

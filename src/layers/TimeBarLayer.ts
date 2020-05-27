@@ -1,5 +1,4 @@
-import { FrameInfo, AnimationContext, EasingFunction } from '../util/Types';
-import Layer from './Layer';
+import { FrameInfo, AnimationContext, EasingFunction, Layer } from '../util/Types';
 import EasingLoader from '../util/EasingLoader';
 
 export default class TimeBarLayer implements Layer
