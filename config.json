@@ -7,28 +7,28 @@
 			"scale":
 			{
 				"color": "#ccc",
-				"font": "30px DejaVu Sans Mono",
+				"font": "25px DejaVu Sans Mono",
 				"offset": 50
 			},
 			"axis": {
 				"color": "white",
-				"font": "40px DejaVu Sans Mono",
+				"font": "30px DejaVu Sans Mono",
 				"offset": 150
 			},
 			"series":
 			{
-				"font": "30px DejaVu Sans Mono",
+				"font": "25px DejaVu Sans Mono",
 				"color": "white",
 				"offset": { "x": 10, "y": 10 }
 			},
 			"date":
 			{
-				"font": "40px DejaVu Sans Mono",
+				"font": "30px DejaVu Sans Mono",
 				"color": "#FF544F"
 			},
 			"watermark": {
-				"font": "50px DejaVu Sans Mono",
-				"background": "#101010",
+				"font": "30px DejaVu Sans Mono",
+				"background": "black",
 				"color": "#FFB000"
 			},
 			"timebar": {
@@ -46,51 +46,51 @@
 	{
 		"square":
 		{
-			"canvasSize": [1250, 1250],
+			"canvasSize": [1080, 1080],
 			"plotArea": {
-				"left": 140,
-				"right": 1100,
-				"top": 110,
-				"bottom": 1110
+				"left": 125,
+				"right": 1000,
+				"top": 125,
+				"bottom": 955
 			},
 			"seriesLabelsArea": {
-				"left": 140,
-				"right": 1240,
-				"top": 110,
-				"bottom": 1110
+				"left": 125,
+				"right": 1050,
+				"top": 125,
+				"bottom": 955
 			},
-			"circleSize": 7,
-			"datePosition": { "x": 900, "y": 150 },
+			"circleSize": 6,
+			"datePosition": { "x": 850, "y": 100 },
 			"dateFont":
 			{
-				"size": 30
+				"size": 20
 			},
 			"watermark":
 			{
 				"area": {
 					"left": 0,
-					"right": 1250,
+					"right": 1080,
 					"top": 0,
-					"bottom": 80
+					"bottom": 50
 				},
 				"icons":
 				{
-					"twitter": { "x": 35, "y": 22 },
-					"instagram": { "x": 575, "y": 22 },
-					"facebook": { "x": 625, "y": 22 }
+					"twitter30": { "x": 70, "y": 10 },
+					"instagram30": { "x": 525, "y": 10 },
+					"facebook30": { "x": 575, "y": 10 }
 				},
 				"labels":
 				{
-					"covid19statsvid": { "x": 80, "y": 57 },
-					"covid19statsvideos": { "x": 685, "y": 57 }
+					"covid19statsvid": { "x": 120, "y": 35 },
+					"covid19statsvideos": { "x": 630, "y": 35 }
 				}
 			},
 			"timebar":
 			{
 				"left": 0,
-				"right": 1250,
-				"top": 1245,
-				"bottom": 1250
+				"right": 1080,
+				"top": 1075,
+				"bottom": 1080
 			},
 			"coverOverlay":
 			{
