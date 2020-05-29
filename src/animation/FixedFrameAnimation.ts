@@ -8,7 +8,7 @@ export default class FixedFrameAnimation implements Animation
 
 	public constructor(context: AnimationContext)
 	{
-		this.frames = context.options.frames;
+		this.frames = context.options.extraFrames;
 		const date = this.getLastDate(context.series);
 		this.frameFilterInfo = { date, ratio: 1 };
 	}
