@@ -268,6 +268,58 @@
 				{ "name": "limit", "parameters": 15 }
 			]
 		},
+		"southamerica-deaths": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+			"nameColumn": "Country/Region",
+			"series":
+			[
+				{
+					"name": "Argentina",
+					"code": "AR",
+					"color": "white"
+				},
+				{
+					"name": "Brazil",
+					"code": "BR",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Bolivia",
+					"code": "BO",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Uruguay",
+					"code": "UY",
+					"color": "#d45087"
+				},
+				{
+					"name": "Paraguay",
+					"code": "PY",
+					"color": "#a05195"
+				},
+				{
+					"name": "Peru",
+					"code": "PE",
+					"color": "#8040FD"
+				},
+				{
+					"name": "Colombia",
+					"code": "CO",
+					"color": "#2B98CB"
+				},
+				{
+					"name": "Venezuela",
+					"code": "VE",
+					"color": "#E28888"
+				},
+				{
+					"name": "Chile",
+					"code": "CL",
+					"color": "#ffa600"
+				}
+			]
+		},
 		"gdp": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
