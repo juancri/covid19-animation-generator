@@ -19,10 +19,10 @@ export default class AnimationContextCreator
 	{
 		const config = await ConfigLoader.load ();
 		const options = ParametersLoader.load(config.defaults);
+		const color = ColorSchemaLoader.load(config, options);
 		const layout = LayoutLoader.load(config);
 		const writer = new CanvasWriter(layout, OUTPUT_PATH);
-		const series = await PlotSeriesLoader.load(config, options);
-		const color = ColorSchemaLoader.load(config, options);
+		const series = await PlotSeriesLoader.load(config, options, color);
 
 		return {
 			config, options, layout,

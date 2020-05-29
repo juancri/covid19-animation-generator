@@ -17,9 +17,52 @@
 			},
 			"series":
 			{
-				"font": "25px DejaVu Sans Mono",
-				"color": "white",
-				"offset": { "x": 10, "y": 10 }
+				"label":
+				{
+					"font": "25px DejaVu Sans Mono",
+					"color": "white",
+					"offset": { "x": 10, "y": 10 }
+				},
+				"colors":
+				[
+					"#F06AFF",
+					"#FF6A6F",
+					"#72CDFF",
+					"#5FB9E1",
+					"#72FFFF",
+					"#72FFB7",
+					"#7AFF72",
+					"#BAFF72",
+					"#FFF972",
+					"#FFBB72",
+					"#FF7772",
+					"#FF729D",
+					"#FF72CE",
+					"#E072FF",
+					"#B272FF",
+					"#8672FF",
+					"#ff7c43",
+					"#72AEFF",
+					"#d45087",
+					"#1263CF",
+					"#12CACF",
+					"#12CF91",
+					"#00FFF8",
+					"#00FF02",
+					"#76FF00",
+					"#FAFF00",
+					"#FFAA00",
+					"#FF4D00",
+					"#FF0024",
+					"#FF006A",
+					"#f95d6a",
+					"#D940C4",
+					"#9988BC",
+					"#00B0FF",
+					"#E28888",
+					"#FF00B3",
+					"#FFA600"
+				]
 			},
 			"date":
 			{
@@ -75,9 +118,9 @@
 				},
 				"icons":
 				{
-					"twitter30": { "x": 70, "y": 10 },
-					"instagram30": { "x": 525, "y": 10 },
-					"facebook30": { "x": 575, "y": 10 }
+					"twitter": { "x": 70, "y": 10 },
+					"instagram": { "x": 525, "y": 10 },
+					"facebook": { "x": 575, "y": 10 }
 				},
 				"labels":
 				{
@@ -215,6 +258,14 @@
 					"code": "CL",
 					"color": "#ffa600"
 				}
+			]
+		},
+		"global-deaths": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+			"nameColumn": "Country/Region",
+			"preProcessors": [
+				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
+				{ "name": "limit", "parameters": 15 }
 			]
 		},
 		"gdp": {

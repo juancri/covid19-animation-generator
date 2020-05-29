@@ -37,9 +37,12 @@ export interface ColorSchema {
 		offset: number;
 	},
 	series: {
-		font: string;
-		color: string;
-		offset: Point;
+		label: {
+			font: string;
+			color: string;
+			offset: Point;
+		},
+		colors: string[];
 	},
 	date: {
 		font: string;
@@ -91,15 +94,16 @@ export interface Layout {
 
 export interface PreProcessorConfig {
 	name: string;
-	parameters: any;
+	parameters?: any;
 }
 
 export interface DataSource {
-	title: string | null;
 	url: string;
 	nameColumn: string;
+	title?: string;
 	preProcessor?: PreProcessorConfig | string;
-	series: SeriesConfiguration[];
+	preProcessors?: PreProcessorConfig[];
+	series?: SeriesConfiguration[];
 }
 
 export interface Options

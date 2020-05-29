@@ -1,11 +1,17 @@
-import { Configuration, Options, PlotSeries } from './Types';
+
+import * as Enumerable from 'linq';
+
+import { Configuration, Options, PlotSeries, ColorSchema } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import Log10PlotPointsGenerator from '../drawing/Log10PlotPointsGenerator';
 
 export default class PlotSeriesLoader
 {
-	public static async load(config: Configuration, options: Options): Promise<PlotSeries[]>
+	public static async load(
+		config: Configuration,
+		options: Options,
+		colorSchema: ColorSchema): Promise<PlotSeries[]>
 	{
 		// Load
 		let dataSource = config.dataSources[options.source];
@@ -14,14 +20,20 @@ export default class PlotSeriesLoader
 		if (options.filter)
 			dataSource = DataSourceFilter.apply(dataSource, options.filter);
 
-		// Warnings
-		if (dataSource.series.length === 1 && !options.drawMarkers)
-			console.log('The datasource contains only 1 series. You should consider using drawMarkers.');
-		if (dataSource.series.length === 1 && options.seriesLineWidth < 5)
-			console.log('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
-
-		// Done
+		// Load time series
 		const timeSeries = await DataLoader.load (dataSource);
+
+		// Set automatic series
+		if (!dataSource.series)
+			dataSource.series = Enumerable
+				.from(colorSchema.series.colors)
+				.zip(Enumerable.from(timeSeries), (color, serie) => ({
+					name: serie.name,
+					code: serie.name,
+					color
+				}))
+				.toArray();
+
 		const series: PlotSeries[] = dataSource.series.map(seriesConf =>
 		{
 			const found = timeSeries.find(s => s.name === seriesConf.name);
@@ -34,6 +46,13 @@ export default class PlotSeriesLoader
 			};
 		});
 
+		// Warnings
+		if (series.length === 1 && !options.drawMarkers)
+			console.log('The datasource contains only 1 series. You should consider using drawMarkers.');
+		if (series.length === 1 && options.seriesLineWidth < 5)
+			console.log('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
+
+		// Done
 		return series;
 	}
 }

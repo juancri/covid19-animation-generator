@@ -25,12 +25,12 @@ export default class SeriesLabelsLayer implements Layer
 				lastPoint.y > this.context.layout.plotArea.bottom)
 				continue;
 
-			const x = lastPoint.x + this.context.color.series.offset.x;
-			const y = lastPoint.y + this.context.color.series.offset.y;
+			const x = lastPoint.x + this.context.color.series.label.offset.x;
+			const y = lastPoint.y + this.context.color.series.label.offset.y;
 			this.context.writer.drawText(
 				series.code,
-				this.context.color.series.font,
-				this.context.color.series.color,
+				this.context.color.series.label.font,
+				this.context.color.series.label.color,
 				{ x, y },
 				this.context.layout.seriesLabelsArea);
 		}

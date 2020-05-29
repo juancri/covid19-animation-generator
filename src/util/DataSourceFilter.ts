@@ -5,6 +5,9 @@ export default class DataSourceFilter
 {
 	public static apply(source: DataSource, filter: string): DataSource
 	{
+		if (!source.series)
+			throw new Error('Series not found');
+
 		return {
 			...source,
 			series: Array.from(DataSourceFilter.filter(source.series, filter))

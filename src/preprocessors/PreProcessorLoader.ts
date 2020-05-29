@@ -1,8 +1,12 @@
 import { PreProcessor, PreProcessorConfig, TimeSeries } from '../util/Types';
 import SumPreProcessor from './SumPreProcessor';
+import LimitPreProcessor from './LimitPreProcessor';
+import SortDescPreProcessor from './SortDescPreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
-	sum: SumPreProcessor.run
+	sum: SumPreProcessor.run,
+	sortDesc: SortDescPreProcessor.run,
+	limit: LimitPreProcessor.run
 };
 
 export default class PreProcessorLoader

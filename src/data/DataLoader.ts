@@ -6,7 +6,7 @@ import { DateTime } from 'luxon';
 // Local
 import { DataSource, TimeSeries } from '../util/Types';
 import Downloader from '../util/Downloader';
-import PreProcessorLoader from './PreProcessorLoader';
+import PreProcessorLoader from '../preprocessors/PreProcessorLoader';
 
 // Constants
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
@@ -28,7 +28,7 @@ export default class DataLoader
 				}))
 		}));
 
-		const rawData = Enumerable
+		const rawData: TimeSeries[] = Enumerable
 			.from(data)
 			.groupBy(x => x.name)
 			.select(group => ({
@@ -47,7 +47,20 @@ export default class DataLoader
 			}))
 			.toArray();
 
-		const preProcessedData = PreProcessorLoader.load(dataSource.preProcessor, rawData);
-		return preProcessedData;
+		// Single pre processor
+		if (dataSource.preProcessor)
+			return PreProcessorLoader.load(dataSource.preProcessor, rawData);
+
+		// Multiple pre processors
+		if (dataSource.preProcessors)
+		{
+			let tempData = rawData;
+			for (const preProcessor of dataSource.preProcessors)
+				tempData = PreProcessorLoader.load(preProcessor, tempData);
+			return tempData;
+		}
+
+		// No pre processors
+		return rawData;
 	}
 }
