@@ -270,7 +270,18 @@
 			"nameColumn": "Country/Region",
 			"preProcessors": [
 				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
-				{ "name": "limit", "parameters": 15 }
+				{ "name": "limit", "parameters": 15 },
+				{ "name": "forceColor", "parameters": { "name": "Chile", "color": "#ffa600" } },
+				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
+				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
+				{ "name": "forceCode", "parameters": { "name": "Italy", "code": "Italia" } },
+				{ "name": "forceCode", "parameters": { "name": "France", "code": "Francia" } },
+				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
+				{ "name": "forceCode", "parameters": { "name": "Canada", "code": "Canadá" } },
+				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
+				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
+				{ "name": "forceCode", "parameters": { "name": "Sweden", "code": "Suecia" } },
+				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } }
 			]
 		},
 		"southamerica-deaths": {
@@ -280,47 +291,52 @@
 			[
 				{
 					"name": "Argentina",
-					"code": "AR",
+					"code": "Argentina",
 					"color": "white"
 				},
 				{
 					"name": "Brazil",
-					"code": "BR",
+					"code": "Brasil",
 					"color": "#ff7c43"
 				},
 				{
 					"name": "Bolivia",
-					"code": "BO",
+					"code": "Bolivia",
 					"color": "#f95d6a"
 				},
 				{
 					"name": "Uruguay",
-					"code": "UY",
+					"code": "Uruguay",
 					"color": "#d45087"
 				},
 				{
 					"name": "Paraguay",
-					"code": "PY",
+					"code": "Paraguay",
 					"color": "#a05195"
 				},
 				{
 					"name": "Peru",
-					"code": "PE",
+					"code": "Perú",
 					"color": "#8040FD"
 				},
 				{
 					"name": "Colombia",
-					"code": "CO",
+					"code": "Colombia",
 					"color": "#2B98CB"
 				},
 				{
 					"name": "Venezuela",
-					"code": "VE",
+					"code": "Venezuela",
 					"color": "#E28888"
 				},
 				{
+					"name": "Ecuador",
+					"code": "Ecuador",
+					"color": "#FF3600"
+				},
+				{
 					"name": "Chile",
-					"code": "CL",
+					"code": "Chile",
 					"color": "#ffa600"
 				}
 			]
