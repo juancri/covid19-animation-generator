@@ -1,12 +1,12 @@
 
 import * as Enumerable from 'linq';
-import { Scale, PlotSeries, AnimationContext } from '../util/Types';
+import { ScaleBoundaries, PlotSeries, AnimationContext } from '../util/Types';
 
 const MARGIN = 0.2;
 
 export default class DynamicScaleGenerator
 {
-	public static generate(context: AnimationContext, series: PlotSeries[]): Scale {
+	public static generate(context: AnimationContext, series: PlotSeries[]): ScaleBoundaries {
 		const lastPoints = Enumerable.from(
 			Enumerable
 				.from(series)

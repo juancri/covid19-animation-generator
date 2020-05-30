@@ -1,4 +1,7 @@
-import { Animation, FrameFilterInfo, PlotSeries, Scale, EasingFunction, AnimationContext } from '../util/Types';
+import {
+	Animation, FrameFilterInfo, PlotSeries,
+	ScaleBoundaries, EasingFunction, AnimationContext
+} from '../util/Types';
 import DynamicScaleGenerator from '../scale/DynamicScaleGenerator';
 import EasingLoader from '../util/EasingLoader';
 
@@ -15,8 +18,8 @@ export default class ZoomAnimation implements Animation
 {
 	private context: AnimationContext;
 	private frame: FrameFilterInfo;
-	private scale: Scale | null;
-	private target: Scale | null;
+	private scale: ScaleBoundaries | null;
+	private target: ScaleBoundaries | null;
 	private easing: EasingFunction;
 	private steps: ZoomStep[];
 
@@ -48,8 +51,8 @@ export default class ZoomAnimation implements Animation
 			yield this.frame;
 	}
 
-	public getScale(filteredSeries: PlotSeries[], frame: FrameFilterInfo,
-		frameIndex: number, stepFrameIndex: number): Scale
+	public getScaleBoundaries(filteredSeries: PlotSeries[], frame: FrameFilterInfo,
+		frameIndex: number, stepFrameIndex: number): ScaleBoundaries
 	{
 		if (!this.scale)
 			this.scale = DynamicScaleGenerator.generate(this.context, filteredSeries);

@@ -70,8 +70,8 @@ export default class ScaleLayer implements Layer
 			area.right - area.left :
 			area.bottom - area.top;
 		const scale = horizontal ?
-			frame.scale.horizontal :
-			frame.scale.vertical;
+			frame.scaleBoundaries.horizontal :
+			frame.scaleBoundaries.vertical;
 		const start = horizontal ? area.left : area.bottom;
 		const reverse = !horizontal;
 		const rotate = horizontal ? 0 : -90;

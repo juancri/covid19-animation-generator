@@ -1,8 +1,8 @@
-import { Scale, PlotSeries } from '../util/Types';
+import { ScaleBoundaries, PlotSeries } from '../util/Types';
 
 export default class ScaledPointsGenerator {
 
-	public static generate(series: PlotSeries[], scale: Scale)
+	public static generate(series: PlotSeries[], scale: ScaleBoundaries)
 	{
 		const horizontalScale = scale.horizontal.max - scale.horizontal.min;
 		const verticalScale = scale.vertical.max - scale.vertical.min;

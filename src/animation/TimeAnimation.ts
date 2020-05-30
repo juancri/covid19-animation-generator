@@ -43,7 +43,7 @@ export default class TimeAnimation implements Animation
 		}
 	}
 
-	public getScale(filteredSeries: PlotSeries[],
+	public getScaleBoundaries(filteredSeries: PlotSeries[],
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
 		stepFrameIndex: number) {

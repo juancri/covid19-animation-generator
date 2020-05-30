@@ -1,4 +1,4 @@
-import { FrameInfo, Animation, Scale, AnimationContext } from '../util/Types';
+import { FrameInfo, Animation, ScaleBoundaries, AnimationContext } from '../util/Types';
 import TimeAnimation from './TimeAnimation';
 import FixedFrameAnimation from './FixedFrameAnimation';
 import DataFrameFilter from '../drawing/DataFrameFilter';
@@ -32,16 +32,16 @@ export default class AnimationGenerator
 			.map(animation => animation.countFrames())
 			.reduce((a, b) => a + b, 0);
 		let frameIndex = 1;
-		let lastScale: Scale | null = null;
+		let lastScale: ScaleBoundaries | null = null;
 		for (const animation of this.animations)
 		{
 			let stepFrameIndex = 1;
 			for (const frame of animation.getFrames())
 			{
 				const filtered = DataFrameFilter.generate(this.context.series, frame);
-				const scale: Scale|null =
-					(animation.getScale
-						&& animation.getScale(
+				const scale: ScaleBoundaries|null =
+					(animation.getScaleBoundaries
+						&& animation.getScaleBoundaries(
 							filtered, frame,
 							frameIndex, stepFrameIndex))
 					|| lastScale;
@@ -57,7 +57,7 @@ export default class AnimationGenerator
 					totalFrames,
 					name: frame.name,
 					drawCover: frame.drawCover,
-					scale
+					scaleBoundaries: scale
 				};
 				frameIndex++;
 				stepFrameIndex++;

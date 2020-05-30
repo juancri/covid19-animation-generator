@@ -146,7 +146,7 @@ export interface Configuration {
 
 export type EasingFunction = (p: number) => number;
 
-export interface Scale {
+export interface ScaleBoundaries {
 	horizontal: {
 		min: number;
 		max: number;
@@ -167,7 +167,7 @@ export interface FrameFilterInfo {
 export interface FrameInfo {
 	date: DateTime;
 	series: PlotSeries[];
-	scale: Scale;
+	scaleBoundaries: ScaleBoundaries;
 	currentFrame: number;
 	totalFrames: number;
 	drawCover?: boolean;
@@ -177,11 +177,11 @@ export interface FrameInfo {
 export interface Animation {
 	countFrames: () => number;
 	getFrames: () => Generator<FrameFilterInfo>;
-	getScale?: (
+	getScaleBoundaries?: (
 		filteredSeries: PlotSeries[],
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
-		stepFrameIndex: number) => Scale | null;
+		stepFrameIndex: number) => ScaleBoundaries | null;
 }
 
 export interface PlotSeries {
