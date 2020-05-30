@@ -153,57 +153,57 @@
 			[
 				{
 					"name": "US",
-					"code": "US",
+					"code": "EE.UU.",
 					"color": "white"
 				},
 				{
 					"name": "Italy",
-					"code": "IT",
+					"code": "Italia",
 					"color": "#ff7c43"
 				},
 				{
 					"name": "Spain",
-					"code": "ES",
+					"code": "España",
 					"color": "#f95d6a"
 				},
 				{
 					"name": "Korea, South",
-					"code": "KR",
+					"code": "Corea del Sur",
 					"color": "#d45087"
 				},
 				{
 					"name": "Brazil",
-					"code": "BR",
+					"code": "Brasil",
 					"color": "#D940C4"
 				},
 				{
 					"name": "Argentina",
-					"code": "AR",
+					"code": "Argentina",
 					"color": "#9988BC"
 				},
 				{
 					"name": "Japan",
-					"code": "JP",
+					"code": "Japón",
 					"color": "#00B0FF"
 				},
 				{
 					"name": "Canada",
-					"code": "CA",
+					"code": "Canadá",
 					"color": "#5FB9E1"
 				},
 				{
 					"name": "China",
-					"code": "CN",
+					"code": "China",
 					"color": "#E28888"
 				},
 				{
 					"name": "Mexico",
-					"code": "MX",
+					"code": "México",
 					"color": "#00FFF8"
 				},
 				{
 					"name": "Chile",
-					"code": "CL",
+					"code": "Chile",
 					"color": "#ffa600"
 				}
 			]
@@ -215,47 +215,52 @@
 			[
 				{
 					"name": "Argentina",
-					"code": "AR",
+					"code": "Argentina",
 					"color": "white"
 				},
 				{
 					"name": "Brazil",
-					"code": "BR",
+					"code": "Brasil",
 					"color": "#ff7c43"
 				},
 				{
 					"name": "Bolivia",
-					"code": "BO",
+					"code": "Bolivia",
 					"color": "#f95d6a"
 				},
 				{
 					"name": "Uruguay",
-					"code": "UY",
+					"code": "Uruguay",
 					"color": "#d45087"
 				},
 				{
 					"name": "Paraguay",
-					"code": "PY",
+					"code": "Paraguay",
 					"color": "#a05195"
 				},
 				{
 					"name": "Peru",
-					"code": "PE",
+					"code": "Perú",
 					"color": "#8040FD"
 				},
 				{
 					"name": "Colombia",
-					"code": "CO",
+					"code": "Colombia",
 					"color": "#2B98CB"
 				},
 				{
 					"name": "Venezuela",
-					"code": "VE",
+					"code": "Venezuela",
 					"color": "#E28888"
 				},
 				{
+					"name": "Ecuador",
+					"code": "Ecuador",
+					"color": "#FF3600"
+				},
+				{
 					"name": "Chile",
-					"code": "CL",
+					"code": "Chile",
 					"color": "#ffa600"
 				}
 			]
