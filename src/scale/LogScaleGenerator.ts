@@ -4,7 +4,7 @@ import { ScaleBoundaries, PlotSeries, AnimationContext } from '../util/Types';
 
 const MARGIN = 0.2;
 
-export default class DynamicScaleGenerator
+export default class LogScaleGenerator
 {
 	public static generate(context: AnimationContext, series: PlotSeries[]): ScaleBoundaries {
 		const lastPoints = Enumerable.from(
