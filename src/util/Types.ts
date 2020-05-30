@@ -12,6 +12,8 @@ export interface DataPoint {
 export interface TimeSeries {
 	name: string;
 	data: DataPoint[];
+	forceColor?: string;
+	forceCode?: string;
 }
 
 export type PreProcessor = (series: TimeSeries[], params: any) => TimeSeries[];

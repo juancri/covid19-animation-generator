@@ -2,11 +2,15 @@ import { PreProcessor, PreProcessorConfig, TimeSeries } from '../util/Types';
 import SumPreProcessor from './SumPreProcessor';
 import LimitPreProcessor from './LimitPreProcessor';
 import SortDescPreProcessor from './SortDescPreProcessor';
+import ForceColorPreProcessor from './ForceColorPreProcessor';
+import ForceCodePreProcessor from './ForceCodePreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
+	forceCode: ForceCodePreProcessor.run,
+	forceColor: ForceColorPreProcessor.run,
+	limit: LimitPreProcessor.run,
 	sum: SumPreProcessor.run,
 	sortDesc: SortDescPreProcessor.run,
-	limit: LimitPreProcessor.run
 };
 
 export default class PreProcessorLoader

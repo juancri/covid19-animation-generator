@@ -40,8 +40,8 @@ export default class PlotSeriesLoader
 			if (!found)
 				throw new Error(`Series not found: ${seriesConf.name}`);
 			return {
-				code: seriesConf.code,
-				color: seriesConf.color,
+				code: found.forceCode ?? seriesConf.code,
+				color: found.forceColor ?? seriesConf.color,
 				points: Log10PlotPointsGenerator.generate(found.data)
 			};
 		});
