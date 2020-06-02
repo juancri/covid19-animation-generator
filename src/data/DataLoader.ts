@@ -56,7 +56,7 @@ export default class DataLoader
 		{
 			let tempData = rawData;
 			for (const preProcessor of dataSource.preProcessors)
-				tempData = PreProcessorLoader.load(preProcessor, tempData);
+				tempData = await PreProcessorLoader.load(preProcessor, tempData);
 			return tempData;
 		}
 

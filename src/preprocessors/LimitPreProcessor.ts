@@ -5,7 +5,7 @@ import { TimeSeries } from '../util/Types';
 
 export default class LimitPreProcessor
 {
-	public static run(series: TimeSeries[], params: any)
+	public static async run(series: TimeSeries[], params: any): Promise<TimeSeries[]>
 	{
 		return Enumerable
 			.from(series)

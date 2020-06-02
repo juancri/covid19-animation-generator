@@ -866,6 +866,76 @@
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
 			"nameColumn": "comuna"
+		},
+		"death-rate":
+		{
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+			"nameColumn": "Country/Region",
+			"preProcessors": [
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+							"nameColumn": "Country/Region"
+						},
+						"kind": "rate"
+					}
+				}
+			],
+			"series":
+			[
+				{
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "white"
+				},
+				{
+					"name": "Brazil",
+					"code": "Brasil",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Bolivia",
+					"code": "Bolivia",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Uruguay",
+					"code": "Uruguay",
+					"color": "#d45087"
+				},
+				{
+					"name": "Paraguay",
+					"code": "Paraguay",
+					"color": "#a05195"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#8040FD"
+				},
+				{
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#2B98CB"
+				},
+				{
+					"name": "Venezuela",
+					"code": "Venezuela",
+					"color": "#E28888"
+				},
+				{
+					"name": "Ecuador",
+					"code": "Ecuador",
+					"color": "#FF3600"
+				},
+				{
+					"name": "Chile",
+					"code": "Chile",
+					"color": "#ffa600"
+				}
+			]
 		}
 	},
 	"defaults":

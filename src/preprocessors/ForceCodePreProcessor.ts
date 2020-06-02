@@ -8,7 +8,7 @@ interface ForceCodeParams
 
 export default class ForceCodePreProcessor
 {
-	public static run(series: TimeSeries[], params: ForceCodeParams)
+	public static async run(series: TimeSeries[], params: ForceCodeParams): Promise<TimeSeries[]>
 	{
 		const found = series.find(serie => serie.name === params.name);
 		if (found)

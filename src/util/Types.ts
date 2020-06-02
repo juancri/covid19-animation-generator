@@ -16,7 +16,7 @@ export interface TimeSeries {
 	forceCode?: string;
 }
 
-export type PreProcessor = (series: TimeSeries[], params: any) => TimeSeries[];
+export type PreProcessor = (series: TimeSeries[], params: any) => Promise<TimeSeries[]>;
 
 // Config
 

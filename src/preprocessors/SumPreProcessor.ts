@@ -6,7 +6,7 @@ const DEFAULT_NAME = 'sum';
 
 export default class SumPreProcessor
 {
-	public static run(series: TimeSeries[], params: any)
+	public static async run(series: TimeSeries[], params: any): Promise<TimeSeries[]>
 	{
 		if (series.length < 2)
 			return series;

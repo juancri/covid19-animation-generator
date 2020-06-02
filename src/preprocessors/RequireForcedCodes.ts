@@ -3,7 +3,7 @@ import { TimeSeries } from '../util/Types';
 
 export default class RequireForcedCodes
 {
-	public static run(series: TimeSeries[]): TimeSeries[]
+	public static async run(series: TimeSeries[]): Promise<TimeSeries[]>
 	{
 		for (const serie of series)
 			if (!serie.forceCode)

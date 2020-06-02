@@ -8,7 +8,7 @@ interface ForceColorParams
 
 export default class ForceColorPreProcessor
 {
-	public static run(series: TimeSeries[], params: ForceColorParams)
+	public static async run(series: TimeSeries[], params: ForceColorParams): Promise<TimeSeries[]>
 	{
 		const found = series.find(serie => serie.name === params.name);
 		if (found)

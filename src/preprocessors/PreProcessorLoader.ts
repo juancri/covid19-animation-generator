@@ -5,6 +5,7 @@ import SortDescPreProcessor from './SortDescPreProcessor';
 import ForceColorPreProcessor from './ForceColorPreProcessor';
 import ForceCodePreProcessor from './ForceCodePreProcessor';
 import RequireForcedCodes from './RequireForcedCodes';
+import JoinPreProcessor from './JoinPreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	forceCode: ForceCodePreProcessor.run,
@@ -12,14 +13,15 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	limit: LimitPreProcessor.run,
 	sum: SumPreProcessor.run,
 	sortDesc: SortDescPreProcessor.run,
-	requireForcedCodes: RequireForcedCodes.run
+	requireForcedCodes: RequireForcedCodes.run,
+	join: JoinPreProcessor.run,
 };
 
 export default class PreProcessorLoader
 {
-	public static load(
+	public static async load(
 		input: PreProcessorConfig | string | undefined,
-		series: TimeSeries[]): TimeSeries[]
+		series: TimeSeries[]): Promise<TimeSeries[]>
 	{
 		const config = PreProcessorLoader.getPreProcessorConfig(input);
 		if (!config)
@@ -28,7 +30,7 @@ export default class PreProcessorLoader
 		const preProcessor = PREPROCESSORS[config.name];
 		if (!preProcessor)
 			throw new Error(`Pre-processor not found: ${config.name}`);
-		return preProcessor(series, config.parameters);
+		return await preProcessor(series, config.parameters);
 	}
 
 	private static getPreProcessorConfig(input: PreProcessorConfig | string | undefined)
