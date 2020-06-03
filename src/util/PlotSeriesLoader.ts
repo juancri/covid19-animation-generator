@@ -23,14 +23,20 @@ export default class PlotSeriesLoader
 
 		// Set automatic series
 		if (!dataSource.series)
-			dataSource.series = Enumerable
-				.from(colorSchema.series.colors)
-				.zip(Enumerable.from(timeSeries), (color, serie) => ({
+		{
+			// Provide infinite colors
+			const colorsEnum = Enumerable
+				.repeat(colorSchema.series.colors)
+				.selectMany(colors => Enumerable.from(colors));
+			const seriesEnum = Enumerable.from(timeSeries);
+			dataSource.series = colorsEnum
+				.zip(seriesEnum, (color, serie) => ({
 					name: serie.name,
 					code: serie.name,
 					color
 				}))
 				.toArray();
+		}
 
 		// Filter
 		if (options.filter)
