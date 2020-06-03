@@ -4,6 +4,7 @@ import LimitPreProcessor from './LimitPreProcessor';
 import SortDescPreProcessor from './SortDescPreProcessor';
 import ForceColorPreProcessor from './ForceColorPreProcessor';
 import ForceCodePreProcessor from './ForceCodePreProcessor';
+import RequireForcedCodes from './RequireForcedCodes';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	forceCode: ForceCodePreProcessor.run,
@@ -11,6 +12,7 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	limit: LimitPreProcessor.run,
 	sum: SumPreProcessor.run,
 	sortDesc: SortDescPreProcessor.run,
+	requireForcedCodes: RequireForcedCodes.run
 };
 
 export default class PreProcessorLoader
