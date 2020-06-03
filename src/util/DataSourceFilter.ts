@@ -1,17 +1,11 @@
 
-import { DataSource, SeriesConfiguration } from './Types';
+import { SeriesConfiguration } from './Types';
 
 export default class DataSourceFilter
 {
-	public static apply(source: DataSource, filter: string): DataSource
+	public static apply(series: SeriesConfiguration[], filter: string): SeriesConfiguration[]
 	{
-		if (!source.series)
-			throw new Error('Series not found');
-
-		return {
-			...source,
-			series: Array.from(DataSourceFilter.filter(source.series, filter))
-		};
+		return Array.from(DataSourceFilter.filter(series, filter));
 	}
 
 	private static *filter(series: SeriesConfiguration[], filter: string): Generator<SeriesConfiguration>

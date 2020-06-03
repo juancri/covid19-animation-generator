@@ -14,11 +14,9 @@ export default class PlotSeriesLoader
 		colorSchema: ColorSchema): Promise<PlotSeries[]>
 	{
 		// Load
-		let dataSource = config.dataSources[options.source];
+		const dataSource = config.dataSources[options.source];
 		if (!dataSource)
 			throw new Error(`Data source not found: ${options.source}`);
-		if (options.filter)
-			dataSource = DataSourceFilter.apply(dataSource, options.filter);
 
 		// Load time series
 		const timeSeries = await DataLoader.load (dataSource);
@@ -33,6 +31,11 @@ export default class PlotSeriesLoader
 					color
 				}))
 				.toArray();
+
+		// Filter
+		if (options.filter)
+			dataSource.series = DataSourceFilter.apply(
+				dataSource.series, options.filter);
 
 		const series: PlotSeries[] = dataSource.series.map(seriesConf =>
 		{
