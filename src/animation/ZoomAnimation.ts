@@ -2,7 +2,7 @@ import {
 	Animation, FrameFilterInfo, PlotSeries,
 	ScaleBoundaries, EasingFunction, AnimationContext
 } from '../util/Types';
-import LogScaleGenerator from '../scale/LogScaleGenerator';
+import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import EasingLoader from '../util/EasingLoader';
 
 interface ZoomStep { frames: number, zoom: boolean | number };
@@ -55,7 +55,7 @@ export default class ZoomAnimation implements Animation
 		frameIndex: number, stepFrameIndex: number): ScaleBoundaries
 	{
 		if (!this.scale)
-			this.scale = LogScaleGenerator.generate(this.context, filteredSeries);
+			this.scale = ScaleBoundariesGenerator.generate(this.context, filteredSeries);
 		if (!this.target)
 		{
 			const code = this.context.series[this.context.series.length - 1].code;

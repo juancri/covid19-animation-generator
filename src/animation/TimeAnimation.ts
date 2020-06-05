@@ -3,7 +3,7 @@ import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
-import LogScaleGenerator from '../scale/LogScaleGenerator';
+import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 
 export default class TimeAnimation implements Animation
 {
@@ -47,7 +47,7 @@ export default class TimeAnimation implements Animation
 		frameFilterInfo: FrameFilterInfo,
 		frameIndex: number,
 		stepFrameIndex: number) {
-		return LogScaleGenerator.generate(this.context, filteredSeries);
+		return ScaleBoundariesGenerator.generate(this.context, filteredSeries);
 	}
 
 	private getFirstDate()
