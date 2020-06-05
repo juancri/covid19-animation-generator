@@ -23,7 +23,12 @@ const PARAMETERS = {
 	horizontalMin: 'Horizontal scale minimum',
 	horizontalMax: 'Horizontal scale maximum',
 	verticalMin: 'Vertical scale minimum',
-	verticalMax: 'Vertical scale maximum'
+	verticalMax: 'Vertical scale maximum',
+	scale: 'Scale',
+	scaleDateFormat: 'Date format for the scale labels (applies only for linear scale)',
+	horizontalJump: 'Distance between scale labels (horizontal axis)',
+	verticalJump: 'Distance between scale labels (vertical axis)',
+	configOverride: 'JSON to override specific configuration file sections'
 };
 
 export default class ParametersLoader

@@ -1,6 +1,6 @@
-import { DataPoint, PlotPoint } from '../util/Types';
+import { DataPoint, PlotPoint } from '../../util/Types';
 
-export default class Log10PlotPointsGenerator
+export default class LogPlotPointsGenerator
 {
 	public static generate(points: DataPoint[]): PlotPoint[]
 	{

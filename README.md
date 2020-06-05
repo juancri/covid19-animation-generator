@@ -38,33 +38,39 @@ The data is downloaded automatically
 
 ### Parameters
 
-- ```--help``` (optional): Displays a help message and exits.
-- ```--source``` (optional): Sets the data source. Default: ```global```. Possible values:
+All parameters are optional.
+
+- ```--help```: Displays a help message and exits.
+- ```--source```: Sets the data source. Default: ```global```. Possible values:
   - ```global```: Compare countries (including Chile, US and others)
   - ```southamerica```: Compare main countries in South America
   - ```us```: Compare states (US)
   - ```washington```: Compare Washington State counties (US)
   - ```chile```: Compare regions (Chile)
   - ```chile-comunas```: Compare communes (Chile)
-- ```--filter``` (optional): Filters the series configurations from the datasource using its code. Multiple codes can be included, separated by comma.
-- ```--schema``` (optional): Sets the color schema. Default: ```dark```. Possible values:
+- ```--filter```: Filters the series configurations from the datasource using its code. Multiple codes can be included, separated by comma.
+- ```--schema```: Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
-- ```--days``` (optional): Number of days for which the animation will be generated. Default: 30. Use 0 to plot all days.
-- ```--frames``` (optional): Number of frames per day. Default: 30.
-- ```--extraFrames``` (optional): Number of extra frames for the last image. Default: 300.
-- ```--horizontalAxisLabel``` (optional): Horizontal axis label. Default: "total confirmed cases (log)".
-- ```--verticalAxisLabel``` (optional): Vertical axis label. Default: "new confirmed cases (log, last week)".
-- ```--zoomEasing``` (optional): Easing function for the zoom effect. Default: ```easeInOutCubic```.
-- ```--timebarEasing``` (optional): Easing function for the timebar. Default: ```linear```.
-- ```--dateFormat``` (optional): Sets the date format based on the [Luxon tokens](https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens). Default: ```yyyy-MM-dd```.
-- ```--drawMarkers``` (optional): Draws series markers over the scale. Disabled by default.
-- ```--skipZoom``` (optional): Skips the zoom effect. Enabled by default.
-- ```--hideWatermark``` (optional): Hides the watermark. Enabled by default.
-- ```--seriesLineWidth``` (optional): Series line width. Default: ```3```.
-- ```--horizontalMin``` (optional): Horizontal scale minimum. Default: dynamic.
-- ```--horizontalMax``` (optional): Horizontal scale maximum. Default: dynamic.
-- ```--verticalMin``` (optional): Vertical scale minimum. Default: dynamic.
-- ```--verticalMax``` (optional): Vertical scale maximum. Default: dynamic.
+- ```--days```: Number of days for which the animation will be generated. Default: 30. Use 0 to plot all days.
+- ```--frames```: Number of frames per day. Default: 30.
+- ```--extraFrames```: Number of extra frames for the last image. Default: 300.
+- ```--horizontalAxisLabel```: Horizontal axis label. Default: "total confirmed cases (log)".
+- ```--verticalAxisLabel```: Vertical axis label. Default: "new confirmed cases (log, last week)".
+- ```--zoomEasing```: Easing function for the zoom effect. Default: ```easeInOutCubic```.
+- ```--timebarEasing```: Easing function for the timebar. Default: ```linear```.
+- ```--dateFormat```: Sets the date format based on the [Luxon tokens](https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens). Default: ```yyyy-MM-dd```.
+- ```--drawMarkers```: Draws series markers over the scale. Disabled by default.
+- ```--skipZoom```: Skips the zoom effect. Enabled by default.
+- ```--hideWatermark```: Hides the watermark. Enabled by default.
+- ```--seriesLineWidth```: Series line width. Default: ```3```.
+- ```--horizontalMin```: Horizontal scale minimum. Default: dynamic.
+- ```--horizontalMax```: Horizontal scale maximum. Default: dynamic.
+- ```--verticalMin```: Vertical scale minimum. Default: dynamic.
+- ```--verticalMax```: Vertical scale maximum. Default: dynamic.
+- ```--scale```: Scale. Default: log.
+- ```--scaleDateFormat```: Date format for the scale labels. Applies only for linear scale. Default: ```MM/dd```.
+- ```--horizontalJump```: Distance between scale labels (horizontal axis).
+- ```--verticalJump```: Distance between scale labels (vertical axis).
 
 #### Examples
 

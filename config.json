@@ -959,6 +959,11 @@
 		"horizontalMin": null,
 		"horizontalMax": null,
 		"verticalMin": null,
-		"verticalMax": null
+		"verticalMax": null,
+		"scale": "log",
+		"scaleDateFormat": "MM/dd",
+		"horizontalJump": 1,
+		"verticalJump": 1,
+		"configOverride": null
 	}
 }

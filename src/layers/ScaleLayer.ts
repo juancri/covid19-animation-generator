@@ -1,6 +1,5 @@
 
 import { FrameInfo, AnimationContext, Layer, Box, Point } from '../util/Types';
-import ScaleLabelGenerator from '../util/ScaleLabelGenerator';
 
 const LINE_WIDTH = 2;
 const CIRCLE_WIDTH = 4;
@@ -65,6 +64,7 @@ export default class ScaleLayer implements Layer
 
 	private drawScaleLabels(frame: FrameInfo, horizontal: boolean)
 	{
+		const labels = this.context.scaleLabelProvider.getScaleLabels(frame, horizontal);
 		const area = this.context.layout.plotArea;
 		const areaWidth = horizontal ?
 			area.right - area.left :
@@ -76,11 +76,9 @@ export default class ScaleLayer implements Layer
 		const reverse = !horizontal;
 		const rotate = horizontal ? 0 : -90;
 		const areaSegment = areaWidth / (scale.max - scale.min);
-		const min = Math.ceil(scale.min);
-		for (let labelValue = min; labelValue <= scale.max; labelValue++)
+		for (const label of labels)
 		{
-			const labelText = ScaleLabelGenerator.generate(Math.pow(10, labelValue));
-			const offset = areaSegment * (labelValue - scale.min);
+			const offset = areaSegment * (label.position - scale.min);
 			const pos = reverse ?
 				start - offset :
 				start + offset;
@@ -107,7 +105,7 @@ export default class ScaleLayer implements Layer
 					y: horizontal ? area.bottom : pos
 				});
 			this.context.writer.drawBoxedText(
-				labelText,
+				label.text,
 				this.context.color.scale.font,
 				this.context.color.scale.color,
 				box,

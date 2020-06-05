@@ -130,6 +130,11 @@ export interface Options
 	horizontalMax: number;
 	verticalMin: number;
 	verticalMax: number;
+	scale: string;
+	scaleDateFormat: string;
+	horizontalJump: number;
+	verticalJump: number;
+	configOverride: string;
 }
 
 export interface Configuration {
@@ -200,6 +205,17 @@ export interface PlotPoint extends Point {
 	parent?: PlotPoint;
 }
 
+export interface ScaleLabel
+{
+	position: number;
+	text: string;
+}
+
+export interface ScaleLabelProvider
+{
+	getScaleLabels(frame: FrameInfo, horizontal: boolean): ScaleLabel[];
+}
+
 export interface AnimationContext {
 	config: Configuration;
 	options: Options;
@@ -207,10 +223,10 @@ export interface AnimationContext {
 	color: ColorSchema;
 	layout: Layout;
 	writer: CanvasWriter;
+	scaleLabelProvider: ScaleLabelProvider
 }
 
 export interface Layer
 {
 	draw(frame: FrameInfo): Promise<void>;
 }
-

@@ -4,7 +4,7 @@ import * as Enumerable from 'linq';
 import { Configuration, Options, PlotSeries, ColorSchema } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
-import Log10PlotPointsGenerator from '../drawing/Log10PlotPointsGenerator';
+import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
 
 export default class PlotSeriesLoader
 {
@@ -51,7 +51,7 @@ export default class PlotSeriesLoader
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
-				points: Log10PlotPointsGenerator.generate(found.data)
+				points: PlotPointsGenerator.generate(options, found.data)
 			};
 		});
 
