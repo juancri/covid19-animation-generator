@@ -7,6 +7,8 @@ import CanvasPointsGenerator from '../drawing/CanvasPointsGenerator';
 import ZoomAnimation from './ZoomAnimation';
 import CoverFrameAnimation from './CoverFrameAnimation';
 import EmptyAnimation from './EmptyAnimation';
+import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
+import PostAnimation from './PostAnimation';
 
 export default class AnimationGenerator
 {
@@ -22,6 +24,9 @@ export default class AnimationGenerator
 				new EmptyAnimation() :
 				new ZoomAnimation(context),
 			new FixedFrameAnimation(context),
+			context.options.postAnimationDirectory ?
+				new PostAnimation(context) :
+				new EmptyAnimation(),
 			new CoverFrameAnimation(context)
 		];
 	}
@@ -44,9 +49,8 @@ export default class AnimationGenerator
 						&& animation.getScaleBoundaries(
 							filtered, frame,
 							frameIndex, stepFrameIndex))
-					|| lastScale;
-				if (!scale)
-					throw new Error('No scale returned by the animation and no previous scale');
+					|| lastScale
+					|| ScaleBoundariesGenerator.generate(this.context, filtered);
 				lastScale = scale;
 				const scaled = ScaledPointsGenerator.generate(filtered, scale);
 				const canvas = CanvasPointsGenerator.generate(scaled, this.context.layout.plotArea);
@@ -56,7 +60,7 @@ export default class AnimationGenerator
 					currentFrame: frameIndex,
 					totalFrames,
 					name: frame.name,
-					drawCover: frame.drawCover,
+					stage: frame.stage ?? 'main',
 					scaleBoundaries: scale
 				};
 				frameIndex++;

@@ -7,8 +7,8 @@ import ScaleLayer from '../layers/ScaleLayer';
 import SeriesLinesLayer from '../layers/SeriesLinesLayer';
 import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
 import TimeBarLayer from '../layers/TimeBarLayer';
-import WatermarkLayer from '../layers/WatermarkLayer';
 import SeriesLabelsLayer from '../layers/SeriesLabelsLayer';
+import PrePostAnimationLayer from '../layers/PrePostAnimationLayer';
 
 export default class ImageGenerator
 {
@@ -29,8 +29,8 @@ export default class ImageGenerator
 
 			// Extra
 			new DateLayer(context),
-			new TimeBarLayer(context),
-			new WatermarkLayer(context)
+			new PrePostAnimationLayer(context),
+			new TimeBarLayer(context)
 		];
 
 		for (const frame of frameInfoGenerator.generate())

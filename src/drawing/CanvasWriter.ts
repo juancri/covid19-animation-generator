@@ -110,6 +110,12 @@ export default class CanvasWriter
 		this.ctx.drawImage(image, point.x, point.y);
 	}
 
+	public async drawScaledImage(imagePath: string)
+	{
+		const image = await loadImage(imagePath);
+		this.ctx.drawImage(image, 0, 0, ...this.layout.canvasSize);
+	}
+
 	public async save(forcedName: string|null = null)
 	{
 		const input = this.canvas.createJPEGStream();

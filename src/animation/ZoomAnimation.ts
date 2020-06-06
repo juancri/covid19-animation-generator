@@ -28,7 +28,7 @@ export default class ZoomAnimation implements Animation
 		this.context = context;
 		this.easing = EasingLoader.load(context.options.zoomEasing);
 		this.frame = {
-			date: this.getLastDate(context.series),
+			date: context.lastDate,
 			ratio: 1
 		};
 		this.scale = null;
@@ -113,13 +113,5 @@ export default class ZoomAnimation implements Animation
 	{
 		const diff = destination - origin;
 		return origin + diff * ratio;
-	}
-
-	private getLastDate(series: PlotSeries[])
-	{
-		const firstPoints = series[0].points;
-		const lastIndex = firstPoints.length - 1;
-		const lastDataPoint = firstPoints[lastIndex];
-		return lastDataPoint.date;
 	}
 }

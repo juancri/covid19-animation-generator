@@ -69,19 +69,9 @@
 				"font": "30px DejaVu Sans Mono",
 				"color": "#FF544F"
 			},
-			"watermark": {
-				"font": "30px DejaVu Sans Mono",
-				"background": "black",
-				"color": "#FFB000"
-			},
 			"timebar": {
 				"background": "#202020",
 				"foreground": "#FFB000"
-			},
-			"coverOverlay": {
-				"font": "100px DejaVu Sans Mono",
-				"background": "transparent",
-				"color": "transparent"
 			}
 		}
 	},
@@ -108,39 +98,12 @@
 			{
 				"size": 20
 			},
-			"watermark":
-			{
-				"area": {
-					"left": 0,
-					"right": 1080,
-					"top": 0,
-					"bottom": 50
-				},
-				"icons":
-				{
-					"twitter": { "x": 70, "y": 10 },
-					"instagram": { "x": 525, "y": 10 },
-					"facebook": { "x": 575, "y": 10 }
-				},
-				"labels":
-				{
-					"covid19statsvid": { "x": 120, "y": 35 },
-					"covid19statsvideos": { "x": 630, "y": 35 }
-				}
-			},
 			"timebar":
 			{
 				"left": 0,
 				"right": 1080,
 				"top": 1075,
 				"bottom": 1080
-			},
-			"coverOverlay":
-			{
-				"left": 0,
-				"right": 1250,
-				"top": 625,
-				"bottom": 0
 			}
 		}
 	},
@@ -954,7 +917,6 @@
 		"dateFormat": "yyyy-MM-dd",
 		"drawMarkers": false,
 		"skipZoom": false,
-		"hideWatermark": false,
 		"seriesLineWidth": 3,
 		"horizontalMin": null,
 		"horizontalMax": null,
@@ -964,6 +926,7 @@
 		"scaleDateFormat": "MM/dd",
 		"horizontalJump": 1,
 		"verticalJump": 1,
-		"configOverride": null
+		"configOverride": null,
+		"postAnimationDirectory": null
 	}
 }

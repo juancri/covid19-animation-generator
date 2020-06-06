@@ -1,5 +1,5 @@
 
-import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
+import { Animation, FrameFilterInfo, AnimationContext } from '../util/Types';
 
 const NAME = 'cover';
 
@@ -9,11 +9,10 @@ export default class CoverFrameAnimation implements Animation
 
 	public constructor(context: AnimationContext)
 	{
-		const date = this.getLastDate(context.series);
 		this.frameFilterInfo = {
-			date,
+			date: context.lastDate,
 			ratio: 1,
-			drawCover: true,
+			stage: 'cover',
 			name: NAME
 		};
 	}
@@ -26,13 +25,5 @@ export default class CoverFrameAnimation implements Animation
 	public *getFrames(): Generator<FrameFilterInfo>
 	{
 		yield this.frameFilterInfo;
-	}
-
-	private getLastDate(series: PlotSeries[])
-	{
-		const firstPoints = series[0].points;
-		const lastIndex = firstPoints.length - 1;
-		const lastDataPoint = firstPoints[lastIndex];
-		return lastDataPoint.date;
 	}
 }

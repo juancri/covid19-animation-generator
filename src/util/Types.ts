@@ -50,19 +50,9 @@ export interface ColorSchema {
 		font: string;
 		color: string;
 	},
-	watermark: {
-		font: string;
-		background: string;
-		color: string;
-	},
 	timebar: {
 		background: string;
 		foreground: string;
-	},
-	coverOverlay: {
-		font: string;
-		background: string;
-		color: string;
 	}
 }
 
@@ -80,18 +70,7 @@ export interface Layout {
 	circleSize: number;
 	datePosition: Point;
 	dateFont: object;
-	watermark:
-	{
-		area: Box;
-		icons: {
-			[key: string]: Point
-		},
-		labels: {
-			[key: string]: Point
-		}
-	},
 	timebar: Box;
-	coverOverlay: Box;
 }
 
 export interface PreProcessorConfig {
@@ -124,7 +103,6 @@ export interface Options
 	title: string;
 	drawMarkers: boolean;
 	skipZoom: boolean;
-	hideWatermark: boolean;
 	seriesLineWidth: number;
 	horizontalMin: number;
 	horizontalMax: number;
@@ -135,6 +113,7 @@ export interface Options
 	horizontalJump: number;
 	verticalJump: number;
 	configOverride: string;
+	postAnimationDirectory: string;
 }
 
 export interface Configuration {
@@ -162,11 +141,17 @@ export interface ScaleBoundaries {
 	}
 }
 
+export type AnimationStage =
+	'pre' |
+	'main' |
+	'post' |
+	'cover';
+
 export interface FrameFilterInfo {
 	date: DateTime;
 	ratio: number;
 	name?: string;
-	drawCover?: boolean;
+	stage?: AnimationStage;
 }
 
 export interface FrameInfo {
@@ -175,7 +160,7 @@ export interface FrameInfo {
 	scaleBoundaries: ScaleBoundaries;
 	currentFrame: number;
 	totalFrames: number;
-	drawCover?: boolean;
+	stage: AnimationStage;
 	name?: string;
 }
 
@@ -223,7 +208,9 @@ export interface AnimationContext {
 	color: ColorSchema;
 	layout: Layout;
 	writer: CanvasWriter;
-	scaleLabelProvider: ScaleLabelProvider
+	scaleLabelProvider: ScaleLabelProvider;
+	firstDate: DateTime;
+	lastDate: DateTime;
 }
 
 export interface Layer

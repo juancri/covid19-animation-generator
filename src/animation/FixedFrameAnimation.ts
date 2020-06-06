@@ -1,5 +1,5 @@
 
-import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
+import { Animation, FrameFilterInfo, AnimationContext } from '../util/Types';
 
 export default class FixedFrameAnimation implements Animation
 {
@@ -9,7 +9,7 @@ export default class FixedFrameAnimation implements Animation
 	public constructor(context: AnimationContext)
 	{
 		this.frames = context.options.extraFrames;
-		const date = this.getLastDate(context.series);
+		const date = context.lastDate;
 		this.frameFilterInfo = { date, ratio: 1 };
 	}
 	public countFrames(): number
@@ -21,16 +21,5 @@ export default class FixedFrameAnimation implements Animation
 	{
 		for (let current = 1; current <= this.frames; current++)
 			yield this.frameFilterInfo;
-	}
-
-
-	// Private methods
-
-	private getLastDate(series: PlotSeries[])
-	{
-		const firstPoints = series[0].points;
-		const lastIndex = firstPoints.length - 1;
-		const lastDataPoint = firstPoints[lastIndex];
-		return lastDataPoint.date;
 	}
 }

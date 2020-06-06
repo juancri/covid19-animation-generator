@@ -14,8 +14,8 @@ export default class TimeBarLayer implements Layer
 
 	public async draw (frame: FrameInfo)
 	{
-		// TODO: Is this the right property to check?
-		if (frame.drawCover)
+		// Does not apply for cover
+		if (frame.stage === 'cover')
 			return;
 
 		// Background
