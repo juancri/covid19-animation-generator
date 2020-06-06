@@ -1,7 +1,11 @@
+
+import formatNumber from 'format-number';
+
 import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '../../util/Types';
 import { DateTime } from 'luxon';
 
 const JAN_1 = DateTime.local().startOf('year');
+const FORMAT = formatNumber({ integerSeparator: '.' });
 
 export default class LinearScaleLabelProvider implements ScaleLabelProvider
 {
@@ -41,7 +45,7 @@ export default class LinearScaleLabelProvider implements ScaleLabelProvider
 		for (let labelValue = min; labelValue <= scale.max; labelValue += this.options.verticalJump)
 		{
 			const position = labelValue;
-			const text = labelValue.toString();
+			const text = FORMAT(labelValue);
 			yield { position, text };
 		}
 	}
