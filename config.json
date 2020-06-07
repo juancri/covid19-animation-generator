@@ -925,6 +925,123 @@
 					"color": "#FF4900"
 				}
 			]
+		},
+		"population-rate": {
+			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1524414812",
+			"nameColumn": "country",
+			"series":
+			[
+				{
+					"name": "US",
+					"code": "EE.UU.",
+					"color": "#FF6A6F"
+				},
+				{
+					"name": "Brazil",
+					"code": "Brasil",
+					"color": "#72CDFF"
+				},
+				{
+					"name": "Russia",
+					"code": "Rusia",
+					"color": "#BAFF72"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972"
+				},
+				{
+					"name": "India",
+					"code": "India",
+					"color": "#B272FF"
+				},
+				{
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#FF7772"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#5FB9E1"
+				},
+				{
+					"name": "Germany",
+					"code": "Alemania",
+					"color": "#FF72CE"
+				},
+				{
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF"
+				},
+				{
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#E072FF"
+				},
+				{
+					"name": "France",
+					"code": "Francia",
+					"color": "#FF729D"
+				},
+				{
+					"name": "Mexico",
+					"code": "México",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Pakistan",
+					"code": "Paquistán",
+					"color": "#7AFF72"
+				},
+				{
+					"name": "Ecuador",
+					"code": "Ecuador",
+					"color": "#FF2E86"
+				},
+				{
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#72FFFF"
+				},
+				{
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "#F06AFF"
+				},
+				{
+					"name": "Bolivia",
+					"code": "Bolivia",
+					"color": "#E72EFF"
+				},
+				{
+					"name": "Venezuela",
+					"code": "Venezuela",
+					"color": "#7B2EFF"
+				},
+				{
+					"name": "Uruguay",
+					"code": "Uruguay",
+					"color": "#2E62FF"
+				},
+				{
+					"name": "Paraguay",
+					"code": "Paraguay",
+					"color": "#2EE5FF"
+				},
+				{
+					"name": "Chile",
+					"code": "Chile",
+					"color": "#FFA600"
+				}
+			]
 		}
 	},
 	"defaults":
