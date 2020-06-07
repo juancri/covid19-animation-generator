@@ -912,6 +912,19 @@
 					"color": "#ffa600"
 				}
 			]
+		},
+		"chile-deaths": {
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/muertes.csv",
+			"preProcessor": "sum",
+			"nameColumn": "region",
+			"series":
+			[
+				{
+					"name": "sum",
+					"code": "Chile",
+					"color": "#FF4900"
+				}
+			]
 		}
 	},
 	"defaults":
