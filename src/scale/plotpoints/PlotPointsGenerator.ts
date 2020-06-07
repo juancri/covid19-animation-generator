@@ -4,8 +4,9 @@ import LogPlotPointsGenerator from './LogPlotPointsGenerator';
 import LinearPlotPointsGenerator from './LinearPlotPointsGenerator';
 
 const GENERATORS: { [key: string]: (points: DataPoint[]) => PlotPoint[]} = {
-	log: LogPlotPointsGenerator.generate,
-	linear: LinearPlotPointsGenerator.generate
+	'log': LogPlotPointsGenerator.generate,
+	'linear': LinearPlotPointsGenerator.generate,
+	'linear-avg7': LinearPlotPointsGenerator.generateAvg7
 };
 
 export default class PlotPointsGenerator

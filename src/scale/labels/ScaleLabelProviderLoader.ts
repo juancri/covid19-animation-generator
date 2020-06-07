@@ -4,8 +4,9 @@ import LinearScaleLabelProvider from './LinearScaleLabelProvider';
 
 const PROVIDERS: { [key: string]: (options: Options) => ScaleLabelProvider } =
 {
-	log: options => new LogScaleLabelProvider(options),
-	linear: options => new LinearScaleLabelProvider(options)
+	'log': options => new LogScaleLabelProvider(options),
+	'linear': options => new LinearScaleLabelProvider(options),
+	'linear-avg7': options => new LinearScaleLabelProvider(options)
 };
 
 export default class ScaleLabelProviderLoader

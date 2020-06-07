@@ -67,7 +67,10 @@ All parameters are optional.
 - ```--horizontalMax```: Horizontal scale maximum. Default: dynamic.
 - ```--verticalMin```: Vertical scale minimum. Default: dynamic.
 - ```--verticalMax```: Vertical scale maximum. Default: dynamic.
-- ```--scale```: Scale. Default: log.
+- ```--scale```: Scale. Default: log. Possible values:
+  - ```log```: Logaritmic (log10)
+  - ```linear```: Linear scale
+  - ```linear-avg7```: Liner scale with 7 days change average
 - ```--scaleDateFormat```: Date format for the scale labels. Applies only for linear scale. Default: ```MM/dd```.
 - ```--horizontalJump```: Distance between scale labels (horizontal axis).
 - ```--verticalJump```: Distance between scale labels (vertical axis).
