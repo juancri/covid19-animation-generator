@@ -41,11 +41,12 @@ export default class LinearScaleLabelProvider implements ScaleLabelProvider
 	private *getValueLabels(frame: FrameInfo): Generator<ScaleLabel>
 	{
 		const scale = frame.scaleBoundaries.vertical;
-		const min = Math.ceil(scale.min);
-		for (let labelValue = min; labelValue <= scale.max; labelValue += this.options.verticalJump)
+		const jump = this.options.verticalJump;
+		const min = Math.ceil(scale.min / jump) * jump;
+		for (let value = min; value <= scale.max; value += jump)
 		{
-			const position = labelValue;
-			const text = FORMAT(labelValue);
+			const position = value;
+			const text = FORMAT(value);
 			yield { position, text };
 		}
 	}
