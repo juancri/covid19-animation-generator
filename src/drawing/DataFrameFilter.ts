@@ -7,6 +7,7 @@ export default class DataFrameFilter
 		return series.map(serie => ({
 			code: serie.code,
 			color: serie.color,
+			gaps: serie.gaps,
 			points: serie.points
 				.filter(point => point.date <= frame.date)
 				.map((point, index) =>

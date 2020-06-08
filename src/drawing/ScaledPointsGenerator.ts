@@ -9,6 +9,7 @@ export default class ScaledPointsGenerator {
 		return series.map(serie => ({
 			code: serie.code,
 			color: serie.color,
+			gaps: serie.gaps,
 			points: serie.points.map(point => ({
 				date: point.date,
 				x: (point.x - scale.horizontal.min) / horizontalScale,

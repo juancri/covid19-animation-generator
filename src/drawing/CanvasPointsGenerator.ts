@@ -9,6 +9,7 @@ export default class CanvasPointsGenerator
 		return series.map(serie => ({
 			code: serie.code,
 			color: serie.color,
+			gaps: serie.gaps,
 			points: serie.points.map(point => ({
 				date: point.date,
 				x: plotArea.left + honrizontalSize * point.x,

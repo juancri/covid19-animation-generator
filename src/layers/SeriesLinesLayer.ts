@@ -1,5 +1,5 @@
 
-import { FrameInfo, AnimationContext, Layer } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint } from '../util/Types';
 
 export default class SeriesLinesLayer implements Layer
 {
@@ -14,21 +14,62 @@ export default class SeriesLinesLayer implements Layer
 	{
 		for (const series of frame.series)
 		{
-			if (series.points.length < 2)
+			const sections = Array.from(this.getSections(series));
+			if (!sections.length)
 				continue;
 
-			this.context.writer.drawPolyline(
-				series.color,
-				this.context.options.seriesLineWidth,
-				series.points,
-				this.context.layout.plotArea);
+			for (const section of sections)
+				this.drawPolyline(series.color, section);
 
-			const lastPoint = series.points[series.points.length - 1];
-			this.context.writer.drawCircle(
-				this.context.layout.circleSize,
-				series.color,
-				lastPoint,
-				this.context.layout.plotArea);
+			// Get last
+			const lastSection = sections[sections.length - 1];
+			this.drawCircle(series.color, lastSection);
 		}
+	}
+
+	private *getSections(series: PlotSeries): Generator<PlotPoint[]>
+	{
+		if (series.points.length < 2)
+			return;
+		if (!series.gaps || !series.gaps.length)
+		{
+			yield series.points;
+			return;
+		}
+
+		let startDate = series.points[0].date;
+		for (const gap of series.gaps)
+		{
+			const endDate = gap.from;
+			const points = series.points.filter(p =>
+				+p.date >= +startDate &&
+				+p.date <= +endDate);
+			if (points.length >= 2)
+				yield points;
+			startDate = gap.to;
+		}
+
+		const remaining = series.points.filter(p => +p.date >= +startDate);
+		if (remaining.length >= 2)
+			yield remaining;
+	}
+
+	private drawPolyline(color: string, points: PlotPoint[])
+	{
+		this.context.writer.drawPolyline(
+			color,
+			this.context.options.seriesLineWidth,
+			points,
+			this.context.layout.plotArea);
+	}
+
+	private drawCircle(color: string, points: PlotPoint[])
+	{
+		const lastPoint = points[points.length - 1];
+		this.context.writer.drawCircle(
+			this.context.layout.circleSize,
+			color,
+			lastPoint,
+			this.context.layout.plotArea);
 	}
 }

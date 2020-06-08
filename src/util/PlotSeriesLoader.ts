@@ -5,6 +5,7 @@ import { Configuration, Options, PlotSeries, ColorSchema } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
+import { DateTime } from 'luxon';
 
 export default class PlotSeriesLoader
 {
@@ -48,10 +49,17 @@ export default class PlotSeriesLoader
 			const found = timeSeries.find(s => s.name === seriesConf.name);
 			if (!found)
 				throw new Error(`Series not found: ${seriesConf.name}`);
+			const gaps = seriesConf.gaps ?
+				seriesConf.gaps.map(gap => ({
+					from: DateTime.fromISO(gap.from),
+					to: DateTime.fromISO(gap.to)
+				})) : [];
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
-				points: PlotPointsGenerator.generate(options, found.data)
+				points: PlotPointsGenerator.generate(
+					options, found.data, gaps),
+				gaps
 			};
 		});
 

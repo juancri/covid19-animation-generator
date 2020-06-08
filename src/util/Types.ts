@@ -20,10 +20,16 @@ export type PreProcessor = (series: TimeSeries[], params: any) => Promise<TimeSe
 
 // Config
 
+export interface SeriesGapConfiguration {
+	from: string;
+	to: string;
+}
+
 export interface SeriesConfiguration {
 	name: string;
 	code: string;
 	color: string;
+	gaps?: SeriesGapConfiguration[];
 }
 
 export interface ColorSchema {
@@ -174,10 +180,16 @@ export interface Animation {
 		stepFrameIndex: number) => ScaleBoundaries | null;
 }
 
+export interface TimeGap {
+	from: DateTime;
+	to: DateTime;
+}
+
 export interface PlotSeries {
 	code: string;
 	color: string;
 	points: PlotPoint[];
+	gaps: TimeGap[];
 }
 
 export interface Point {
