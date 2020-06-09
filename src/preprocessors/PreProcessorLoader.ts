@@ -6,10 +6,12 @@ import ForceColorPreProcessor from './ForceColorPreProcessor';
 import ForceCodePreProcessor from './ForceCodePreProcessor';
 import RequireForcedCodes from './RequireForcedCodes';
 import JoinPreProcessor from './JoinPreProcessor';
+import ForceGapsPreProcessor from './ForceGapsPreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
+	forceGaps: ForceGapsPreProcessor.run,
 	limit: LimitPreProcessor.run,
 	sum: SumPreProcessor.run,
 	sortDesc: SortDescPreProcessor.run,

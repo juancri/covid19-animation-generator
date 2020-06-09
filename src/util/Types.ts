@@ -14,6 +14,7 @@ export interface TimeSeries {
 	data: DataPoint[];
 	forceColor?: string;
 	forceCode?: string;
+	forceGaps?: SeriesGapConfiguration[];
 }
 
 export type PreProcessor = (series: TimeSeries[], params: any) => Promise<TimeSeries[]>;

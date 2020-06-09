@@ -49,8 +49,9 @@ export default class PlotSeriesLoader
 			const found = timeSeries.find(s => s.name === seriesConf.name);
 			if (!found)
 				throw new Error(`Series not found: ${seriesConf.name}`);
-			const gaps = seriesConf.gaps ?
-				seriesConf.gaps.map(gap => ({
+			const gapsConfig = found.forceGaps ?? seriesConf.gaps;
+			const gaps = gapsConfig ?
+				gapsConfig.map(gap => ({
 					from: DateTime.fromISO(gap.from),
 					to: DateTime.fromISO(gap.to)
 				})) : [];
