@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "download": "wget https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv -O resources/input.csv",
-    "video": "ffmpeg -y -framerate 60 -i output/%d.jpg -c:v libx264 -vf \"format=yuv420p\" output/animation.mp4"
+    "video": "ffmpeg -y -framerate 60 -i output/%d.jpg -c:v libx264 -vf \"format=yuv420p\" output/animation.mp4",
+    "video-with-music": "ffmpeg -y -framerate 60 -i output/%d.jpg -i output/music.wav -c:v libx264 -vf \"format=yuv420p\" output/animation.mp4"
   },
   "author": "",
   "license": "ISC",
