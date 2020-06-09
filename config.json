@@ -924,7 +924,13 @@
 				{
 					"name": "Chile",
 					"code": "Chile",
-					"color": "#ffa600"
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						}
+					]
 				}
 			]
 		},
