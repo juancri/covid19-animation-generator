@@ -14,12 +14,32 @@ export default class SeriesLinesLayer implements Layer
 	{
 		for (const series of frame.series)
 		{
+			// Get sections
 			const sections = Array.from(this.getSections(series));
 			if (!sections.length)
 				continue;
 
+			// Draw sections
 			for (const section of sections)
 				this.drawPolyline(series.color, section);
+
+			// Draw gaps
+			if (sections.length > 1)
+			{
+				sections.forEach((section, index) =>
+				{
+					if (index === 0)
+						return;
+					const previous = sections[index - 1];
+					const current = section;
+					const pointFrom = previous[previous.length - 1];
+					const pointTo = current[0];
+					this.drawPolyline(
+						series.color,
+						[pointFrom, pointTo],
+						true);
+				});
+			}
 
 			// Get last
 			const lastSection = sections[sections.length - 1];
@@ -44,23 +64,24 @@ export default class SeriesLinesLayer implements Layer
 			const points = series.points.filter(p =>
 				+p.date >= +startDate &&
 				+p.date <= +endDate);
-			if (points.length >= 2)
+			if (points.length >= 1)
 				yield points;
 			startDate = gap.to;
 		}
 
 		const remaining = series.points.filter(p => +p.date >= +startDate);
-		if (remaining.length >= 2)
+		if (remaining.length >= 1)
 			yield remaining;
 	}
 
-	private drawPolyline(color: string, points: PlotPoint[])
+	private drawPolyline(color: string, points: PlotPoint[], dashed = false)
 	{
 		this.context.writer.drawPolyline(
 			color,
 			this.context.options.seriesLineWidth,
 			points,
-			this.context.layout.plotArea);
+			this.context.layout.plotArea,
+			dashed);
 	}
 
 	private drawCircle(color: string, points: PlotPoint[])

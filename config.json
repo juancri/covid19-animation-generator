@@ -250,6 +250,15 @@
 				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "Pakistan", "code": "Paquistán" } },
 				{ "name": "forceCode", "parameters": { "name": "Chile", "code": "Chile" } },
+				{ "name": "forceGaps", "parameters": {
+					"name": "Chile",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						}
+					]}
+				},
 				{ "name": "requireForcedCodes" }
 			]
 		},
@@ -306,7 +315,13 @@
 				{
 					"name": "Chile",
 					"code": "Chile",
-					"color": "#ffa600"
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						}
+					]
 				}
 			]
 		},
