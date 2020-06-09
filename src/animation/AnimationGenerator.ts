@@ -1,3 +1,7 @@
+
+// @ts-ignore
+import logger from '../util/Logger';
+
 import { FrameInfo, Animation, ScaleBoundaries, AnimationContext } from '../util/Types';
 import TimeAnimation from './TimeAnimation';
 import FixedFrameAnimation from './FixedFrameAnimation';
@@ -36,10 +40,13 @@ export default class AnimationGenerator
 		const totalFrames = this.animations
 			.map(animation => animation.countFrames())
 			.reduce((a, b) => a + b, 0);
+		logger.info(`total frames: ${totalFrames}`);
 		let frameIndex = 1;
 		let lastScale: ScaleBoundaries | null = null;
 		for (const animation of this.animations)
 		{
+			logger.info(`animation: ${animation.getName()}`);
+			logger.info(`  frames: ${animation.countFrames()}`);
 			let stepFrameIndex = 1;
 			for (const frame of animation.getFrames())
 			{

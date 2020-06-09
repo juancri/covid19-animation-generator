@@ -173,6 +173,7 @@ export interface FrameInfo {
 
 export interface Animation {
 	countFrames: () => number;
+	getName: () => string;
 	getFrames: () => Generator<FrameFilterInfo>;
 	getScaleBoundaries?: (
 		filteredSeries: PlotSeries[],

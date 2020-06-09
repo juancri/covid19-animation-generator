@@ -38,6 +38,11 @@ export default class ZoomAnimation implements Animation
 			...MAIN_STEPS];
 	}
 
+	public getName(): string
+	{
+		return 'Zoom Animation';
+	}
+
 	public countFrames(): number
 	{
 		return this.steps

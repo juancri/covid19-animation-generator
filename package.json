@@ -20,7 +20,8 @@
     "luxon": "^1.24.1",
     "merge-anything": "^3.0.3",
     "minimist": "^1.2.5",
-    "promisepipe": "^3.0.0"
+    "promisepipe": "^3.0.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@hapi/code": "^8.0.1",

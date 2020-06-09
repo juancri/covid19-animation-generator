@@ -11,6 +11,11 @@ export default class TimeAnimation implements Animation
 		this.context = context;
 	}
 
+	public getName(): string
+	{
+		return 'Time Animation';
+	}
+
 	public countFrames(): number
 	{
 		const diff = this.context.lastDate

@@ -24,6 +24,11 @@ export default abstract class OverlayAnimation implements Animation
 		};
 	}
 
+	public getName(): string
+	{
+		return `Overlay Animation (${this.frame.stage})`;
+	}
+
 	public countFrames(): number
 	{
 		return this.numberOfFrames;

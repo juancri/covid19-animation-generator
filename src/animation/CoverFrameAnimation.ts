@@ -17,6 +17,11 @@ export default class CoverFrameAnimation implements Animation
 		};
 	}
 
+	public getName(): string
+	{
+		return 'Cover Frame Animation';
+	}
+
 	public countFrames(): number
 	{
 		return 1;

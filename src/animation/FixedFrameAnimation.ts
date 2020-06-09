@@ -12,6 +12,12 @@ export default class FixedFrameAnimation implements Animation
 		const date = context.lastDate;
 		this.frameFilterInfo = { date, ratio: 1 };
 	}
+
+	public getName(): string
+	{
+		return `Fixed Frame Animation (${this.frames})`;
+	}
+
 	public countFrames(): number
 	{
 		return this.frames;
