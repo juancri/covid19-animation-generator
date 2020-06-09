@@ -48,21 +48,24 @@ export default class CanvasWriter
 		this.drawPolyline(color, lineWidth, [from, to], box);
 	}
 
-	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null)
+	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null, dashed = false)
 	{
 		if (points.length < 2)
 			return;
 
-		this.useMaskBox(box, () =>
+		this.useDashedLine(dashed, () =>
 		{
-			this.ctx.strokeStyle = color;
-			this.ctx.lineWidth = lineWidth;
-			this.ctx.beginPath();
-			const first = points[0];
-			this.ctx.moveTo(first.x, first.y);
-			for (let index = 1; index < points.length; index++)
-				this.ctx.lineTo(points[index].x, points[index].y);
-			this.ctx.stroke();
+			this.useMaskBox(box, () =>
+			{
+				this.ctx.strokeStyle = color;
+				this.ctx.lineWidth = lineWidth;
+				this.ctx.beginPath();
+				const first = points[0];
+				this.ctx.moveTo(first.x, first.y);
+				for (let index = 1; index < points.length; index++)
+					this.ctx.lineTo(points[index].x, points[index].y);
+				this.ctx.stroke();
+			});
 		});
 	}
 
@@ -143,6 +146,18 @@ export default class CanvasWriter
 		finally {
 			if (box)
 				this.ctx.restore();
+		}
+	}
+
+	private useDashedLine(dashed: boolean, f: () => void)
+	{
+		try {
+			if (dashed)
+				this.ctx.setLineDash([5, 5]);
+			f();
+		}
+		finally {
+			this.ctx.setLineDash([]);
 		}
 	}
 }
