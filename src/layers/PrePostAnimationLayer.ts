@@ -16,10 +16,11 @@ export default class PrePostAnimationLayer implements Layer
 	{
 		this.context = context;
 		const directory = context.options.postAnimationDirectory;
-		this.images = fs
+		this.images = directory ? fs
 			.readdirSync(directory)
 			.filter(name => name.endsWith(EXTENSION))
-			.map(name => path.join(directory, name));
+			.map(name => path.join(directory, name)) :
+			[];
 		this.currentIndex = 0;
 	}
 
@@ -27,6 +28,8 @@ export default class PrePostAnimationLayer implements Layer
 	{
 		// Only implemented for post
 		if (frame.stage !== 'post')
+			return;
+		if (this.images.length === 0)
 			return;
 
 		// Get image
