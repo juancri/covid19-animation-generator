@@ -63,6 +63,7 @@ export default class PlotSeriesLoader
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
+				areaColor: seriesConf.areaColor ?? seriesConf.color,
 				points: PlotPointsGenerator.generate(
 					options, found.data, gaps),
 				gaps,

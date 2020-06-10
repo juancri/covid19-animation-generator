@@ -3,10 +3,11 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint, Point } from '../util/Types';
 
 interface Section {
 	color: string;
+	areaColor: string;
 	points: PlotPoint[];
 	dashed: boolean;
 }
@@ -17,13 +18,17 @@ interface SeriesEvent {
 	dashed?: boolean;
 }
 
-export default class SeriesLinesLayer implements Layer
+const STACKED_AREA = 'stacked-area';
+
+export default class SeriesPlotLayer implements Layer
 {
 	private context: AnimationContext;
+	private isStackedArea: boolean;
 
 	public constructor(context: AnimationContext)
 	{
 		this.context = context;
+		this.isStackedArea = context.options.type === STACKED_AREA;
 	}
 
 	public async draw (frame: FrameInfo)
@@ -37,11 +42,18 @@ export default class SeriesLinesLayer implements Layer
 
 			// Draw sections
 			for (const section of sections)
-				this.drawPolyline(section.color, section.points, section.dashed);
+				this.drawSection(
+					section.color,
+					section.areaColor,
+					section.points,
+					section.dashed);
 
-			// Get last
-			const lastSection = sections[sections.length - 1];
-			this.drawCircle(lastSection);
+			// Draw circle, only for line chart
+			if (!this.isStackedArea)
+			{
+				const lastSection = sections[sections.length - 1];
+				this.drawCircle(lastSection);
+			}
 		}
 	}
 
@@ -88,6 +100,7 @@ export default class SeriesLinesLayer implements Layer
 			{
 				yield {
 					color: currentColor,
+					areaColor: series.areaColor,
 					dashed: currentDashed,
 					points
 				};
@@ -100,8 +113,19 @@ export default class SeriesLinesLayer implements Layer
 		}
 	}
 
-	private drawPolyline(color: string, points: PlotPoint[], dashed = false)
+	private drawSection(color: string, areaColor: string, points: PlotPoint[], dashed = false)
 	{
+		if (this.isStackedArea)
+		{
+			const firstPoint = points[0];
+			const lastPoint = points[points.length - 1];
+			const bottom = this.context.layout.plotArea.bottom;
+			const firstBasePoint: Point = { x: firstPoint.x, y: bottom };
+			const lastBasePoint: Point = { x: lastPoint.x, y: bottom };
+			const polygonPoints = [firstBasePoint, ...points, lastBasePoint];
+			this.context.writer.drawPolygon(areaColor, polygonPoints);
+		}
+
 		this.context.writer.drawPolyline(
 			color,
 			this.context.options.seriesLineWidth,

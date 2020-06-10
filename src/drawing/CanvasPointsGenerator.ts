@@ -5,10 +5,7 @@ export default class CanvasPointsGenerator
 	public static generate(series: PlotSeries[], plotArea: Box): PlotSeries[]
 	{
 		return series.map(serie => ({
-			code: serie.code,
-			color: serie.color,
-			gaps: serie.gaps,
-			milestones: serie.milestones,
+			...serie,
 			points: serie.points.map(point => ({
 				date: point.date,
 				x: CanvasPointsGenerator.scaleValue(point.x, true, plotArea),

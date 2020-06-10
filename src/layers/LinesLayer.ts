@@ -1,7 +1,7 @@
 
 import { FrameInfo, AnimationContext, Layer, Line, Point } from '../util/Types';
-import ScaledPointsGenerator from '../drawing/ScaledPointsGenerator';
 import CanvasPointsGenerator from '../drawing/CanvasPointsGenerator';
+import LineScaledPointsGenerator from '../drawing/LineScaledPointsGenerator';
 
 export default class LinesLayer implements Layer
 {
@@ -23,7 +23,7 @@ export default class LinesLayer implements Layer
 		const isValueHorizontal = !horizontal;
 		for (const line of lines)
 		{
-			const scaledValue = ScaledPointsGenerator.scaleValue(
+			const scaledValue = LineScaledPointsGenerator.scaleValue(
 				line.value, isValueHorizontal, frame.scaleBoundaries);
 			const canvasValue = CanvasPointsGenerator.scaleValue(
 				scaledValue, isValueHorizontal, this.context.layout.plotArea);

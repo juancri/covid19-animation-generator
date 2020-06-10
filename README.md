@@ -76,11 +76,18 @@ All parameters are optional.
   - ```suffix```: 1K for 1,000, 2K for 2,000, etc
   - ```plain```: Plain number
   - ```spanish```: Number in Spanish format (#.###)
+- ```--stackedAreaNumberFormat```: Number format for the stacked area number label. Default: ```plain```. Possible values:
+  - ```plain```: Plain number
+  - ```english```: Number in English format (#,###)
+  - ```spanish```: Number in Spanish format (#.###)
 - ```--horizontalJump```: Distance between scale labels (horizontal axis).
 - ```--verticalJump```: Distance between scale labels (vertical axis).
 - ```--horizontalLines```: Horizontal lines with format numericvalue:label (example: ```10:mylabel```, multiple lines separated by comma)
 - ```--verticalLines```: Vertical lines with format numericvalue:label (example: ```10:mylabel```, multiple lines separated by comma)
 - ```--singleDynamicScale```: Use single axis to calculate the dynamic scale.
+- ```--type```: Chart type. Default: ```line```. Possible values:
+  - ```line```: Line chart
+  - ```stacked-area```: Stacked area
 
 #### Examples
 

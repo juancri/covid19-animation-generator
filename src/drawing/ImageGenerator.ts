@@ -4,7 +4,7 @@ import AnimationGenerator from '../animation/AnimationGenerator';
 import BackgroundLayer from '../layers/BackgroundLayer';
 import DateLayer from '../layers/DateLayer';
 import ScaleLayer from '../layers/ScaleLayer';
-import SeriesLinesLayer from '../layers/SeriesLinesLayer';
+import SeriesPlotLayer from '../layers/SeriesPlotLayer';
 import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
 import TimeBarLayer from '../layers/TimeBarLayer';
 import SeriesLabelsLayer from '../layers/SeriesLabelsLayer';
@@ -21,7 +21,7 @@ export default class ImageGenerator
 			new BackgroundLayer(context),
 
 			// Series
-			new SeriesLinesLayer(context),
+			new SeriesPlotLayer(context),
 			new SeriesLabelsLayer(context),
 
 			// Lines

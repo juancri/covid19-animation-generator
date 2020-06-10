@@ -59,7 +59,7 @@ export default class AnimationGenerator
 					|| lastScale
 					|| ScaleBoundariesGenerator.generate(this.context, filtered);
 				lastScale = scale;
-				const scaled = ScaledPointsGenerator.generate(filtered, scale);
+				const scaled = ScaledPointsGenerator.generate(filtered, scale, this.context.options.type);
 				const canvas = CanvasPointsGenerator.generate(scaled, this.context.layout.plotArea);
 				yield {
 					date: frame.date,

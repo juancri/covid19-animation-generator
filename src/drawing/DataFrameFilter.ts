@@ -5,10 +5,7 @@ export default class DataFrameFilter
 	public static generate(series: PlotSeries[], frame: FrameFilterInfo): PlotSeries[]
 	{
 		return series.map(serie => ({
-			code: serie.code,
-			color: serie.color,
-			gaps: serie.gaps,
-			milestones: serie.milestones,
+			...serie,
 			points: serie.points
 				.filter(point => point.date <= frame.date)
 				.map((point, index) =>

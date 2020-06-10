@@ -35,6 +35,7 @@ export interface SeriesConfiguration {
 	name: string;
 	code: string;
 	color: string;
+	areaColor?: string;
 	gaps?: SeriesGapConfiguration[];
 	milestones?: MilestoneConfiguration[];
 }
@@ -56,6 +57,7 @@ export interface ColorSchema {
 			font: string;
 			color: string;
 			offset: Point;
+			stackedAreaOffset: Point;
 		},
 		colors: string[];
 	},
@@ -142,6 +144,7 @@ export interface Options
 	scale: string;
 	scaleDateFormat: string;
 	scaleNumberFormat: string;
+	stackedAreaNumberFormat: string;
 	horizontalJump: number;
 	verticalJump: number;
 	singleDynamicScale: boolean;
@@ -149,6 +152,7 @@ export interface Options
 	postAnimationDirectory: string;
 	horizontalLines: string | null;
 	verticalLines: string | null;
+	type: string;
 }
 
 export interface Configuration {
@@ -223,6 +227,7 @@ export interface Milestone {
 export interface PlotSeries {
 	code: string;
 	color: string;
+	areaColor: string;
 	points: PlotPoint[];
 	gaps: TimeGap[];
 	milestones: Milestone[];

@@ -32,7 +32,8 @@ const PARAMETERS = {
 	singleDynamicScale: 'Use single axis to calculate the dynamic scale',
 	horizontalLines: 'Horizontal lines with format numericvalue:label (multiple lines separated by comma)',
 	verticalLines: 'Vertical lines with format numericvalue:label (multiple lines separated by comma)',
-	configOverride: 'JSON to override specific configuration file sections'
+	configOverride: 'JSON to override specific configuration file sections',
+	type: 'Chart type'
 };
 
 export default class ParametersLoader

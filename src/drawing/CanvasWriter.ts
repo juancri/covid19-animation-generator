@@ -69,6 +69,21 @@ export default class CanvasWriter
 		});
 	}
 
+	public drawPolygon(color: string, points: Point[])
+	{
+		if (points.length < 2)
+			return;
+
+		const first = points[0];
+		this.ctx.fillStyle = color;
+		this.ctx.beginPath();
+		this.ctx.moveTo(first.x, first.y);
+		for (const point of points.slice(1))
+			this.ctx.lineTo(point.x, point.y);
+		this.ctx.closePath();
+		this.ctx.fill();
+	}
+
 	public drawText(text: string, font: string, color: string, position: Point, box: Box | null = null)
 	{
 		this.useMaskBox(box, () =>

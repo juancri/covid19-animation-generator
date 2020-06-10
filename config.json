@@ -21,7 +21,8 @@
 				{
 					"font": "25px DejaVu Sans Mono",
 					"color": "white",
-					"offset": { "x": 10, "y": 10 }
+					"offset": { "x": 10, "y": 10 },
+					"stackedAreaOffset": { "x": 15, "y": 25 }
 				},
 				"colors":
 				[
@@ -1879,6 +1880,31 @@
 					]
 				}
 			]
+		},
+		"chile-upc": {
+			"url": "https://docs.google.com/spreadsheets/d/1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA/export?format=csv&id=1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA&gid=2015870452",
+			"nameColumn": "series",
+			"series":
+			[
+				{
+					"name": "libre",
+					"code": "Disponibles",
+					"color": "#1D562B",
+					"areaColor": "#7EE598"
+				},
+				{
+					"name": "covid",
+					"code": "COVID-19",
+					"color": "#69231E",
+					"areaColor": "#FF938C"
+				},
+				{
+					"name": "otros",
+					"code": "Otros",
+					"color": "#3E236B",
+					"areaColor": "#BF98FF"
+				}
+			]
 		}
 	},
 	"defaults":
@@ -1905,12 +1931,14 @@
 		"scale": "log",
 		"scaleDateFormat": "MM/dd",
 		"scaleNumberFormat": "suffix",
+		"stackedAreaNumberFormat": "plain",
 		"horizontalJump": 1,
 		"verticalJump": 1,
 		"singleDynamicScale": false,
 		"configOverride": null,
 		"postAnimationDirectory": null,
 		"horizontalLines": null,
-		"verticalLines": null
+		"verticalLines": null,
+		"type": "line"
 	}
 }
