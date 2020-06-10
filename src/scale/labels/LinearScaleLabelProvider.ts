@@ -1,19 +1,30 @@
 
 import formatNumber from 'format-number';
+// @ts-ignore
+import * as NumberSuffix from 'number-suffix';
 
 import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '../../util/Types';
 import { DateTime } from 'luxon';
 
 const JAN_1 = DateTime.local().startOf('year');
-const FORMAT = formatNumber({ integerSeparator: '.' });
+const FORMATTERS: { [key: string]: (n: number) => string } =
+{
+	plain: n => n.toString(),
+	spanish: formatNumber({ integerSeparator: '.' }),
+	suffix: NumberSuffix.format
+};
 
 export default class LinearScaleLabelProvider implements ScaleLabelProvider
 {
 	private options: Options;
+	private formatter: (n: number) => string;
 
 	public constructor(options: Options)
 	{
 		this.options = options;
+		this.formatter = FORMATTERS[options.scaleNumberFormat];
+		if (!this.formatter)
+			throw new Error(`Scale number format not found: ${options.scaleNumberFormat}`);
 	}
 
 	public getScaleLabels(frame: FrameInfo, horizontal: boolean): ScaleLabel[]
@@ -46,7 +57,7 @@ export default class LinearScaleLabelProvider implements ScaleLabelProvider
 		for (let value = min; value <= scale.max; value += jump)
 		{
 			const position = value;
-			const text = FORMAT(value);
+			const text = this.formatter(value);
 			yield { position, text };
 		}
 	}

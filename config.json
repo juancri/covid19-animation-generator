@@ -1094,6 +1094,7 @@
 		"verticalMax": null,
 		"scale": "log",
 		"scaleDateFormat": "MM/dd",
+		"scaleNumberFormat": "suffix",
 		"horizontalJump": 1,
 		"verticalJump": 1,
 		"configOverride": null,

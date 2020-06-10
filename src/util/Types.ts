@@ -117,6 +117,7 @@ export interface Options
 	verticalMax: number;
 	scale: string;
 	scaleDateFormat: string;
+	scaleNumberFormat: string;
 	horizontalJump: number;
 	verticalJump: number;
 	configOverride: string;
