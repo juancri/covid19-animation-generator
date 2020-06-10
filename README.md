@@ -72,6 +72,10 @@ All parameters are optional.
   - ```linear```: Linear scale
   - ```linear-avg7```: Liner scale with 7 days change average
 - ```--scaleDateFormat```: Date format for the scale labels. Applies only for linear scale. Default: ```MM/dd```.
+- ```--scaleNumberFormat```: Number format for the scale labels. Applies only for linear scale. Default: ```suffix```. Possible values:
+  - ```suffix```: 1K for 1,000, 2K for 2,000, etc
+  - ```plain```: Plain number
+  - ```spanish```: Number in Spanish format (#.###)
 - ```--horizontalJump```: Distance between scale labels (horizontal axis).
 - ```--verticalJump```: Distance between scale labels (vertical axis).
 
