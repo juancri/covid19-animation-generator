@@ -856,7 +856,672 @@
 		},
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
-			"nameColumn": "comuna"
+			"nameColumn": "comuna",
+			"series":
+			[
+				{
+					"name": "Santiago",
+					"code": "Santiago",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-14T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-05T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Puente Alto",
+					"code": "Puente Alto",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-09T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Vitacura",
+					"code": "Vitacura",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-14T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Temuco",
+					"code": "Temuco",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-28T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-05-01T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "Las Condes",
+					"code": "Las Condes",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-17T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Independencia",
+					"code": "Independencia",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-03T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-23T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-04-30T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Quilicura",
+					"code": "Quilicura",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-05T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Recoleta",
+					"code": "Recoleta",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-05T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Providencia",
+					"code": "Providencia",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-14T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Ñuñoa",
+					"code": "Ñuñoa",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-14T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Chillán",
+					"code": "Chillán",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-30T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-23T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "Lo Barnechea",
+					"code": "Lo Barnechea",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-04-14T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "La Florida",
+					"code": "La Florida",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "La Granja",
+					"code": "La Granja",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "La Pintana",
+					"code": "La Pintana",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-30T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Lo Espejo",
+					"code": "Lo Espejo",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Macul",
+					"code": "Macul",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Pedro Aguirre Cerda",
+					"code": "Pedro Aguirre Cerda",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-23T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Peñalolén",
+					"code": "Peñalolén",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "San Joaquín",
+					"code": "San Joaquín",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "San Ramón",
+					"code": "San Ramón",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-30T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Maipú",
+					"code": "Maipú",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "El Bosque",
+					"code": "El Bosque",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-16T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "San Bernardo",
+					"code": "San Bernardo",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-16T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "San Miguel",
+					"code": "San Miguel",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Pudahuel",
+					"code": "Pudahuel",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Quinta Normal",
+					"code": "Quinta Normal",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-23T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Iquique",
+					"code": "Iquique",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-16T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Alto Hospicio",
+					"code": "Alto Hospicio",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-16T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Antofagasta",
+					"code": "Antofagasta",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-05T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						},
+						{
+							"date": "2020-05-30T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "Cerrillos",
+					"code": "Cerrillos",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-05T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Punta Arenas",
+					"code": "Punta Arenas",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-04-01T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "La Reina",
+					"code": "La Reina",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-15T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Renca",
+					"code": "Renca",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-05-08T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Calama",
+					"code": "Calama",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "San Antonio",
+					"code": "San Antonio",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						}
+					]
+				},
+				{
+					"name": "Los Ángeles",
+					"code": "Los Ángeles",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "Valparaíso",
+					"code": "Valparaíso",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "Viña del Mar",
+					"code": "Viña del Mar",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "New York",
+					"code": "New York",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-01-01T00:00:00.000-08:00",
+							"color": "#6DFF18"
+						},
+						{
+							"date": "2020-03-22T00:00:00.000-07:00",
+							"color": "#FF3818"
+						},
+						{
+							"date": "2020-05-28T00:00:00.000-07:00",
+							"color": "#6DFF18"
+						}
+					]
+				}
+			]
 		},
 		"death-rate":
 		{
