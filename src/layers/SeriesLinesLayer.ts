@@ -58,7 +58,7 @@ export default class SeriesLinesLayer implements Layer
 		}));
 		const gapEvents: SeriesEvent[][] = series.gaps.map(gap => [
 			{ date: gap.from, dashed: true },
-			{ date: gap.to, dashed: false }
+			{ date: gap.to.plus({ days: 1 }), dashed: false }
 		]);
 		const lastEvent: SeriesEvent = {
 			date: series.points[series.points.length - 1].date.plus({ days: 1})
@@ -78,22 +78,25 @@ export default class SeriesLinesLayer implements Layer
 		let lastPoint = series.points[0];
 		for (const event of allEvents)
 		{
-			const points = series.points.filter(p =>
+			const sectionPoints = series.points.filter(p =>
 				+p.date >= +currentStart &&
-				+p.date < +event.date);
-			if (points.length)
+				+p.date <= +event.date);
+			const points = currentDashed ?
+				[ lastPoint, sectionPoints[sectionPoints.length - 1] ] :
+				[ lastPoint, ...sectionPoints ];
+			if (sectionPoints.length > 1)
 			{
 				yield {
 					color: currentColor,
 					dashed: currentDashed,
-					points: [lastPoint, ...points]
+					points
 				};
 			}
 
 			currentColor = event.color ?? currentColor;
 			currentDashed = event.dashed ?? currentDashed;
 			currentStart = event.date;
-			lastPoint = points[points.length - 1];
+			lastPoint = sectionPoints[sectionPoints.length - 1];
 		}
 	}
 
