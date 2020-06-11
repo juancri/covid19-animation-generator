@@ -55,12 +55,18 @@ export default class PlotSeriesLoader
 					from: DateTime.fromISO(gap.from),
 					to: DateTime.fromISO(gap.to)
 				})) : [];
+			const milestones = seriesConf.milestones ?
+				seriesConf.milestones.map(milestone => ({
+					date: DateTime.fromISO(milestone.date),
+					color: milestone.color
+				})) : [];
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
 				points: PlotPointsGenerator.generate(
 					options, found.data, gaps),
-				gaps
+				gaps,
+				milestones
 			};
 		});
 

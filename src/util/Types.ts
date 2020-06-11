@@ -26,11 +26,17 @@ export interface SeriesGapConfiguration {
 	to: string;
 }
 
+export interface MilestoneConfiguration {
+	date: string;
+	color: string;
+}
+
 export interface SeriesConfiguration {
 	name: string;
 	code: string;
 	color: string;
 	gaps?: SeriesGapConfiguration[];
+	milestones?: MilestoneConfiguration[];
 }
 
 export interface ColorSchema {
@@ -188,11 +194,17 @@ export interface TimeGap {
 	to: DateTime;
 }
 
+export interface Milestone {
+	date: DateTime;
+	color: string;
+}
+
 export interface PlotSeries {
 	code: string;
 	color: string;
 	points: PlotPoint[];
 	gaps: TimeGap[];
+	milestones: Milestone[];
 }
 
 export interface Point {

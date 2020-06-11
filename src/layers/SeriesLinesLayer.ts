@@ -1,5 +1,21 @@
 
+
+import * as Enumerable from 'linq';
+import { DateTime } from 'luxon';
+
 import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint } from '../util/Types';
+
+interface Section {
+	color: string;
+	points: PlotPoint[];
+	dashed: boolean;
+}
+
+interface SeriesEvent {
+	date: DateTime;
+	color?: string;
+	dashed?: boolean;
+}
 
 export default class SeriesLinesLayer implements Layer
 {
@@ -21,57 +37,64 @@ export default class SeriesLinesLayer implements Layer
 
 			// Draw sections
 			for (const section of sections)
-				this.drawPolyline(series.color, section);
-
-			// Draw gaps
-			if (sections.length > 1)
-			{
-				sections.forEach((section, index) =>
-				{
-					if (index === 0)
-						return;
-					const previous = sections[index - 1];
-					const current = section;
-					const pointFrom = previous[previous.length - 1];
-					const pointTo = current[0];
-					this.drawPolyline(
-						series.color,
-						[pointFrom, pointTo],
-						true);
-				});
-			}
+				this.drawPolyline(section.color, section.points, section.dashed);
 
 			// Get last
 			const lastSection = sections[sections.length - 1];
-			this.drawCircle(series.color, lastSection);
+			this.drawCircle(lastSection);
 		}
 	}
 
-	private *getSections(series: PlotSeries): Generator<PlotPoint[]>
+	private *getSections(series: PlotSeries): Generator<Section>
 	{
+		// No way we can draw
 		if (series.points.length < 2)
 			return;
-		if (!series.gaps || !series.gaps.length)
-		{
-			yield series.points;
-			return;
-		}
 
-		let startDate = series.points[0].date;
-		for (const gap of series.gaps)
+		// Get all events
+		const milestoneEvents: SeriesEvent[] = series.milestones.map(milestone => ({
+			date: milestone.date,
+			color: milestone.color
+		}));
+		const gapEvents: SeriesEvent[][] = series.gaps.map(gap => [
+			{ date: gap.from, dashed: true },
+			{ date: gap.to, dashed: false }
+		]);
+		const lastEvent: SeriesEvent = {
+			date: series.points[series.points.length - 1].date.plus({ days: 1})
+		};
+
+		const firstDate = series.points[0].date;
+		const allEvents = Enumerable
+			.from([milestoneEvents, ...gapEvents, [lastEvent]])
+			.selectMany(x => x)
+			.where(x => +x.date > +firstDate)
+			.orderBy(x => +x.date)
+			.toArray();
+
+		let currentColor = series.color;
+		let currentDashed = false;
+		let currentStart = series.points[0].date;
+		let lastPoint = series.points[0];
+		for (const event of allEvents)
 		{
-			const endDate = gap.from;
 			const points = series.points.filter(p =>
-				+p.date >= +startDate &&
-				+p.date <= +endDate);
-			if (points.length >= 1)
-				yield points;
-			startDate = gap.to;
-		}
+				+p.date >= +currentStart &&
+				+p.date < +event.date);
+			if (points.length)
+			{
+				yield {
+					color: currentColor,
+					dashed: currentDashed,
+					points: [lastPoint, ...points]
+				};
+			}
 
-		const remaining = series.points.filter(p => +p.date >= +startDate);
-		if (remaining.length >= 1)
-			yield remaining;
+			currentColor = event.color ?? currentColor;
+			currentDashed = event.dashed ?? currentDashed;
+			currentStart = event.date;
+			lastPoint = points[points.length - 1];
+		}
 	}
 
 	private drawPolyline(color: string, points: PlotPoint[], dashed = false)
@@ -84,12 +107,13 @@ export default class SeriesLinesLayer implements Layer
 			dashed);
 	}
 
-	private drawCircle(color: string, points: PlotPoint[])
+	private drawCircle(section: Section)
 	{
+		const points = section.points;
 		const lastPoint = points[points.length - 1];
 		this.context.writer.drawCircle(
 			this.context.layout.circleSize,
-			color,
+			section.color,
 			lastPoint,
 			this.context.layout.plotArea);
 	}
