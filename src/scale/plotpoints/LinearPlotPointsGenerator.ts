@@ -23,18 +23,19 @@ export default class LinearPlotPointsGenerator
 		return points
 			.filter(point => !gaps.find(g =>
 				+point.date > +g.from &&
-				+point.date <= +g.to))
+				+point.date < +g.to))
 			.map((point, index) =>
 			{
 				const x = point.date.diff(JAN_1).as('days');
-				const firstIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, index);
-				const previousIndex = Math.max(firstIndex, index - 7);
+				const previousIndex = Math.max(
+					LinearPlotPointsGenerator.getFirstIndex(points, gaps, index),
+					index - 7);
 				const previousPoint = points[previousIndex];
-				const previousDiff = Math.max(1, index - previousIndex);
-				console.log(previousDiff);
-				const y = firstIndex >= index ?
+				const diff = point.value - previousPoint.value;
+				const indexDiff = index - previousIndex;
+				const y = previousIndex === index ?
 					+Infinity :
-					(point.value - previousPoint.value) / previousDiff;
+					diff / indexDiff;
 				return { x, y, date: point.date };
 			})
 			.filter(p => p.y < +Infinity);
@@ -51,7 +52,7 @@ export default class LinearPlotPointsGenerator
 				const x = point.date.diff(JAN_1).as('days');
 				const firstIndex = Math.max(
 					LinearPlotPointsGenerator.getFirstIndex(points, gaps, index),
-					index - 7);
+					index - 6);
 				const valuesToAvg = points
 					.slice(firstIndex, index)
 					.map(p => p.value);
