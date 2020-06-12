@@ -4,9 +4,13 @@ import { DateTime } from 'luxon';
 
 const DEFAULT_NAME = 'sum';
 
+interface SumParams {
+	name: string | null;
+}
+
 export default class SumPreProcessor
 {
-	public static async run(series: TimeSeries[], params: any): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: SumParams): Promise<TimeSeries[]>
 	{
 		if (series.length < 2)
 			return series;
@@ -19,7 +23,7 @@ export default class SumPreProcessor
 			.select(secs => DateTime.fromSeconds(secs))
 			.toArray();
 		const sumSeries: TimeSeries = {
-			name: params?.name || DEFAULT_NAME,
+			name: params?.name ?? DEFAULT_NAME,
 			data: dates
 				.map(date => SumPreProcessor.getDataPoint(series, date))
 		};
