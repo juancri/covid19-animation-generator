@@ -1639,14 +1639,14 @@
 					"color": "#BAFF72"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972"
-				},
-				{
 					"name": "India",
 					"code": "India",
 					"color": "#B272FF"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972"
 				},
 				{
 					"name": "Spain",
