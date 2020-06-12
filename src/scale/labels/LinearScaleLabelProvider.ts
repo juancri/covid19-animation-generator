@@ -11,7 +11,8 @@ const FORMATTERS: { [key: string]: (n: number) => string } =
 {
 	plain: n => n.toString(),
 	spanish: formatNumber({ integerSeparator: '.' }),
-	suffix: n => n < 1000 ? n.toString() : NumberSuffix.format(n)
+	suffix: n => n < 1000 ? n.toString() : NumberSuffix.format(n),
+	percent: n => `${n}%`
 };
 
 export default class LinearScaleLabelProvider implements ScaleLabelProvider
