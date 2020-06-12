@@ -1604,6 +1604,70 @@
 				}
 			]
 		},
+		"deaths-by-population-southamerica":
+		{
+			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1683834887",
+			"nameColumn": "country",
+			"series":
+			[
+				{
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "white"
+				},
+				{
+					"name": "Brazil",
+					"code": "Brasil",
+					"color": "#ff7c43"
+				},
+				{
+					"name": "Bolivia",
+					"code": "Bolivia",
+					"color": "#f95d6a"
+				},
+				{
+					"name": "Uruguay",
+					"code": "Uruguay",
+					"color": "#d45087"
+				},
+				{
+					"name": "Paraguay",
+					"code": "Paraguay",
+					"color": "#a05195"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#8040FD"
+				},
+				{
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#2B98CB"
+				},
+				{
+					"name": "Venezuela",
+					"code": "Venezuela",
+					"color": "#E28888"
+				},
+				{
+					"name": "Ecuador",
+					"code": "Ecuador",
+					"color": "#FF3600"
+				},
+				{
+					"name": "Chile",
+					"code": "Chile",
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						}
+					]
+				}
+			]
+		},
 		"chile-deaths": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/muertes.csv",
 			"preProcessor": "sum",
@@ -1737,6 +1801,69 @@
 					"name": "Chile",
 					"code": "Chile",
 					"color": "#FFA600"
+				}
+			]
+		},
+		"chile-tests-rate":
+		{
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
+			"nameColumn": "region",
+			"preProcessors": [
+				{ "name": "sum" },
+				{ "name": "dailyChange" },
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/notificaciones.csv",
+							"nameColumn": "Institucion",
+							"preProcessors": [
+								{ "name": "sum" },
+								{ "name": "dailyChange" }
+							]
+						},
+						"kind": "rate"
+					}
+				}
+			],
+			"series":
+			[
+				{
+					"name": "sum",
+					"code": "Chile",
+					"color": "#FF0066"
+				}
+			]
+		},
+		"chile-tests-rate-metropolitana":
+		{
+			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
+			"nameColumn": "region",
+			"preProcessors": [
+				{ "name": "dailyChange" },
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/pcrs_region.csv",
+							"nameColumn": "region"
+						},
+						"kind": "rate"
+					}
+				}
+			],
+			"series":
+			[
+				{
+					"name": "Metropolitana",
+					"code": "Metropolitana",
+					"color": "#2EFFBC",
+					"gaps": [
+						{
+							"from": "2020-06-01",
+							"to": "2020-06-10"
+						}
+					]
 				}
 			]
 		}

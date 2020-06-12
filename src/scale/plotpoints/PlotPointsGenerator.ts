@@ -6,7 +6,8 @@ import LinearPlotPointsGenerator from './LinearPlotPointsGenerator';
 const GENERATORS: { [key: string]: (points: DataPoint[], gaps: TimeGap[]) => PlotPoint[]} = {
 	'log': LogPlotPointsGenerator.generate,
 	'linear': LinearPlotPointsGenerator.generate,
-	'linear-avg7': LinearPlotPointsGenerator.generateAvg7
+	'linear-avg7': LinearPlotPointsGenerator.generateAvg7,
+	'linear-avg7-change': LinearPlotPointsGenerator.generateAvg7Change,
 };
 
 export default class PlotPointsGenerator

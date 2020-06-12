@@ -31,9 +31,32 @@ export default class LinearPlotPointsGenerator
 				const previousIndex = Math.max(firstIndex, index - 7);
 				const previousPoint = points[previousIndex];
 				const previousDiff = Math.max(1, index - previousIndex);
+				console.log(previousDiff);
 				const y = firstIndex >= index ?
 					+Infinity :
 					(point.value - previousPoint.value) / previousDiff;
+				return { x, y, date: point.date };
+			})
+			.filter(p => p.y < +Infinity);
+	}
+
+	public static generateAvg7Change(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
+	{
+		return points
+			.filter(point => !gaps.find(gap =>
+				+point.date > +gap.from &&
+				+point.date < +gap.to))
+			.map((point, index) =>
+			{
+				const x = point.date.diff(JAN_1).as('days');
+				const firstIndex = Math.max(
+					LinearPlotPointsGenerator.getFirstIndex(points, gaps, index),
+					index - 7);
+				const valuesToAvg = points
+					.slice(firstIndex, index)
+					.map(p => p.value);
+				const total = valuesToAvg.reduce((a, b) => a + b, 0);
+				const y = total / valuesToAvg.length;
 				return { x, y, date: point.date };
 			})
 			.filter(p => p.y < +Infinity);
@@ -45,7 +68,7 @@ export default class LinearPlotPointsGenerator
 		const point = points[index];
 		const gap = Enumerable
 			.from(gaps)
-			.where(g => +g.to < +point.date)
+			.where(g => +g.to <= +point.date)
 			.orderBy(g => +g.to)
 			.lastOrDefault();
 		if (!gap)
