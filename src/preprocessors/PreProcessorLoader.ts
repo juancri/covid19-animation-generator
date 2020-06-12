@@ -7,8 +7,10 @@ import ForceCodePreProcessor from './ForceCodePreProcessor';
 import RequireForcedCodes from './RequireForcedCodes';
 import JoinPreProcessor from './JoinPreProcessor';
 import ForceGapsPreProcessor from './ForceGapsPreProcessor';
+import DailyChangePreProcessor from './DailyChangePreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
+	dailyChange: DailyChangePreProcessor.run,
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
 	forceGaps: ForceGapsPreProcessor.run,
