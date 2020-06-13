@@ -29,6 +29,7 @@ const PARAMETERS = {
 	scaleNumberFormat: 'Number format for the scale labels (applies only for linear scale)',
 	horizontalJump: 'Distance between scale labels (horizontal axis)',
 	verticalJump: 'Distance between scale labels (vertical axis)',
+	singleDynamicScale: 'Use single axis to calculate the dynamic scale',
 	configOverride: 'JSON to override specific configuration file sections'
 };
 

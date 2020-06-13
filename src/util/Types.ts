@@ -126,6 +126,7 @@ export interface Options
 	scaleNumberFormat: string;
 	horizontalJump: number;
 	verticalJump: number;
+	singleDynamicScale: boolean;
 	configOverride: string;
 	postAnimationDirectory: string;
 }

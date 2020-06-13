@@ -1889,6 +1889,7 @@
 		"scaleNumberFormat": "suffix",
 		"horizontalJump": 1,
 		"verticalJump": 1,
+		"singleDynamicScale": false,
 		"configOverride": null,
 		"postAnimationDirectory": null
 	}
