@@ -118,6 +118,6 @@ export default class SeriesLinesLayer implements Layer
 			this.context.layout.circleSize,
 			section.color,
 			lastPoint,
-			this.context.layout.plotArea);
+			this.context.layout.seriesCirclesArea);
 	}
 }

@@ -80,6 +80,7 @@ export interface Layout {
 	canvasSize: number[];
 	plotArea: Box;
 	seriesLabelsArea: Box;
+	seriesCirclesArea: Box;
 	circleSize: number;
 	datePosition: Point;
 	dateFont: object;

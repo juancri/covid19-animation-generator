@@ -92,6 +92,12 @@
 				"top": 125,
 				"bottom": 955
 			},
+			"seriesCirclesArea": {
+				"left": 125,
+				"right": 1056,
+				"top": 125,
+				"bottom": 955
+			},
 			"circleSize": 6,
 			"datePosition": { "x": 850, "y": 100 },
 			"dateFont":
