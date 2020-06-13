@@ -21,22 +21,23 @@ export default class LinearPlotPointsGenerator
 	public static generateAvg7(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
 		return points
-			.filter(point => !gaps.find(g =>
-				+point.date > +g.from &&
-				+point.date < +g.to))
-			.map((point, index) =>
+			.map((point, index) => ({ point, index }))
+			.filter(item => !gaps.find(g =>
+				+item.point.date > +g.from &&
+				+item.point.date < +g.to))
+			.map(item =>
 			{
-				const x = point.date.diff(JAN_1).as('days');
+				const x = item.point.date.diff(JAN_1).as('days');
 				const previousIndex = Math.max(
-					LinearPlotPointsGenerator.getFirstIndex(points, gaps, index),
-					index - 7);
+					LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index),
+					item.index - 7);
 				const previousPoint = points[previousIndex];
-				const diff = point.value - previousPoint.value;
-				const indexDiff = index - previousIndex;
-				const y = previousIndex === index ?
+				const diff = item.point.value - previousPoint.value;
+				const indexDiff = item.index - previousIndex;
+				const y = previousIndex === item.index ?
 					+Infinity :
 					diff / indexDiff;
-				return { x, y, date: point.date };
+				return { x, y, date: item.point.date };
 			})
 			.filter(p => p.y < +Infinity);
 	}
@@ -44,21 +45,22 @@ export default class LinearPlotPointsGenerator
 	public static generateAvg7Change(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
 		return points
-			.filter(point => !gaps.find(gap =>
-				+point.date > +gap.from &&
-				+point.date < +gap.to))
-			.map((point, index) =>
+			.map((point, index) => ({ point, index }))
+			.filter(item => !gaps.find(g =>
+				+item.point.date > +g.from &&
+				+item.point.date < +g.to))
+			.map(item =>
 			{
-				const x = point.date.diff(JAN_1).as('days');
-				const firstIndex = Math.max(
-					LinearPlotPointsGenerator.getFirstIndex(points, gaps, index),
-					index - 6);
+				const x = item.point.date.diff(JAN_1).as('days');
+				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index);
+				const desiredIndex = item.index - 6;
+				const firstIndex = Math.max(minIndex, desiredIndex);
 				const valuesToAvg = points
-					.slice(firstIndex, index)
+					.slice(firstIndex, item.index)
 					.map(p => p.value);
 				const total = valuesToAvg.reduce((a, b) => a + b, 0);
 				const y = total / valuesToAvg.length;
-				return { x, y, date: point.date };
+				return { x, y, date: item.point.date };
 			})
 			.filter(p => p.y < +Infinity);
 	}
