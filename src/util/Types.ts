@@ -66,6 +66,13 @@ export interface ColorSchema {
 	timebar: {
 		background: string;
 		foreground: string;
+	},
+	lines: {
+		color: string;
+		label: {
+			font: string;
+			color: string;
+		}
 	}
 }
 
@@ -85,11 +92,21 @@ export interface Layout {
 	datePosition: Point;
 	dateFont: object;
 	timebar: Box;
+	lines: {
+		width: number;
+		horizontalOffset: number;
+		verticalOffset: number;
+	}
 }
 
 export interface PreProcessorConfig {
 	name: string;
 	parameters?: any;
+}
+
+export interface Line {
+	value: number;
+	label: string;
 }
 
 export interface DataSource {
@@ -130,6 +147,8 @@ export interface Options
 	singleDynamicScale: boolean;
 	configOverride: string;
 	postAnimationDirectory: string;
+	horizontalLines: string | null;
+	verticalLines: string | null;
 }
 
 export interface Configuration {
@@ -234,6 +253,10 @@ export interface AnimationContext {
 	config: Configuration;
 	options: Options;
 	series: PlotSeries[];
+	lines: {
+		horizontal: Line[],
+		vertical: Line[]
+	},
 	color: ColorSchema;
 	layout: Layout;
 	writer: CanvasWriter;

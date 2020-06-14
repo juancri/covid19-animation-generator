@@ -78,6 +78,8 @@ All parameters are optional.
   - ```spanish```: Number in Spanish format (#.###)
 - ```--horizontalJump```: Distance between scale labels (horizontal axis).
 - ```--verticalJump```: Distance between scale labels (vertical axis).
+- ```--horizontalLines```: Horizontal lines with format numericvalue:label (example: ```10:mylabel```, multiple lines separated by comma)
+- ```--verticalLines```: Vertical lines with format numericvalue:label (example: ```10:mylabel```, multiple lines separated by comma)
 - ```--singleDynamicScale```: Use single axis to calculate the dynamic scale.
 
 #### Examples

@@ -30,6 +30,8 @@ const PARAMETERS = {
 	horizontalJump: 'Distance between scale labels (horizontal axis)',
 	verticalJump: 'Distance between scale labels (vertical axis)',
 	singleDynamicScale: 'Use single axis to calculate the dynamic scale',
+	horizontalLines: 'Horizontal lines with format numericvalue:label (multiple lines separated by comma)',
+	verticalLines: 'Vertical lines with format numericvalue:label (multiple lines separated by comma)',
 	configOverride: 'JSON to override specific configuration file sections'
 };
 

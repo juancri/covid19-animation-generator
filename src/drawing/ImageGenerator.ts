@@ -9,6 +9,7 @@ import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
 import TimeBarLayer from '../layers/TimeBarLayer';
 import SeriesLabelsLayer from '../layers/SeriesLabelsLayer';
 import PrePostAnimationLayer from '../layers/PrePostAnimationLayer';
+import LinesLayer from '../layers/LinesLayer';
 
 export default class ImageGenerator
 {
@@ -22,6 +23,9 @@ export default class ImageGenerator
 			// Series
 			new SeriesLinesLayer(context),
 			new SeriesLabelsLayer(context),
+
+			// Lines
+			new LinesLayer(context),
 
 			// Scale and makers
 			new ScaleLayer(context),

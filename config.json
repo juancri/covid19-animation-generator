@@ -72,6 +72,13 @@
 			"timebar": {
 				"background": "#202020",
 				"foreground": "#FFB000"
+			},
+			"lines": {
+				"color": "#FF312A",
+				"label": {
+					"font": "25px DejaVu Sans Mono",
+					"color": "white"
+				}
 			}
 		}
 	},
@@ -110,6 +117,11 @@
 				"right": 1080,
 				"top": 1075,
 				"bottom": 1080
+			},
+			"lines": {
+				"width": 3,
+				"horizontalOffset": -30,
+				"verticalOffset": 30
 			}
 		}
 	},
@@ -1897,6 +1909,8 @@
 		"verticalJump": 1,
 		"singleDynamicScale": false,
 		"configOverride": null,
-		"postAnimationDirectory": null
+		"postAnimationDirectory": null,
+		"horizontalLines": null,
+		"verticalLines": null
 	}
 }

@@ -4,8 +4,6 @@ export default class CanvasPointsGenerator
 {
 	public static generate(series: PlotSeries[], plotArea: Box): PlotSeries[]
 	{
-		const honrizontalSize = plotArea.right - plotArea.left;
-		const verticalSize = plotArea.bottom - plotArea.top;
 		return series.map(serie => ({
 			code: serie.code,
 			color: serie.color,
@@ -13,10 +11,23 @@ export default class CanvasPointsGenerator
 			milestones: serie.milestones,
 			points: serie.points.map(point => ({
 				date: point.date,
-				x: plotArea.left + honrizontalSize * point.x,
-				y: plotArea.bottom - verticalSize * point.y,
+				x: CanvasPointsGenerator.scaleValue(point.x, true, plotArea),
+				y: CanvasPointsGenerator.scaleValue(point.y, false, plotArea),
 				parent: point
 			}))
 		}));
+	}
+
+	public static scaleValue(value: number, horizontal: boolean, plotArea: Box): number
+	{
+		const side = horizontal ?
+			[plotArea.left, plotArea.right] :
+			[plotArea.bottom, plotArea.top];
+		const size = Math.abs(side[0] - side[1]);
+		const base = side[0];
+		const diff = size * value;
+		return horizontal ?
+			base + diff :
+			base - diff;
 	}
 }

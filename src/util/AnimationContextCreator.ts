@@ -13,6 +13,7 @@ import LayoutLoader from './LayoutLoader';
 import PlotSeriesLoader from './PlotSeriesLoader';
 import ScaleLabelProviderLoader from '../scale/labels/ScaleLabelProviderLoader';
 import { DateTime } from 'luxon';
+import LinesLoader from './LinesLoader';
 
 // Constants
 const OUTPUT_PATH = path.join(__dirname, '../../output');
@@ -29,6 +30,7 @@ export default class AnimationContextCreator
 		const layout = LayoutLoader.load(config);
 		const writer = new CanvasWriter(layout, OUTPUT_PATH);
 		const series = await PlotSeriesLoader.load(config, options, color);
+		const lines = LinesLoader.load(options);
 		const scaleLabelProvider = ScaleLabelProviderLoader.load(options);
 		const lastDate = this.getLastDate(series);
 		const firstDate = this.getFirstDate(series, options, lastDate);
@@ -37,7 +39,8 @@ export default class AnimationContextCreator
 			config, options, layout,
 			writer, series, color,
 			scaleLabelProvider,
-			firstDate, lastDate
+			firstDate, lastDate,
+			lines
 		};
 	}
 
