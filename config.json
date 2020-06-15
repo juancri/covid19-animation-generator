@@ -1905,6 +1905,18 @@
 					"areaColor": "#BF98FF"
 				}
 			]
+		},
+		"chile-icu-rm": {
+			"url": "https://docs.google.com/spreadsheets/u/0/d/1sX9WGHzxjoI5UrlXc2Aa_gTySvnxJOlXu5zAo5q0Nyg/export?format=csv&id=1sX9WGHzxjoI5UrlXc2Aa_gTySvnxJOlXu5zAo5q0Nyg&gid=0",
+			"nameColumn": "region",
+			"series":
+			[
+				{
+					"name": "metropolitana",
+					"code": "Metropolitana",
+					"color": "#0082DE"
+				}
+			]
 		}
 	},
 	"defaults":
