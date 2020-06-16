@@ -1747,14 +1747,14 @@
 					"color": "#5FB9E1"
 				},
 				{
-					"name": "Germany",
-					"code": "Alemania",
-					"color": "#FF72CE"
-				},
-				{
 					"name": "Iran",
 					"code": "Irán",
 					"color": "#8672FF"
+				},
+				{
+					"name": "Germany",
+					"code": "Alemania",
+					"color": "#FF72CE"
 				},
 				{
 					"name": "Turkey",
