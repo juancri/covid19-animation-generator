@@ -138,6 +138,15 @@ export default class SeriesPlotLayer implements Layer
 	{
 		const points = section.points;
 		const lastPoint = points[points.length - 1];
+
+		// Ignore if it's not visible
+		const plotArea = this.context.layout.plotArea;
+		if (lastPoint.x < plotArea.left
+			|| lastPoint.x > plotArea.right
+			|| lastPoint.y < plotArea.top
+			|| lastPoint.y > plotArea.bottom)
+			return;
+
 		this.context.writer.drawCircle(
 			this.context.layout.circleSize,
 			section.color,
