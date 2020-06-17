@@ -3,6 +3,8 @@ import formatNumber from 'format-number';
 import * as Enumerable from 'linq';
 import { FrameInfo, AnimationContext, Layer, PlotSeries } from '../util/Types';
 
+const LABEL_LINE_ALPHA = 0.6;
+const EXTRA_X_OFFSET = 30;
 const FORMATTERS: { [key: string]: (n: number) => string } =
 {
 	plain: n => n.toString(),
@@ -50,15 +52,25 @@ export default class SeriesLabelsLayer implements Layer
 
 	private drawLineLabel(frame: FrameInfo, series: PlotSeries)
 	{
+		const offset = this.context.color.series.label.offset;
 		const lastPoint = series.points[series.points.length - 1];
-		const x = lastPoint.x + this.context.color.series.label.offset.x;
-		const y = this.getLabelPosition(frame, series);
+		const x = lastPoint.x + offset.x + EXTRA_X_OFFSET * (frame.labelPositionRatio ?? 0);
+		const y = this.getLabelPosition(frame, series) + offset.y;
+		const changed = y !== lastPoint.y + offset.y;
 		this.context.writer.drawText(
 			series.code,
 			this.context.color.series.label.font,
 			this.context.color.series.label.color,
 			{ x, y },
 			this.context.layout.seriesLabelsArea);
+
+		if (frame.labelPositionRatio && changed)
+			this.context.writer.drawLineAlpha(
+				series.color,
+				this.context.options.seriesLineWidth,
+				lastPoint,
+				{ x, y },
+				frame.labelPositionRatio * LABEL_LINE_ALPHA);
 	}
 
 	private drawStackedAreaLabel(frame: FrameInfo, series: PlotSeries)
@@ -94,7 +106,7 @@ export default class SeriesLabelsLayer implements Layer
 	private getLabelPosition(frame: FrameInfo, series: PlotSeries): number
 	{
 		const lastPoint = series.points[series.points.length - 1];
-		const origin = lastPoint.y + this.context.color.series.label.offset.y;
+		const origin = lastPoint.y;
 		if (!frame.labelPositionRatio)
 			return origin;
 		const seriesPoints = Enumerable
