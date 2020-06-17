@@ -1942,7 +1942,7 @@
 		"dateFormat": "yyyy-MM-dd",
 		"drawMarkers": false,
 		"skipZoom": false,
-		"seriesLineWidth": 3,
+		"seriesLineWidth": 4,
 		"horizontalMin": null,
 		"horizontalMax": null,
 		"verticalMin": null,
