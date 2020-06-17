@@ -42,6 +42,10 @@ export interface SeriesConfiguration {
 
 export interface ColorSchema {
 	background: string;
+	debug: {
+		color: string;
+		font: string;
+	},
 	scale: {
 		color: string;
 		font: string;
@@ -87,6 +91,7 @@ export interface Box {
 
 export interface Layout {
 	canvasSize: number[];
+	debugPosition: Point;
 	plotArea: Box;
 	seriesLabelsArea: Box;
 	seriesCirclesArea: Box;
@@ -122,6 +127,7 @@ export interface DataSource {
 
 export interface Options
 {
+	debug: boolean;
 	schema: string;
 	source: string;
 	days: number,
@@ -153,6 +159,8 @@ export interface Options
 	horizontalLines: string | null;
 	verticalLines: string | null;
 	type: string;
+	showRank: boolean;
+	rankEasing: string;
 }
 
 export interface Configuration {
@@ -188,7 +196,8 @@ export type AnimationStage =
 
 export interface FrameFilterInfo {
 	date: DateTime;
-	ratio: number;
+	dateRatio: number;
+	labelPositionRatio?: number;
 	name?: string;
 	stage?: AnimationStage;
 }
@@ -197,10 +206,12 @@ export interface FrameInfo {
 	date: DateTime;
 	series: PlotSeries[];
 	scaleBoundaries: ScaleBoundaries;
+	labelPositionRatio?: number;
 	currentFrame: number;
 	totalFrames: number;
 	stage: AnimationStage;
 	name?: string;
+	animationName: string;
 }
 
 export interface Animation {
@@ -231,6 +242,7 @@ export interface PlotSeries {
 	points: PlotPoint[];
 	gaps: TimeGap[];
 	milestones: Milestone[];
+	labelPosition?: Point;
 }
 
 export interface Point {

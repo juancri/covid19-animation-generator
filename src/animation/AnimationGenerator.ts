@@ -13,6 +13,7 @@ import CoverFrameAnimation from './CoverFrameAnimation';
 import EmptyAnimation from './EmptyAnimation';
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import PostAnimation from './PostAnimation';
+import SeriesRankingAnimation from './SeriesRankingAnimation';
 
 export default class AnimationGenerator
 {
@@ -24,6 +25,9 @@ export default class AnimationGenerator
 		this.context = context;
 		this.animations = [
 			new TimeAnimation(context),
+			context.options.showRank ?
+				new SeriesRankingAnimation(context) :
+				new EmptyAnimation(),
 			context.options.skipZoom ?
 				new EmptyAnimation() :
 				new ZoomAnimation(context),
@@ -68,7 +72,9 @@ export default class AnimationGenerator
 					totalFrames,
 					name: frame.name,
 					stage: frame.stage ?? 'main',
-					scaleBoundaries: scale
+					scaleBoundaries: scale,
+					labelPositionRatio: frame.labelPositionRatio,
+					animationName: animation.getName()
 				};
 				frameIndex++;
 				stepFrameIndex++;

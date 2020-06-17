@@ -4,6 +4,11 @@
 		"dark":
 		{
 			"background": "#2E2E2E",
+			"debug":
+			{
+				"color": "yellow",
+				"font": "20px DejaVu Sans Mono"
+			},
 			"scale":
 			{
 				"color": "#ccc",
@@ -88,6 +93,7 @@
 		"square":
 		{
 			"canvasSize": [1080, 1080],
+			"debugPosition": { "x": 10, "y": 30 },
 			"plotArea": {
 				"left": 125,
 				"right": 1000,
@@ -1921,6 +1927,7 @@
 	},
 	"defaults":
 	{
+		"debug": false,
 		"schema": "dark",
 		"layout": "square",
 		"source": "global",
@@ -1951,6 +1958,8 @@
 		"postAnimationDirectory": null,
 		"horizontalLines": null,
 		"verticalLines": null,
-		"type": "line"
+		"type": "line",
+		"showRank": false,
+		"rankEasing": "easeInOutCubic"
 	}
 }

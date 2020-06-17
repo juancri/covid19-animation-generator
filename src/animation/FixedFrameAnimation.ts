@@ -10,7 +10,7 @@ export default class FixedFrameAnimation implements Animation
 	{
 		this.frames = context.options.extraFrames;
 		const date = context.lastDate;
-		this.frameFilterInfo = { date, ratio: 1 };
+		this.frameFilterInfo = { date, dateRatio: 1 };
 	}
 
 	public getName(): string

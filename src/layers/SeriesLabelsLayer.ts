@@ -44,15 +44,15 @@ export default class SeriesLabelsLayer implements Layer
 			if (this.context.options.type === 'stacked-area')
 				this.drawStackedAreaLabel(frame, series);
 			else
-				this.drawLineLabel(series);
+				this.drawLineLabel(frame, series);
 		}
 	}
 
-	private drawLineLabel(series: PlotSeries)
+	private drawLineLabel(frame: FrameInfo, series: PlotSeries)
 	{
 		const lastPoint = series.points[series.points.length - 1];
 		const x = lastPoint.x + this.context.color.series.label.offset.x;
-		const y = lastPoint.y + this.context.color.series.label.offset.y;
+		const y = this.getLabelPosition(frame, series);
 		this.context.writer.drawText(
 			series.code,
 			this.context.color.series.label.font,
@@ -89,5 +89,30 @@ export default class SeriesLabelsLayer implements Layer
 			this.context.color.series.label.color,
 			{ x, y },
 			this.context.layout.seriesLabelsArea);
+	}
+
+	private getLabelPosition(frame: FrameInfo, series: PlotSeries): number
+	{
+		const lastPoint = series.points[series.points.length - 1];
+		const origin = lastPoint.y + this.context.color.series.label.offset.y;
+		if (!frame.labelPositionRatio)
+			return origin;
+		const seriesPoints = Enumerable
+			.from(frame.series)
+			.where(serie => serie.points.length > 0)
+			.select(serie => ({
+				serie,
+				y: serie.points[serie.points.length - 1].y
+			}));
+		const min = seriesPoints.min(item => item.y);
+		const max = seriesPoints.max(item => item.y);
+		const rank = seriesPoints
+			.orderBy(item => item.y)
+			.select(item => item.serie)
+			.indexOf(series);
+		const items = seriesPoints.count();
+		const destination = min + (rank / (items - 1)) * (max - min);
+		const diff = destination - origin;
+		return origin + diff * frame.labelPositionRatio;
 	}
 }

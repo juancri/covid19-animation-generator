@@ -11,7 +11,7 @@ export default class CoverFrameAnimation implements Animation
 	{
 		this.frameFilterInfo = {
 			date: context.lastDate,
-			ratio: 1,
+			dateRatio: 1,
 			stage: 'cover',
 			name: NAME
 		};

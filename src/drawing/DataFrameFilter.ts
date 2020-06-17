@@ -10,7 +10,7 @@ export default class DataFrameFilter
 				.filter(point => point.date <= frame.date)
 				.map((point, index) =>
 				{
-					if (index === 0 || point.date < frame.date || frame.ratio === 1)
+					if (index === 0 || point.date < frame.date || frame.dateRatio === 1)
 						return point;
 
 					const previous = serie.points[index - 1];
@@ -18,8 +18,8 @@ export default class DataFrameFilter
 					const diffY = point.y - previous.y;
 					return {
 						date: point.date,
-						x: previous.x + diffX * frame.ratio,
-						y: previous.y + diffY * frame.ratio
+						x: previous.x + diffX * frame.dateRatio,
+						y: previous.y + diffY * frame.dateRatio
 					};
 				})
 		}));

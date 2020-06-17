@@ -20,7 +20,7 @@ export default abstract class OverlayAnimation implements Animation
 		this.frame = {
 			date,
 			stage,
-			ratio: 1
+			dateRatio: 1
 		};
 	}
 

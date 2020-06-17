@@ -3,6 +3,7 @@ import { AnimationContext, Layer } from '../util/Types';
 import AnimationGenerator from '../animation/AnimationGenerator';
 import BackgroundLayer from '../layers/BackgroundLayer';
 import DateLayer from '../layers/DateLayer';
+import DebugLayer from '../layers/DebugLayer';
 import ScaleLayer from '../layers/ScaleLayer';
 import SeriesPlotLayer from '../layers/SeriesPlotLayer';
 import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
@@ -34,7 +35,8 @@ export default class ImageGenerator
 			// Extra
 			new DateLayer(context),
 			new PrePostAnimationLayer(context),
-			new TimeBarLayer(context)
+			new TimeBarLayer(context),
+			new DebugLayer(context)
 		];
 
 		for (const frame of frameInfoGenerator.generate())

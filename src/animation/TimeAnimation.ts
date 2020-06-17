@@ -32,14 +32,14 @@ export default class TimeAnimation implements Animation
 	public *getFrames(): Generator<FrameFilterInfo>
 	{
 		// First day with ratio 1
-		yield { date: this.context.firstDate, ratio: 1 };
+		yield { date: this.context.firstDate, dateRatio: 1 };
 
 		// Rest of the days
 		let current = this.context.firstDate.plus({ days: 1 });
 		while (current <= this.context.lastDate)
 		{
 			for (let frame = 1; frame <= this.context.options.frames; frame++)
-				yield { date: current, ratio: frame / this.context.options.frames };
+				yield { date: current, dateRatio: frame / this.context.options.frames };
 			current = current.plus({ days: 1 });
 		}
 	}

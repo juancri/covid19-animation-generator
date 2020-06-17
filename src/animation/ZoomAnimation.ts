@@ -29,7 +29,7 @@ export default class ZoomAnimation implements Animation
 		this.easing = EasingLoader.load(context.options.zoomEasing);
 		this.frame = {
 			date: context.lastDate,
-			ratio: 1
+			dateRatio: 1
 		};
 		this.scale = null;
 		this.target = null;
