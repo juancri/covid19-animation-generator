@@ -5,6 +5,8 @@ import {
 import EasingLoader from '../util/EasingLoader';
 
 interface PositionStep { frames: number, in: boolean | number };
+const LINE_TYPE = 'line';
+const LINEAR_SCALE = 'linear';
 const MAIN_STEPS: PositionStep[] = [
 	{ frames: 120, in: true },
 	{ frames: 240, in: 1 },
@@ -19,6 +21,10 @@ export default class SeriesRankingAnimation implements Animation
 
 	public constructor(context: AnimationContext)
 	{
+		if (context.options.type !== LINE_TYPE)
+			throw new Error('Can not use series ranking for non-line type animations');
+		if (context.options.scale !== LINEAR_SCALE)
+			throw new Error('Can not use series ranking for non-linear scale animations');
 		this.easing = EasingLoader.load(context.options.rankEasing);
 		this.frame = {
 			date: context.lastDate,
