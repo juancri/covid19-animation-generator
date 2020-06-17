@@ -48,23 +48,31 @@ export default class CanvasWriter
 		this.drawPolyline(color, lineWidth, [from, to], box);
 	}
 
-	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null, dashed = false)
+	public drawLineAlpha(color: string, lineWidth: number, from: Point, to: Point, alpha: number) {
+		this.drawPolyline(color, lineWidth, [from, to], null, false, alpha);
+	}
+
+	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null,
+		dashed = false, alpha: number | null = null)
 	{
 		if (points.length < 2)
 			return;
 
-		this.useDashedLine(dashed, () =>
+		this.useAlpha(alpha, () =>
 		{
-			this.useMaskBox(box, () =>
+			this.useDashedLine(dashed, () =>
 			{
-				this.ctx.strokeStyle = color;
-				this.ctx.lineWidth = lineWidth;
-				this.ctx.beginPath();
-				const first = points[0];
-				this.ctx.moveTo(first.x, first.y);
-				for (let index = 1; index < points.length; index++)
-					this.ctx.lineTo(points[index].x, points[index].y);
-				this.ctx.stroke();
+				this.useMaskBox(box, () =>
+				{
+					this.ctx.strokeStyle = color;
+					this.ctx.lineWidth = lineWidth;
+					this.ctx.beginPath();
+					const first = points[0];
+					this.ctx.moveTo(first.x, first.y);
+					for (let index = 1; index < points.length; index++)
+						this.ctx.lineTo(points[index].x, points[index].y);
+					this.ctx.stroke();
+				});
 			});
 		});
 	}
@@ -173,6 +181,20 @@ export default class CanvasWriter
 		}
 		finally {
 			this.ctx.setLineDash([]);
+		}
+	}
+
+	private useAlpha(alpha: number | null, f: () => void)
+	{
+		try
+		{
+			if (alpha !== null)
+				this.ctx.globalAlpha = alpha;
+			f();
+		}
+		finally
+		{
+			this.ctx.globalAlpha = 1;
 		}
 	}
 }
