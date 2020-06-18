@@ -47,7 +47,7 @@ export default class AnimationGenerator
 		logger.info(`total frames: ${totalFrames}`);
 		let frameIndex = 1;
 		let lastScale: ScaleBoundaries | null = null;
-		for (const animation of this.animations)
+		for (const animation of this.animations.filter(a => a.countFrames() > 0))
 		{
 			logger.info(`animation: ${animation.getName()}`);
 			logger.info(`  frames: ${animation.countFrames()}`);
