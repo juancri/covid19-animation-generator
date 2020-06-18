@@ -13,7 +13,8 @@ export default class CoverFrameAnimation implements Animation
 			date: context.lastDate,
 			dateRatio: 1,
 			stage: 'cover',
-			name: NAME
+			name: NAME,
+			labelPositionRatio: context.options.showRank ? 1 : 0
 		};
 	}
 
