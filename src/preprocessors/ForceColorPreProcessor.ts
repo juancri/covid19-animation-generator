@@ -1,4 +1,5 @@
 import { TimeSeries } from '../util/Types';
+import logger from '../util/Logger';
 
 interface ForceColorParams
 {
@@ -14,7 +15,7 @@ export default class ForceColorPreProcessor
 		if (found)
 			found.forceColor = params.color;
 		else
-			console.log(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params.name}`);
 
 		return series;
 	}

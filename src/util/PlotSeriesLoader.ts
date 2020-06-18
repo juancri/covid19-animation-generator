@@ -1,11 +1,12 @@
 
 import * as Enumerable from 'linq';
+import { DateTime } from 'luxon';
 
 import { Configuration, Options, PlotSeries, ColorSchema } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
-import { DateTime } from 'luxon';
+import logger from '../util/Logger';
 
 export default class PlotSeriesLoader
 {
@@ -74,9 +75,9 @@ export default class PlotSeriesLoader
 
 		// Warnings
 		if (series.length === 1 && !options.drawMarkers)
-			console.log('The datasource contains only 1 series. You should consider using drawMarkers.');
+			logger.warn('The datasource contains only 1 series. You should consider using drawMarkers.');
 		if (series.length === 1 && options.seriesLineWidth < 5)
-			console.log('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
+			logger.warn('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
 
 		// Done
 		return series;

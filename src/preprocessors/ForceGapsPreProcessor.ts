@@ -1,4 +1,5 @@
 import { TimeSeries, SeriesGapConfiguration } from '../util/Types';
+import logger from '../util/Logger';
 
 interface ForceGapsParams
 {
@@ -14,7 +15,7 @@ export default class ForceGapsPreProcessor
 		if (found)
 			found.forceGaps = params.gaps;
 		else
-			console.log(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params.name}`);
 
 		return series;
 	}

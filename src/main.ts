@@ -3,6 +3,7 @@
 import ImageGenerator from './drawing/ImageGenerator';
 import ParameterLoader from './parameters/ParametersLoader';
 import AnimationContextCreator from './util/AnimationContextCreator';
+import logger from './util/Logger';
 
 // Main
 const main = async () =>
@@ -25,7 +26,16 @@ const main = async () =>
 	}
 	catch (e)
 	{
-		console.log(e);
+		try
+		{
+			logger.error(e);
+		}
+		catch (e2)
+		{
+			console.log(e);
+			console.log(e2);
+		}
+
 		process.exit(1);
 	}
 })();

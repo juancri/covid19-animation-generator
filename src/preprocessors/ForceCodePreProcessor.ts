@@ -1,4 +1,5 @@
 import { TimeSeries } from '../util/Types';
+import logger from '../util/Logger';
 
 interface ForceCodeParams
 {
@@ -14,7 +15,7 @@ export default class ForceCodePreProcessor
 		if (found)
 			found.forceCode = params.code;
 		else
-			console.log(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params.name}`);
 
 		return series;
 	}
