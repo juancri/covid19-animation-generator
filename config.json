@@ -1569,52 +1569,62 @@
 				{
 					"name": "Argentina",
 					"code": "Argentina",
-					"color": "white"
+					"color": "white",
+					"icon": "ar"
 				},
 				{
 					"name": "Brazil",
 					"code": "Brasil",
-					"color": "#ff7c43"
+					"color": "#ff7c43",
+					"icon": "br"
 				},
 				{
 					"name": "Bolivia",
 					"code": "Bolivia",
-					"color": "#f95d6a"
+					"color": "#f95d6a",
+					"icon": "bo"
 				},
 				{
 					"name": "Uruguay",
 					"code": "Uruguay",
-					"color": "#d45087"
+					"color": "#d45087",
+					"icon": "uy"
 				},
 				{
 					"name": "Paraguay",
 					"code": "Paraguay",
-					"color": "#a05195"
+					"color": "#a05195",
+					"icon": "py"
 				},
 				{
 					"name": "Peru",
 					"code": "Perú",
-					"color": "#8040FD"
+					"color": "#8040FD",
+					"icon": "pe"
 				},
 				{
 					"name": "Colombia",
 					"code": "Colombia",
-					"color": "#2B98CB"
+					"color": "#2B98CB",
+					"icon": "co"
 				},
 				{
 					"name": "Venezuela",
 					"code": "Venezuela",
-					"color": "#E28888"
+					"color": "#E28888",
+					"icon": "ve"
 				},
 				{
 					"name": "Ecuador",
 					"code": "Ecuador",
-					"color": "#FF3600"
+					"color": "#FF3600",
+					"icon": "ec"
 				},
 				{
 					"name": "Chile",
 					"code": "Chile",
 					"color": "#ffa600",
+					"icon": "cl",
 					"gaps": [
 						{
 							"from": "2020-06-06",
@@ -1630,55 +1640,66 @@
 			"nameColumn": "country",
 			"series":
 			[
+
 				{
 					"name": "Argentina",
 					"code": "Argentina",
-					"color": "white"
+					"color": "white",
+					"icon": "ar"
 				},
 				{
 					"name": "Brazil",
 					"code": "Brasil",
-					"color": "#ff7c43"
+					"color": "#ff7c43",
+					"icon": "br"
 				},
 				{
 					"name": "Bolivia",
 					"code": "Bolivia",
-					"color": "#f95d6a"
+					"color": "#f95d6a",
+					"icon": "bo"
 				},
 				{
 					"name": "Uruguay",
 					"code": "Uruguay",
-					"color": "#d45087"
+					"color": "#d45087",
+					"icon": "uy"
 				},
 				{
 					"name": "Paraguay",
 					"code": "Paraguay",
-					"color": "#a05195"
+					"color": "#a05195",
+					"icon": "py"
 				},
 				{
 					"name": "Peru",
 					"code": "Perú",
-					"color": "#8040FD"
+					"color": "#8040FD",
+					"icon": "pe"
 				},
 				{
 					"name": "Colombia",
 					"code": "Colombia",
-					"color": "#2B98CB"
+					"color": "#2B98CB",
+					"icon": "co"
 				},
 				{
 					"name": "Venezuela",
 					"code": "Venezuela",
-					"color": "#E28888"
+					"color": "#E28888",
+					"icon": "ve"
 				},
 				{
 					"name": "Ecuador",
 					"code": "Ecuador",
-					"color": "#FF3600"
+					"color": "#FF3600",
+					"icon": "ec"
 				},
 				{
 					"name": "Chile",
 					"code": "Chile",
 					"color": "#ffa600",
+					"icon": "cl",
 					"gaps": [
 						{
 							"from": "2020-06-06",
@@ -1715,112 +1736,134 @@
 				{
 					"name": "US",
 					"code": "EE.UU.",
-					"color": "#FF6A6F"
+					"color": "#FF6A6F",
+					"icon": "us"
 				},
 				{
 					"name": "Brazil",
 					"code": "Brasil",
-					"color": "#72CDFF"
+					"color": "#72CDFF",
+					"icon": "br"
 				},
 				{
 					"name": "Russia",
 					"code": "Rusia",
-					"color": "#BAFF72"
+					"color": "#BAFF72",
+					"icon": "ru"
 				},
 				{
 					"name": "India",
 					"code": "India",
-					"color": "#B272FF"
+					"color": "#B272FF",
+					"icon": "in"
 				},
 				{
 					"name": "United Kingdom",
 					"code": "Reino Unido",
-					"color": "#FFF972"
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Spain",
 					"code": "España",
-					"color": "#FFBB72"
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Italy",
 					"code": "Italia",
-					"color": "#FF7772"
+					"color": "#FF7772",
+					"icon": "it"
 				},
 				{
 					"name": "Peru",
 					"code": "Perú",
-					"color": "#5FB9E1"
+					"color": "#5FB9E1",
+					"icon": "pe"
 				},
 				{
 					"name": "Iran",
 					"code": "Irán",
-					"color": "#8672FF"
+					"color": "#8672FF",
+					"icon": "ir"
 				},
 				{
 					"name": "Germany",
 					"code": "Alemania",
-					"color": "#FF72CE"
+					"color": "#FF72CE",
+					"icon": "de"
 				},
 				{
 					"name": "Turkey",
 					"code": "Turquía",
-					"color": "#E072FF"
+					"color": "#E072FF",
+					"icon": "tr"
 				},
 				{
 					"name": "France",
 					"code": "Francia",
-					"color": "#FF729D"
+					"color": "#FF729D",
+					"icon": "fr"
 				},
 				{
 					"name": "Mexico",
 					"code": "México",
-					"color": "#ff7c43"
+					"color": "#ff7c43",
+					"icon": "mx"
 				},
 				{
 					"name": "Pakistan",
 					"code": "Paquistán",
-					"color": "#7AFF72"
+					"color": "#7AFF72",
+					"icon": "pk"
 				},
 				{
 					"name": "Ecuador",
 					"code": "Ecuador",
-					"color": "#FF2E86"
+					"color": "#FF2E86",
+					"icon": "ec"
 				},
 				{
 					"name": "Colombia",
 					"code": "Colombia",
-					"color": "#72FFFF"
+					"color": "#72FFFF",
+					"icon": "co"
 				},
 				{
 					"name": "Argentina",
 					"code": "Argentina",
-					"color": "#F06AFF"
+					"color": "#F06AFF",
+					"icon": "ar"
 				},
 				{
 					"name": "Bolivia",
 					"code": "Bolivia",
-					"color": "#E72EFF"
+					"color": "#E72EFF",
+					"icon": "bo"
 				},
 				{
 					"name": "Venezuela",
 					"code": "Venezuela",
-					"color": "#7B2EFF"
+					"color": "#7B2EFF",
+					"icon": "ve"
 				},
 				{
 					"name": "Uruguay",
 					"code": "Uruguay",
-					"color": "#2E62FF"
+					"color": "#2E62FF",
+					"icon": "uy"
 				},
 				{
 					"name": "Paraguay",
 					"code": "Paraguay",
-					"color": "#2EE5FF"
+					"color": "#2EE5FF",
+					"icon": "py"
 				},
 				{
 					"name": "Chile",
 					"code": "Chile",
-					"color": "#FFA600"
+					"color": "#FFA600",
+					"icon": "cl"
 				}
 			]
 		},
@@ -1960,6 +2003,11 @@
 		"verticalLines": null,
 		"type": "line",
 		"showRank": false,
-		"rankEasing": "easeInOutCubic"
+		"rankEasing": "easeInOutCubic",
+		"seriesIconPathFormat": null,
+		"seriesIconOffsetX": 0,
+		"seriesIconOffsetY": 0,
+		"seriesIconLabelOffsetX": 0,
+		"seriesIconLabelOffsetY": 0
 	}
 }

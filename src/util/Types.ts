@@ -35,6 +35,7 @@ export interface SeriesConfiguration {
 	name: string;
 	code: string;
 	color: string;
+	icon?: string;
 	areaColor?: string;
 	gaps?: SeriesGapConfiguration[];
 	milestones?: MilestoneConfiguration[];
@@ -161,6 +162,11 @@ export interface Options
 	type: string;
 	showRank: boolean;
 	rankEasing: string;
+	seriesIconPathFormat: string | null;
+	seriesIconOffsetX: number;
+	seriesIconOffsetY: number;
+	seriesIconLabelOffsetX: number;
+	seriesIconLabelOffsetY: number;
 }
 
 export interface Configuration {
@@ -243,6 +249,7 @@ export interface PlotSeries {
 	gaps: TimeGap[];
 	milestones: Milestone[];
 	labelPosition?: Point;
+	icon: string;
 }
 
 export interface Point {

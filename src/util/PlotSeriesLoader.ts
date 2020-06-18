@@ -66,6 +66,7 @@ export default class PlotSeriesLoader
 				areaColor: seriesConf.areaColor ?? seriesConf.color,
 				points: PlotPointsGenerator.generate(
 					options, found.data, gaps),
+				icon: seriesConf.icon ?? seriesConf.code,
 				gaps,
 				milestones
 			};

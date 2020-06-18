@@ -1,4 +1,5 @@
 
+import * as util from 'util';
 import formatNumber from 'format-number';
 import * as Enumerable from 'linq';
 import { FrameInfo, AnimationContext, Layer, PlotSeries } from '../util/Types';
@@ -17,6 +18,7 @@ export default class SeriesLabelsLayer implements Layer
 {
 	private context: AnimationContext;
 	private formatter: (n: number) => string;
+	private hasIcons: boolean;
 
 	public constructor(context: AnimationContext)
 	{
@@ -24,6 +26,7 @@ export default class SeriesLabelsLayer implements Layer
 		this.formatter = FORMATTERS[context.options.stackedAreaNumberFormat];
 		if (!this.formatter)
 			throw new Error(`Stacked area number format not found: ${context.options.stackedAreaNumberFormat}`);
+		this.hasIcons = !!this.context.options.seriesIconPathFormat;
 	}
 
 	public async draw (frame: FrameInfo)
@@ -52,16 +55,28 @@ export default class SeriesLabelsLayer implements Layer
 
 	private drawLineLabel(frame: FrameInfo, series: PlotSeries)
 	{
+		const iconPath = util.format(this.context.options.seriesIconPathFormat, series.icon);
 		const offset = this.context.color.series.label.offset;
 		const lastPoint = series.points[series.points.length - 1];
-		const x = lastPoint.x + offset.x + EXTRA_X_OFFSET * (frame.labelPositionRatio ?? 0);
+		const x = lastPoint.x + offset.x
+			+ EXTRA_X_OFFSET * (frame.labelPositionRatio ?? 0);
 		const y = this.getLabelPosition(frame, series) + offset.y;
+
+		if (this.hasIcons)
+		{
+			const iconX = x + this.context.options.seriesIconOffsetX;
+			const iconY = y + this.context.options.seriesIconOffsetY;
+			this.context.writer.drawImage(iconPath, { x: iconX, y: iconY });
+		}
+
+		const labelX = x + (this.hasIcons ? this.context.options.seriesIconLabelOffsetX : 0);
+		const labelY = y + (this.hasIcons ? this.context.options.seriesIconLabelOffsetY : 0);
 		const changed = y !== lastPoint.y + offset.y;
 		this.context.writer.drawText(
 			series.code,
 			this.context.color.series.label.font,
 			this.context.color.series.label.color,
-			{ x, y },
+			{ x: labelX, y: labelY },
 			this.context.layout.seriesLabelsArea);
 
 		if (frame.labelPositionRatio && changed)

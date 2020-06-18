@@ -6,7 +6,7 @@ import EasingLoader from '../util/EasingLoader';
 
 interface PositionStep { frames: number, in: boolean | number };
 const LINE_TYPE = 'line';
-const LINEAR_SCALE = 'linear';
+const LINEAR_SCALES = ['linear', 'linear-avg7'];
 const MAIN_STEPS: PositionStep[] = [
 	{ frames: 120, in: true },
 	{ frames: 240, in: 1 },
@@ -23,7 +23,7 @@ export default class SeriesRankingAnimation implements Animation
 	{
 		if (context.options.type !== LINE_TYPE)
 			throw new Error('Can not use series ranking for non-line type animations');
-		if (context.options.scale !== LINEAR_SCALE)
+		if (!LINEAR_SCALES.includes(context.options.scale))
 			throw new Error('Can not use series ranking for non-linear scale animations');
 		this.easing = EasingLoader.load(context.options.rankEasing);
 		this.frame = {
