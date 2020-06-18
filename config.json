@@ -1770,16 +1770,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#FF7772",
-					"icon": "it"
-				},
-				{
 					"name": "Peru",
 					"code": "Perú",
 					"color": "#5FB9E1",
 					"icon": "pe"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#FF7772",
+					"icon": "it"
 				},
 				{
 					"name": "Iran",
@@ -1800,10 +1800,10 @@
 					"icon": "tr"
 				},
 				{
-					"name": "France",
-					"code": "Francia",
-					"color": "#FF729D",
-					"icon": "fr"
+					"name": "Pakistan",
+					"code": "Paquistán",
+					"color": "#7AFF72",
+					"icon": "pk"
 				},
 				{
 					"name": "Mexico",
@@ -1812,10 +1812,10 @@
 					"icon": "mx"
 				},
 				{
-					"name": "Pakistan",
-					"code": "Paquistán",
-					"color": "#7AFF72",
-					"icon": "pk"
+					"name": "France",
+					"code": "Francia",
+					"color": "#FF729D",
+					"icon": "fr"
 				},
 				{
 					"name": "Ecuador",
