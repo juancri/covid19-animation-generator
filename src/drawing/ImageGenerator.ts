@@ -6,7 +6,6 @@ import DateLayer from '../layers/DateLayer';
 import DebugLayer from '../layers/DebugLayer';
 import ScaleLayer from '../layers/ScaleLayer';
 import SeriesPlotLayer from '../layers/SeriesPlotLayer';
-import SeriesMarkersLayer from '../layers/SeriesMarkersLayer';
 import TimeBarLayer from '../layers/TimeBarLayer';
 import SeriesLabelsLayer from '../layers/SeriesLabelsLayer';
 import PrePostAnimationLayer from '../layers/PrePostAnimationLayer';
@@ -28,9 +27,8 @@ export default class ImageGenerator
 			// Lines
 			new LinesLayer(context),
 
-			// Scale and makers
+			// Scale
 			new ScaleLayer(context),
-			new SeriesMarkersLayer(context),
 
 			// Extra
 			new DateLayer(context),
