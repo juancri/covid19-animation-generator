@@ -79,6 +79,10 @@ export default class PlotSeriesLoader
 		if (series.length === 1 && options.seriesLineWidth < 5)
 			logger.warn('The datasource contains only 1 series. You should consider using a seriesLineWidth >= 5.');
 
+		// Debug
+		if (options.debug)
+			logger.info(JSON.stringify(series));
+
 		// Done
 		return series;
 	}
