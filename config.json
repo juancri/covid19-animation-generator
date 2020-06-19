@@ -769,82 +769,178 @@
 				{
 					"name": "Arica y Parinacota",
 					"code": "Arica",
-					"color": "#E28888"
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Tarapacá",
 					"code": "Tarapacá",
-					"color": "#3EB4EA"
+					"color": "#3EB4EA",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Antofagasta",
 					"code": "Antofagasta",
-					"color": "#f95d6a"
+					"color": "#f95d6a",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Atacama",
 					"code": "Atacama",
-					"color": "#E28888"
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Coquimbo",
 					"code": "Coquimbo",
-					"color": "#AC83FF"
+					"color": "#AC83FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Valparaíso",
 					"code": "Valparaíso",
-					"color": "#AC83FF"
+					"color": "#AC83FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Metropolitana",
 					"code": "Metropolitana",
-					"color": "#ffa600"
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "O’Higgins",
 					"code": "O’Higgins",
-					"color": "#CC89C3"
+					"color": "#CC89C3",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Maule",
 					"code": "Maule",
-					"color": "#51B6E4"
+					"color": "#51B6E4",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Ñuble",
 					"code": "Ñuble",
-					"color": "#E28888"
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Biobío",
 					"code": "Biobío",
-					"color": "#9BFF84"
+					"color": "#9BFF84",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Araucanía",
 					"code": "Araucanía",
-					"color": "#d45087"
+					"color": "#d45087",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Los Ríos",
 					"code": "Los Ríos",
-					"color": "#ff7c43"
+					"color": "#ff7c43",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Los Lagos",
 					"code": "Los Lagos",
-					"color": "#00B0FF"
+					"color": "#00B0FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Aysén",
 					"code": "Aysén",
-					"color": "#328CFF"
+					"color": "#328CFF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				},
 				{
 					"name": "Magallanes",
 					"code": "Magallanes",
-					"color": "#a05195"
+					"color": "#a05195",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				}
 			]
 		},
@@ -857,7 +953,13 @@
 				{
 					"name": "sum",
 					"code": "Chile",
-					"color": "#ffa600"
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
 				}
 			]
 		},
@@ -1894,7 +1996,13 @@
 				{
 					"name": "sum",
 					"code": "Chile",
-					"color": "#FF0066"
+					"color": "#FF0066",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
 				}
 			]
 		},
@@ -1925,6 +2033,10 @@
 						{
 							"from": "2020-06-01",
 							"to": "2020-06-10"
+						},
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
 						}
 					]
 				}
