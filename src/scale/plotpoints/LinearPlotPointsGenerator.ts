@@ -48,25 +48,27 @@ export default class LinearPlotPointsGenerator
 			.map((point, index) => ({ point, index }))
 			.filter(item => !gaps.find(g =>
 				+item.point.date > +g.from &&
-				+item.point.date < +g.to))
+				+item.point.date <= +g.to))
 			.map(item =>
 			{
 				const x = item.point.date.diff(JAN_1).as('days');
-				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index);
+				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index, false);
 				const desiredIndex = item.index - 6;
 				const firstIndex = Math.max(minIndex, desiredIndex);
 				const valuesToAvg = points
 					.slice(firstIndex, item.index)
 					.map(p => p.value);
 				const total = valuesToAvg.reduce((a, b) => a + b, 0);
-				const y = total / valuesToAvg.length;
+				const y = firstIndex === item.index ?
+					item.point.value :
+					total / valuesToAvg.length;
 				return { x, y, date: item.point.date };
 			})
 			.filter(p => p.y < +Infinity);
 	}
 
 	private static getFirstIndex(points: DataPoint[], gaps: TimeGap[],
-		index: number): number
+		index: number, includeLast: boolean = true): number
 	{
 		const point = points[index];
 		const gap = Enumerable
@@ -80,7 +82,8 @@ export default class LinearPlotPointsGenerator
 		return Enumerable
 			.from(points)
 			.select((p, i) => ({ p, i }))
-			.where(x => +x.p.date >= +gap.to)
+			.where(x => (includeLast && +x.p.date >= +gap.to)
+				|| (!includeLast && +x.p.date > +gap.to))
 			.select(x => x.i)
 			.first();
 	}
