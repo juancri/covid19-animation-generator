@@ -276,7 +276,7 @@
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
-				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
+				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
 				{ "name": "forceCode", "parameters": { "name": "Russia", "code": "Rusia" } },
 				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
@@ -286,8 +286,8 @@
 					"name": "Chile",
 					"gaps": [
 						{
-							"from": "2020-06-06",
-							"to": "2020-06-07"
+							"from": "2020-06-07",
+							"to": "2020-06-08"
 						}
 					]}
 				},
@@ -350,8 +350,8 @@
 					"color": "#ffa600",
 					"gaps": [
 						{
-							"from": "2020-06-06",
-							"to": "2020-06-07"
+							"from": "2020-06-07",
+							"to": "2020-06-08"
 						}
 					]
 				}
