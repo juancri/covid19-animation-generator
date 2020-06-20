@@ -73,7 +73,7 @@ export default class SeriesPlotLayer implements Layer
 		}));
 		const gapEvents: SeriesEvent[][] = series.gaps.map(gap => [
 			{ date: gap.from, dashed: true },
-			{ date: gap.to.plus({ days: 1 }), dashed: false }
+			{ date: gap.to, dashed: false }
 		]);
 		const lastEvent: SeriesEvent = {
 			date: series.points[series.points.length - 1].date.plus({ days: 1})

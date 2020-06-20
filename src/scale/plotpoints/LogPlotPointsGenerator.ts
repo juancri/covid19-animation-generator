@@ -8,19 +8,24 @@ export default class LogPlotPointsGenerator
 	public static generate(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
 		return points
-			.filter(point => !gaps.find(g =>
-				+point.date > +g.from &&
-				+point.date <= +g.to))
-			.map((point, index) =>
+			.map((point, index) => ({ point, index }))
+			.filter(item => !gaps.find(g =>
+				+item.point.date > +g.from &&
+				+item.point.date < +g.to))
+			.map(item =>
 			{
-				const x = Math.log10(point.value);
-				const firstIndex = LogPlotPointsGenerator.getFirstIndex(points, gaps, index);
-				const previousIndex = Math.max(firstIndex, index - 7);
+				const x = Math.log10(item.point.value);
+				const firstIndex = LogPlotPointsGenerator.getFirstIndex(
+					points, gaps, item.index);
+				const previousIndex = Math.max(firstIndex, item.index - 7);
 				const previousPoint = points[previousIndex];
-				const y = firstIndex >= index ?
+				const diff = item.point.value - previousPoint.value;
+				const indexDiff = item.index - previousIndex;
+				const correctedDiff = diff / indexDiff * 7;
+				const y = firstIndex > item.index ?
 					+Infinity :
-					Math.log10(point.value - previousPoint.value);
-				return { x, y, date: point.date };
+					Math.log10(correctedDiff);
+				return { x, y, date: item.point.date };
 			})
 			.filter(point =>
 				point.x > -Infinity &&
