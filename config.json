@@ -1883,16 +1883,16 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
-				},
-				{
 					"name": "Peru",
 					"code": "Perú",
 					"color": "#5FB9E1",
 					"icon": "pe"
+				},
+				{
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Italy",
