@@ -9,15 +9,15 @@ export default class ScaleBoundariesGenerator
 {
 	public static generate(context: AnimationContext, series: PlotSeries[]): ScaleBoundaries {
 		const isDouble = !context.options.singleDynamicScale;
-		const lastPoints = Enumerable.from(Enumerable
+		const allPoints = Enumerable.from(Enumerable
 			.from(series)
 			.select(serie => serie.points)
 			.where(points => points && points.length > 0)
-			.select(points => points[points.length - 1])
+			.selectMany(points => points)
 			.toArray());
-		const allPoints = lastPoints.selectMany(p => [p.x, p.y]);
-		const horizontal = isDouble ? allPoints : lastPoints.select(p => p.x);
-		const vertical = isDouble ? allPoints : lastPoints.select(p => p.y);
+		const bothAxis = allPoints.selectMany(p => [p.x, p.y]);
+		const horizontal = isDouble ? bothAxis : allPoints.select(p => p.x);
+		const vertical = isDouble ? bothAxis : allPoints.select(p => p.y);
 
 		const horizontalMin = Math.max(horizontal.min(), 1);
 		const horizontalMax = Math.max(horizontal.max(), 1);
