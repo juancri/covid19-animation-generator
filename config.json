@@ -2315,6 +2315,8 @@
 		"seriesIconOffsetX": 0,
 		"seriesIconOffsetY": 0,
 		"seriesIconLabelOffsetX": 0,
-		"seriesIconLabelOffsetY": 0
+		"seriesIconLabelOffsetY": 0,
+		"horizontalMargin": 0.2,
+		"verticalMargin": 0.2
 	}
 }

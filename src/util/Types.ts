@@ -167,6 +167,8 @@ export interface Options
 	seriesIconOffsetY: number;
 	seriesIconLabelOffsetX: number;
 	seriesIconLabelOffsetY: number;
+	horizontalMargin: number;
+	verticalMargin: number;
 }
 
 export interface Configuration {
