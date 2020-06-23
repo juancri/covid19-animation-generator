@@ -2091,22 +2091,22 @@
 					"icon": "tr"
 				},
 				{
-					"name": "Pakistan",
-					"code": "Paquistán",
-					"color": "#7AFF72",
-					"icon": "pk"
-				},
-				{
 					"name": "Mexico",
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
 				},
 				{
-					"name": "France",
-					"code": "Francia",
+					"name": "Pakistan",
+					"code": "Paquistán",
+					"color": "#7AFF72",
+					"icon": "pk"
+				},
+				{
+					"name": "Saudi Arabia",
+					"code": "Arabia Saudita",
 					"color": "#FF729D",
-					"icon": "fr"
+					"icon": "sa"
 				},
 				{
 					"name": "Ecuador",
