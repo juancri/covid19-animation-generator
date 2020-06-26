@@ -2079,28 +2079,28 @@
 					"icon": "ir"
 				},
 				{
-					"name": "Germany",
-					"code": "Alemania",
-					"color": "#FF72CE",
-					"icon": "de"
-				},
-				{
 					"name": "Mexico",
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
 				},
 				{
-					"name": "Turkey",
-					"code": "Turquía",
-					"color": "#E072FF",
-					"icon": "tr"
-				},
-				{
 					"name": "Pakistan",
 					"code": "Paquistán",
 					"color": "#7AFF72",
 					"icon": "pk"
+				},
+				{
+					"name": "Germany",
+					"code": "Alemania",
+					"color": "#FF72CE",
+					"icon": "de"
+				},
+				{
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#E072FF",
+					"icon": "tr"
 				},
 				{
 					"name": "Saudi Arabia",
