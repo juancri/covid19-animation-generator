@@ -2091,16 +2091,16 @@
 					"icon": "pk"
 				},
 				{
-					"name": "Germany",
-					"code": "Alemania",
-					"color": "#FF72CE",
-					"icon": "de"
-				},
-				{
 					"name": "Turkey",
 					"code": "Turquía",
 					"color": "#E072FF",
 					"icon": "tr"
+				},
+				{
+					"name": "Germany",
+					"code": "Alemania",
+					"color": "#FF72CE",
+					"icon": "de"
 				},
 				{
 					"name": "Saudi Arabia",
