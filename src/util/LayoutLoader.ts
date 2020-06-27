@@ -1,14 +1,12 @@
-import { Configuration } from './Types';
-
-const LAYOUT_NAME = 'square';
+import { Configuration, Options } from './Types';
 
 export default class LayoutLoader
 {
-	public static load(config: Configuration)
+	public static load(config: Configuration, options: Options)
 	{
-		const layout = config.layouts[LAYOUT_NAME];
+		const layout = config.layouts[options.layout];
 		if (!layout)
-			throw new Error(`Layout not found: ${LAYOUT_NAME}`);
+			throw new Error(`Layout not found: ${options.layout}`);
 		return layout;
 	}
 }

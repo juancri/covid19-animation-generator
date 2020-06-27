@@ -27,7 +27,7 @@ export default class AnimationContextCreator
 		if (options.configOverride)
 			config = ConfigLoader.applyOverride(config, options.configOverride);
 		const color = ColorSchemaLoader.load(config, options);
-		const layout = LayoutLoader.load(config);
+		const layout = LayoutLoader.load(config, options);
 		const writer = new CanvasWriter(layout, OUTPUT_PATH);
 		const series = await PlotSeriesLoader.load(config, options, color);
 		const lines = LinesLoader.load(options);

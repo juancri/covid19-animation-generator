@@ -128,6 +128,7 @@ export interface DataSource {
 
 export interface Options
 {
+	layout: string;
 	debug: boolean;
 	schema: string;
 	source: string;
