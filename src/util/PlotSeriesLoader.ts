@@ -61,13 +61,18 @@ export default class PlotSeriesLoader
 					date: DateTime.fromISO(milestone.date),
 					color: milestone.color
 				})) : [];
+			const points = PlotPointsGenerator.generate(
+				options, found.data, gaps);
+			if (!points.length)
+				throw new Error(
+					`No points error for series: ${seriesConf.code} ` +
+					`(forced code: ${found.forceCode ?? 'none'})`);
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
 				areaColor: seriesConf.areaColor ?? seriesConf.color,
-				points: PlotPointsGenerator.generate(
-					options, found.data, gaps),
 				icon: seriesConf.icon ?? seriesConf.code,
+				points,
 				gaps,
 				milestones
 			};

@@ -14,6 +14,7 @@ import PlotSeriesLoader from './PlotSeriesLoader';
 import ScaleLabelProviderLoader from '../scale/labels/ScaleLabelProviderLoader';
 import { DateTime } from 'luxon';
 import LinesLoader from './LinesLoader';
+import { Exception } from 'handlebars';
 
 // Constants
 const OUTPUT_PATH = path.join(__dirname, '../../output');
@@ -66,9 +67,12 @@ export default class AnimationContextCreator
 
 	private static getLastDate(series: PlotSeries[])
 	{
-		const firstPoints = series[0].points;
-		const lastIndex = firstPoints.length - 1;
-		const lastDataPoint = firstPoints[lastIndex];
+		const firstSeries = series[0];
+		const firstSeriesPoints = firstSeries.points;
+		if (!firstSeriesPoints.length)
+			throw new Exception(`No points for this series: ${firstSeries.code}`);
+		const lastIndex = firstSeriesPoints.length - 1;
+		const lastDataPoint = firstSeriesPoints[lastIndex];
 		return lastDataPoint.date;
 	}
 }
