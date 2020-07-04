@@ -2067,16 +2067,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#FF7772",
-					"icon": "it"
-				},
-				{
 					"name": "Mexico",
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#FF7772",
+					"icon": "it"
 				},
 				{
 					"name": "Iran",
