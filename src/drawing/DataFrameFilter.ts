@@ -19,7 +19,8 @@ export default class DataFrameFilter
 					return {
 						date: point.date,
 						x: previous.x + diffX * frame.dateRatio,
-						y: previous.y + diffY * frame.dateRatio
+						y: previous.y + diffY * frame.dateRatio,
+						parent: point
 					};
 				})
 		}));

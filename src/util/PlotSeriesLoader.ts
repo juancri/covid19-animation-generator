@@ -45,7 +45,7 @@ export default class PlotSeriesLoader
 			dataSource.series = DataSourceFilter.apply(
 				dataSource.series, options.filter);
 
-		const series: PlotSeries[] = dataSource.series.map(seriesConf =>
+		const series: PlotSeries[] = dataSource.series.map((seriesConf, seriesIndex) =>
 		{
 			const found = timeSeries.find(s => s.name === seriesConf.name);
 			if (!found)
@@ -62,7 +62,7 @@ export default class PlotSeriesLoader
 					color: milestone.color
 				})) : [];
 			const points = PlotPointsGenerator.generate(
-				options, found.data, gaps);
+				options, found.data, gaps, seriesIndex);
 			if (!points.length)
 				throw new Error(
 					`No points error for series: ${seriesConf.code} ` +

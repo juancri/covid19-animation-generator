@@ -1,7 +1,7 @@
 
-import { FrameInfo, AnimationContext, Layer, Line, Point } from '../util/Types';
-import CanvasPointsGenerator from '../drawing/CanvasPointsGenerator';
-import LineScaledPointsGenerator from '../drawing/LineScaledPointsGenerator';
+import { FrameInfo, AnimationContext, Layer, Line, Point } from '../../util/Types';
+import CanvasPointsGenerator from '../CanvasPointsGenerator';
+import LineScaledPointsGenerator from '../LineScaledPointsGenerator';
 
 export default class LinesLayer implements Layer
 {

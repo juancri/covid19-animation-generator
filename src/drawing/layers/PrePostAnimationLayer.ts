@@ -2,7 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { FrameInfo, AnimationContext, Layer } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer } from '../../util/Types';
 
 const EXTENSION = '.png';
 

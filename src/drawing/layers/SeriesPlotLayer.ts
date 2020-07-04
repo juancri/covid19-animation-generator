@@ -3,7 +3,9 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint, Point } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint, Point } from '../../util/Types';
+import CanvasPointsGenerator from '../CanvasPointsGenerator';
+import LineScaledPointsGenerator from '../LineScaledPointsGenerator';
 
 interface Section {
 	color: string;
@@ -20,17 +22,18 @@ interface SeriesEvent {
 
 const MARKER_LENGTH = 12;
 const MARKER_WIDTH = 5;
-const STACKED_AREA = 'stacked-area';
 
 export default class SeriesPlotLayer implements Layer
 {
 	private context: AnimationContext;
-	private isStackedArea: boolean;
+	private shouldDrawCircle: boolean;
+	private shouldDrawArea: boolean;
 
 	public constructor(context: AnimationContext)
 	{
 		this.context = context;
-		this.isStackedArea = context.options.type === STACKED_AREA;
+		this.shouldDrawCircle = context.options.type === 'line';
+		this.shouldDrawArea = context.options.type !== 'line';
 	}
 
 	public async draw (frame: FrameInfo)
@@ -45,13 +48,14 @@ export default class SeriesPlotLayer implements Layer
 			// Draw sections
 			for (const section of sections)
 				this.drawSection(
+					frame,
 					section.color,
 					section.areaColor,
 					section.points,
 					section.dashed);
 
 			// Draw circle, only for line chart
-			if (!this.isStackedArea)
+			if (this.shouldDrawCircle)
 			{
 				const lastSection = sections[sections.length - 1];
 				this.drawCircle(lastSection);
@@ -116,13 +120,14 @@ export default class SeriesPlotLayer implements Layer
 		}
 	}
 
-	private drawSection(color: string, areaColor: string, points: PlotPoint[], dashed = false)
+	private drawSection(frame: FrameInfo, color: string, areaColor: string, points: PlotPoint[], dashed = false)
 	{
-		if (this.isStackedArea)
+		if (this.shouldDrawArea)
 		{
 			const firstPoint = points[0];
 			const lastPoint = points[points.length - 1];
-			const bottom = this.context.layout.plotArea.bottom;
+			const scaledZero = LineScaledPointsGenerator.scaleValue(0, false, frame.scaleBoundaries);
+			const bottom = CanvasPointsGenerator.scaleValue(scaledZero, false, this.context.layout.plotArea);
 			const firstBasePoint: Point = { x: firstPoint.x, y: bottom };
 			const lastBasePoint: Point = { x: lastPoint.x, y: bottom };
 			const polygonPoints = [firstBasePoint, ...points, lastBasePoint];

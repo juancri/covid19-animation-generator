@@ -2,11 +2,15 @@
 import * as Enumerable from 'linq';
 import { ScaleBoundaries, PlotSeries, AnimationContext, } from '../util/Types';
 
-const STACKED_AREA = 'stacked-area';
+const BY_DATE: { [key: string]: boolean } = {
+	'stacked-area': true,
+	'linear': false
+};
 
 export default class ScaleBoundariesGenerator
 {
 	public static generate(context: AnimationContext, series: PlotSeries[]): ScaleBoundaries {
+		const useByDate = BY_DATE[context.options.type];
 		const horizontalMargin = context.options.horizontalMargin;
 		const verticalMargin = context.options.verticalMargin;
 		const isDouble = !context.options.singleDynamicScale;
@@ -22,13 +26,13 @@ export default class ScaleBoundariesGenerator
 
 		const horizontalMin = Math.max(horizontal.min(), 1);
 		const horizontalMax = Math.max(horizontal.max(), 1);
-		const verticalMin = Math.max(vertical.min(), 1);
+		const verticalMin = vertical.min() ?? 0;
 		const allDates = allPoints
 			.select(p => p.date)
 			.distinct(date => +date);
 		const verticalByDate = allDates
 			.select(date => allPoints.where(p => +p.date === +date).sum(p => p.y));
-		const verticalLimit = context.options.type === STACKED_AREA ?
+		const verticalLimit = useByDate ?
 			verticalByDate.max() :
 			vertical.max();
 		const verticalMax = Math.max(verticalLimit, 1);

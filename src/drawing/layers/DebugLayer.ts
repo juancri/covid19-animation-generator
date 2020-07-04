@@ -1,5 +1,5 @@
 
-import { FrameInfo, AnimationContext, Layer } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer } from '../../util/Types';
 
 export default class DebugLayer implements Layer
 {

@@ -1,5 +1,5 @@
 
-import { AnimationContext, Box, Layer } from '../util/Types';
+import { AnimationContext, Box, Layer } from '../../util/Types';
 
 export default class BackgroundLayer implements Layer
 {

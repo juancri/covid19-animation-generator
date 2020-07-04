@@ -1,5 +1,5 @@
 
-import { FrameInfo, AnimationContext, Layer, Box, Point } from '../util/Types';
+import { FrameInfo, AnimationContext, Layer, Box, Point } from '../../util/Types';
 
 const LINE_WIDTH = 2;
 const CIRCLE_WIDTH = 4;

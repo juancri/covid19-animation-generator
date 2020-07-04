@@ -3,6 +3,7 @@ import * as Enumerable from 'linq';
 
 import { DataPoint, PlotPoint, TimeGap } from '../../util/Types';
 import { DateTime } from 'luxon';
+import { Exception } from 'handlebars';
 
 const JAN_1 = DateTime.local().startOf('year');
 
@@ -63,6 +64,39 @@ export default class LinearPlotPointsGenerator
 					item.point.value :
 					total / valuesToAvg.length;
 				return { x, y, date: item.point.date };
+			})
+			.filter(p => p.y < +Infinity);
+	}
+
+	public static generateAvg7ChangeCenter(points: DataPoint[], gaps: TimeGap[], seriesIndex: number): PlotPoint[]
+	{
+		if (seriesIndex > 1)
+			throw new Exception('Expected only two series for this scale');
+
+		const isFirstSeries = seriesIndex === 0;
+		const factor = isFirstSeries ? 1 : -1;
+
+		return points
+			.map((point, index) => ({ point, index }))
+			.filter(item => !gaps.find(g =>
+				+item.point.date > +g.from &&
+				+item.point.date <= +g.to))
+			.map(item =>
+			{
+				const x = item.point.date.diff(JAN_1).as('days');
+				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index, false);
+				const desiredIndex = item.index - 6;
+				const firstIndex = Math.max(minIndex, desiredIndex);
+				const valuesToAvg = points
+					.slice(firstIndex, item.index)
+					.map(p => p.value);
+				const total = valuesToAvg.reduce((a, b) => a + b, 0);
+				const rawY = firstIndex === item.index ?
+					item.point.value :
+					total / valuesToAvg.length;
+				const parent = { x, y: rawY, date: item.point.date };
+				const y = rawY * factor;
+				return { ...parent, parent, y };
 			})
 			.filter(p => p.y < +Infinity);
 	}

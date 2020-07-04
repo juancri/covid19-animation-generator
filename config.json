@@ -2237,6 +2237,37 @@
 				}
 			]
 		},
+		"chile-tests-stacked": {
+			"url": "https://docs.google.com/spreadsheets/u/0/d/1cGOwcOLenCQkAvvpyeHnKzIBpA3qGnQyxtKS_4XPhd0/export?format=csv&id=1cGOwcOLenCQkAvvpyeHnKzIBpA3qGnQyxtKS_4XPhd0&gid=575559568",
+			"nameColumn": "col",
+			"series":
+			[
+				{
+					"name": "confirmed",
+					"code": "Positivos",
+					"color": "#007973",
+					"areaColor": "#27FFF5",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "negative",
+					"code": "Negativos",
+					"color": "#E43600",
+					"areaColor": "#FF5C27",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				}
+			]
+		},
 		"chile-upc": {
 			"url": "https://docs.google.com/spreadsheets/d/1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA/export?format=csv&id=1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA&gid=2015870452",
 			"nameColumn": "series",

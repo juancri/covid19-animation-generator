@@ -9,10 +9,11 @@ import { DateTime } from 'luxon';
 const JAN_1 = DateTime.local().startOf('year');
 const FORMATTERS: { [key: string]: (n: number) => string } =
 {
-	plain: n => n.toString(),
-	spanish: formatNumber({ integerSeparator: '.' }),
-	suffix: n => n < 1000 ? n.toString() : NumberSuffix.format(n),
-	percent: n => `${n}%`
+	'plain': n => n.toString(),
+	'spanish': formatNumber({ integerSeparator: '.' }),
+	'suffix': n => Math.abs(n) < 1000 ? n.toString() : NumberSuffix.format(n),
+	'suffix-abs': n => Math.abs(n) < 1000 ? Math.abs(n).toString() : NumberSuffix.format(Math.abs(n)),
+	'percent': n => `${n}%`
 };
 
 export default class LinearScaleLabelProvider implements ScaleLabelProvider
