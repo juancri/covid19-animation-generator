@@ -273,7 +273,7 @@
 				{ "name": "limit", "parameters": 10 },
 				{ "name": "forceColor", "parameters": { "name": "Chile", "color": "#ffa600" } },
 				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
-				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
+				{ "name": "forceCode", "parameters": { "name": "Iraq", "code": "Irak" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
