@@ -2061,16 +2061,16 @@
 					"icon": "pe"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
-				},
-				{
 					"name": "Mexico",
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
+				},
+				{
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Italy",
@@ -2091,16 +2091,16 @@
 					"icon": "pk"
 				},
 				{
-					"name": "Turkey",
-					"code": "Turquía",
-					"color": "#E072FF",
-					"icon": "tr"
-				},
-				{
 					"name": "Saudi Arabia",
 					"code": "Arabia Saudita",
 					"color": "#FF729D",
 					"icon": "sa"
+				},
+				{
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#E072FF",
+					"icon": "tr"
 				},
 				{
 					"name": "Germany",
