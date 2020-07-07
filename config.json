@@ -273,7 +273,7 @@
 				{ "name": "limit", "parameters": 10 },
 				{ "name": "forceColor", "parameters": { "name": "Chile", "color": "#ffa600" } },
 				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
-				{ "name": "forceCode", "parameters": { "name": "Iraq", "code": "Irak" } },
+				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
@@ -2037,28 +2037,28 @@
 					"icon": "br"
 				},
 				{
-					"name": "Russia",
-					"code": "Rusia",
-					"color": "#BAFF72",
-					"icon": "ru"
-				},
-				{
 					"name": "India",
 					"code": "India",
 					"color": "#B272FF",
 					"icon": "in"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
+					"name": "Russia",
+					"code": "Rusia",
+					"color": "#BAFF72",
+					"icon": "ru"
 				},
 				{
 					"name": "Peru",
 					"code": "Perú",
 					"color": "#5FB9E1",
 					"icon": "pe"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Mexico",
@@ -2073,16 +2073,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#FF7772",
-					"icon": "it"
-				},
-				{
 					"name": "Iran",
 					"code": "Irán",
 					"color": "#8672FF",
 					"icon": "ir"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#FF7772",
+					"icon": "it"
 				},
 				{
 					"name": "Pakistan",
@@ -2103,10 +2103,10 @@
 					"icon": "tr"
 				},
 				{
-					"name": "Germany",
-					"code": "Alemania",
+					"name": "South Africa",
+					"code": "Sudáfrica",
 					"color": "#FF72CE",
-					"icon": "de"
+					"icon": "za"
 				},
 				{
 					"name": "Ecuador",
