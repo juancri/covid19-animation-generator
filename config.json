@@ -2097,16 +2097,16 @@
 					"icon": "sa"
 				},
 				{
-					"name": "Turkey",
-					"code": "Turquía",
-					"color": "#E072FF",
-					"icon": "tr"
-				},
-				{
 					"name": "South Africa",
 					"code": "Sudáfrica",
 					"color": "#FF72CE",
 					"icon": "za"
+				},
+				{
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#E072FF",
+					"icon": "tr"
 				},
 				{
 					"name": "Ecuador",
