@@ -2124,10 +2124,10 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Iran",
@@ -2136,10 +2136,10 @@
 					"icon": "ir"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Pakistan",
