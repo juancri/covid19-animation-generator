@@ -282,6 +282,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Chile", "code": "Chile" } },
+				{ "name": "forceCode", "parameters": { "name": "Iraq", "code": "Irak" } },
 				{ "name": "forceGaps", "parameters": {
 					"name": "Chile",
 					"gaps": [
