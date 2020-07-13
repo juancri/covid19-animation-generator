@@ -1688,6 +1688,39 @@
 					"name": "Coronel",
 					"code": "Coronel",
 					"color": "#6DFF18"
+				},
+				{
+					"name": "Melipilla",
+					"code": "Melipilla",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-06-12T00:00:00.000-07:00",
+							"color": "#FFDA18"
+						}
+					]
+				},
+				{
+					"name": "Peñaflor",
+					"code": "Peñaflor",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-06-12T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
+				},
+				{
+					"name": "Talagante",
+					"code": "Talagante",
+					"color": "#6DFF18",
+					"milestones": [
+						{
+							"date": "2020-06-26T00:00:00.000-07:00",
+							"color": "#FF3818"
+						}
+					]
 				}
 			]
 		},
@@ -2079,16 +2112,16 @@
 					"icon": "pe"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "Mexico",
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Spain",
@@ -2103,10 +2136,10 @@
 					"icon": "ir"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#FF7772",
-					"icon": "it"
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Pakistan",
@@ -2115,16 +2148,16 @@
 					"icon": "pk"
 				},
 				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#FF7772",
+					"icon": "it"
+				},
+				{
 					"name": "Saudi Arabia",
 					"code": "Arabia Saudita",
 					"color": "#FF729D",
 					"icon": "sa"
-				},
-				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
 				},
 				{
 					"name": "Turkey",
