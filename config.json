@@ -2119,16 +2119,16 @@
 					"icon": "mx"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "South Africa",
 					"code": "Sudáfrica",
 					"color": "#FF72CE",
 					"icon": "za"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Iran",
