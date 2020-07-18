@@ -40,7 +40,7 @@ export default class LogPlotPointsGenerator
 		const point = points[index];
 		const gap = Enumerable
 			.from(gaps)
-			.where(g => +g.to < +point.date)
+			.where(g => +g.to <= +point.date)
 			.orderBy(g => +g.to)
 			.lastOrDefault();
 		if (!gap)
