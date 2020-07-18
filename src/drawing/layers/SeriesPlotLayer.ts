@@ -100,9 +100,7 @@ export default class SeriesPlotLayer implements Layer
 			const sectionPoints = series.points.filter(p =>
 				+p.date >= +currentStart &&
 				+p.date <= +event.date);
-			const points = currentDashed ?
-				[ lastPoint, sectionPoints[sectionPoints.length - 1] ] :
-				[ lastPoint, ...sectionPoints ];
+			const points = [ lastPoint, ...sectionPoints ];
 			if (sectionPoints.length > 1)
 			{
 				yield {
@@ -116,7 +114,8 @@ export default class SeriesPlotLayer implements Layer
 			currentColor = event.color ?? currentColor;
 			currentDashed = event.dashed ?? currentDashed;
 			currentStart = event.date;
-			lastPoint = sectionPoints[sectionPoints.length - 1];
+			if (sectionPoints.length > 0)
+				lastPoint = sectionPoints[sectionPoints.length - 1];
 		}
 	}
 
