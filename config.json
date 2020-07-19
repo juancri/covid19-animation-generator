@@ -2415,16 +2415,16 @@
 					"icon": "ru"
 				},
 				{
-					"name": "Peru",
-					"code": "Perú",
-					"color": "#5FB9E1",
-					"icon": "pe"
-				},
-				{
 					"name": "South Africa",
 					"code": "Sudáfrica",
 					"color": "#FF72CE",
 					"icon": "za"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#5FB9E1",
+					"icon": "pe"
 				},
 				{
 					"name": "Mexico",
