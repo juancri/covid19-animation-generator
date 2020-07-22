@@ -86,6 +86,96 @@
 					"color": "white"
 				}
 			}
+		},
+		"yachay":
+		{
+			"background": "#2E2E2E",
+			"background": "#ffffff",
+			"debug":
+			{
+				"color": "yellow",
+				"font": "20px DejaVu Sans Mono",
+				"font": "30px Montserrat"
+			},
+			"scale":
+			{
+				"color": "black",
+				"font": "30px Montserrat",
+				"offset": 50
+			},
+			"axis": {
+				"color": "black",
+				"font": "35px Montserrat",
+				"offset": 150
+			},
+			"series":
+			{
+				"label":
+				{
+					"font": "30px Montserrat-Bold",
+					"color": "black",
+					"offset": { "x": 10, "y": 10 },
+					"stackedAreaOffset": { "x": 15, "y": 25 }
+				},
+				"colors":
+				[
+					"#F06AFF",
+					"#FF6A6F",
+					"#72CDFF",
+					"#5FB9E1",
+					"#72FFFF",
+					"#72FFB7",
+					"#7AFF72",
+					"#BAFF72",
+					"#FFF972",
+					"#FFBB72",
+					"#FF7772",
+					"#FF729D",
+					"#FF72CE",
+					"#E072FF",
+					"#B272FF",
+					"#8672FF",
+					"#ff7c43",
+					"#72AEFF",
+					"#d45087",
+					"#1263CF",
+					"#12CACF",
+					"#12CF91",
+					"#00FFF8",
+					"#00FF02",
+					"#76FF00",
+					"#FAFF00",
+					"#FFAA00",
+					"#FF4D00",
+					"#FF0024",
+					"#FF006A",
+					"#f95d6a",
+					"#D940C4",
+					"#9988BC",
+					"#00B0FF",
+					"#E28888",
+					"#FF00B3",
+					"#FFA600"
+				]
+			},
+			"date":
+			{
+				"font": "70px Helvetica-Bold",
+				"font": "40px Helvetica-Bold",
+				"color": "#FF544F",
+				"color": "black"
+			},
+			"timebar": {
+				"background": "#202020",
+				"foreground": "#FFB000"
+			},
+			"lines": {
+				"color": "#FF312A",
+				"label": {
+					"font": "30px Montserrat",
+					"color": "black"
+				}
+			}
 		}
 	},
 	"layouts":
