@@ -361,7 +361,6 @@
 			"preProcessors": [
 				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
 				{ "name": "limit", "parameters": 10 },
-				{ "name": "forceColor", "parameters": { "name": "Chile", "color": "#ffa600" } },
 				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
 				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
@@ -372,20 +371,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Chile", "code": "Chile" } },
-				{ "name": "forceCode", "parameters": { "name": "Iraq", "code": "Irak" } },
-				{ "name": "forceGaps", "parameters": {
-					"name": "Chile",
-					"gaps": [
-						{
-							"from": "2020-06-07",
-							"to": "2020-06-08"
-						},
-						{
-							"from": "2020-07-16",
-							"to": "2020-07-17"
-						}
-					]}
-				},
+				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
 				{ "name": "requireForcedCodes" }
 			]
 		},
