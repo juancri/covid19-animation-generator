@@ -2564,16 +2564,16 @@
 					"icon": "pk"
 				},
 				{
-					"name": "Saudi Arabia",
-					"code": "Arabia Saudita",
-					"color": "#FF729D",
-					"icon": "sa"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Saudi Arabia",
+					"code": "Arabia Saudita",
+					"color": "#FF729D",
+					"icon": "sa"
 				},
 				{
 					"name": "Italy",
