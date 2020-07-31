@@ -2540,16 +2540,16 @@
 					"icon": "pe"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "Iran",
 					"code": "Irán",
 					"color": "#8672FF",
 					"icon": "ir"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Spain",
@@ -2558,16 +2558,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "Pakistan",
-					"code": "Paquistán",
-					"color": "#7AFF72",
-					"icon": "pk"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Pakistan",
+					"code": "Paquistán",
+					"color": "#7AFF72",
+					"icon": "pk"
 				},
 				{
 					"name": "Saudi Arabia",
