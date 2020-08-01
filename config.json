@@ -89,12 +89,10 @@
 		},
 		"yachay":
 		{
-			"background": "#2E2E2E",
 			"background": "#ffffff",
 			"debug":
 			{
 				"color": "yellow",
-				"font": "20px DejaVu Sans Mono",
 				"font": "30px Montserrat"
 			},
 			"scale":
@@ -160,9 +158,7 @@
 			},
 			"date":
 			{
-				"font": "70px Helvetica-Bold",
 				"font": "40px Helvetica-Bold",
-				"color": "#FF544F",
 				"color": "black"
 			},
 			"timebar": {
