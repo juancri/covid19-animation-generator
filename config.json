@@ -2552,16 +2552,16 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Pakistan",
