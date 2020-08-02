@@ -2542,16 +2542,16 @@
 					"icon": "ir"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Spain",
