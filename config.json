@@ -2548,22 +2548,16 @@
 					"icon": "ir"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
 					"icon": "es"
 				},
 				{
-					"name": "Pakistan",
-					"code": "Paquistán",
-					"color": "#7AFF72",
-					"icon": "pk"
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Saudi Arabia",
@@ -2572,10 +2566,16 @@
 					"icon": "sa"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
+					"name": "Pakistan",
+					"code": "Paquistán",
+					"color": "#7AFF72",
+					"icon": "pk"
+				},
+				{
+					"name": "Bangladesh",
+					"code": "Bangladesh",
 					"color": "#FF7772",
-					"icon": "it"
+					"icon": "bd"
 				},
 				{
 					"name": "Ecuador",
