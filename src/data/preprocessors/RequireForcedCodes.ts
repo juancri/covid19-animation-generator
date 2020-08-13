@@ -1,4 +1,4 @@
-import { TimeSeries } from '../util/Types';
+import { TimeSeries } from '../../util/Types';
 
 
 export default class RequireForcedCodes

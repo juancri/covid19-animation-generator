@@ -1,5 +1,5 @@
-import { TimeSeries, SeriesGapConfiguration } from '../util/Types';
-import logger from '../util/Logger';
+import { TimeSeries, SeriesGapConfiguration } from '../../util/Types';
+import logger from '../../util/Logger';
 
 interface ForceGapsParams
 {
