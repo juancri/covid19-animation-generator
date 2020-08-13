@@ -2769,24 +2769,24 @@
 			]
 		},
 		"chile-projections": {
-			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-11/global/Chile_ALL.csv",
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-12/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"series":
 			[
 				{
 					"name": "predicted_new_infected_mean",
-					"code": "Chile",
+					"code": "mean",
 					"color": "#FFC800"
 				},
 				{
 					"name": "predicted_new_infected_lower",
-					"code": "Mínimo",
+					"code": "lower (p2.5)",
 					"color": "#BFFFC5"
 				},
 				{
 					"name": "predicted_new_infected_upper",
-					"code": "Máximo",
+					"code": "upper (p97.5)",
 					"color": "#FFDBE0"
 				}
 			]
