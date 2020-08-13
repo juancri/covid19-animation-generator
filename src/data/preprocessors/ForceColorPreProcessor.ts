@@ -1,5 +1,5 @@
-import { TimeSeries } from '../util/Types';
-import logger from '../util/Logger';
+import { TimeSeries } from '../../util/Types';
+import logger from '../../util/Logger';
 
 interface ForceColorParams
 {

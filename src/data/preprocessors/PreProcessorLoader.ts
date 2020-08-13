@@ -1,4 +1,4 @@
-import { PreProcessor, PreProcessorConfig, TimeSeries } from '../util/Types';
+import { PreProcessor, PreProcessorConfig, TimeSeries } from '../../util/Types';
 import SumPreProcessor from './SumPreProcessor';
 import LimitPreProcessor from './LimitPreProcessor';
 import SortDescPreProcessor from './SortDescPreProcessor';

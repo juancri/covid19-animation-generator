@@ -1,7 +1,7 @@
 
 import * as Enumerable from 'linq';
 
-import { TimeSeries } from '../util/Types';
+import { TimeSeries } from '../../util/Types';
 
 export default class LimitPreProcessor
 {

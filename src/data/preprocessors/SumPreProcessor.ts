@@ -1,5 +1,5 @@
 import * as Enumerable from 'linq';
-import { DataPoint, TimeSeries } from '../util/Types';
+import { DataPoint, TimeSeries } from '../../util/Types';
 import { DateTime } from 'luxon';
 
 const DEFAULT_NAME = 'sum';

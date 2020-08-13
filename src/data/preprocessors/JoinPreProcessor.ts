@@ -1,6 +1,6 @@
 
-import { TimeSeries, DataSource } from '../util/Types';
-import DataLoader from '../data/DataLoader';
+import { TimeSeries, DataSource } from '../../util/Types';
+import DataLoader from '../DataLoader';
 import RateJoiner from './joiners/RateJoiner';
 
 type Joiner = (series1: TimeSeries[], series2: TimeSeries[]) => TimeSeries[];

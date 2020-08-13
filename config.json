@@ -2767,6 +2767,29 @@
 					"color": "#0082DE"
 				}
 			]
+		},
+		"chile-projections": {
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-11/global/Chile_ALL.csv",
+			"csvDataProcessor": "transpose",
+			"nameColumn": "date",
+			"series":
+			[
+				{
+					"name": "predicted_new_infected_mean",
+					"code": "Proyección",
+					"color": "#FFC800"
+				},
+				{
+					"name": "predicted_new_infected_lower",
+					"code": "Mínimo",
+					"color": "#BFFFC5"
+				},
+				{
+					"name": "predicted_new_infected_upper",
+					"code": "Máximo",
+					"color": "#FFDBE0"
+				}
+			]
 		}
 	},
 	"defaults":
@@ -2811,6 +2834,7 @@
 		"seriesIconLabelOffsetX": 0,
 		"seriesIconLabelOffsetY": 0,
 		"horizontalMargin": 0.2,
-		"verticalMargin": 0.2
+		"verticalMargin": 0.2,
+		"inputDateFormat": "MonthDayYear"
 	}
 }

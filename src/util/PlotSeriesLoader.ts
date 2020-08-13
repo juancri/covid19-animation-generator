@@ -21,7 +21,7 @@ export default class PlotSeriesLoader
 			throw new Error(`Data source not found: ${options.source}`);
 
 		// Load time series
-		const timeSeries = await DataLoader.load (dataSource);
+		const timeSeries = await DataLoader.load (dataSource, options.inputDateFormat);
 
 		// Set automatic series
 		if (!dataSource.series)

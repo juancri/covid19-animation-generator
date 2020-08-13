@@ -17,6 +17,7 @@ export interface TimeSeries {
 	forceGaps?: SeriesGapConfiguration[];
 }
 
+export type CsvDataProcessor = (data: any[]) => any[];
 export type PreProcessor = (series: TimeSeries[], params: any) => Promise<TimeSeries[]>;
 
 // Config
@@ -121,6 +122,7 @@ export interface DataSource {
 	url: string;
 	nameColumn: string;
 	title?: string;
+	csvDataProcessor?: string;
 	preProcessor?: PreProcessorConfig | string;
 	preProcessors?: PreProcessorConfig[];
 	series?: SeriesConfiguration[];
@@ -170,6 +172,7 @@ export interface Options
 	seriesIconLabelOffsetY: number;
 	horizontalMargin: number;
 	verticalMargin: number;
+	inputDateFormat: string;
 }
 
 export interface Configuration {
@@ -295,4 +298,10 @@ export interface AnimationContext {
 export interface Layer
 {
 	draw(frame: FrameInfo): Promise<void>;
+}
+
+export interface DateFormat
+{
+	getRegularExpression(): RegExp;
+	parse(text: string): DateTime;
 }
