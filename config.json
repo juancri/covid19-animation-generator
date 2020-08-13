@@ -2524,16 +2524,16 @@
 					"icon": "za"
 				},
 				{
-					"name": "Mexico",
-					"code": "México",
-					"color": "#ff7c43",
-					"icon": "mx"
-				},
-				{
 					"name": "Peru",
 					"code": "Perú",
 					"color": "#5FB9E1",
 					"icon": "pe"
+				},
+				{
+					"name": "Mexico",
+					"code": "México",
+					"color": "#ff7c43",
+					"icon": "mx"
 				},
 				{
 					"name": "Colombia",
