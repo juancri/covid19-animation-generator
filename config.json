@@ -2572,22 +2572,16 @@
 					"icon": "pk"
 				},
 				{
-					"name": "Bangladesh",
-					"code": "Bangladesh",
-					"color": "#FF7772",
-					"icon": "bd"
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "#F06AFF",
+					"icon": "ar"
 				},
 				{
 					"name": "Ecuador",
 					"code": "Ecuador",
 					"color": "#FF2E86",
 					"icon": "ec"
-				},
-				{
-					"name": "Argentina",
-					"code": "Argentina",
-					"color": "#F06AFF",
-					"icon": "ar"
 				},
 				{
 					"name": "Bolivia",
