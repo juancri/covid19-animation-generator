@@ -2542,16 +2542,16 @@
 					"icon": "co"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
-					"color": "#8672FF",
-					"icon": "ir"
-				},
-				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
 					"icon": "es"
+				},
+				{
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF",
+					"icon": "ir"
 				},
 				{
 					"name": "United Kingdom",
