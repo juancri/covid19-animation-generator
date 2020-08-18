@@ -2251,8 +2251,9 @@
 			]
 		},
 		"chile-deaths": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/muertes.csv",
-			"nameColumn": "region",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
@@ -2467,13 +2468,13 @@
 			]
 		},
 		"chile-deaths-sum": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/muertes.csv",
-			"preProcessor": "sum",
-			"nameColumn": "region",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
-					"name": "sum",
+					"name": "Total",
 					"code": "Chile",
 					"color": "#FF4900",
 					"gaps": [
@@ -2543,16 +2544,16 @@
 					"icon": "co"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
-					"color": "#8672FF",
-					"icon": "ir"
-				},
-				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
 					"icon": "es"
+				},
+				{
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF",
+					"icon": "ir"
 				},
 				{
 					"name": "United Kingdom",
