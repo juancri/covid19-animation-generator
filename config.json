@@ -855,8 +855,9 @@
 			]
 		},
 		"chile": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
-			"nameColumn": "region",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
@@ -1038,13 +1039,13 @@
 			]
 		},
 		"chile-sum": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
-			"nameColumn": "region",
-			"preProcessor": "sum",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
-					"name": "sum",
+					"name": "Total",
 					"code": "Chile",
 					"color": "#ffa600",
 					"gaps": [
@@ -2766,6 +2767,7 @@
 			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-14/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
@@ -2828,7 +2830,6 @@
 		"seriesIconLabelOffsetX": 0,
 		"seriesIconLabelOffsetY": 0,
 		"horizontalMargin": 0.2,
-		"verticalMargin": 0.2,
-		"inputDateFormat": "MonthDayYear"
+		"verticalMargin": 0.2
 	}
 }

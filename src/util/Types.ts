@@ -126,6 +126,7 @@ export interface DataSource {
 	preProcessor?: PreProcessorConfig | string;
 	preProcessors?: PreProcessorConfig[];
 	series?: SeriesConfiguration[];
+	inputDateFormat?: string;
 }
 
 export interface Options
@@ -172,7 +173,6 @@ export interface Options
 	seriesIconLabelOffsetY: number;
 	horizontalMargin: number;
 	verticalMargin: number;
-	inputDateFormat: string;
 }
 
 export interface Configuration {

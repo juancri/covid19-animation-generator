@@ -20,15 +20,13 @@ const DEFAULT_DATE_FORMAT = MonthDayYearDateFormat;
 
 export default class DataLoader
 {
-	public static async load(
-		dataSource: DataSource,
-		inputDateFormatName?: string): Promise<TimeSeries[]>
+	public static async load(dataSource: DataSource): Promise<TimeSeries[]>
 	{
-		const dateFormat = inputDateFormatName ?
-			INPUT_DATE_FORMATS[inputDateFormatName] :
+		const dateFormat = dataSource.inputDateFormat ?
+			INPUT_DATE_FORMATS[dataSource.inputDateFormat] :
 			DEFAULT_DATE_FORMAT;
 		if (!dateFormat)
-			throw new Error(`Date format not found: ${inputDateFormatName}`);
+			throw new Error(`Date format not found: ${dataSource.inputDateFormat}`);
 		const regexp = dateFormat.getRegularExpression();
 		let csvData = await Downloader.download(dataSource.url);
 		if (dataSource.csvDataProcessor)
