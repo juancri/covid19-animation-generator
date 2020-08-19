@@ -2562,16 +2562,16 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Saudi Arabia",
-					"code": "Arabia Saudita",
-					"color": "#FF729D",
-					"icon": "sa"
-				},
-				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
 					"icon": "ar"
+				},
+				{
+					"name": "Saudi Arabia",
+					"code": "Arabia Saudita",
+					"color": "#FF729D",
+					"icon": "sa"
 				},
 				{
 					"name": "Pakistan",
