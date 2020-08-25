@@ -72,25 +72,6 @@ export default class LinesLayer implements Layer
 
 	private drawLabelVertical(canvasValue: number, label: string)
 	{
-		// // Axis Label X
-		// this.boxX = {
-		// 	left: this.area.left,
-		// 	right: this.area.right,
-		// 	top: this.area.bottom,
-		// 	bottom: this.area.bottom + this.context.color.axis.offset
-		// };
-		// this.boxY = {
-		// 	left: this.area.left - this.context.color.axis.offset,
-		// 	right: this.area.left,
-		// 	top: this.area.top,
-		// 	bottom: this.area.bottom
-		// };
-		// this.context.writer.drawBoxedText(
-		// 	this.context.options.horizontalAxisLabel,
-		// 	this.context.color.axis.font,
-		// 	this.context.color.axis.color,
-		// 	this.boxX);
-
 		const box = {
 			left: canvasValue,
 			right: canvasValue + this.context.layout.lines.verticalOffset,
