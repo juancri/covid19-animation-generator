@@ -6,6 +6,11 @@ import CanvasWriter from '../drawing/CanvasWriter';
 
 export interface DataPoint {
 	date: DateTime;
+	band?: {
+		color: string;
+		lower: string;
+		upper: string;
+	};
 	value: number;
 }
 
@@ -40,6 +45,11 @@ export interface SeriesConfiguration {
 	areaColor?: string;
 	gaps?: SeriesGapConfiguration[];
 	milestones?: MilestoneConfiguration[];
+	band?: {
+		color: string;
+		lower: string;
+		upper: string;
+	};
 }
 
 export interface ColorSchema {
@@ -247,6 +257,12 @@ export interface Milestone {
 	color: string;
 }
 
+export interface PlotBand {
+	lower: PlotPoint[];
+	upper: PlotPoint[];
+	color: string;
+}
+
 export interface PlotSeries {
 	code: string;
 	color: string;
@@ -256,6 +272,7 @@ export interface PlotSeries {
 	milestones: Milestone[];
 	labelPosition?: Point;
 	icon: string;
+	band: PlotBand | null;
 }
 
 export interface Point {

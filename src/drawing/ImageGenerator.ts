@@ -10,6 +10,7 @@ import TimeBarLayer from './layers/TimeBarLayer';
 import SeriesLabelsLayer from './layers/SeriesLabelsLayer';
 import PrePostAnimationLayer from './layers/PrePostAnimationLayer';
 import LinesLayer from './layers/LinesLayer';
+import BandLayer from './layers/BandLayer';
 
 export default class ImageGenerator
 {
@@ -19,6 +20,9 @@ export default class ImageGenerator
 		const layers: Layer[] = [
 			// Background
 			new BackgroundLayer(context),
+
+			// Band
+			new BandLayer(context),
 
 			// Series
 			new SeriesPlotLayer(context),

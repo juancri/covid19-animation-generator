@@ -2,7 +2,7 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { Configuration, Options, PlotSeries, ColorSchema } from './Types';
+import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, SeriesConfiguration, PlotBand } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
@@ -47,14 +47,7 @@ export default class PlotSeriesLoader
 
 		const series: PlotSeries[] = dataSource.series.map((seriesConf, seriesIndex) =>
 		{
-			const found = timeSeries.find(s => s.name === seriesConf.name);
-			if (!found)
-			{
-				logger.info('Available series:');
-				for (const available of timeSeries)
-					logger.info(`  ${available.name}`);
-				throw new Error(`Series not found: ${seriesConf.name}`);
-			}
+			const found = PlotSeriesLoader.findSeries(timeSeries, seriesConf.name);
 			const gapsConfig = found.forceGaps ?? seriesConf.gaps;
 			const gaps = gapsConfig ?
 				gapsConfig.map(gap => ({
@@ -72,6 +65,18 @@ export default class PlotSeriesLoader
 				throw new Error(
 					`No points error for series: ${seriesConf.code} ` +
 					`(forced code: ${found.forceCode ?? 'none'})`);
+			let band: PlotBand | null = null;
+			if (seriesConf.band)
+			{
+				const lower = PlotSeriesLoader.findSeries(timeSeries, seriesConf.band.lower);
+				const upper = PlotSeriesLoader.findSeries(timeSeries, seriesConf.band.upper);
+				band = {
+					lower: PlotPointsGenerator.generate(options, lower.data),
+					upper: PlotPointsGenerator.generate(options, upper.data),
+					color: seriesConf.band.color
+				};
+			}
+
 			return {
 				code: found.forceCode ?? seriesConf.code,
 				color: found.forceColor ?? seriesConf.color,
@@ -79,7 +84,8 @@ export default class PlotSeriesLoader
 				icon: seriesConf.icon ?? seriesConf.code,
 				points,
 				gaps,
-				milestones
+				milestones,
+				band
 			};
 		});
 
@@ -95,5 +101,19 @@ export default class PlotSeriesLoader
 
 		// Done
 		return series;
+	}
+
+	private static findSeries(timeSeries: TimeSeries[], name: string)
+	{
+		const found = timeSeries.find(s => s.name === name);
+		if (!found)
+		{
+			logger.info('Available series:');
+			for (const available of timeSeries)
+				logger.info(`  ${available.name}`);
+			throw new Error(`Series not found: ${name}`);
+		}
+
+		return found;
 	}
 }

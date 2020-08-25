@@ -1,4 +1,4 @@
-import { Box, PlotSeries } from '../util/Types';
+import { Box, PlotSeries, PlotPoint, PlotBand } from '../util/Types';
 
 export default class CanvasPointsGenerator
 {
@@ -6,12 +6,8 @@ export default class CanvasPointsGenerator
 	{
 		return series.map(serie => ({
 			...serie,
-			points: serie.points.map(point => ({
-				date: point.date,
-				x: CanvasPointsGenerator.scaleValue(point.x, true, plotArea),
-				y: CanvasPointsGenerator.scaleValue(point.y, false, plotArea),
-				parent: point
-			}))
+			band: CanvasPointsGenerator.scaleBand(serie.band, plotArea),
+			points: CanvasPointsGenerator.scalePoints(serie.points, plotArea)
 		}));
 	}
 
@@ -26,5 +22,27 @@ export default class CanvasPointsGenerator
 		return horizontal ?
 			base + diff :
 			base - diff;
+	}
+
+	private static scalePoints(points: PlotPoint[], plotArea: Box): PlotPoint[]
+	{
+		return points.map(point => ({
+			date: point.date,
+			x: CanvasPointsGenerator.scaleValue(point.x, true, plotArea),
+			y: CanvasPointsGenerator.scaleValue(point.y, false, plotArea),
+			parent: point
+		}));
+	}
+
+	private static scaleBand(band: PlotBand | null, plotArea: Box): PlotBand | null
+	{
+		if (!band)
+			return null;
+
+		return {
+			color: band.color,
+			lower: CanvasPointsGenerator.scalePoints(band.lower, plotArea),
+			upper: CanvasPointsGenerator.scalePoints(band.upper, plotArea)
+		};
 	}
 }
