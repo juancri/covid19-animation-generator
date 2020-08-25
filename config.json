@@ -2765,7 +2765,7 @@
 			]
 		},
 		"chile-projections": {
-			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-21/global/Chile_ALL.csv",
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-23/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"inputDateFormat": "ISO",
@@ -2773,18 +2773,13 @@
 			[
 				{
 					"name": "predicted_new_infected_mean",
-					"code": "mean",
-					"color": "#FFC800"
-				},
-				{
-					"name": "predicted_new_infected_lower",
-					"code": "lower (p2.5)",
-					"color": "#BFFFC5"
-				},
-				{
-					"name": "predicted_new_infected_upper",
-					"code": "upper (p97.5)",
-					"color": "#FFDBE0"
+					"code": "projection",
+					"color": "#FFC800",
+					"band": {
+						"color": "#484848",
+						"lower": "predicted_new_infected_lower",
+						"upper": "predicted_new_infected_upper"
+					}
 				}
 			]
 		}
