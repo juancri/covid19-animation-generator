@@ -2550,16 +2550,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
-					"color": "#8672FF",
-					"icon": "ir"
-				},
-				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
 					"icon": "ar"
+				},
+				{
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF",
+					"icon": "ir"
 				},
 				{
 					"name": "United Kingdom",
@@ -2765,7 +2765,7 @@
 			]
 		},
 		"chile-projections": {
-			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-23/global/Chile_ALL.csv",
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-25/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"inputDateFormat": "ISO",
