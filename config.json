@@ -2556,16 +2556,16 @@
 					"icon": "ir"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
 					"icon": "ar"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Saudi Arabia",
@@ -2574,10 +2574,10 @@
 					"icon": "sa"
 				},
 				{
-					"name": "Pakistan",
-					"code": "Paquistán",
+					"name": "Bangladesh",
+					"code": "Bangladesh",
 					"color": "#7AFF72",
-					"icon": "pk"
+					"icon": "bd"
 				},
 				{
 					"name": "Ecuador",
