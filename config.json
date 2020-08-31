@@ -2520,28 +2520,28 @@
 					"icon": "ru"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
-				},
-				{
 					"name": "Peru",
 					"code": "Perú",
 					"color": "#5FB9E1",
 					"icon": "pe"
 				},
 				{
-					"name": "Mexico",
-					"code": "México",
-					"color": "#ff7c43",
-					"icon": "mx"
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Mexico",
+					"code": "México",
+					"color": "#ff7c43",
+					"icon": "mx"
 				},
 				{
 					"name": "Spain",
