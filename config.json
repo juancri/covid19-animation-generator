@@ -358,12 +358,12 @@
 				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
 				{ "name": "limit", "parameters": 10 },
 				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
-				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
+				{ "name": "forceCode", "parameters": { "name": "Ecuador", "code": "Ecuador" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
-				{ "name": "forceCode", "parameters": { "name": "Russia", "code": "Rusia" } },
+				{ "name": "forceCode", "parameters": { "name": "Bolivia", "code": "Bolivia" } },
 				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Chile", "code": "Chile" } },
@@ -2502,16 +2502,16 @@
 					"icon": "us"
 				},
 				{
-					"name": "Brazil",
-					"code": "Brasil",
-					"color": "#72CDFF",
-					"icon": "br"
-				},
-				{
 					"name": "India",
 					"code": "India",
 					"color": "#B272FF",
 					"icon": "in"
+				},
+				{
+					"name": "Brazil",
+					"code": "Brasil",
+					"color": "#72CDFF",
+					"icon": "br"
 				},
 				{
 					"name": "Russia",
@@ -2526,12 +2526,6 @@
 					"icon": "pe"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
@@ -2542,6 +2536,12 @@
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
+				},
+				{
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Spain",
@@ -2568,10 +2568,10 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Saudi Arabia",
-					"code": "Arabia Saudita",
+					"name": "France",
+					"code": "Francias",
 					"color": "#FF729D",
-					"icon": "sa"
+					"icon": "fr"
 				},
 				{
 					"name": "Bangladesh",
@@ -2765,7 +2765,7 @@
 			]
 		},
 		"chile-projections": {
-			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-08-29/global/Chile_ALL.csv",
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-09-05/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"inputDateFormat": "ISO",
