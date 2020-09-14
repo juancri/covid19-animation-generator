@@ -2562,16 +2562,16 @@
 					"icon": "ir"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
 					"name": "France",
 					"code": "Francias",
 					"color": "#FF729D",
 					"icon": "fr"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
 				},
 				{
 					"name": "Bangladesh",
