@@ -183,6 +183,7 @@ export interface Options
 	seriesIconLabelOffsetY: number;
 	horizontalMargin: number;
 	verticalMargin: number;
+	outputDirectory: string;
 }
 
 export interface Configuration {

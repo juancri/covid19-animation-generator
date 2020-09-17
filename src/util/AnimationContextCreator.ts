@@ -16,9 +16,6 @@ import { DateTime } from 'luxon';
 import LinesLoader from './LinesLoader';
 import { Exception } from 'handlebars';
 
-// Constants
-const OUTPUT_PATH = path.join(__dirname, '../../output');
-
 export default class AnimationContextCreator
 {
 	public static async create(): Promise<AnimationContext>
@@ -29,7 +26,8 @@ export default class AnimationContextCreator
 			config = ConfigLoader.applyOverride(config, options.configOverride);
 		const color = ColorSchemaLoader.load(config, options);
 		const layout = LayoutLoader.load(config, options);
-		const writer = new CanvasWriter(layout, OUTPUT_PATH);
+		const outputPath = this.createOutputPath(options);
+		const writer = new CanvasWriter(layout, outputPath);
 		const series = await PlotSeriesLoader.load(config, options, color);
 		const lines = LinesLoader.load(options);
 		const scaleLabelProvider = ScaleLabelProviderLoader.load(options);
@@ -43,6 +41,15 @@ export default class AnimationContextCreator
 			firstDate, lastDate,
 			lines
 		};
+	}
+
+	private static createOutputPath(options: Options): string
+	{
+		const outputOption = options.outputDirectory;
+		const isAbsolute = outputOption.startsWith('/');
+		return isAbsolute ?
+			outputOption :
+			path.join(__dirname, '../..', outputOption);
 	}
 
 	private static getFirstDate(series: PlotSeries[],

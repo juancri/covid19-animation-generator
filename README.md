@@ -88,6 +88,7 @@ All parameters are optional.
 - ```--type```: Chart type. Default: ```line```. Possible values:
   - ```line```: Line chart
   - ```stacked-area```: Stacked area
+- ```--outputDirectory```: Output directory. If the value starts with ```/```, it will be read as an absolute path. Otherwise, it will be relative to the project root. Default value: ```output```.
 
 #### Examples
 
@@ -110,3 +111,11 @@ npm run video
 ```
 
 The video will be here: ```output/animation.mp4```
+
+If you used ```--outputDirectory``` to generate the images, you can pass the directory path to the video script as:
+
+```
+npm run video -- /tmp/some/temporary/directory
+```
+
+

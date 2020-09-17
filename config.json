@@ -2857,6 +2857,7 @@
 		"seriesIconLabelOffsetX": 0,
 		"seriesIconLabelOffsetY": 0,
 		"horizontalMargin": 0.2,
-		"verticalMargin": 0.2
+		"verticalMargin": 0.2,
+		"outputDirectory": "output"
 	}
 }
