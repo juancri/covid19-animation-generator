@@ -2556,16 +2556,16 @@
 					"icon": "ar"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
-					"color": "#8672FF",
-					"icon": "ir"
-				},
-				{
 					"name": "France",
 					"code": "Francias",
 					"color": "#FF729D",
 					"icon": "fr"
+				},
+				{
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF",
+					"icon": "ir"
 				},
 				{
 					"name": "United Kingdom",
