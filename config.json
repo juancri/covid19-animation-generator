@@ -358,15 +358,14 @@
 				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
 				{ "name": "limit", "parameters": 10 },
 				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
-				{ "name": "forceCode", "parameters": { "name": "Ecuador", "code": "Ecuador" } },
+				{ "name": "forceCode", "parameters": { "name": "Russia", "code": "Rusia" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
-				{ "name": "forceCode", "parameters": { "name": "Bolivia", "code": "Bolivia" } },
-				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
+				{ "name": "forceCode", "parameters": { "name": "Indonesia", "code": "Indonesia" } },
+				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
-				{ "name": "forceCode", "parameters": { "name": "Chile", "code": "Chile" } },
 				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
 				{ "name": "requireForcedCodes" }
 			]
@@ -2520,16 +2519,16 @@
 					"icon": "ru"
 				},
 				{
-					"name": "Peru",
-					"code": "Perú",
-					"color": "#5FB9E1",
-					"icon": "pe"
-				},
-				{
 					"name": "Colombia",
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#5FB9E1",
+					"icon": "pe"
 				},
 				{
 					"name": "Mexico",
@@ -2538,16 +2537,16 @@
 					"icon": "mx"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
-				},
-				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
 					"icon": "es"
+				},
+				{
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Argentina",
