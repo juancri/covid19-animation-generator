@@ -364,7 +364,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
 				{ "name": "forceCode", "parameters": { "name": "Indonesia", "code": "Indonesia" } },
-				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
+				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
 				{ "name": "requireForcedCodes" }
@@ -2543,16 +2543,16 @@
 					"icon": "es"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
-				},
-				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
 					"icon": "ar"
+				},
+				{
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "France",
