@@ -2531,16 +2531,16 @@
 					"icon": "pe"
 				},
 				{
-					"name": "Mexico",
-					"code": "México",
-					"color": "#ff7c43",
-					"icon": "mx"
-				},
-				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
 					"icon": "es"
+				},
+				{
+					"name": "Mexico",
+					"code": "México",
+					"color": "#ff7c43",
+					"icon": "mx"
 				},
 				{
 					"name": "Argentina",
