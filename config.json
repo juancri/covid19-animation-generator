@@ -2795,7 +2795,7 @@
 			]
 		},
 		"chile-projections": {
-			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-09-13/global/Chile_ALL.csv",
+			"url": "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-09-26/global/Chile_ALL.csv",
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"inputDateFormat": "ISO",
