@@ -364,7 +364,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
 				{ "name": "forceCode", "parameters": { "name": "Indonesia", "code": "Indonesia" } },
-				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
+				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
 				{ "name": "requireForcedCodes" }
@@ -2531,6 +2531,12 @@
 					"icon": "pe"
 				},
 				{
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "#F06AFF",
+					"icon": "ar"
+				},
+				{
 					"name": "Spain",
 					"code": "España",
 					"color": "#FFBB72",
@@ -2541,12 +2547,6 @@
 					"code": "México",
 					"color": "#ff7c43",
 					"icon": "mx"
-				},
-				{
-					"name": "Argentina",
-					"code": "Argentina",
-					"color": "#F06AFF",
-					"icon": "ar"
 				},
 				{
 					"name": "South Africa",
@@ -2561,22 +2561,22 @@
 					"icon": "fr"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
-					"color": "#8672FF",
-					"icon": "ir"
-				},
-				{
 					"name": "United Kingdom",
 					"code": "Reino Unido",
 					"color": "#FFF972",
 					"icon": "gb"
 				},
 				{
-					"name": "Bangladesh",
-					"code": "Bangladesh",
+					"name": "Iran",
+					"code": "Irán",
+					"color": "#8672FF",
+					"icon": "ir"
+				},
+				{
+					"name": "Iraq",
+					"code": "Irak",
 					"color": "#7AFF72",
-					"icon": "bd"
+					"icon": "iq"
 				},
 				{
 					"name": "Ecuador",
