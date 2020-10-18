@@ -7,6 +7,10 @@ interface ForceColorParams
 	color: string;
 }
 
+/**
+ * Finds a series by the name and applies the forced color.
+ * If no series is found, a warning is logged.
+ */
 export default class ForceColorPreProcessor
 {
 	public static async run(series: TimeSeries[], params: ForceColorParams): Promise<TimeSeries[]>

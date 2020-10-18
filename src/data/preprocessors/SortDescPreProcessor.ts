@@ -3,9 +3,18 @@ import * as Enumerable from 'linq';
 
 import { TimeSeries } from '../../util/Types';
 
+interface SortDescParams
+{
+	lastWeek: boolean;
+}
+
+/**
+ * Sort the series by its decending last point value.
+ * If last week is true, the difference between the last point and last - 7 is used.
+ */
 export default class SortDescPreProcessor
 {
-	public static async run(series: TimeSeries[], params: any): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: SortDescParams): Promise<TimeSeries[]>
 	{
 		return Enumerable
 			.from(series)

@@ -7,6 +7,10 @@ interface ForceCodeParams
 	code: string;
 }
 
+/**
+ * Finds a series by the name and applies the forced code.
+ * If no series is found, a warning is logged.
+ */
 export default class ForceCodePreProcessor
 {
 	public static async run(series: TimeSeries[], params: ForceCodeParams): Promise<TimeSeries[]>

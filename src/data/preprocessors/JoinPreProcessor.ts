@@ -15,6 +15,10 @@ interface JoinParams
 	kind: string;
 };
 
+/**
+ * Joins the original series with a second datasource
+ * applying the provided kind
+ */
 export default class JoinPreProcessor
 {
 	public static async run(series: TimeSeries[], params: JoinParams)

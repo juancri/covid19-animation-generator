@@ -1,5 +1,11 @@
 import { TimeSeries } from '../../util/Types';
 
+/**
+ * Modifies each series in order to get the daily difference from absolute values.
+ * Examples for series point values (input -> output)
+ * [10, 12, 17] -> [10, 2, 5]
+ * [20, 25, 26] -> [20, 5, 1]
+ */
 export default class DailyChangePreProcessor
 {
 	public static async run(series: TimeSeries[]): Promise<TimeSeries[]>

@@ -8,6 +8,10 @@ interface SumParams {
 	name: string | null;
 }
 
+/**
+ * Adds a new series at the end with the sum of all points for the same date.
+ * An optional sum series name can be provided. The default series name is sum.
+ */
 export default class SumPreProcessor
 {
 	public static async run(series: TimeSeries[], params: SumParams): Promise<TimeSeries[]>
