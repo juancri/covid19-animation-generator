@@ -363,7 +363,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
-				{ "name": "forceCode", "parameters": { "name": "Indonesia", "code": "Indonesia" } },
+				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
 				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
@@ -2519,22 +2519,16 @@
 					"icon": "ru"
 				},
 				{
-					"name": "Colombia",
-					"code": "Colombia",
-					"color": "#72FFFF",
-					"icon": "co"
-				},
-				{
-					"name": "Peru",
-					"code": "Perú",
-					"color": "#5FB9E1",
-					"icon": "pe"
-				},
-				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
 					"icon": "ar"
+				},
+				{
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#72FFFF",
+					"icon": "co"
 				},
 				{
 					"name": "Spain",
@@ -2543,28 +2537,34 @@
 					"icon": "es"
 				},
 				{
-					"name": "Mexico",
-					"code": "México",
-					"color": "#ff7c43",
-					"icon": "mx"
-				},
-				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
-				},
-				{
 					"name": "France",
 					"code": "Francias",
 					"color": "#FF729D",
 					"icon": "fr"
 				},
 				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#5FB9E1",
+					"icon": "pe"
+				},
+				{
+					"name": "Mexico",
+					"code": "México",
+					"color": "#ff7c43",
+					"icon": "mx"
+				},
+				{
 					"name": "United Kingdom",
 					"code": "Reino Unido",
 					"color": "#FFF972",
 					"icon": "gb"
+				},
+				{
+					"name": "South Africa",
+					"code": "Sudáfrica",
+					"color": "#FF72CE",
+					"icon": "za"
 				},
 				{
 					"name": "Iran",
