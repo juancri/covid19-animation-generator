@@ -1,16 +1,16 @@
 
 import formatNumber from 'format-number';
-import * as NumberSuffix from 'number-suffix';
-
-import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '../../util/Types';
 import { DateTime } from 'luxon';
+
+import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '@/util/Types';
+import NumberSuffix from '@/util/NumberSuffix';
 
 const JAN_1 = DateTime.local().startOf('year');
 const FORMATTERS: { [key: string]: (n: number) => string } =
 {
 	'plain': n => n.toString(),
 	'spanish': formatNumber({ integerSeparator: '.' }),
-	'suffix': n => Math.abs(n) < 1000 ? n.toString() : NumberSuffix.format(n),
+	'suffix': n => NumberSuffix.format(n),
 	'suffix-abs': n => Math.abs(n) < 1000 ? Math.abs(n).toString() : NumberSuffix.format(Math.abs(n)),
 	'percent': n => `${n}%`
 };

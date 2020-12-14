@@ -20,7 +20,6 @@
     "luxon": "^1.25.0",
     "merge-anything": "^4.0.0",
     "minimist": "^1.2.5",
-    "number-suffix": "^1.0.1",
     "promisepipe": "^3.0.0",
     "winston": "^3.3.3"
   },
