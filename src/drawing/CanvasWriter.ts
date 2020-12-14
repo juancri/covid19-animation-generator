@@ -2,8 +2,8 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { Point, Box, Layout } from '../util/Types';
-import * as promisePipe from 'promisepipe';
+import { Point, Box, Layout } from '@/util/Types';
+import PromisePipe from '@/util/PromisePipe';
 
 export default class CanvasWriter
 {
@@ -156,7 +156,7 @@ export default class CanvasWriter
 		const fileName = `${name}.jpg`;
 		const filePath = path.join(this.outputPath, fileName);
 		const output = fs.createWriteStream(filePath);
-		await promisePipe(input, output);
+		await PromisePipe.pipe(input, output);
 		this.frame++;
 	}
 
