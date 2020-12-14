@@ -14,7 +14,7 @@ const GENERATORS: { [key: string]: (points: DataPoint[], gaps: TimeGap[], series
 export default class PlotPointsGenerator
 {
 	public static generate(options: Options, points: DataPoint[],
-		gaps: TimeGap[] = [], seriesIndex: number = 0): PlotPoint[]
+		gaps: TimeGap[] = [], seriesIndex = 0): PlotPoint[]
 	{
 		const generator = GENERATORS[options.scale];
 		if (!generator)

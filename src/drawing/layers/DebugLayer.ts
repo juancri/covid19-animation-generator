@@ -10,7 +10,7 @@ export default class DebugLayer implements Layer
 		this.context = context;
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		if (!this.context.options.debug)
 			return;

@@ -102,7 +102,7 @@ export default class LinearPlotPointsGenerator
 	}
 
 	private static getFirstIndex(points: DataPoint[], gaps: TimeGap[],
-		index: number, includeLast: boolean = true): number
+		index: number, includeLast = true): number
 	{
 		const point = points[index];
 		const gap = Enumerable

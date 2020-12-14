@@ -13,13 +13,14 @@ interface ForceGapsParams
  */
 export default class ForceGapsPreProcessor
 {
-	public static async run(series: TimeSeries[], params: ForceGapsParams): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
-		const found = series.find(serie => serie.name === params.name);
+		const params2 = params as ForceGapsParams;
+		const found = series.find(serie => serie.name === params2.name);
 		if (found)
-			found.forceGaps = params.gaps;
+			found.forceGaps = params2.gaps;
 		else
-			logger.warn(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params2.name}`);
 
 		return series;
 	}

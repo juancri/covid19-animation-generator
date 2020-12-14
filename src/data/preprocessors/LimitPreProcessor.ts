@@ -8,11 +8,11 @@ import { TimeSeries } from '../../util/Types';
  */
 export default class LimitPreProcessor
 {
-	public static async run(series: TimeSeries[], params: number): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
 		return Enumerable
 			.from(series)
-			.take(params)
+			.take(params as number)
 			.toArray();
 	}
 }

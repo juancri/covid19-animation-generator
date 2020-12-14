@@ -1,7 +1,11 @@
 
 import { ScaleBoundaries, PlotSeries, PlotPoint, PlotBand } from '../util/Types';
 
-interface ScaleSize { horizontal: number; vertical: number };
+interface ScaleSize
+{
+	horizontal: number;
+	vertical: number;
+}
 
 export default class LineScaledPointsGenerator {
 

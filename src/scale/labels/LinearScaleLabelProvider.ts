@@ -1,6 +1,5 @@
 
 import formatNumber from 'format-number';
-// @ts-ignore
 import * as NumberSuffix from 'number-suffix';
 
 import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '../../util/Types';

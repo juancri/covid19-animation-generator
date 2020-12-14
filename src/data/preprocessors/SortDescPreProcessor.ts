@@ -14,12 +14,13 @@ interface SortDescParams
  */
 export default class SortDescPreProcessor
 {
-	public static async run(series: TimeSeries[], params: SortDescParams): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
+		const sortDescParams = params as SortDescParams;
 		return Enumerable
 			.from(series)
 			.orderByDescending(serie => SortDescPreProcessor.selectIndex(
-				serie, params && params.lastWeek))
+				serie, sortDescParams && sortDescParams.lastWeek))
 			.toArray();
 	}
 

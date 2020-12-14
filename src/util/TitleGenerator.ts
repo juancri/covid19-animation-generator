@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 
 export default class TitleGenerator
 {
-	public static generate(dataSource: DataSource, source: string)
+	public static generate(dataSource: DataSource, source: string): string
 	{
 		const template = Handlebars.compile(source);
 		const data = {

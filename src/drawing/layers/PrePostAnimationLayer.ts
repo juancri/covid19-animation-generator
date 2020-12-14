@@ -24,7 +24,7 @@ export default class PrePostAnimationLayer implements Layer
 		this.currentIndex = 0;
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		// Only implemented for post
 		if (frame.stage !== 'post')

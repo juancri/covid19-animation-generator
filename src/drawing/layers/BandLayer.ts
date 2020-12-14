@@ -10,7 +10,7 @@ export default class BandLayer implements Layer
 		this.context = context;
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		frame.series.forEach(s => this.drawBand(s.band));
 	}

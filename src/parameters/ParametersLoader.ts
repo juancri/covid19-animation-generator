@@ -2,7 +2,7 @@
 import * as minimist from 'minimist';
 import { Options } from '../util/Types';
 
-const PARAMETERS = {
+const PARAMETERS: { [key: string]: string } = {
 	help: 'This help message',
 	source: 'Sets the data source',
 	schema: 'Sets the color schema',
@@ -38,7 +38,7 @@ const PARAMETERS = {
 
 export default class ParametersLoader
 {
-	public static help()
+	public static help(): boolean
 	{
 		const argv = minimist(process.argv.slice(2));
 		if (!argv.help)
@@ -46,7 +46,6 @@ export default class ParametersLoader
 
 		console.log('Optional parameters:');
 		for (const name of Object.keys(PARAMETERS))
-			// @ts-ignore
 			console.log(`  --${name}: ${PARAMETERS[name]}`);
 
 		return true;
@@ -54,7 +53,6 @@ export default class ParametersLoader
 
 	public static load(defaultValues: Options): Options
 	{
-		// @ts-ignore
-		return minimist(process.argv.slice(2), { default: defaultValues });
+		return minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
 	}
 }

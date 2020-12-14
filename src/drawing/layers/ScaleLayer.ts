@@ -35,7 +35,7 @@ export default class ScaleLayer implements Layer
 		};
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		// Lines
 		this.context.writer.drawPolyline(

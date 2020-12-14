@@ -12,7 +12,7 @@ export default class LinesLayer implements Layer
 		this.context = context;
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		this.drawLines(this.context.lines.horizontal, true, frame);
 		this.drawLines(this.context.lines.vertical, false, frame);

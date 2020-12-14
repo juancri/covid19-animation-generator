@@ -17,7 +17,7 @@ const CENTER_OFFSET_BOTTOM_Y = 30;
 
 export default class StackSeriesLabelDrawer
 {
-	public static draw(context: AnimationContext, frame: FrameInfo, series: PlotSeries)
+	public static draw(context: AnimationContext, frame: FrameInfo, series: PlotSeries): void
 	{
 		const lastPoint = series.points[series.points.length - 1];
 		const x = lastPoint.x + context.color.series.label.stackedAreaOffset.x;
@@ -25,7 +25,7 @@ export default class StackSeriesLabelDrawer
 		StackSeriesLabelDrawer.drawInternal(context, frame, series, { x, y });
 	}
 
-	public static drawCenter(context: AnimationContext, frame: FrameInfo, series: PlotSeries)
+	public static drawCenter(context: AnimationContext, frame: FrameInfo, series: PlotSeries): void
 	{
 		const seriesIndex = frame.series.indexOf(series);
 		if (seriesIndex > 1)

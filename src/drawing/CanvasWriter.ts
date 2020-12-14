@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
 import { Point, Box, Layout } from '../util/Types';
-// @ts-ignore
 import * as promisePipe from 'promisepipe';
 
 export default class CanvasWriter
@@ -27,13 +26,13 @@ export default class CanvasWriter
 		fs.emptyDirSync(this.outputPath);
 	}
 
-	public clean()
+	public clean(): void
 	{
 		const [ width, height ] = this.layout.canvasSize;
 		this.ctx.clearRect(0, 0, width, height);
 	}
 
-	public drawCircle(radius: number, color: string, center: Point, box: Box | null = null)
+	public drawCircle(radius: number, color: string, center: Point, box: Box | null = null): void
 	{
 		this.useMaskBox(box, () =>
 		{
@@ -44,16 +43,18 @@ export default class CanvasWriter
 		});
 	}
 
-	public drawLine(color: string, lineWidth: number, from: Point, to: Point, box: Box|null = null) {
+	public drawLine(color: string, lineWidth: number, from: Point, to: Point, box: Box|null = null): void
+	{
 		this.drawPolyline(color, lineWidth, [from, to], box);
 	}
 
-	public drawLineAlpha(color: string, lineWidth: number, from: Point, to: Point, alpha: number) {
+	public drawLineAlpha(color: string, lineWidth: number, from: Point, to: Point, alpha: number): void
+	{
 		this.drawPolyline(color, lineWidth, [from, to], null, false, alpha);
 	}
 
 	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null,
-		dashed = false, alpha: number | null = null)
+		dashed = false, alpha: number | null = null): void
 	{
 		if (points.length < 2)
 			return;
@@ -77,7 +78,7 @@ export default class CanvasWriter
 		});
 	}
 
-	public drawPolygon(color: string, points: Point[], box: Box | null = null)
+	public drawPolygon(color: string, points: Point[], box: Box | null = null): void
 	{
 		if (points.length < 2)
 			return;
@@ -96,7 +97,7 @@ export default class CanvasWriter
 	}
 
 	public drawText(text: string, font: string, color: string,
-		position: Point, box: Box | null = null, textAlign: CanvasTextAlign = 'left')
+		position: Point, box: Box | null = null, textAlign: CanvasTextAlign = 'left'): void
 	{
 		this.useMaskBox(box, () =>
 		{
@@ -108,7 +109,7 @@ export default class CanvasWriter
 	}
 
 	public drawBoxedText(text: string, font: string, color: string,
-		box: Box, rotate: number|null = null, align: CanvasTextAlign = 'center')
+		box: Box, rotate: number|null = null, align: CanvasTextAlign = 'center'): void
 	{
 		const centerX = (box.left + box.right) / 2;
 		const centerY = (box.bottom + box.top) / 2;
@@ -128,7 +129,7 @@ export default class CanvasWriter
 		});
 	}
 
-	public drawFilledRectangle(box: Box, color: string)
+	public drawFilledRectangle(box: Box, color: string): void
 	{
 		const width = box.right - box.left;
 		const height = box.bottom - box.top;
@@ -136,19 +137,19 @@ export default class CanvasWriter
 		this.ctx.fillRect(box.left, box.top, width, height);
 	}
 
-	public async drawImage(imagePath: string, point: Point)
+	public async drawImage(imagePath: string, point: Point): Promise<void>
 	{
 		const image = await loadImage(imagePath);
 		this.ctx.drawImage(image, point.x, point.y);
 	}
 
-	public async drawScaledImage(imagePath: string)
+	public async drawScaledImage(imagePath: string): Promise<void>
 	{
 		const image = await loadImage(imagePath);
 		this.ctx.drawImage(image, 0, 0, ...this.layout.canvasSize);
 	}
 
-	public async save(forcedName: string|null = null)
+	public async save(forcedName: string|null = null): Promise<void>
 	{
 		const input = this.canvas.createJPEGStream();
 		const name = forcedName || this.frame.toString();

@@ -13,7 +13,7 @@ interface JoinParams
 {
 	dataSource: DataSource;
 	kind: string;
-};
+}
 
 /**
  * Joins the original series with a second datasource
@@ -21,12 +21,13 @@ interface JoinParams
  */
 export default class JoinPreProcessor
 {
-	public static async run(series: TimeSeries[], params: JoinParams)
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
-		const joiner = JOINERS[params.kind];
+		const joinParams = params as JoinParams;
+		const joiner = JOINERS[joinParams.kind];
 		if (!joiner)
-			throw new Error(`Join kind not found: ${params.kind}`);
-		const second = await DataLoader.load(params.dataSource);
+			throw new Error(`Join kind not found: ${joinParams.kind}`);
+		const second = await DataLoader.load(joinParams.dataSource);
 		return joiner(series, second);
 	}
 }

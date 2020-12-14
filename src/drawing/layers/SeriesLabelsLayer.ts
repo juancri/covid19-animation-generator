@@ -24,7 +24,7 @@ export default class SeriesLabelsLayer implements Layer
 
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		for (const series of frame.series)
 		{

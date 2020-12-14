@@ -7,7 +7,7 @@ const PROCESSORS: { [key: string]: CsvDataProcessor } = {
 
 export default class CsvDataProcessorLoader
 {
-	public static load(name: string, data: any[]): any[]
+	public static load(name: string, data: unknown[]): unknown[]
 	{
 		const found = PROCESSORS[name];
 		if (!found)

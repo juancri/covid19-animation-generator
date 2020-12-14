@@ -1,8 +1,8 @@
-import { Options, Line } from './Types';
+import { Options, Line, Lines } from './Types';
 
 export default class LinesLoader
 {
-	public static load(options: Options)
+	public static load(options: Options): Lines
 	{
 		return {
 			horizontal: LinesLoader.loadOption(options.horizontalLines),

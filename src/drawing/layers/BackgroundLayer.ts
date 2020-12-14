@@ -17,7 +17,7 @@ export default class BackgroundLayer implements Layer
 		};
 	}
 
-	public async draw ()
+	public async draw (): Promise<void>
 	{
 		this.context.writer.drawFilledRectangle(
 			this.canvasBox,

@@ -1,8 +1,8 @@
-import { Configuration, Options } from './Types';
+import { Configuration, Layout, Options } from './Types';
 
 export default class LayoutLoader
 {
-	public static load(config: Configuration, options: Options)
+	public static load(config: Configuration, options: Options): Layout
 	{
 		const layout = config.layouts[options.layout];
 		if (!layout)

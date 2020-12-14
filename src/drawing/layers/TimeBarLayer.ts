@@ -12,7 +12,7 @@ export default class TimeBarLayer implements Layer
 		this.easing = EasingLoader.load(context.options.timebarEasing);
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		// Does not apply for cover
 		if (frame.stage === 'cover')

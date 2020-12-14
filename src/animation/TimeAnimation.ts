@@ -1,5 +1,5 @@
 
-import { Animation, PlotSeries, FrameFilterInfo, AnimationContext } from '../util/Types';
+import { Animation, PlotSeries, FrameFilterInfo, AnimationContext, ScaleBoundaries } from '../util/Types';
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 
 export default class TimeAnimation implements Animation
@@ -45,9 +45,12 @@ export default class TimeAnimation implements Animation
 	}
 
 	public getScaleBoundaries(filteredSeries: PlotSeries[],
-		frameFilterInfo: FrameFilterInfo,
-		frameIndex: number,
-		stepFrameIndex: number) {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_frameFilterInfo: FrameFilterInfo,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_frameIndex: number,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_stepFrameIndex: number): ScaleBoundaries {
 		return ScaleBoundariesGenerator.generate(this.context, filteredSeries);
 	}
 }

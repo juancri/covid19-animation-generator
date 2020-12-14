@@ -22,8 +22,8 @@ export interface TimeSeries {
 	forceGaps?: SeriesGapConfiguration[];
 }
 
-export type CsvDataProcessor = (data: any[]) => any[];
-export type PreProcessor = (series: TimeSeries[], params: any) => Promise<TimeSeries[]>;
+export type CsvDataProcessor = (data: unknown[]) => unknown[];
+export type PreProcessor = (series: TimeSeries[], params: unknown) => Promise<TimeSeries[]>;
 
 // Config
 
@@ -109,7 +109,7 @@ export interface Layout {
 	seriesCirclesArea: Box;
 	circleSize: number;
 	datePosition: Point;
-	dateFont: object;
+	dateFont: unknown;
 	timebar: Box;
 	lines: {
 		width: number;
@@ -120,7 +120,7 @@ export interface Layout {
 
 export interface PreProcessorConfig {
 	name: string;
-	parameters?: any;
+	parameters?: unknown;
 }
 
 export interface Line {
@@ -297,14 +297,16 @@ export interface ScaleLabelProvider
 	getScaleLabels(frame: FrameInfo, horizontal: boolean): ScaleLabel[];
 }
 
+export interface Lines {
+	horizontal: Line[];
+	vertical: Line[];
+}
+
 export interface AnimationContext {
 	config: Configuration;
 	options: Options;
 	series: PlotSeries[];
-	lines: {
-		horizontal: Line[],
-		vertical: Line[]
-	},
+	lines: Lines,
 	color: ColorSchema;
 	layout: Layout;
 	writer: CanvasWriter;

@@ -9,7 +9,7 @@ const EXTRA_X_OFFSET = 30;
 
 export default class LineSeriesLabelDrawer
 {
-	public static draw(context: AnimationContext, frame: FrameInfo, series: PlotSeries)
+	public static draw(context: AnimationContext, frame: FrameInfo, series: PlotSeries): void
 	{
 		const iconPath = util.format(context.options.seriesIconPathFormat, series.icon);
 		const offset = context.color.series.label.offset;

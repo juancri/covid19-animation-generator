@@ -2,7 +2,7 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, SeriesConfiguration, PlotBand } from './Types';
+import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, PlotBand } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';

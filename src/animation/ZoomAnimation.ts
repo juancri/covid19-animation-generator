@@ -5,7 +5,11 @@ import {
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import EasingLoader from '../util/EasingLoader';
 
-interface ZoomStep { frames: number, zoom: boolean | number };
+interface ZoomStep {
+	frames: number;
+	zoom: boolean | number;
+}
+
 const MAIN_STEPS: ZoomStep[] = [
 	{ frames: 240, zoom: true },
 	{ frames: 120, zoom: 1 },

@@ -63,6 +63,8 @@ export default class AnimationContextCreator
 			.select(point => point.date)
 			.orderBy(date => +date)
 			.firstOrDefault();
+		if (!possibleDate)
+			throw new Error('Possible date not found');
 		if (options.days === 0)
 			return possibleDate;
 

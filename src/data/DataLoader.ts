@@ -38,8 +38,8 @@ export default class DataLoader
 				.map(k => regexp.exec(k))
 				.filter(match => match)
 				.map(match => ({
-					date: dateFormat.parse(match![0]),
-					value: parseInt(item[match![0]], 0)
+					date: dateFormat.parse(match?.[0] || ''),
+					value: parseInt(item[match?.[0] || 0], 0)
 				}))
 		}));
 

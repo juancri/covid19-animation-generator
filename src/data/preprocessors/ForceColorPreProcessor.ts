@@ -13,13 +13,14 @@ interface ForceColorParams
  */
 export default class ForceColorPreProcessor
 {
-	public static async run(series: TimeSeries[], params: ForceColorParams): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
-		const found = series.find(serie => serie.name === params.name);
+		const params2 = params as ForceColorParams;
+		const found = series.find(serie => serie.name === params2.name);
 		if (found)
-			found.forceColor = params.color;
+			found.forceColor = params2.color;
 		else
-			logger.warn(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params2.name}`);
 
 		return series;
 	}

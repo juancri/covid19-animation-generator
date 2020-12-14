@@ -2,7 +2,7 @@ import { DateTime } from 'luxon';
 import { DateFormat } from '../../util/Types';
 
 const DATE_FORMAT = 'yyyy-MM-dd';
-const DATE_REGEXP = /^\d+\-\d+\-\d+$/;
+const DATE_REGEXP = /^\d+-\d+-\d+$/;
 
 class IsoDateFormat implements DateFormat
 {
@@ -13,7 +13,7 @@ class IsoDateFormat implements DateFormat
 
 	public parse(text: string): DateTime
 	{
-		return DateTime.fromString(text, DATE_FORMAT);
+		return DateTime.fromFormat(text, DATE_FORMAT);
 	}
 }
 

@@ -36,7 +36,7 @@ export default class SeriesPlotLayer implements Layer
 		this.shouldDrawArea = context.options.type !== 'line';
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		for (const series of frame.series)
 		{

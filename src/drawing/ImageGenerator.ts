@@ -14,7 +14,7 @@ import BandLayer from './layers/BandLayer';
 
 export default class ImageGenerator
 {
-	public static async generate(context: AnimationContext)
+	public static async generate(context: AnimationContext): Promise<void>
 	{
 		const frameInfoGenerator = new AnimationGenerator(context);
 		const layers: Layer[] = [

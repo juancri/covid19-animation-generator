@@ -1,5 +1,4 @@
 
-// @ts-ignore
 import logger from '../util/Logger';
 
 import { FrameInfo, Animation, ScaleBoundaries, AnimationContext } from '../util/Types';

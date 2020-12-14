@@ -4,7 +4,11 @@ import {
 } from '../util/Types';
 import EasingLoader from '../util/EasingLoader';
 
-interface PositionStep { frames: number, in: boolean | number };
+interface PositionStep
+{
+	frames: number;
+	in: boolean | number;
+}
 const LINE_TYPE = 'line';
 const LINEAR_SCALES = ['linear', 'linear-avg7'];
 const MAIN_STEPS: PositionStep[] = [

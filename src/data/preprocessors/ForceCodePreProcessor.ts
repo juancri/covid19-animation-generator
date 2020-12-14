@@ -13,13 +13,14 @@ interface ForceCodeParams
  */
 export default class ForceCodePreProcessor
 {
-	public static async run(series: TimeSeries[], params: ForceCodeParams): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
-		const found = series.find(serie => serie.name === params.name);
+		const params2 = params as ForceCodeParams;
+		const found = series.find(serie => serie.name === params2.name);
 		if (found)
-			found.forceCode = params.code;
+			found.forceCode = params2.code;
 		else
-			logger.warn(`Series not found: ${params.name}`);
+			logger.warn(`Series not found: ${params2.name}`);
 
 		return series;
 	}

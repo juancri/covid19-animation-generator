@@ -14,8 +14,9 @@ interface SumParams {
  */
 export default class SumPreProcessor
 {
-	public static async run(series: TimeSeries[], params: SumParams): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
+		const subParams = params as SumParams;
 		if (series.length < 2)
 			return series;
 		const dates = Enumerable
@@ -27,7 +28,7 @@ export default class SumPreProcessor
 			.select(secs => DateTime.fromSeconds(secs))
 			.toArray();
 		const sumSeries: TimeSeries = {
-			name: params?.name ?? DEFAULT_NAME,
+			name: subParams?.name ?? DEFAULT_NAME,
 			data: dates
 				.map(date => SumPreProcessor.getDataPoint(series, date))
 		};

@@ -10,7 +10,7 @@ export default class DateLayer implements Layer
 		this.context = context;
 	}
 
-	public async draw (frame: FrameInfo)
+	public async draw (frame: FrameInfo): Promise<void>
 	{
 		this.context.writer.drawText(
 			frame.date.toFormat(this.context.options.dateFormat),
