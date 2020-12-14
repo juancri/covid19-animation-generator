@@ -361,12 +361,12 @@
 				{ "name": "forceCode", "parameters": { "name": "Russia", "code": "Rusia" } },
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
-				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
+				{ "name": "forceCode", "parameters": { "name": "Italy", "code": "Italia" } },
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
-				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
-				{ "name": "forceCode", "parameters": { "name": "Iran", "code": "Irán" } },
-				{ "name": "forceCode", "parameters": { "name": "Argentina", "code": "Argentina" } },
+				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
+				{ "name": "forceCode", "parameters": { "name": "Poland", "code": "Polonia" } },
+				{ "name": "forceCode", "parameters": { "name": "France", "code": "Francia" } },
 				{ "name": "requireForcedCodes" }
 			]
 		},
@@ -2519,6 +2519,36 @@
 					"icon": "ru"
 				},
 				{
+					"name": "France",
+					"code": "Francia",
+					"color": "#FF729D",
+					"icon": "fr"
+				},
+				{
+					"name": "United Kingdom",
+					"code": "Reino Unido",
+					"color": "#FFF972",
+					"icon": "gb"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#5FB9E1",
+					"icon": "it"
+				},
+				{
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#FF72CE",
+					"icon": "tr"
+				},
+				{
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
+				},
+				{
 					"name": "Argentina",
 					"code": "Argentina",
 					"color": "#F06AFF",
@@ -2531,22 +2561,10 @@
 					"icon": "co"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
-				},
-				{
-					"name": "France",
-					"code": "Francias",
-					"color": "#FF729D",
-					"icon": "fr"
-				},
-				{
-					"name": "Peru",
-					"code": "Perú",
-					"color": "#5FB9E1",
-					"icon": "pe"
+					"name": "Germany",
+					"code": "Alemania",
+					"color": "#7AFF72",
+					"icon": "de"
 				},
 				{
 					"name": "Mexico",
@@ -2555,28 +2573,16 @@
 					"icon": "mx"
 				},
 				{
-					"name": "United Kingdom",
-					"code": "Reino Unido",
-					"color": "#FFF972",
-					"icon": "gb"
-				},
-				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
-					"color": "#FF72CE",
-					"icon": "za"
+					"name": "Poland",
+					"code": "Polonia",
+					"color": "#FFDB43",
+					"icon": "pl"
 				},
 				{
 					"name": "Iran",
 					"code": "Irán",
 					"color": "#8672FF",
 					"icon": "ir"
-				},
-				{
-					"name": "Iraq",
-					"code": "Irak",
-					"color": "#7AFF72",
-					"icon": "iq"
 				},
 				{
 					"name": "Ecuador",
@@ -2607,6 +2613,12 @@
 					"code": "Paraguay",
 					"color": "#2EE5FF",
 					"icon": "py"
+				},
+				{
+					"name": "Peru",
+					"code": "Perú",
+					"color": "#FF2E7D",
+					"icon": "pe"
 				},
 				{
 					"name": "Chile",
