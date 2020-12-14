@@ -2,8 +2,8 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { Point, Box, Layout } from '@/util/Types';
-import PromisePipe from '@/util/PromisePipe';
+import { Point, Box, Layout } from '../util/Types';
+import PromisePipe from '../util/PromisePipe';
 
 export default class CanvasWriter
 {

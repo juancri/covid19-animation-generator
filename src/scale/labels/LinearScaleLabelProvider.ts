@@ -2,8 +2,8 @@
 import formatNumber from 'format-number';
 import { DateTime } from 'luxon';
 
-import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '@/util/Types';
-import NumberSuffix from '@/util/NumberSuffix';
+import { ScaleLabelProvider, ScaleLabel, FrameInfo, Options } from '../../util/Types';
+import NumberSuffix from '../../util/NumberSuffix';
 
 const JAN_1 = DateTime.local().startOf('year');
 const FORMATTERS: { [key: string]: (n: number) => string } =
