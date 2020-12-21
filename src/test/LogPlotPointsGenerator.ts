@@ -18,18 +18,6 @@ lab.experiment('LogPlotPointsGenerator', () =>
 		expect(result.length).equals(0);
 	});
 
-	lab.test('two items', async () =>
-	{
-		const source: DataPoint[] = [
-			{ date: DateTime.fromISO('2020-01-01'), value: 10 },
-			{ date: DateTime.fromISO('2020-01-02'), value: 100 }
-		];
-		const result = LogScaleProvider.generate(source, []);
-		expect(result.length).equals(1);
-		expect(result[0].x).equals(Math.log10(100));
-		expect(result[0].y).equals(Math.log10(100 - 10));
-	});
-
 	lab.test('eight items', async () =>
 	{
 		const source: DataPoint[] = [
