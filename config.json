@@ -2531,16 +2531,16 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#5FB9E1",
-					"icon": "it"
-				},
-				{
 					"name": "Turkey",
 					"code": "Turquía",
 					"color": "#FF72CE",
 					"icon": "tr"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#5FB9E1",
+					"icon": "it"
 				},
 				{
 					"name": "Spain",
@@ -2555,16 +2555,16 @@
 					"icon": "ar"
 				},
 				{
-					"name": "Colombia",
-					"code": "Colombia",
-					"color": "#72FFFF",
-					"icon": "co"
-				},
-				{
 					"name": "Germany",
 					"code": "Alemania",
 					"color": "#7AFF72",
 					"icon": "de"
+				},
+				{
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#72FFFF",
+					"icon": "co"
 				},
 				{
 					"name": "Mexico",
