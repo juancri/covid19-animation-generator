@@ -365,7 +365,7 @@
 				{ "name": "forceCode", "parameters": { "name": "India", "code": "India" } },
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
-				{ "name": "forceCode", "parameters": { "name": "Poland", "code": "Polonia" } },
+				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
 				{ "name": "forceCode", "parameters": { "name": "France", "code": "Francia" } },
 				{ "name": "requireForcedCodes" }
 			]
@@ -2549,12 +2549,6 @@
 					"icon": "es"
 				},
 				{
-					"name": "Argentina",
-					"code": "Argentina",
-					"color": "#F06AFF",
-					"icon": "ar"
-				},
-				{
 					"name": "Germany",
 					"code": "Alemania",
 					"color": "#7AFF72",
@@ -2565,6 +2559,12 @@
 					"code": "Colombia",
 					"color": "#72FFFF",
 					"icon": "co"
+				},
+				{
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "#F06AFF",
+					"icon": "ar"
 				},
 				{
 					"name": "Mexico",
