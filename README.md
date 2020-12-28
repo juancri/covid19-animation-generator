@@ -19,7 +19,7 @@ Generates an animation based on COVID-19 daily data.
 ## Requirements
 
 - Node 12.x
-- Gulp: ```npm install -g gulp```
+- GNU make
 
 ## Initialize
 
@@ -27,8 +27,7 @@ Generates an animation based on COVID-19 daily data.
 
 ## Build
 
-- Clean: ```gulp clean```
-- Build: ```gulp build```
+- Run: ```make``` 
 
 ## Running
 

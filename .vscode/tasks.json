@@ -2,13 +2,14 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "gulp",
+			"type": "make",
 			"task": "build",
 			"problemMatcher": [
 				"$tsc"
 			],
 			"group": "build",
-			"label": "gulp: build"
+			"label": "make"
 		}
 	]
 }
+
