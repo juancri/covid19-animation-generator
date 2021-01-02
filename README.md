@@ -27,7 +27,7 @@ Generates an animation based on COVID-19 daily data.
 
 ## Build
 
-- Run: ```make``` 
+- Run: ```make```
 
 ## Running
 
@@ -40,13 +40,7 @@ The data is downloaded automatically
 All parameters are optional.
 
 - ```--help```: Displays a help message and exits.
-- ```--source```: Sets the data source. Default: ```global```. Possible values:
-  - ```global```: Compare countries (including Chile, US and others)
-  - ```southamerica```: Compare main countries in South America
-  - ```us```: Compare states (US)
-  - ```washington```: Compare Washington State counties (US)
-  - ```chile```: Compare regions (Chile)
-  - ```chile-comunas```: Compare communes (Chile)
+- ```--source```: Sets the data source. Default: ```global```. See the contents of `config.json`, section `dataSources`, for possible values.
 - ```--filter```: Filters the series configurations from the datasource using its code. Multiple codes can be included, separated by comma.
 - ```--schema```: Sets the color schema. Default: ```dark```. Possible values:
   - ```dark```: Dark theme
