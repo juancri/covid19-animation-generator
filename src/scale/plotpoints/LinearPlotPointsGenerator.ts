@@ -5,7 +5,7 @@ import { DataPoint, PlotPoint, TimeGap } from '../../util/Types';
 import { DateTime } from 'luxon';
 import { Exception } from 'handlebars';
 
-const JAN_1 = DateTime.local().startOf('year');
+const START_DATE = DateTime.fromISO('2020-01-01');
 
 export default class LinearPlotPointsGenerator
 {
@@ -13,7 +13,7 @@ export default class LinearPlotPointsGenerator
 	{
 		return points.map(point =>
 		{
-			const x = point.date.diff(JAN_1).as('days');
+			const x = point.date.diff(START_DATE).as('days');
 			const y = point.value;
 			return { x, y, date: point.date };
 		});
@@ -28,7 +28,7 @@ export default class LinearPlotPointsGenerator
 				+item.point.date < +g.to))
 			.map(item =>
 			{
-				const x = item.point.date.diff(JAN_1).as('days');
+				const x = item.point.date.diff(START_DATE).as('days');
 				const previousIndex = Math.max(
 					LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index),
 					item.index - 7);
@@ -52,7 +52,7 @@ export default class LinearPlotPointsGenerator
 				+item.point.date <= +g.to))
 			.map(item =>
 			{
-				const x = item.point.date.diff(JAN_1).as('days');
+				const x = item.point.date.diff(START_DATE).as('days');
 				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index, false);
 				const desiredIndex = item.index - 6;
 				const firstIndex = Math.max(minIndex, desiredIndex);
@@ -83,7 +83,7 @@ export default class LinearPlotPointsGenerator
 				+item.point.date <= +g.to))
 			.map(item =>
 			{
-				const x = item.point.date.diff(JAN_1).as('days');
+				const x = item.point.date.diff(START_DATE).as('days');
 				const minIndex = LinearPlotPointsGenerator.getFirstIndex(points, gaps, item.index, false);
 				const desiredIndex = item.index - 6;
 				const firstIndex = Math.max(minIndex, desiredIndex);
