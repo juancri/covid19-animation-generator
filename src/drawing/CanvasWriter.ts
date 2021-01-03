@@ -2,7 +2,7 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { loadImage, createCanvas, Canvas, CanvasRenderingContext2D } from 'canvas';
-import { Point, Box, Layout } from '../util/Types';
+import { Point, Box, Layout, Rotation } from '../util/Types';
 import PromisePipe from '../util/PromisePipe';
 
 export default class CanvasWriter
@@ -109,16 +109,20 @@ export default class CanvasWriter
 	}
 
 	public drawBoxedText(text: string, font: string, color: string,
-		box: Box, rotate: number|null = null, align: CanvasTextAlign = 'center'): void
+		box: Box, rotation: Rotation | null = null, align: CanvasTextAlign = 'center'): void
 	{
-		const centerX = (box.left + box.right) / 2;
-		const centerY = (box.bottom + box.top) / 2;
+		const centerX = rotation ?
+			CanvasWriter.getRotationX(box, rotation) :
+			(box.left + box.right) / 2;
+		const centerY = rotation ?
+			CanvasWriter.getRotationY(box, rotation) :
+			(box.bottom + box.top) / 2;
 		this.useMaskBox(box, () =>
 		{
-			if (rotate)
+			if (rotation)
 			{
 				this.ctx.translate(centerX, centerY);
-				this.ctx.rotate(rotate * Math.PI / 180);
+				this.ctx.rotate(rotation.angle * Math.PI / 180);
 				this.ctx.translate(-centerX, -centerY);
 			}
 			this.ctx.font = font;
@@ -203,5 +207,27 @@ export default class CanvasWriter
 		{
 			this.ctx.globalAlpha = 1;
 		}
+	}
+
+	private static getRotationX(box: Box, rotation: Rotation) {
+		const horizontalRotation = rotation.point.horizontal;
+		if (horizontalRotation === 'center')
+			return (box.left + box.right) / 2;
+		if (horizontalRotation === 'left')
+			return box.left;
+		if (horizontalRotation === 'right')
+			return box.right;
+		throw new Error(`Invalid value for horizontal rotation: ${horizontalRotation}`);
+	}
+
+	private static getRotationY(box: Box, rotation: Rotation) {
+		const verticalRotation = rotation.point.vertical;
+		if (verticalRotation === 'center')
+			return (box.top + box.bottom) / 2;
+		if (verticalRotation === 'top')
+			return box.top;
+		if (verticalRotation === 'bottom')
+			return box.bottom;
+		throw new Error(`Invalid value for vertical rotation: ${verticalRotation}`);
 	}
 }

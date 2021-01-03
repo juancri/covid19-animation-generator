@@ -1,8 +1,17 @@
 
-import { FrameInfo, AnimationContext, Layer, Box, Point } from '../../util/Types';
+import { FrameInfo, AnimationContext, Layer, Box, Point, Rotation } from '../../util/Types';
 
 const LINE_WIDTH = 2;
 const CIRCLE_WIDTH = 4;
+const VERTICAL_ROTATION: Rotation =
+{
+	angle: -90,
+	point:
+	{
+		horizontal: 'center',
+		vertical: 'center'
+	}
+};
 
 export default class ScaleLayer implements Layer
 {
@@ -59,7 +68,7 @@ export default class ScaleLayer implements Layer
 			this.context.options.verticalAxisLabel,
 			this.context.color.axis.font,
 			this.context.color.axis.color,
-			this.boxY, -90);
+			this.boxY, VERTICAL_ROTATION);
 	}
 
 	private drawScaleLabels(frame: FrameInfo, horizontal: boolean)
@@ -74,7 +83,7 @@ export default class ScaleLayer implements Layer
 			frame.scaleBoundaries.vertical;
 		const start = horizontal ? area.left : area.bottom;
 		const reverse = !horizontal;
-		const rotate = horizontal ? 0 : -90;
+		const rotation = horizontal ? null : VERTICAL_ROTATION;
 		const areaSegment = areaWidth / (scale.max - scale.min);
 		for (const label of labels)
 		{
@@ -109,7 +118,7 @@ export default class ScaleLayer implements Layer
 				this.context.color.scale.font,
 				this.context.color.scale.color,
 				box,
-				rotate);
+				rotation);
 		}
 	}
 }

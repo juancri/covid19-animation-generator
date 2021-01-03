@@ -327,3 +327,12 @@ export interface DateFormat
 	getRegularExpression(): RegExp;
 	parse(text: string): DateTime;
 }
+
+export interface Rotation
+{
+	angle: number,
+	point: {
+		horizontal: 'left' | 'center' | 'right',
+		vertical: 'top' | 'center' | 'bottom'
+	}
+}

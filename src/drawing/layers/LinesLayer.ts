@@ -1,7 +1,17 @@
 
-import { FrameInfo, AnimationContext, Layer, Line, Point, Box } from '../../util/Types';
+import { FrameInfo, AnimationContext, Layer, Line, Point, Box, Rotation } from '../../util/Types';
 import CanvasPointsGenerator from '../CanvasPointsGenerator';
 import LineScaledPointsGenerator from '../LineScaledPointsGenerator';
+
+const VERTICAL_ROTATION: Rotation =
+{
+angle: -90,
+	point:
+	{
+		horizontal: 'center',
+		vertical: 'top'
+	}
+};
 
 interface Boundaries {
 	min: number;
@@ -72,7 +82,9 @@ export default class LinesLayer implements Layer
 			bottom: canvasValue
 		};
 		const align = layout.lines.horizontalAlign;
-		this.drawLabel(canvasValue, label, boundaries, box, null, align);
+		this.drawLabel(
+			canvasValue, label, boundaries,
+			box, null, align);
 	}
 
 	private drawLabelVertical(canvasValue: number, label: string)
@@ -88,11 +100,14 @@ export default class LinesLayer implements Layer
 			right: canvasValue + layout.lines.verticalOffset
 		};
 		const align = layout.lines.verticalAlign;
-		this.drawLabel(canvasValue, label, boundaries, box, -90, align);
+		this.drawLabel(
+			canvasValue, label, boundaries,
+			box, VERTICAL_ROTATION, align);
 	}
 
 	private drawLabel(canvasValue: number, label: string,
-		boundaries: Boundaries, box: Box, angle: number | null, align?: string): void
+		boundaries: Boundaries, box: Box, rotation: Rotation | null,
+		align: string | undefined): void
 	{
 		const isVisible =
 			canvasValue <= boundaries.max &&
@@ -107,7 +122,7 @@ export default class LinesLayer implements Layer
 			lineLabel.font,
 			lineLabel.color,
 			box,
-			angle,
+			rotation,
 			alignValue);
 	}
 }
