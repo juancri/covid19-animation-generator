@@ -8,6 +8,7 @@ import RequireForcedCodes from './RequireForcedCodes';
 import JoinPreProcessor from './JoinPreProcessor';
 import ForceGapsPreProcessor from './ForceGapsPreProcessor';
 import DailyChangePreProcessor from './DailyChangePreProcessor';
+import FilterPreProcessor from './FilterPreProcessor';
 import FilterOutPreProcessor from './FilterOutPreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
@@ -20,6 +21,7 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	sortDesc: SortDescPreProcessor.run,
 	requireForcedCodes: RequireForcedCodes.run,
 	join: JoinPreProcessor.run,
+	filter: FilterPreProcessor.run,
 	filterOut: FilterOutPreProcessor.run
 };
 
