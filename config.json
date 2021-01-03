@@ -80,7 +80,7 @@
 				"foreground": "#FFB000"
 			},
 			"lines": {
-				"color": "#FF312A",
+				"color": "#FFB92A",
 				"label": {
 					"font": "25px DejaVu Sans Mono",
 					"color": "white"
@@ -213,8 +213,10 @@
 			},
 			"lines": {
 				"width": 3,
-				"horizontalOffset": -30,
-				"verticalOffset": 30
+				"horizontalOffset": 30,
+				"verticalOffset": 30,
+				"horizontalAlign": "center",
+				"verticalAlign": "start"
 			}
 		}
 	},

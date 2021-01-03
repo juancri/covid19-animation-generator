@@ -115,6 +115,8 @@ export interface Layout {
 		width: number;
 		horizontalOffset: number;
 		verticalOffset: number;
+		horizontalAlign?: string;
+		verticalAlign?: string;
 	}
 }
 

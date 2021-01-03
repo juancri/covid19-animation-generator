@@ -1,7 +1,12 @@
 
-import { FrameInfo, AnimationContext, Layer, Line, Point } from '../../util/Types';
+import { FrameInfo, AnimationContext, Layer, Line, Point, Box } from '../../util/Types';
 import CanvasPointsGenerator from '../CanvasPointsGenerator';
 import LineScaledPointsGenerator from '../LineScaledPointsGenerator';
+
+interface Boundaries {
+	min: number;
+	max: number;
+}
 
 export default class LinesLayer implements Layer
 {
@@ -56,34 +61,53 @@ export default class LinesLayer implements Layer
 
 	private drawLabelHorizontal(canvasValue: number, label: string)
 	{
-		const box = {
-			left: this.context.layout.plotArea.left,
-			right: this.context.layout.plotArea.right,
-			top: canvasValue + this.context.layout.lines.horizontalOffset,
+		const layout = this.context.layout;
+		const boundaries: Boundaries = {
+			min: layout.plotArea.top,
+			max: layout.plotArea.bottom
+		};
+		const box: Box = {
+			...layout.plotArea,
+			top: canvasValue - layout.lines.horizontalOffset,
 			bottom: canvasValue
 		};
-
-		this.context.writer.drawBoxedText(
-			label,
-			this.context.color.lines.label.font,
-			this.context.color.lines.label.color,
-			box);
+		const align = layout.lines.horizontalAlign;
+		this.drawLabel(canvasValue, label, boundaries, box, null, align);
 	}
 
 	private drawLabelVertical(canvasValue: number, label: string)
 	{
-		const box = {
-			left: canvasValue,
-			right: canvasValue + this.context.layout.lines.verticalOffset,
-			top: this.context.layout.plotArea.top,
-			bottom: this.context.layout.plotArea.bottom
+		const layout = this.context.layout;
+		const boundaries: Boundaries = {
+			min: layout.plotArea.left,
+			max: layout.plotArea.right
 		};
+		const box: Box = {
+			...layout.plotArea,
+			left: canvasValue,
+			right: canvasValue + layout.lines.verticalOffset
+		};
+		const align = layout.lines.verticalAlign;
+		this.drawLabel(canvasValue, label, boundaries, box, -90, align);
+	}
 
+	private drawLabel(canvasValue: number, label: string,
+		boundaries: Boundaries, box: Box, angle: number | null, align?: string): void
+	{
+		const isVisible =
+			canvasValue <= boundaries.max &&
+			canvasValue >= boundaries.min;
+		if (!isVisible)
+			return;
+
+		const lineLabel = this.context.color.lines.label;
+		const alignValue = (align || 'center') as CanvasTextAlign;
 		this.context.writer.drawBoxedText(
 			label,
-			this.context.color.lines.label.font,
-			this.context.color.lines.label.color,
+			lineLabel.font,
+			lineLabel.color,
 			box,
-			-90);
+			angle,
+			alignValue);
 	}
 }
