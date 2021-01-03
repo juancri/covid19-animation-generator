@@ -17,7 +17,7 @@ export default class SumPreProcessor
 	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
 		const subParams = params as SumParams;
-		if (series.length < 2)
+		if (series.length < 1)
 			return series;
 		const dates = Enumerable
 			.from(series)
