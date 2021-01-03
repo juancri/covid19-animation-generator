@@ -1,6 +1,6 @@
 
-import logger from '../util/Logger';
 
+import * as ProgressBar from 'progress';
 import { FrameInfo, Animation, ScaleBoundaries, AnimationContext } from '../util/Types';
 import TimeAnimation from './TimeAnimation';
 import FixedFrameAnimation from './FixedFrameAnimation';
@@ -43,13 +43,16 @@ export default class AnimationGenerator
 		const totalFrames = this.animations
 			.map(animation => animation.countFrames())
 			.reduce((a, b) => a + b, 0);
-		logger.info(`total frames: ${totalFrames}`);
+		const bar = new ProgressBar(' generating animation [:bar] :current/:total frames :percent :etas', {
+			complete: '=',
+			incomplete: ' ',
+			width: 40,
+			total: totalFrames
+		});
 		let frameIndex = 1;
 		let lastScale: ScaleBoundaries | null = null;
 		for (const animation of this.animations.filter(a => a.countFrames() > 0))
 		{
-			logger.info(`animation: ${animation.getName()}`);
-			logger.info(`  frames: ${animation.countFrames()}`);
 			let stepFrameIndex = 1;
 			for (const frame of animation.getFrames())
 			{
@@ -64,6 +67,7 @@ export default class AnimationGenerator
 				lastScale = scale;
 				const scaled = ScaledPointsGenerator.generate(filtered, scale, this.context.options.type);
 				const canvas = CanvasPointsGenerator.generate(scaled, this.context.layout.plotArea);
+				bar.tick();
 				yield {
 					date: frame.date,
 					series: canvas,
