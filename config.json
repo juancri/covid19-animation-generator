@@ -215,8 +215,8 @@
 				"width": 3,
 				"horizontalOffset": 30,
 				"verticalOffset": 30,
-				"horizontalAlign": "center",
-				"verticalAlign": "start"
+				"horizontalAlign": "right",
+				"verticalAlign": "right"
 			}
 		}
 	},
