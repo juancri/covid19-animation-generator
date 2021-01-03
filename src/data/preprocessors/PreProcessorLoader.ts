@@ -10,6 +10,7 @@ import ForceGapsPreProcessor from './ForceGapsPreProcessor';
 import DailyChangePreProcessor from './DailyChangePreProcessor';
 import FilterPreProcessor from './FilterPreProcessor';
 import FilterOutPreProcessor from './FilterOutPreProcessor';
+import RenamePreProcessor from './RenamePreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -22,7 +23,8 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	requireForcedCodes: RequireForcedCodes.run,
 	join: JoinPreProcessor.run,
 	filter: FilterPreProcessor.run,
-	filterOut: FilterOutPreProcessor.run
+	filterOut: FilterOutPreProcessor.run,
+	rename: RenamePreProcessor.run
 };
 
 export default class PreProcessorLoader
