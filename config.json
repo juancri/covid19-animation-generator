@@ -1057,9 +1057,10 @@
 			]
 		},
 		"chile-icu": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/pacientes_en_uci.csv",
-			"nameColumn": "region",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto8/UCI.csv",
+			"nameColumn": "Region",
 			"preProcessor": "sum",
+			"inputDateFormat": "ISO",
 			"series":
 			[
 				{
