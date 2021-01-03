@@ -2643,8 +2643,14 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filterOut", "parameters": ["Total"] },
-				{ "name": "sum" },
+				{ "name": "filter", "parameters": ["Total"] },
+				{
+					"name": "rename",
+					"parameters": {
+						"from": "Total",
+						"to": "sum"
+					}
+				},
 				{ "name": "dailyChange" },
 				{
 					"name": "join",
