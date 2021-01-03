@@ -2682,8 +2682,29 @@
 				}
 			]
 		},
+		"chile-tests-rate-regions":
+		{
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Region",
+			"preProcessors": [
+				{ "name": "filterOut", "parameters": ["Total"] },
+				{ "name": "dailyChange" },
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR.csv",
+							"inputDateFormat": "ISO",
+							"nameColumn": "Region"
+						},
+						"kind": "rate"
+					}
+				}
+			]
+		},
 		"chile-tests-stacked": {
-			"url": "https://docs.google.com/spreadsheets/u/0/d/1cGOwcOLenCQkAvvpyeHnKzIBpA3qGnQyxtKS_4XPhd0/export?format=csv&id=1cGOwcOLenCQkAvvpyeHnKzIBpA3qGnQyxtKS_4XPhd0&gid=575559568",
+			"url": "",
 			"nameColumn": "col",
 			"series":
 			[

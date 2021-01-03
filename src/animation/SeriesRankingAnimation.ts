@@ -10,7 +10,7 @@ interface PositionStep
 	in: boolean | number;
 }
 const LINE_TYPE = 'line';
-const LINEAR_SCALES = ['linear', 'linear-avg7'];
+const LINEAR_SCALES = ['linear', 'linear-avg7', 'linear-avg7-change'];
 const MAIN_STEPS: PositionStep[] = [
 	{ frames: 120, in: true },
 	{ frames: 240, in: 1 },
