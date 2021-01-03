@@ -2637,20 +2637,22 @@
 		},
 		"chile-tests-rate":
 		{
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
-			"nameColumn": "region",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Region",
 			"preProcessors": [
+				{ "name": "filterOut", "parameters": ["Total"] },
 				{ "name": "sum" },
 				{ "name": "dailyChange" },
 				{
 					"name": "join",
 					"parameters": {
 						"dataSource": {
-							"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/notificaciones.csv",
-							"nameColumn": "Institucion",
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR.csv",
+							"inputDateFormat": "ISO",
+							"nameColumn": "Region",
 							"preProcessors": [
-								{ "name": "sum" },
-								{ "name": "dailyChange" }
+								{ "name": "sum" }
 							]
 						},
 						"kind": "rate"
@@ -2664,42 +2666,6 @@
 					"code": "Chile",
 					"color": "#FF0066",
 					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-17"
-						}
-					]
-				}
-			]
-		},
-		"chile-tests-rate-metropolitana":
-		{
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados.csv",
-			"nameColumn": "region",
-			"preProcessors": [
-				{ "name": "dailyChange" },
-				{
-					"name": "join",
-					"parameters": {
-						"dataSource": {
-							"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/pcrs_region.csv",
-							"nameColumn": "region"
-						},
-						"kind": "rate"
-					}
-				}
-			],
-			"series":
-			[
-				{
-					"name": "Metropolitana",
-					"code": "Metropolitana",
-					"color": "#2EFFBC",
-					"gaps": [
-						{
-							"from": "2020-06-01",
-							"to": "2020-06-10"
-						},
 						{
 							"from": "2020-06-16",
 							"to": "2020-06-17"
