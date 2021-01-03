@@ -1,5 +1,4 @@
 
-
 import * as ProgressBar from 'progress';
 import { FrameInfo, Animation, ScaleBoundaries, AnimationContext } from '../util/Types';
 import TimeAnimation from './TimeAnimation';
@@ -13,6 +12,13 @@ import EmptyAnimation from './EmptyAnimation';
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import PostAnimation from './PostAnimation';
 import SeriesRankingAnimation from './SeriesRankingAnimation';
+
+const PROGRESS_BAR_FORMAT = ' generating animation [:bar] :current/:total frames :percent :etas';
+const PROGRESS_BAR_OPTIONS = {
+	complete: '=',
+	incomplete: ' ',
+	width: 40
+};
 
 export default class AnimationGenerator
 {
@@ -40,15 +46,12 @@ export default class AnimationGenerator
 
 	public *generate(): Generator<FrameInfo>
 	{
-		const totalFrames = this.animations
+		const total = this.animations
 			.map(animation => animation.countFrames())
 			.reduce((a, b) => a + b, 0);
-		const bar = new ProgressBar(' generating animation [:bar] :current/:total frames :percent :etas', {
-			complete: '=',
-			incomplete: ' ',
-			width: 40,
-			total: totalFrames
-		});
+		const bar = new ProgressBar(
+			PROGRESS_BAR_FORMAT,
+			{ ...PROGRESS_BAR_OPTIONS, total });
 		let frameIndex = 1;
 		let lastScale: ScaleBoundaries | null = null;
 		for (const animation of this.animations.filter(a => a.countFrames() > 0))
@@ -72,7 +75,7 @@ export default class AnimationGenerator
 					date: frame.date,
 					series: canvas,
 					currentFrame: frameIndex,
-					totalFrames,
+					totalFrames: total,
 					name: frame.name,
 					stage: frame.stage ?? 'main',
 					scaleBoundaries: scale,
