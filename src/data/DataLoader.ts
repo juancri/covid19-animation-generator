@@ -57,6 +57,7 @@ export default class DataLoader
 					}))
 					.orderBy(x => x.date)
 					.toArray(),
+				forceGaps: dataSource.gaps,
 				// Milestones should be loaded later
 				milestones: null
 			}))

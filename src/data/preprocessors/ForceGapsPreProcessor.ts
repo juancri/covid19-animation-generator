@@ -1,10 +1,10 @@
-import { TimeSeries, SeriesGapConfiguration } from '../../util/Types';
+import { TimeSeries, GapConfiguration } from '../../util/Types';
 import logger from '../../util/Logger';
 
 interface ForceGapsParams
 {
 	name: string;
-	gaps: SeriesGapConfiguration[];
+	gaps: GapConfiguration[];
 }
 
 /**

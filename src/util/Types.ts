@@ -19,7 +19,7 @@ export interface TimeSeries {
 	data: DataPoint[];
 	forceColor?: string;
 	forceCode?: string;
-	forceGaps?: SeriesGapConfiguration[];
+	forceGaps?: GapConfiguration[];
 }
 
 export type CsvDataProcessor = (data: unknown[]) => unknown[];
@@ -27,7 +27,7 @@ export type PreProcessor = (series: TimeSeries[], params: unknown) => Promise<Ti
 
 // Config
 
-export interface SeriesGapConfiguration {
+export interface GapConfiguration {
 	from: string;
 	to: string;
 }
@@ -43,7 +43,7 @@ export interface SeriesConfiguration {
 	color: string;
 	icon?: string;
 	areaColor?: string;
-	gaps?: SeriesGapConfiguration[];
+	gaps?: GapConfiguration[];
 	milestones?: MilestoneConfiguration[];
 	band?: {
 		color: string;
@@ -139,6 +139,7 @@ export interface DataSource {
 	preProcessors?: PreProcessorConfig[];
 	series?: SeriesConfiguration[];
 	inputDateFormat?: string;
+	gaps?: GapConfiguration[];
 }
 
 export interface Options
