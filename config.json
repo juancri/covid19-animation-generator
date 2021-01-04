@@ -2838,6 +2838,47 @@
 				}
 			]
 		},
+		"chile-symptoms": {
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto27/CasosNuevosSinSintomas.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Region",
+			"preProcessors": [
+				{ "name": "filter", "parameters": ["Total"] },
+				{ "name": "rename", "parameters": { "from": "Total", "to": "asintomaticos" } },
+				{ "name": "avg7" },
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto26/CasosNuevosConSintomas.csv",
+							"inputDateFormat": "ISO",
+							"nameColumn": "Region",
+							"preProcessors": [
+								{ "name": "filter", "parameters": ["Total"] },
+								{ "name": "rename", "parameters": { "from": "Total", "to": "sintomaticos" } },
+								{ "name": "avg7" }
+							]
+						},
+						"kind": "merge"
+					}
+				}
+			],
+			"series":
+			[
+				{
+					"name": "sintomaticos",
+					"code": "sintomáticos",
+					"color": "#9B0A00",
+					"areaColor": "#FF1100"
+				},
+				{
+					"name": "asintomaticos",
+					"code": "asintomáticos",
+					"color": "#946900",
+					"areaColor": "#FFB500"
+				}
+			]
+		},
 		"chile-upc": {
 			"url": "https://docs.google.com/spreadsheets/d/1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA/export?format=csv&id=1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA&gid=2015870452",
 			"nameColumn": "series",
