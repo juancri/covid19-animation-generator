@@ -2704,43 +2704,40 @@
 			]
 		},
 		"chile-tests-stacked": {
-			"url": "",
-			"nameColumn": "col",
-			"series":
-			[
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Region",
+			"preProcessors": [
+				{ "name": "filterOut", "parameters": ["Total"] },
+				{ "name": "sum", "parameters": { "name": "positivos" } },
+				{ "name": "dailyChange" },
 				{
-					"name": "confirmed",
-					"code": "Positivos",
-					"color": "#007973",
-					"areaColor": "#27FFF5",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR.csv",
+							"inputDateFormat": "ISO",
+							"nameColumn": "Region",
+							"preProcessors": [
+								{ "name": "sum", "parameters": { "name": "total" } }
+							]
+						},
+						"kind": "merge"
+					}
 				},
 				{
-					"name": "negative",
-					"code": "Negativos",
-					"color": "#E43600",
-					"areaColor": "#FF5C27",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": ["total", "positivos"],
+						"name": "negativos"
+					}
 				}
-			]
-		},
-		"chile-antofagasta-tests-stacked": {
-			"url": "https://docs.google.com/spreadsheets/d/1YqbVDVL0THoFC390xOLbuweBf21hziHCs9zP14MVJNU/export?format=csv&gid=1199335644",
-			"nameColumn": "col",
+			],
 			"series":
 			[
 				{
-					"name": "confirmed",
+					"name": "positivos",
 					"code": "Positivos",
 					"color": "#007973",
 					"areaColor": "#27FFF5",
@@ -2752,7 +2749,7 @@
 					]
 				},
 				{
-					"name": "negative",
+					"name": "negativos",
 					"code": "Negativos",
 					"color": "#E43600",
 					"areaColor": "#FF5C27",
