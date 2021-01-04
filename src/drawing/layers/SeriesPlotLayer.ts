@@ -130,7 +130,8 @@ export default class SeriesPlotLayer implements Layer
 			const firstBasePoint: Point = { x: firstPoint.x, y: bottom };
 			const lastBasePoint: Point = { x: lastPoint.x, y: bottom };
 			const polygonPoints = [firstBasePoint, ...points, lastBasePoint];
-			this.context.writer.drawPolygon(areaColor, polygonPoints);
+			const plotArea = this.context.layout.plotArea;
+			this.context.writer.drawPolygon(areaColor, polygonPoints, plotArea);
 		}
 
 		this.context.writer.drawPolyline(
