@@ -39,7 +39,7 @@ export default class DataLoader
 				.filter(match => match)
 				.map(match => ({
 					date: dateFormat.parse(match?.[0] || ''),
-					value: parseInt(item[match?.[0] || 0], 0)
+					value: parseFloat(item[match?.[0] || 0] || '0')
 				}))
 		}));
 
