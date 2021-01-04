@@ -13,6 +13,7 @@ import FilterOutPreProcessor from './FilterOutPreProcessor';
 import RenamePreProcessor from './RenamePreProcessor';
 import FormulaPreProcessor from './FormulaPreProcessor';
 import OVerridePreProcessor from './OverridePreProcessor';
+import Avg7PreProcessor from './Avg7PreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -28,7 +29,8 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	filterOut: FilterOutPreProcessor.run,
 	rename: RenamePreProcessor.run,
 	formula: FormulaPreProcessor.run,
-	override: OVerridePreProcessor.run
+	override: OVerridePreProcessor.run,
+	avg7: Avg7PreProcessor.run
 };
 
 export default class PreProcessorLoader
