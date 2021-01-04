@@ -1072,6 +1072,11 @@
 				}
 			]
 		},
+		"chile-icu-age": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto9/HospitalizadosUCIEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO"
+		},
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
 			"nameColumn": "comuna",
