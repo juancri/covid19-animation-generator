@@ -2497,6 +2497,21 @@
 				}
 			]
 		},
+		"chile-deaths-age": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"gaps": [
+				{
+					"from": "2020-06-06",
+					"to": "2020-06-07"
+				},
+				{
+					"from": "2020-07-16",
+					"to": "2020-07-17"
+				}
+			]
+		},
 		"population-rate": {
 			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1524414812",
 			"nameColumn": "country",
