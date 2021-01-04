@@ -1077,6 +1077,19 @@
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO"
 		},
+		"chile-ventilators": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto20/NumeroVentiladores.csv",
+			"nameColumn": "Ventiladores",
+			"inputDateFormat": "ISO",
+			"preProcessor": {
+				"name": "override",
+				"parameters": {
+					"series": "disponibles",
+					"date": "2020-09-30",
+					"value": 496
+				}
+			}
+		},
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
 			"nameColumn": "comuna",
