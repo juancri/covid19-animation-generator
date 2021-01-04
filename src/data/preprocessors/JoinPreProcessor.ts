@@ -1,11 +1,13 @@
 
 import { TimeSeries, DataSource } from '../../util/Types';
 import DataLoader from '../DataLoader';
+import MergeJoiner from './joiners/MergeJoiner';
 import RateJoiner from './joiners/RateJoiner';
 
 type Joiner = (series1: TimeSeries[], series2: TimeSeries[]) => TimeSeries[];
 
 const JOINERS: { [key: string]: Joiner } = {
+	merge: MergeJoiner.join,
 	rate: RateJoiner.join
 };
 
