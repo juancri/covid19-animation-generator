@@ -2938,9 +2938,10 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2020-12-27/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-05/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
+			"preProcessor": "fillZero",
 			"series":
 			[
 				{
