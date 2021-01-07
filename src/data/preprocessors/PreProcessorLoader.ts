@@ -16,6 +16,7 @@ import OVerridePreProcessor from './OverridePreProcessor';
 import Avg7PreProcessor from './Avg7PreProcessor';
 import FillZeroPreProcessor from './FillZeroPreProcessor';
 import RunningTotalPreProcessor from './RunningTotalPreProcessor';
+import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
 
 const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -34,6 +35,7 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	override: OVerridePreProcessor.run,
 	avg7: Avg7PreProcessor.run,
 	fillZero: FillZeroPreProcessor.run,
+	fillInterpolation: FillInterpolationPreProcessor.run,
 	runningTotal: RunningTotalPreProcessor.run
 };
 
