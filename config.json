@@ -1134,8 +1134,10 @@
 			]
 		},
 		"chile-comunas": {
-			"url": "https://raw.githubusercontent.com/jorgeperezrojas/covid19-data/master/csv/confirmados_comunas_interpolado.csv",
-			"nameColumn": "comuna",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto1/Covid-19.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Comuna",
+			"preProcessors": [ "fillInterpolation", "dailyChange", "avg7" ],
 			"series":
 			[
 				{
@@ -2141,6 +2143,11 @@
 							"to": "2020-06-18"
 						}
 					]
+				},
+				{
+					"name": "Zapallar",
+					"code": "Zapallar",
+					"color": "#FF9F00"
 				}
 			]
 		},
