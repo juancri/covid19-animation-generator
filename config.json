@@ -2938,10 +2938,30 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-05/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-06/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
-			"preProcessor": "fillZero",
+			"preProcessors": [
+				{ "name": "fillZero", "parameters": { "from": "2020-12-22" } }
+			],
+			"series":
+			[
+				{
+					"name": "Chile",
+					"code": "Chile",
+					"color": "#F63E3E"
+				}
+			]
+		},
+		"chile-vaccination-total": {
+			"name": "Chile - Vaccination",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-06/output.csv",
+			"nameColumn": "country",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{ "name": "fillZero", "parameters": { "from": "2020-12-22" } },
+				{ "name": "runningTotal" }
+			],
 			"series":
 			[
 				{
