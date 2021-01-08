@@ -23,9 +23,8 @@ export default class SumPreProcessor
 			.from(series)
 			.selectMany(serie => serie.data)
 			.where(point => !!point)
-			.select(point => point.date.toSeconds())
-			.distinct()
-			.select(secs => DateTime.fromSeconds(secs))
+			.select(point => point.date)
+			.distinct(date => +date)
 			.toArray();
 		const sumSeries: TimeSeries = {
 			name: subParams?.name ?? DEFAULT_NAME,

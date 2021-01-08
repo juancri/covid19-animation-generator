@@ -3,6 +3,7 @@ import { DateFormat } from '../../util/Types';
 
 const DATE_FORMAT = 'L/d/yy';
 const DATE_REGEXP = /^\d+\/\d+\/\d+$/;
+const OPTS = { zone: 'UTC' };
 
 class MonthDayYearDateFormat implements DateFormat
 {
@@ -13,7 +14,7 @@ class MonthDayYearDateFormat implements DateFormat
 
 	public parse(text: string): DateTime
 	{
-		return DateTime.fromString(text, DATE_FORMAT);
+		return DateTime.fromFormat(text, DATE_FORMAT, OPTS);
 	}
 }
 

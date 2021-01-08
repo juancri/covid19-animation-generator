@@ -5,7 +5,7 @@ import { DataPoint, PlotPoint, TimeGap } from '../../util/Types';
 import { DateTime } from 'luxon';
 import { Exception } from 'handlebars';
 
-const START_DATE = DateTime.fromISO('2020-01-01');
+const START_DATE = DateTime.fromISO('2020-01-01', { zone: 'UTC' });
 
 export default class LinearPlotPointsGenerator
 {

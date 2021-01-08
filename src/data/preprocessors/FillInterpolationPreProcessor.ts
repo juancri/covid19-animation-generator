@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 import { DataPoint, TimeSeries } from '../../util/Types';
 
 const DAYS_1 = { days: 1 };
-const START_DATE = DateTime.fromISO('2020-01-01');
+const START_DATE = DateTime.fromISO('2020-01-01', { zone: 'UTC' });
 
 export default class FillInterpolationPreProcessor
 {

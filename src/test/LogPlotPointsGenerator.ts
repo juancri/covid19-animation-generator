@@ -20,15 +20,16 @@ lab.experiment('LogPlotPointsGenerator', () =>
 
 	lab.test('eight items', async () =>
 	{
+		const opts = { zone: 'UTC' };
 		const source: DataPoint[] = [
-			{ date: DateTime.fromISO('2020-01-01'), value: 1 },
-			{ date: DateTime.fromISO('2020-01-02'), value: 2 },
-			{ date: DateTime.fromISO('2020-01-03'), value: 3 },
-			{ date: DateTime.fromISO('2020-01-04'), value: 4 },
-			{ date: DateTime.fromISO('2020-01-05'), value: 5 },
-			{ date: DateTime.fromISO('2020-01-06'), value: 6 },
-			{ date: DateTime.fromISO('2020-01-07'), value: 7 },
-			{ date: DateTime.fromISO('2020-01-08'), value: 8 }
+			{ date: DateTime.fromISO('2020-01-01', opts), value: 1 },
+			{ date: DateTime.fromISO('2020-01-02', opts), value: 2 },
+			{ date: DateTime.fromISO('2020-01-03', opts), value: 3 },
+			{ date: DateTime.fromISO('2020-01-04', opts), value: 4 },
+			{ date: DateTime.fromISO('2020-01-05', opts), value: 5 },
+			{ date: DateTime.fromISO('2020-01-06', opts), value: 6 },
+			{ date: DateTime.fromISO('2020-01-07', opts), value: 7 },
+			{ date: DateTime.fromISO('2020-01-08', opts), value: 8 }
 		];
 		const result = LogScaleProvider.generate(source, []);
 		expect(result.length).equals(7);
@@ -37,17 +38,18 @@ lab.experiment('LogPlotPointsGenerator', () =>
 
 	lab.test('ten items', async () =>
 	{
+		const opts = { zone: 'UTC' };
 		const source: DataPoint[] = [
-			{ date: DateTime.fromISO('2020-01-01'), value: 1 },
-			{ date: DateTime.fromISO('2020-01-02'), value: 2 },
-			{ date: DateTime.fromISO('2020-01-03'), value: 3 },
-			{ date: DateTime.fromISO('2020-01-04'), value: 4 },
-			{ date: DateTime.fromISO('2020-01-05'), value: 5 },
-			{ date: DateTime.fromISO('2020-01-06'), value: 6 },
-			{ date: DateTime.fromISO('2020-01-07'), value: 7 },
-			{ date: DateTime.fromISO('2020-01-08'), value: 10 },
-			{ date: DateTime.fromISO('2020-01-09'), value: 20 },
-			{ date: DateTime.fromISO('2020-01-10'), value: 30 }
+			{ date: DateTime.fromISO('2020-01-01', opts), value: 1 },
+			{ date: DateTime.fromISO('2020-01-02', opts), value: 2 },
+			{ date: DateTime.fromISO('2020-01-03', opts), value: 3 },
+			{ date: DateTime.fromISO('2020-01-04', opts), value: 4 },
+			{ date: DateTime.fromISO('2020-01-05', opts), value: 5 },
+			{ date: DateTime.fromISO('2020-01-06', opts), value: 6 },
+			{ date: DateTime.fromISO('2020-01-07', opts), value: 7 },
+			{ date: DateTime.fromISO('2020-01-08', opts), value: 10 },
+			{ date: DateTime.fromISO('2020-01-09', opts), value: 20 },
+			{ date: DateTime.fromISO('2020-01-10', opts), value: 30 }
 		];
 		const result = LogScaleProvider.generate(source, []);
 		expect(result.length).equals(9);

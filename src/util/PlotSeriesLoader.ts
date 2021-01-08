@@ -8,6 +8,8 @@ import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
 import logger from '../util/Logger';
 
+const OPTS = { zone: 'UTC' };
+
 export default class PlotSeriesLoader
 {
 	public static async load(
@@ -51,12 +53,12 @@ export default class PlotSeriesLoader
 			const gapsConfig = found.forceGaps ?? seriesConf.gaps;
 			const gaps = gapsConfig ?
 				gapsConfig.map(gap => ({
-					from: DateTime.fromISO(gap.from),
-					to: DateTime.fromISO(gap.to)
+					from: DateTime.fromISO(gap.from, OPTS),
+					to: DateTime.fromISO(gap.to, OPTS)
 				})) : [];
 			const milestones = seriesConf.milestones ?
 				seriesConf.milestones.map(milestone => ({
-					date: DateTime.fromISO(milestone.date),
+					date: DateTime.fromISO(milestone.date, OPTS),
 					color: milestone.color
 				})) : [];
 			const points = PlotPointsGenerator.generate(

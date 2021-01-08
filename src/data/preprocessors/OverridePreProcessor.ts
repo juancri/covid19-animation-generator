@@ -9,6 +9,8 @@ interface OverrideParameters
 	value: number;
 }
 
+const OPTS = { zone: 'UTC' };
+
 export default class OVerridePreProcessor
 {
 	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
@@ -17,7 +19,7 @@ export default class OVerridePreProcessor
 		const serie = series.find(s => s.name === overrideParams.series);
 		if (!serie)
 			throw new Error(`Series not found: ${overrideParams.series}`);
-		const date = DateTime.fromISO(overrideParams.date);
+		const date = DateTime.fromISO(overrideParams.date, OPTS);
 		const point = serie.data.find(p => +p.date === +date);
 		if (point)
 			point.value = overrideParams.value;
