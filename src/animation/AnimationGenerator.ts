@@ -8,7 +8,6 @@ import ScaledPointsGenerator from '../drawing/ScaledPointsGenerator';
 import CanvasPointsGenerator from '../drawing/CanvasPointsGenerator';
 import ZoomAnimation from './ZoomAnimation';
 import CoverFrameAnimation from './CoverFrameAnimation';
-import EmptyAnimation from './EmptyAnimation';
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import PostAnimation from './PostAnimation';
 import SeriesRankingAnimation from './SeriesRankingAnimation';
@@ -28,20 +27,20 @@ export default class AnimationGenerator
 	public constructor(context: AnimationContext)
 	{
 		this.context = context;
-		this.animations = [
-			new TimeAnimation(context),
-			context.options.showRank ?
-				new SeriesRankingAnimation(context) :
-				new EmptyAnimation(),
-			context.options.skipZoom ?
-				new EmptyAnimation() :
-				new ZoomAnimation(context),
-			new FixedFrameAnimation(context),
-			context.options.postAnimationDirectory ?
-				new PostAnimation(context) :
-				new EmptyAnimation(),
-			new CoverFrameAnimation(context)
-		];
+		this.animations = Array.from(this.getAnimations());
+	}
+
+	private *getAnimations(): Generator<Animation>
+	{
+		yield new TimeAnimation(this.context);
+		if (this.context.options.showRank)
+			yield new SeriesRankingAnimation(this.context);
+		if (!this.context.options.skipZoom)
+			yield new ZoomAnimation(this.context);
+		yield new FixedFrameAnimation(this.context);
+		if (this.context.options.postAnimationDirectory)
+			yield new PostAnimation(this.context);
+		yield new CoverFrameAnimation(this.context);
 	}
 
 	public *generate(): Generator<FrameInfo>
