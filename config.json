@@ -2945,12 +2945,17 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-06/output.csv",
+			"url": "http://127.0.0.1:8080/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
-			"preProcessors": [
-				{ "name": "fillZero", "parameters": { "from": "2020-12-22" } }
-			],
+			"preProcessor": {
+				"name": "fillZero",
+				"parameters":
+				{
+					"from": "2020-12-22",
+					"to": "2021-01-08"
+				}
+			},
 			"series":
 			[
 				{
@@ -2962,11 +2967,18 @@
 		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-06/output.csv",
+			"url": "http://127.0.0.1:8080/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
-				{ "name": "fillZero", "parameters": { "from": "2020-12-22" } },
+				{
+					"name": "fillZero",
+					"parameters":
+					{
+						"from": "2020-12-22",
+						"to": "2021-01-08"
+					 }
+				},
 				{ "name": "runningTotal" }
 			],
 			"series":
@@ -3022,6 +3034,7 @@
 		"seriesIconLabelOffsetY": 0,
 		"horizontalMargin": 0.2,
 		"verticalMargin": 0.2,
-		"outputDirectory": "output"
+		"outputDirectory": "output",
+		"sample": false
 	}
 }

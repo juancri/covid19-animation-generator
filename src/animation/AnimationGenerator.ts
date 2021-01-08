@@ -22,30 +22,16 @@ const PROGRESS_BAR_OPTIONS = {
 export default class AnimationGenerator
 {
 	private context: AnimationContext;
-	private animations: Animation[];
 
 	public constructor(context: AnimationContext)
 	{
 		this.context = context;
-		this.animations = Array.from(this.getAnimations());
-	}
-
-	private *getAnimations(): Generator<Animation>
-	{
-		yield new TimeAnimation(this.context);
-		if (this.context.options.showRank)
-			yield new SeriesRankingAnimation(this.context);
-		if (!this.context.options.skipZoom)
-			yield new ZoomAnimation(this.context);
-		yield new FixedFrameAnimation(this.context);
-		if (this.context.options.postAnimationDirectory)
-			yield new PostAnimation(this.context);
-		yield new CoverFrameAnimation(this.context);
 	}
 
 	public *generate(): Generator<FrameInfo>
 	{
-		const total = this.animations
+		const animations = Array.from(this.getAnimations());
+		const total = animations
 			.map(animation => animation.countFrames())
 			.reduce((a, b) => a + b, 0);
 		const bar = new ProgressBar(
@@ -53,7 +39,7 @@ export default class AnimationGenerator
 			{ ...PROGRESS_BAR_OPTIONS, total });
 		let frameIndex = 1;
 		let lastScale: ScaleBoundaries | null = null;
-		for (const animation of this.animations.filter(a => a.countFrames() > 0))
+		for (const animation of animations.filter(a => a.countFrames() > 0))
 		{
 			let stepFrameIndex = 1;
 			for (const frame of animation.getFrames())
@@ -85,5 +71,18 @@ export default class AnimationGenerator
 				stepFrameIndex++;
 			}
 		}
+	}
+
+	private *getAnimations(): Generator<Animation>
+	{
+		yield new TimeAnimation(this.context);
+		if (this.context.options.showRank)
+			yield new SeriesRankingAnimation(this.context);
+		if (!this.context.options.skipZoom)
+			yield new ZoomAnimation(this.context);
+		yield new FixedFrameAnimation(this.context);
+		if (this.context.options.postAnimationDirectory)
+			yield new PostAnimation(this.context);
+		yield new CoverFrameAnimation(this.context);
 	}
 }
