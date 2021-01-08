@@ -1,6 +1,7 @@
 
 import * as minimist from 'minimist';
 import { Options } from '../util/Types';
+import logger from '../util/Logger';
 
 const PARAMETERS: { [key: string]: string } = {
 	help: 'This help message',
@@ -33,7 +34,8 @@ const PARAMETERS: { [key: string]: string } = {
 	horizontalLines: 'Horizontal lines with format numericvalue:label (multiple lines separated by comma)',
 	verticalLines: 'Vertical lines with format numericvalue:label (multiple lines separated by comma)',
 	configOverride: 'JSON to override specific configuration file sections',
-	type: 'Chart type'
+	type: 'Chart type',
+	sample: 'Overrides frame configuration to output only one frame as a sample'
 };
 
 export default class ParametersLoader
@@ -53,6 +55,20 @@ export default class ParametersLoader
 
 	public static load(defaultValues: Options): Options
 	{
-		return minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
+		const options = minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
+		ParametersLoader.postProcessOptions(options);
+		return options;
+	}
+
+	private static postProcessOptions(options: Options): void
+	{
+		if (options.sample)
+		{
+			logger.info('Sample is used. Overriding frame configuration.');
+			options.frames = 1;
+			options.days = 1;
+			options.extraFrames = 0;
+			options.postAnimationDirectory = null;
+		}
 	}
 }

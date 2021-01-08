@@ -82,6 +82,7 @@ All parameters are optional.
   - ```line```: Line chart
   - ```stacked-area```: Stacked area
 - ```--outputDirectory```: Output directory. If the value starts with ```/```, it will be read as an absolute path. Otherwise, it will be relative to the project root. Default value: ```output```.
+- ```--sample```: Overrides frame configuration to output only one frame as a sample.
 
 #### Examples
 

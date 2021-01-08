@@ -173,7 +173,7 @@ export interface Options
 	verticalJump: number;
 	singleDynamicScale: boolean;
 	configOverride: string;
-	postAnimationDirectory: string;
+	postAnimationDirectory: string | null;
 	horizontalLines: string | null;
 	verticalLines: string | null;
 	type: string;
@@ -187,6 +187,7 @@ export interface Options
 	horizontalMargin: number;
 	verticalMargin: number;
 	outputDirectory: string;
+	sample: boolean;
 }
 
 export interface Configuration {
