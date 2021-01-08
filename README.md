@@ -63,6 +63,7 @@ All parameters are optional.
 - ```--scale```: Scale. Default: log. Possible values:
   - ```log```: Logaritmic (log10)
   - ```linear```: Linear scale
+  - ```linear-center```: Linear scale for stacked area center
   - ```linear-avg7```: Liner scale with 7 days change average
 - ```--scaleDateFormat```: Date format for the scale labels. Applies only for linear scale. Default: ```MM/dd```.
 - ```--scaleNumberFormat```: Number format for the scale labels. Applies only for linear scale. Default: ```suffix```. Possible values:
