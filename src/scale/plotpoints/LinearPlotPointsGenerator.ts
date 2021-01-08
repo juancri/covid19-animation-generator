@@ -19,6 +19,17 @@ export default class LinearPlotPointsGenerator
 		});
 	}
 
+	public static generateCenter(points: DataPoint[], gaps: TimeGap[], seriesIndex: number): PlotPoint[]
+	{
+		const factor = seriesIndex === 0 ? 1 : -1;
+		return points.map(point =>
+		{
+			const x = point.date.diff(START_DATE).as('days');
+			const y = point.value * factor;
+			return { x, y, date: point.date };
+		});
+	}
+
 	public static generateAvg7(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
 		return points
