@@ -10,6 +10,7 @@ interface FillZeroParameters
 }
 
 const DAYS_1 = { days: 1 };
+const OPTS = { zone: 'UTC' };
 
 export default class FillZeroPreProcessor
 {
@@ -39,7 +40,7 @@ export default class FillZeroPreProcessor
 	private static getDate(dates: Enumerable.IEnumerable<DateTime>, dateValue: string | undefined): DateTime
 	{
 		if (dateValue)
-			return DateTime.fromISO(dateValue);
+			return DateTime.fromISO(dateValue, OPTS);
 		return dates.first();
 	}
 
