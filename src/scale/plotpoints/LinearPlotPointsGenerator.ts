@@ -24,9 +24,13 @@ export default class LinearPlotPointsGenerator
 		const factor = seriesIndex === 0 ? 1 : -1;
 		return points.map(point =>
 		{
+			const date = point.date;
 			const x = point.date.diff(START_DATE).as('days');
 			const y = point.value * factor;
-			return { x, y, date: point.date };
+			const parent: PlotPoint = {
+				date, x, y: point.value
+			};
+			return { parent, date, x, y };
 		});
 	}
 
