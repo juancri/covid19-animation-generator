@@ -2,6 +2,7 @@
 // Dependencies
 import * as path from 'path';
 import * as Enumerable from 'linq';
+import { DateTime } from 'luxon';
 
 // Local
 import ConfigLoader from '../configuration/ConfigLoader';
@@ -12,9 +13,7 @@ import ColorSchemaLoader from './ColorSchemaLoader';
 import LayoutLoader from './LayoutLoader';
 import PlotSeriesLoader from './PlotSeriesLoader';
 import ScaleLabelProviderLoader from '../scale/labels/ScaleLabelProviderLoader';
-import { DateTime } from 'luxon';
 import LinesLoader from './LinesLoader';
-import { Exception } from 'handlebars';
 
 export default class AnimationContextCreator
 {
@@ -79,7 +78,7 @@ export default class AnimationContextCreator
 		const firstSeries = series[0];
 		const firstSeriesPoints = firstSeries.points;
 		if (!firstSeriesPoints.length)
-			throw new Exception(`No points for this series: ${firstSeries.code}`);
+			throw new Error(`No points for this series: ${firstSeries.code}`);
 		const lastIndex = firstSeriesPoints.length - 1;
 		const lastDataPoint = firstSeriesPoints[lastIndex];
 		return lastDataPoint.date;
