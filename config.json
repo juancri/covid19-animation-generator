@@ -1075,20 +1075,70 @@
 		"chile-icu-age": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto9/HospitalizadosUCIEtario.csv",
 			"nameColumn": "Grupo de edad",
-			"inputDateFormat": "ISO"
+			"inputDateFormat": "ISO",
+			"series": [
+				{
+					"name": ">=70",
+					"code": "70+",
+					"color": "#7F0008",
+					"areaColor": "#FF0011"
+				},
+				{
+					"name": "60-69",
+					"code": "60 - 69",
+					"color": "#822300",
+					"areaColor": "#FF4600"
+				},
+				{
+					"name": "50-59",
+					"code": "50 - 59",
+					"color": "#844800",
+					"areaColor": "#FF8B00"
+				},
+				{
+					"name": "40-49",
+					"code": "40 - 49",
+					"color": "#8F7F00",
+					"areaColor": "#FFE300"
+				},
+				{
+					"name": "<=39",
+					"code": "0 - 39",
+					"color": "#1E9700",
+					"areaColor": "#34FF00"
+				}
+			]
 		},
 		"chile-ventilators": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto20/NumeroVentiladores.csv",
 			"nameColumn": "Ventiladores",
 			"inputDateFormat": "ISO",
-			"preProcessor": {
-				"name": "override",
-				"parameters": {
-					"series": "disponibles",
-					"date": "2020-09-30",
-					"value": 496
+			"preProcessors":
+			[
+				{
+					"name": "override",
+					"parameters": {
+						"series": "disponibles",
+						"date": "2020-09-30",
+						"value": 496
+					}
 				}
-			}
+			],
+			"series":
+			[
+				{
+					"name": "disponibles",
+					"code": "disponibles",
+					"color": "#00A74E",
+					"areaColor": "#00FF76"
+				},
+				{
+					"name": "ocupados",
+					"code": "ocupados",
+					"color": "#7B0025",
+					"areaColor": "#FF004E"
+				}
+			]
 		},
 		"chile-critic": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto23/PacientesCriticos.csv",
@@ -1108,16 +1158,10 @@
 			"inputDateFormat": "ISO",
 			"series": [
 				{
-					"name": "Basica",
-					"code": "básica",
-					"color": "#00346B",
-					"areaColor": "#007BFF"
-				},
-				{
-					"name": "Media",
-					"code": "media",
-					"color": "#7D9200",
-					"areaColor": "#DBFF00"
+					"name": "UCI",
+					"code": "intensivos",
+					"color": "#950000",
+					"areaColor": "#FF0000"
 				},
 				{
 					"name": "UTI",
@@ -1126,10 +1170,16 @@
 					"areaColor": "#FF8600"
 				},
 				{
-					"name": "UCI",
-					"code": "intensivos",
-					"color": "#950000",
-					"areaColor": "#FF0000"
+					"name": "Media",
+					"code": "media",
+					"color": "#7D9200",
+					"areaColor": "#DBFF00"
+				},
+				{
+					"name": "Basica",
+					"code": "básica",
+					"color": "#00346B",
+					"areaColor": "#007BFF"
 				}
 			]
 		},
