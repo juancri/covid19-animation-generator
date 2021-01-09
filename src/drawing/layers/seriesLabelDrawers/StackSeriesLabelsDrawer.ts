@@ -21,7 +21,7 @@ export default class StackSeriesLabelDrawer
 	{
 		const seriesIndex = frame.series.indexOf(series);
 		const point = StackSeriesLabelDrawer.getPoint(context, frame, seriesIndex);
-		StackSeriesLabelDrawer.drawInternal(context, frame, series, point);
+		StackSeriesLabelDrawer.drawInternal(context, frame, series, point, true);
 	}
 
 	public static drawCenter(context: AnimationContext, frame: FrameInfo, series: PlotSeries): void
@@ -38,10 +38,12 @@ export default class StackSeriesLabelDrawer
 		const lastPoint = series.points[series.points.length - 1];
 		const x = lastPoint.x + context.color.series.label.stackedArea.offset.x;
 		const y = canvasY + offsetY;
-		StackSeriesLabelDrawer.drawInternal(context, frame, series, { x, y });
+		StackSeriesLabelDrawer.drawInternal(context, frame, series, { x, y }, false);
 	}
 
-	private static drawInternal(context: AnimationContext, frame: FrameInfo, series: PlotSeries, point: Point)
+	private static drawInternal(
+		context: AnimationContext, frame: FrameInfo, series: PlotSeries,
+		point: Point, drawRectangle: boolean)
 	{
 		// Base
 		const formatter = FORMATTERS[context.options.stackedAreaNumberFormat];
@@ -73,14 +75,17 @@ export default class StackSeriesLabelDrawer
 			context.layout.seriesLabelsArea);
 
 		// Draw box
-		const boxConfig = context.color.series.label.stackedArea.box;
-		const box: Box = {
-			left: point.x + boxConfig.left,
-			right: point.x + boxConfig.right,
-			top: point.y + boxConfig.top,
-			bottom: point.y + boxConfig.bottom
-		};
-		context.writer.drawRectangle(box, series.areaColor);
+		if (drawRectangle)
+		{
+			const boxConfig = context.color.series.label.stackedArea.box;
+			const box: Box = {
+				left: point.x + boxConfig.left,
+				right: point.x + boxConfig.right,
+				top: point.y + boxConfig.top,
+				bottom: point.y + boxConfig.bottom
+			};
+			context.writer.drawRectangle(box, series.areaColor);
+		}
 	}
 
 	private static getPoint(context: AnimationContext, frame: FrameInfo, seriesIndex: number): Point
