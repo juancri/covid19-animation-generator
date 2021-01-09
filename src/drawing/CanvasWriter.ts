@@ -133,6 +133,15 @@ export default class CanvasWriter
 		});
 	}
 
+	public drawRectangle(box: Box, color: string): void
+	{
+		const width = box.right - box.left;
+		const height = box.bottom - box.top;
+		this.ctx.strokeStyle = color;
+		this.ctx.lineWidth = 5; // FIXME: config?
+		this.ctx.strokeRect(box.left, box.top, width, height);
+	}
+
 	public drawFilledRectangle(box: Box, color: string): void
 	{
 		const width = box.right - box.left;
