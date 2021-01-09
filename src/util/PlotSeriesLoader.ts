@@ -7,6 +7,7 @@ import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
 import logger from '../util/Logger';
+import Gaps from './Gaps';
 
 const OPTS = { zone: 'UTC' };
 
@@ -51,11 +52,7 @@ export default class PlotSeriesLoader
 		{
 			const found = PlotSeriesLoader.findSeries(timeSeries, seriesConf.name);
 			const gapsConfig = found.forceGaps ?? seriesConf.gaps;
-			const gaps = gapsConfig ?
-				gapsConfig.map(gap => ({
-					from: DateTime.fromISO(gap.from, OPTS),
-					to: DateTime.fromISO(gap.to, OPTS)
-				})) : [];
+			const gaps = gapsConfig ? Gaps.parseGaps(gapsConfig) : [];
 			const milestones = seriesConf.milestones ?
 				seriesConf.milestones.map(milestone => ({
 					date: DateTime.fromISO(milestone.date, OPTS),
