@@ -29,6 +29,6 @@ export default class StackedAreaScaledPointsGenerator {
 			.select(points => points.find(p => +p.date === +point.date))
 			.select(p => p?.y ?? 0)
 			.sum();
-		return (sum - scale.horizontal.min) / verticalSize;
+		return (sum - scale.vertical.min) / verticalSize;
 	}
 }
