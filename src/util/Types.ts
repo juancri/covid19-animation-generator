@@ -73,7 +73,12 @@ export interface ColorSchema {
 			font: string;
 			color: string;
 			offset: Point;
-			stackedAreaOffset: Point;
+			stackedArea: {
+				offset: Point;
+				minYOffset: number;
+				minYDistance: number;
+				box: Box
+			}
 		},
 		colors: string[];
 	},
