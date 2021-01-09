@@ -2564,15 +2564,25 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO",
-			"gaps": [
+			"preProcessors": [
 				{
-					"from": "2020-06-06",
-					"to": "2020-06-07"
+					"name": "removeGap",
+					"parameters":
+					{
+						"from": "2020-06-06",
+						"to": "2020-06-06"
+					}
 				},
 				{
-					"from": "2020-07-16",
-					"to": "2020-07-17"
-				}
+					"name": "removeGap",
+					"parameters":
+					{
+						"from": "2020-07-16",
+						"to": "2020-07-16"
+					}
+				},
+				{ "name": "dailyChange" },
+				{ "name": "avg7" }
 			]
 		},
 		"population-rate": {
