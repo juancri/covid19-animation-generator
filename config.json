@@ -2209,6 +2209,11 @@
 					"name": "Zapallar",
 					"code": "Zapallar",
 					"color": "#FF9F00"
+				},
+				{
+					"name": "La Ligua",
+					"code": "La Ligua",
+					"color": "#00FFFC"
 				}
 			]
 		},
