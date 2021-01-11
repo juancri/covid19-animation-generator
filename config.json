@@ -2389,7 +2389,7 @@
 		"chile-deaths": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"nameColumn": "Region",
-			"inputDateFormat": "ISO",
+			"inputDateFormat": "dd-MM-yy",
 			"series":
 			[
 				{
@@ -2606,7 +2606,7 @@
 		"chile-deaths-sum": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"nameColumn": "Region",
-			"inputDateFormat": "ISO",
+			"inputDateFormat": "dd-MM-yy",
 			"series":
 			[
 				{
