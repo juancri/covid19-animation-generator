@@ -3,7 +3,7 @@
 import * as Enumerable from 'linq';
 
 // Local
-import { DataSource, TimeSeries, DateFormat } from '../util/Types';
+import { DataSource, TimeSeries, DateFormat, Options } from '../util/Types';
 import Downloader from '../util/Downloader';
 import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
@@ -17,10 +17,11 @@ const INPUT_DATE_FORMATS: { [key: string]: DateFormat } =
 };
 
 const DEFAULT_DATE_FORMAT = MonthDayYearDateFormat;
+const MAX_SAMPLE_PROPERTIES = 10;
 
 export default class DataLoader
 {
-	public static async load(dataSource: DataSource): Promise<TimeSeries[]>
+	public static async load(dataSource: DataSource, options?: Options): Promise<TimeSeries[]>
 	{
 		const dateFormat = dataSource.inputDateFormat ?
 			INPUT_DATE_FORMATS[dataSource.inputDateFormat] :
@@ -29,6 +30,8 @@ export default class DataLoader
 			throw new Error(`Date format not found: ${dataSource.inputDateFormat}`);
 		const regexp = dateFormat.getRegularExpression();
 		let csvData = await Downloader.download(dataSource.url);
+		if (options?.debug)
+			console.table(DataLoader.sampleProperties(csvData));
 		if (dataSource.csvDataProcessor)
 			csvData = CsvDataProcessorLoader.load(dataSource.csvDataProcessor, csvData);
 		const data = csvData.map(item => ({
@@ -78,5 +81,20 @@ export default class DataLoader
 
 		// No pre processors
 		return rawData;
+	}
+
+	private static sampleProperties(data: { [key: string]: unknown }[]): unknown[]
+	{
+		const first = data[0];
+		const properties = Object.keys(first);
+		const firstProperties = Enumerable
+			.from(properties)
+			.take(MAX_SAMPLE_PROPERTIES)
+			.toArray();
+		return data.map(item => Enumerable
+			.from(firstProperties)
+			.toObject(
+				key => key,
+				key => item[key]));
 	}
 }
