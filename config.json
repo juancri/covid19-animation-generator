@@ -2943,7 +2943,7 @@
 			[
 				{
 					"name": "positivos",
-					"code": "Positivos",
+					"code": "positivos",
 					"color": "#007973",
 					"areaColor": "#27FFF5",
 					"gaps": [
@@ -2955,7 +2955,7 @@
 				},
 				{
 					"name": "negativos",
-					"code": "Negativos",
+					"code": "negativos",
 					"color": "#E43600",
 					"areaColor": "#FF5C27",
 					"gaps": [
@@ -3005,6 +3005,38 @@
 					"code": "asintomáticos",
 					"color": "#946900",
 					"areaColor": "#FFB500"
+				}
+			]
+		},
+		"chile-asymptomatic": {
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto27/CasosNuevosSinSintomas.csv",
+			"inputDateFormat": "ISO",
+			"nameColumn": "Region",
+			"preProcessors": [
+				{ "name": "filter", "parameters": ["Total"] },
+				{
+					"name": "join",
+					"parameters": {
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+							"inputDateFormat": "ISO",
+							"nameColumn": "Region",
+							"preProcessors": [
+								{ "name": "filter", "parameters": ["Total"] },
+								{ "name": "dailyChange" }
+							]
+						},
+						"kind": "rate"
+					}
+				},
+				{ "name": "avg7" }
+			],
+			"series":
+			[
+				{
+					"name": "Total",
+					"code": "asintomáticos",
+					"color": "#FFB500"
 				}
 			]
 		},
