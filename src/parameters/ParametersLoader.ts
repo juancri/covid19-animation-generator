@@ -1,7 +1,6 @@
 
 import * as minimist from 'minimist';
 import { Options } from '../util/Types';
-import logger from '../util/Logger';
 
 const PARAMETERS: { [key: string]: string } = {
 	help: 'This help message',
@@ -55,20 +54,6 @@ export default class ParametersLoader
 
 	public static load(defaultValues: Options): Options
 	{
-		const options = minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
-		ParametersLoader.postProcessOptions(options);
-		return options;
-	}
-
-	private static postProcessOptions(options: Options): void
-	{
-		if (options.sample)
-		{
-			logger.info('Sample is used. Overriding frame configuration.');
-			options.frames = 1;
-			options.days = 1;
-			options.extraFrames = 0;
-			options.postAnimationDirectory = null;
-		}
+		return minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
 	}
 }

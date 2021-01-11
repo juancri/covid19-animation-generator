@@ -11,6 +11,8 @@ import CoverFrameAnimation from './CoverFrameAnimation';
 import ScaleBoundariesGenerator from '../scale/ScaleBoundariesGenerator';
 import PostAnimation from './PostAnimation';
 import SeriesRankingAnimation from './SeriesRankingAnimation';
+import logger from '../util/Logger';
+import SampleFrameAnimation from './SampleFrameAnimation';
 
 const PROGRESS_BAR_FORMAT = ' generating animation [:bar] :current/:total frames :percent :etas';
 const PROGRESS_BAR_OPTIONS = {
@@ -75,6 +77,14 @@ export default class AnimationGenerator
 
 	private *getAnimations(): Generator<Animation>
 	{
+		if (this.context.options.sample)
+		{
+			logger.info('Sample parameter is used. Generating only one frame.');
+			yield new SampleFrameAnimation(this.context);
+			yield new CoverFrameAnimation(this.context);
+			return;
+		}
+
 		yield new TimeAnimation(this.context);
 		if (this.context.options.showRank)
 			yield new SeriesRankingAnimation(this.context);
