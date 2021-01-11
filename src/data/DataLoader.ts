@@ -1,34 +1,28 @@
 
 // Dependencies
 import * as Enumerable from 'linq';
+import { DateTime } from 'luxon';
 
 // Local
-import { DataSource, TimeSeries, DateFormat, Options } from '../util/Types';
+import { DataSource, TimeSeries, Options } from '../util/Types';
 import Downloader from '../util/Downloader';
 import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
-import MonthDayYearDateFormat from './dateformat/MonthDayYearDateFormat';
-import IsoDateFormat from './dateformat/IsoDateFormat';
+import DateFormat from './DateFormat';
 
-const INPUT_DATE_FORMATS: { [key: string]: DateFormat } =
+const DATE_FORMATS: { [key: string]: string } =
 {
-	ISO: IsoDateFormat,
-	MonthDayYear: MonthDayYearDateFormat,
+	ISO: 'yyyy-MM-dd',
+	MonthDayYear: 'MM/dd/yyyy',
 };
-
-const DEFAULT_DATE_FORMAT = MonthDayYearDateFormat;
+const DEFAULT_DATE_FORMAT = DATE_FORMATS.MonthDayYear;
 const MAX_SAMPLE_PROPERTIES = 10;
 
 export default class DataLoader
 {
 	public static async load(dataSource: DataSource, options?: Options): Promise<TimeSeries[]>
 	{
-		const dateFormat = dataSource.inputDateFormat ?
-			INPUT_DATE_FORMATS[dataSource.inputDateFormat] :
-			DEFAULT_DATE_FORMAT;
-		if (!dateFormat)
-			throw new Error(`Date format not found: ${dataSource.inputDateFormat}`);
-		const regexp = dateFormat.getRegularExpression();
+		const dateFormat = DataLoader.getDateFormat(dataSource.inputDateFormat);
 		let csvData = await Downloader.download(dataSource.url);
 		if (options?.debug)
 			console.table(DataLoader.sampleProperties(csvData));
@@ -38,11 +32,14 @@ export default class DataLoader
 			name: item[dataSource.nameColumn],
 			data: Object
 				.keys(item)
-				.map(k => regexp.exec(k))
-				.filter(match => match)
-				.map(match => ({
-					date: dateFormat.parse(match?.[0] || ''),
-					value: parseFloat(item[match?.[0] || 0] || '0')
+				.map(k => ({
+					key: k,
+					date: dateFormat.parse(k)
+				}))
+				.filter(x => x.date)
+				.map(x => ({
+					date: x.date as DateTime,
+					value: parseFloat(item[x.key] || '0')
 				}))
 		}));
 
@@ -81,6 +78,16 @@ export default class DataLoader
 
 		// No pre processors
 		return rawData;
+	}
+
+	private static getDateFormat(format?: string): DateFormat
+	{
+		if (!format)
+			return new DateFormat(DEFAULT_DATE_FORMAT);
+		const found = DATE_FORMATS[format];
+		if (found)
+			return new DateFormat(found);
+		return new DateFormat(format);
 	}
 
 	private static sampleProperties(data: { [key: string]: unknown }[]): unknown[]

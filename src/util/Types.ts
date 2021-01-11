@@ -329,12 +329,6 @@ export interface Layer
 	draw(frame: FrameInfo): Promise<void>;
 }
 
-export interface DateFormat
-{
-	getRegularExpression(): RegExp;
-	parse(text: string): DateTime;
-}
-
 export interface Rotation
 {
 	angle: number,
