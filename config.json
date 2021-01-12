@@ -1417,24 +1417,6 @@
 					"name": "Providencia",
 					"code": "Providencia",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-14T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -3099,7 +3081,7 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-09/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-12/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessor": {
@@ -3107,7 +3089,7 @@
 				"parameters":
 				{
 					"from": "2020-12-22",
-					"to": "2021-01-11"
+					"to": "2021-01-12"
 				}
 			},
 			"series":
