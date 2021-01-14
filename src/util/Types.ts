@@ -23,7 +23,7 @@ export interface TimeSeries {
 }
 
 export type CsvDataProcessor = (data: unknown[], params?: unknown) => unknown[];
-export type PreProcessor = (series: TimeSeries[], params: unknown) => Promise<TimeSeries[]>;
+export type PreProcessor = (series: TimeSeries[], params: unknown, debug: boolean) => Promise<TimeSeries[]>;
 
 // Config
 

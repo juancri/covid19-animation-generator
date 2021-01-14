@@ -1,4 +1,5 @@
 import { PreProcessor, PreProcessorConfig, TimeSeries } from '../../util/Types';
+import logger from '../../util/Logger';
 import SumPreProcessor from './SumPreProcessor';
 import LimitPreProcessor from './LimitPreProcessor';
 import SortDescPreProcessor from './SortDescPreProcessor';
@@ -12,14 +13,14 @@ import FilterPreProcessor from './FilterPreProcessor';
 import FilterOutPreProcessor from './FilterOutPreProcessor';
 import RenamePreProcessor from './RenamePreProcessor';
 import FormulaPreProcessor from './FormulaPreProcessor';
-import OVerridePreProcessor from './OverridePreProcessor';
+import OverridePreProcessor from './OverridePreProcessor';
 import Avg7PreProcessor from './Avg7PreProcessor';
 import FillZeroPreProcessor from './FillZeroPreProcessor';
 import RunningTotalPreProcessor from './RunningTotalPreProcessor';
 import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
 import RemoveGapPreProcessor from './RemoveGapPreProcessor';
 
-const PREPROCESSORS: { [key: string]: PreProcessor } = {
+const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
@@ -33,7 +34,7 @@ const PREPROCESSORS: { [key: string]: PreProcessor } = {
 	filterOut: FilterOutPreProcessor.run,
 	rename: RenamePreProcessor.run,
 	formula: FormulaPreProcessor.run,
-	override: OVerridePreProcessor.run,
+	override: OverridePreProcessor.run,
 	avg7: Avg7PreProcessor.run,
 	fillZero: FillZeroPreProcessor.run,
 	fillInterpolation: FillInterpolationPreProcessor.run,
@@ -45,16 +46,21 @@ export default class PreProcessorLoader
 {
 	public static async load(
 		input: PreProcessorConfig | string | undefined,
-		series: TimeSeries[]): Promise<TimeSeries[]>
+		series: TimeSeries[],
+		debug: boolean): Promise<TimeSeries[]>
 	{
 		const config = PreProcessorLoader.getPreProcessorConfig(input);
 		if (!config)
+		{
+			if (debug)
+				logger.info('Ignoring pre processor');
 			return series;
+		}
 
-		const preProcessor = PREPROCESSORS[config.name];
+		const preProcessor = PRE_PROCESSORS[config.name];
 		if (!preProcessor)
 			throw new Error(`Pre-processor not found: ${config.name}`);
-		return await preProcessor(series, config.parameters);
+		return await preProcessor(series, config.parameters, debug);
 	}
 
 	private static getPreProcessorConfig(input: PreProcessorConfig | string | undefined)

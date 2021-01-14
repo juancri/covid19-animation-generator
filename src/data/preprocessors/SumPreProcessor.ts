@@ -1,6 +1,8 @@
 import * as Enumerable from 'linq';
-import { DataPoint, TimeSeries } from '../../util/Types';
 import { DateTime } from 'luxon';
+
+import { DataPoint, TimeSeries } from '../../util/Types';
+import logger from '../../util/Logger';
 
 const DEFAULT_NAME = 'sum';
 
@@ -16,7 +18,7 @@ interface SumParams {
  */
 export default class SumPreProcessor
 {
-	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], params: unknown, debug: boolean): Promise<TimeSeries[]>
 	{
 		const sumParams = params as SumParams;
 		if (series.length < 1)
@@ -28,7 +30,7 @@ export default class SumPreProcessor
 			.select(point => point.date)
 			.distinct(date => +date)
 			.toArray();
-		const filteredSeries = SumPreProcessor.getFiltered(series, sumParams);
+		const filteredSeries = SumPreProcessor.getFiltered(series, sumParams, debug);
 		const sumSeries: TimeSeries = {
 			name: sumParams?.name ?? DEFAULT_NAME,
 			data: dates
@@ -37,17 +39,31 @@ export default class SumPreProcessor
 		return [...series, sumSeries];
 	}
 
-	private static getFiltered(series: TimeSeries[], params: SumParams): TimeSeries[]
+	private static getFiltered(series: TimeSeries[], params: SumParams, debug: boolean): TimeSeries[]
 	{
 		if (params.filter)
-			return series.filter(s => params.filter?.includes(s.name));
+		{
+			if (debug)
+				logger.info(`Using filter: ${params.filter}`);
+			const found = series.filter(s => params.filter?.includes(s.name));
+			if (debug)
+				logger.info(`Found ${found.length} matches`);
+			return found;
+		}
 
 		if (params.filterRegex)
 		{
+			if (debug)
+				logger.info(`Using regex filter: ${params.filterRegex}`);
 			const regex = new RegExp(params.filterRegex);
-			return series.filter(s => regex.test(s.name));
+			const found = series.filter(s => regex.test(s.name));
+			if (debug)
+				logger.info(`Found ${found.length} matches`);
+			return found;
 		}
 
+		if (debug)
+			logger.debug('No filter');
 		return series;
 	}
 

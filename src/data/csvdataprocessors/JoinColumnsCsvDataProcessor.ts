@@ -32,7 +32,7 @@ export default class JoinColumnsCsvDataProcessor
 			const value = params.columns
 				.map(col => item[col])
 				.join(' ');
-			return { ...item, [params.name]: value };
+			return { [params.name]: value, ...item };
 		});
 	}
 }

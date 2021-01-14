@@ -9,6 +9,7 @@ import Downloader from '../util/Downloader';
 import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
 import DateFormat from './DateFormat';
+import CsvDebug from '../util/CsvDebug';
 
 const DATE_FORMATS: { [key: string]: string } =
 {
@@ -16,7 +17,6 @@ const DATE_FORMATS: { [key: string]: string } =
 	MonthDayYear: 'MM/dd/yyyy',
 };
 const DEFAULT_DATE_FORMAT = DATE_FORMATS.MonthDayYear;
-const MAX_SAMPLE_PROPERTIES = 10;
 
 export default class DataLoader
 {
@@ -25,9 +25,13 @@ export default class DataLoader
 		const dateFormat = DataLoader.getDateFormat(dataSource.inputDateFormat);
 		let csvData = await Downloader.download(dataSource.url);
 		if (options?.debug)
-			console.table(DataLoader.sampleProperties(csvData));
+			CsvDebug.print("Original CSV", csvData);
 		if (dataSource.csvDataProcessor)
+		{
 			csvData = CsvDataProcessorLoader.load(dataSource.csvDataProcessor, csvData);
+			if (options?.debug)
+				CsvDebug.print("Processed CSV", csvData);
+		}
 		const data = csvData.map(item => ({
 			name: item[dataSource.nameColumn],
 			data: Object
@@ -64,15 +68,16 @@ export default class DataLoader
 			.toArray();
 
 		// Single pre processor
+		const debug = options?.debug || false;
 		if (dataSource.preProcessor)
-			return await PreProcessorLoader.load(dataSource.preProcessor, rawData);
+			return await PreProcessorLoader.load(dataSource.preProcessor, rawData, debug);
 
 		// Multiple pre processors
 		if (dataSource.preProcessors)
 		{
 			let tempData = rawData;
 			for (const preProcessor of dataSource.preProcessors)
-				tempData = await PreProcessorLoader.load(preProcessor, tempData);
+				tempData = await PreProcessorLoader.load(preProcessor, tempData, debug);
 			return tempData;
 		}
 
@@ -88,20 +93,5 @@ export default class DataLoader
 		if (found)
 			return new DateFormat(found);
 		return new DateFormat(format);
-	}
-
-	private static sampleProperties(data: { [key: string]: unknown }[]): unknown[]
-	{
-		const first = data[0];
-		const properties = Object.keys(first);
-		const firstProperties = Enumerable
-			.from(properties)
-			.take(MAX_SAMPLE_PROPERTIES)
-			.toArray();
-		return data.map(item => Enumerable
-			.from(firstProperties)
-			.toObject(
-				key => key,
-				key => item[key]));
 	}
 }
