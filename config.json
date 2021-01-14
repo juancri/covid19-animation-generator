@@ -3125,6 +3125,61 @@
 					"color": "#F63E3E"
 				}
 			]
+		},
+		"chile-residencias":
+		{
+			"name": "Chile - Residencias",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto36/ResidenciasSanitarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Categoria"]
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters":
+					{
+						"name": "total",
+						"filterRegex": "cupos totales$"
+					 }
+				},
+				{
+					"name": "sum",
+					"parameters":
+					{
+						"name": "utilizados",
+						"filterRegex": "usuarios en residencia$"
+					 }
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": ["total", "utilizados"],
+						"name": "disponibles"
+					}
+				}
+			],
+			"series":
+			[
+				{
+					"name": "disponibles",
+					"code": "disponibles",
+					"color": "#00855F",
+					"areaColor": "#00FFB7"
+				},
+				{
+					"name": "utilizados",
+					"code": "utilizados",
+					"color": "#860042",
+					"areaColor": "#FF007E"
+				}
+			]
 		}
 	},
 	"defaults":
