@@ -1,17 +1,27 @@
 import TransposeCsvDataProcessor from './TransposeCsvDataProcessor';
-import { CsvDataProcessor } from '../../util/Types';
+import { CsvDataProcessor, CsvDataProcessorConfig } from '../../util/Types';
+import JoinColumnsCsvDataProcessor from './JoinColumnsCsvDataProcessor';
 
 const PROCESSORS: { [key: string]: CsvDataProcessor } = {
+	joinColumns: JoinColumnsCsvDataProcessor.run,
 	transpose: TransposeCsvDataProcessor.run
 };
 
 export default class CsvDataProcessorLoader
 {
-	public static load(name: string, data: unknown[]): unknown[]
+	public static load(processor: string | CsvDataProcessorConfig, data: unknown[]): unknown[]
 	{
-		const found = PROCESSORS[name];
+		const config = CsvDataProcessorLoader.getConfig(processor);
+		const found = PROCESSORS[config.name];
 		if (!found)
-			throw new Error(`CSV Data Processor not found: ${name}`);
-		return found(data);
+			throw new Error(`CSV Data Processor not found: ${config.name}`);
+		return found(data, config.parameters);
+	}
+
+	private static getConfig(input: string | CsvDataProcessorConfig): CsvDataProcessorConfig
+	{
+		return typeof input === 'string' ?
+			{ name: input, parameters: null } :
+			input;
 	}
 }

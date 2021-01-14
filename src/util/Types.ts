@@ -22,7 +22,7 @@ export interface TimeSeries {
 	forceGaps?: GapConfiguration[];
 }
 
-export type CsvDataProcessor = (data: unknown[]) => unknown[];
+export type CsvDataProcessor = (data: unknown[], params?: unknown) => unknown[];
 export type PreProcessor = (series: TimeSeries[], params: unknown) => Promise<TimeSeries[]>;
 
 // Config
@@ -130,6 +130,11 @@ export interface PreProcessorConfig {
 	parameters?: unknown;
 }
 
+export interface CsvDataProcessorConfig {
+	name: string;
+	parameters?: unknown;
+}
+
 export interface Line {
 	value: number;
 	label: string;
@@ -139,7 +144,7 @@ export interface DataSource {
 	url: string;
 	nameColumn: string;
 	title?: string;
-	csvDataProcessor?: string;
+	csvDataProcessor?: string | CsvDataProcessorConfig;
 	preProcessor?: PreProcessorConfig | string;
 	preProcessors?: PreProcessorConfig[];
 	series?: SeriesConfiguration[];
