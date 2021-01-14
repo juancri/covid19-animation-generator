@@ -6,6 +6,8 @@ const DEFAULT_NAME = 'sum';
 
 interface SumParams {
 	name: string | null;
+	filter?: string[],
+	filterRegex?: string
 }
 
 /**
@@ -16,7 +18,7 @@ export default class SumPreProcessor
 {
 	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
 	{
-		const subParams = params as SumParams;
+		const sumParams = params as SumParams;
 		if (series.length < 1)
 			return series;
 		const dates = Enumerable
@@ -26,12 +28,27 @@ export default class SumPreProcessor
 			.select(point => point.date)
 			.distinct(date => +date)
 			.toArray();
+		const filteredSeries = SumPreProcessor.getFiltered(series, sumParams);
 		const sumSeries: TimeSeries = {
-			name: subParams?.name ?? DEFAULT_NAME,
+			name: sumParams?.name ?? DEFAULT_NAME,
 			data: dates
-				.map(date => SumPreProcessor.getDataPoint(series, date))
+				.map(date => SumPreProcessor.getDataPoint(filteredSeries, date))
 		};
 		return [...series, sumSeries];
+	}
+
+	private static getFiltered(series: TimeSeries[], params: SumParams): TimeSeries[]
+	{
+		if (params.filter)
+			return series.filter(s => params.filter?.includes(s.name));
+
+		if (params.filterRegex)
+		{
+			const regex = new RegExp(params.filterRegex);
+			return series.filter(s => regex.test(s.name));
+		}
+
+		return series;
 	}
 
 	private static getDataPoint(series: TimeSeries[], date: DateTime): DataPoint
