@@ -20,7 +20,7 @@ export default class SumPreProcessor
 {
 	public static async run(series: TimeSeries[], params: unknown, debug: boolean): Promise<TimeSeries[]>
 	{
-		const sumParams = params as SumParams;
+		const sumParams = params as SumParams | null;
 		if (series.length < 1)
 			return series;
 		const dates = Enumerable
@@ -39,9 +39,9 @@ export default class SumPreProcessor
 		return [...series, sumSeries];
 	}
 
-	private static getFiltered(series: TimeSeries[], params: SumParams, debug: boolean): TimeSeries[]
+	private static getFiltered(series: TimeSeries[], params: SumParams | null, debug: boolean): TimeSeries[]
 	{
-		if (params.filter)
+		if (params && params.filter)
 		{
 			if (debug)
 				logger.info(`Using filter: ${params.filter}`);
@@ -51,7 +51,7 @@ export default class SumPreProcessor
 			return found;
 		}
 
-		if (params.filterRegex)
+		if (params && params.filterRegex)
 		{
 			if (debug)
 				logger.info(`Using regex filter: ${params.filterRegex}`);
