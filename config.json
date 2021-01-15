@@ -3081,7 +3081,7 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-12/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-14/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessor": {
@@ -3089,21 +3089,26 @@
 				"parameters":
 				{
 					"from": "2020-12-22",
-					"to": "2021-01-12"
+					"to": "2021-01-14"
 				}
 			},
 			"series":
 			[
 				{
+					"name": "Chile2",
+					"code": "segunda dosis",
+					"color": "#B8F63E"
+				},
+				{
 					"name": "Chile",
-					"code": "Chile",
+					"code": "primera dosis",
 					"color": "#F63E3E"
 				}
 			]
 		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-09/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-14/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -3112,7 +3117,7 @@
 					"parameters":
 					{
 						"from": "2020-12-22",
-						"to": "2021-01-11"
+						"to": "2021-01-14"
 					 }
 				},
 				{ "name": "runningTotal" }
@@ -3120,8 +3125,13 @@
 			"series":
 			[
 				{
+					"name": "Chile2",
+					"code": "segunda dosis",
+					"color": "#B8F63E"
+				},
+				{
 					"name": "Chile",
-					"code": "Chile",
+					"code": "primera dosis",
 					"color": "#F63E3E"
 				}
 			]
