@@ -14,7 +14,7 @@ import CsvDebug from '../util/CsvDebug';
 const DATE_FORMATS: { [key: string]: string } =
 {
 	ISO: 'yyyy-MM-dd',
-	MonthDayYear: 'MM/dd/yyyy',
+	MonthDayYear: 'M/d/yy',
 };
 const DEFAULT_DATE_FORMAT = DATE_FORMATS.MonthDayYear;
 
