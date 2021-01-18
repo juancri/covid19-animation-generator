@@ -1211,7 +1211,43 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto1/Covid-19.csv",
 			"inputDateFormat": "ISO",
 			"nameColumn": "Comuna",
-			"preProcessors": [ "fillInterpolation", "dailyChange", "avg7" ],
+			"preProcessors": [
+				{ "name": "fillInterpolation" },
+				{ "name": "dailyChange" },
+				{ "name": "avg7" },
+				{
+					"name": "loadMilestones",
+					"parameters": {
+						"dataSource":
+						{
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv",
+							"inputDateFormat": "ISO",
+							"csvDataProcessor": {
+								"name": "joinColumns",
+								"parameters": {
+									"name": "col",
+									"columns": ["comuna_residencia", "zona"]
+								}
+							},
+							"nameColumn": "col",
+							"preProcessor": {
+								"name": "rename",
+								"parameters": {
+									"from": "Temuco Total",
+									"to": "Temuco"
+								}
+							}
+						},
+						"colors": [
+							{ "value": 1, "color": "#F75C5C" },
+							{ "value": 2, "color": "#FFBF00" },
+							{ "value": 3, "color": "#FFF200" },
+							{ "value": 4, "color": "#338AD1" },
+							{ "value": 5, "color": "#82D133" }
+						]
+					}
+				}
+			],
 			"series":
 			[
 				{
@@ -1300,27 +1336,7 @@
 				{
 					"name": "Temuco",
 					"code": "Temuco",
-					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-28T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-05-01T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						}
-					],
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
+					"color": "#6DFF18"
 				},
 				{
 					"name": "Las Condes",
