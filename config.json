@@ -375,7 +375,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Italy", "code": "Italia" } },
-				{ "name": "forceCode", "parameters": { "name": "Poland", "code": "Polonia" } },
+				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
 				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
@@ -2722,16 +2722,16 @@
 					"icon": "ru"
 				},
 				{
-					"name": "France",
-					"code": "Francia",
-					"color": "#FF729D",
-					"icon": "fr"
-				},
-				{
 					"name": "United Kingdom",
 					"code": "Reino Unido",
 					"color": "#FFF972",
 					"icon": "gb"
+				},
+				{
+					"name": "France",
+					"code": "Francia",
+					"color": "#FF729D",
+					"icon": "fr"
 				},
 				{
 					"name": "Turkey",
@@ -2782,10 +2782,10 @@
 					"icon": "pl"
 				},
 				{
-					"name": "Iran",
-					"code": "Irán",
+					"name": "South Africa",
+					"code": "Sudáfrica",
 					"color": "#8672FF",
-					"icon": "ir"
+					"icon": "za"
 				},
 				{
 					"name": "Ecuador",
@@ -3094,7 +3094,7 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-16/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-17/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessor": {
@@ -3120,7 +3120,7 @@
 		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-16/output.csv",
+			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-17/output.csv",
 			"nameColumn": "country",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
