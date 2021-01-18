@@ -20,6 +20,7 @@ export interface TimeSeries {
 	forceColor?: string;
 	forceCode?: string;
 	forceGaps?: GapConfiguration[];
+	forceMilestones?: Milestone[];
 }
 
 export type CsvDataProcessor = (data: unknown[], params?: unknown) => unknown[];

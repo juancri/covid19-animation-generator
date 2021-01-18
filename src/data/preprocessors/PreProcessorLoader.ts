@@ -19,6 +19,7 @@ import FillZeroPreProcessor from './FillZeroPreProcessor';
 import RunningTotalPreProcessor from './RunningTotalPreProcessor';
 import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
 import RemoveGapPreProcessor from './RemoveGapPreProcessor';
+import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -39,7 +40,8 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	fillZero: FillZeroPreProcessor.run,
 	fillInterpolation: FillInterpolationPreProcessor.run,
 	runningTotal: RunningTotalPreProcessor.run,
-	removeGap: RemoveGapPreProcessor.run
+	removeGap: RemoveGapPreProcessor.run,
+	loadMilestones: LoadMilestonesPreProcessor.run
 };
 
 export default class PreProcessorLoader

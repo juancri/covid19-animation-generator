@@ -2,7 +2,7 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, PlotBand } from './Types';
+import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, PlotBand, SeriesConfiguration, Milestone } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
@@ -53,11 +53,7 @@ export default class PlotSeriesLoader
 			const found = PlotSeriesLoader.findSeries(timeSeries, seriesConf.name);
 			const gapsConfig = found.forceGaps ?? seriesConf.gaps;
 			const gaps = gapsConfig ? Gaps.parseGaps(gapsConfig) : [];
-			const milestones = seriesConf.milestones ?
-				seriesConf.milestones.map(milestone => ({
-					date: DateTime.fromISO(milestone.date, OPTS),
-					color: milestone.color
-				})) : [];
+			const milestones = PlotSeriesLoader.findMilestones(found, seriesConf);
 			const points = PlotPointsGenerator.generate(
 				options, found.data, gaps, seriesIndex);
 			if (!points.length)
@@ -114,5 +110,17 @@ export default class PlotSeriesLoader
 		}
 
 		return found;
+	}
+
+	private static findMilestones(series: TimeSeries, seriesConf: SeriesConfiguration): Milestone[]
+	{
+		if (series.forceMilestones)
+			return series.forceMilestones;
+		if (seriesConf.milestones)
+			return seriesConf.milestones.map(milestone => ({
+				date: DateTime.fromISO(milestone.date, OPTS),
+				color: milestone.color
+			}));
+		return [];
 	}
 }
