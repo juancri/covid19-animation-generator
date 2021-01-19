@@ -1213,8 +1213,6 @@
 			"nameColumn": "Comuna",
 			"preProcessors": [
 				{ "name": "fillInterpolation" },
-				{ "name": "dailyChange" },
-				{ "name": "avg7" },
 				{
 					"name": "loadMilestones",
 					"parameters": {
@@ -1232,10 +1230,20 @@
 							"nameColumn": "col",
 							"preProcessor": {
 								"name": "rename",
-								"parameters": {
-									"from": "Temuco Total",
-									"to": "Temuco"
-								}
+								"parameters": [
+									{ "from": "Temuco Total", "to": "Temuco" },
+									{ "from": "Las Condes Total", "to": "Las Condes" },
+									{ "from": "Santiago Total", "to": "Santiago" },
+									{ "from": "Ñuñoa Total", "to": "Nunoa" },
+									{ "from": "Independencia Total", "to": "Independencia" },
+									{ "from": "Lo Barnechea Total", "to": "Lo Barnechea" },
+									{ "from": "Providencia Total", "to": "Providencia" },
+									{ "from": "Vitacura Total", "to": "Vitacura" },
+									{ "from": "Puente Alto Total", "to": "Puente Alto" },
+									{ "from": "La Florida Total", "to": "La Florida" },
+									{ "from": "La Granja Total", "to": "La Granja" },
+									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" }
+								]
 							}
 						},
 						"colors": [
@@ -1254,24 +1262,6 @@
 					"name": "Santiago",
 					"code": "Santiago",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-14T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-05-05T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1283,20 +1273,6 @@
 					"name": "Puente Alto",
 					"code": "Puente Alto",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-04-09T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1308,24 +1284,6 @@
 					"name": "Vitacura",
 					"code": "Vitacura",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-14T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1342,24 +1300,6 @@
 					"name": "Las Condes",
 					"code": "Las Condes",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-17T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1371,28 +1311,6 @@
 					"name": "Independencia",
 					"code": "Independencia",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-03T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-04-23T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-04-30T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1404,16 +1322,6 @@
 					"name": "Quilicura",
 					"code": "Quilicura",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-05T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1425,16 +1333,6 @@
 					"name": "Recoleta",
 					"code": "Recoleta",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-05T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1454,31 +1352,9 @@
 					]
 				},
 				{
-					"name": "Ñuñoa",
+					"name": "Nunoa",
 					"code": "Ñuñoa",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-26T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-14T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-05-08T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
