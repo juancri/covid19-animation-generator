@@ -3093,6 +3093,652 @@
 					"areaColor": "#FF007E"
 				}
 			]
+		},
+		"chile-icu-beds":
+		{
+			"name": "Chile - Ocupación de camas UCI",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Total Camas UCI habilitadas", "Total Camas UCI ocupadas"],
+					"name": "Total Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Total Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Total Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-arica":
+		{
+			"name": "Chile - Ocupación de camas UCI Arica",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Arica y Parinacota Camas UCI habilitadas", "Arica y Parinacota Camas UCI ocupadas"],
+					"name": "Arica y Parinacota Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Arica y Parinacota Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Arica y Parinacota Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-tarapaca":
+		{
+			"name": "Chile - Ocupación de camas UCI Tarapaca",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Tarapacá Camas UCI habilitadas", "Tarapacá Camas UCI ocupadas"],
+					"name": "Tarapacá Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Tarapacá Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Tarapacá Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-antofagasta":
+		{
+			"name": "Chile - Ocupación de camas UCI Antofagasta",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Antofagasta Camas UCI habilitadas", "Antofagasta Camas UCI ocupadas"],
+					"name": "Antofagasta Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Antofagasta Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Antofagasta Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-atacama":
+		{
+			"name": "Chile - Ocupación de camas UCI Atacama",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Atacama Camas UCI habilitadas", "Atacama Camas UCI ocupadas"],
+					"name": "Atacama Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Atacama Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Atacama Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-coquimbo":
+		{
+			"name": "Chile - Ocupación de camas UCI Coquimbo",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Coquimbo Camas UCI habilitadas", "Coquimbo Camas UCI ocupadas"],
+					"name": "Coquimbo Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Coquimbo Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Coquimbo Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-valparaiso":
+		{
+			"name": "Chile - Ocupación de camas UCI Valparaíso",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Valparaíso Camas UCI habilitadas", "Valparaíso Camas UCI ocupadas"],
+					"name": "Valparaíso Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Valparaíso Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Valparaíso Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-metropolitana":
+		{
+			"name": "Chile - Ocupación de camas UCI Metropolitana",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Metropolitana Camas UCI habilitadas", "Metropolitana Camas UCI ocupadas"],
+					"name": "Metropolitana Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Metropolitana Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Metropolitana Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-ohiggins":
+		{
+			"name": "Chile - Ocupación de camas UCI O’Higgins",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["O’Higgins Camas UCI habilitadas", "O’Higgins Camas UCI ocupadas"],
+					"name": "O’Higgins Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "O’Higgins Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "O’Higgins Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-maule":
+		{
+			"name": "Chile - Ocupación de camas UCI Maule",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Maule Camas UCI habilitadas", "Maule Camas UCI ocupadas"],
+					"name": "Maule Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Maule Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Maule Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-nuble":
+		{
+			"name": "Chile - Ocupación de camas UCI Ñuble",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Ñuble Camas UCI habilitadas", "Ñuble Camas UCI ocupadas"],
+					"name": "Ñuble Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Ñuble Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Ñuble Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-biobio":
+		{
+			"name": "Chile - Ocupación de camas UCI Biobío",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Biobío Camas UCI habilitadas", "Biobío Camas UCI ocupadas"],
+					"name": "Biobío Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Biobío Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Biobío Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-araucania":
+		{
+			"name": "Chile - Ocupación de camas UCI Araucanía",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Araucanía Camas UCI habilitadas", "Araucanía Camas UCI ocupadas"],
+					"name": "Araucanía Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Araucanía Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Araucanía Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-losrios":
+		{
+			"name": "Chile - Ocupación de camas UCI Los Ríos",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Los Ríos Camas UCI habilitadas", "Los Ríos Camas UCI ocupadas"],
+					"name": "Los Ríos Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Los Ríos Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Los Ríos Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-loslagos":
+		{
+			"name": "Chile - Ocupación de camas UCI Los Lagos",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Los Lagos Camas UCI habilitadas", "Los Lagos Camas UCI ocupadas"],
+					"name": "Los Lagos Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Los Lagos Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Los Lagos Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-aysen":
+		{
+			"name": "Chile - Ocupación de camas UCI Aysén",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Aysén Camas UCI habilitadas", "Aysén Camas UCI ocupadas"],
+					"name": "Aysén Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Aysén Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Aysén Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
+		},
+		"chile-icu-beds-magallanes":
+		{
+			"name": "Chile - Ocupación de camas UCI Magallanes",
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Serie"]
+				}
+			},
+			"preProcessor":
+			{
+				"name": "formula",
+				"parameters": {
+					"operation": "substract",
+					"operands": ["Magallanes Camas UCI habilitadas", "Magallanes Camas UCI ocupadas"],
+					"name": "Magallanes Camas UCI disponibles"
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Magallanes Camas UCI disponibles",
+					"code": "disponibles",
+					"color": "#00497D",
+					"areaColor": "#0094FF"
+				},
+				{
+					"name": "Magallanes Camas UCI ocupadas",
+					"code": "ocupadas",
+					"color": "#782F00",
+					"areaColor": "#FF6300"
+				}
+			]
 		}
 	},
 	"defaults":
