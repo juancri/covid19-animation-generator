@@ -11,6 +11,7 @@ import SeriesLabelsLayer from './layers/SeriesLabelsLayer';
 import PrePostAnimationLayer from './layers/PrePostAnimationLayer';
 import LinesLayer from './layers/LinesLayer';
 import BandLayer from './layers/BandLayer';
+import GridLayer from './layers/GridLayer';
 
 export default class ImageGenerator
 {
@@ -20,6 +21,9 @@ export default class ImageGenerator
 		const layers: Layer[] = [
 			// Background
 			new BackgroundLayer(context),
+
+			// Grid
+			new GridLayer(context),
 
 			// Band
 			new BandLayer(context),
