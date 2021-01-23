@@ -20,9 +20,6 @@ interface SeriesEvent {
 	dashed?: boolean;
 }
 
-const MARKER_LENGTH = 12;
-const MARKER_WIDTH = 5;
-
 export default class SeriesPlotLayer implements Layer
 {
 	private context: AnimationContext;
@@ -59,7 +56,6 @@ export default class SeriesPlotLayer implements Layer
 			{
 				const lastSection = sections[sections.length - 1];
 				this.drawCircle(lastSection);
-				this.drawMarkers(lastSection);
 			}
 		}
 	}
@@ -160,42 +156,5 @@ export default class SeriesPlotLayer implements Layer
 			section.color,
 			lastPoint,
 			this.context.layout.seriesCirclesArea);
-	}
-
-	private drawMarkers (section: Section)
-	{
-		// Ignore if markers are not enabled
-		if (!this.context.options.drawMarkers)
-			return;
-
-		const points = section.points;
-		const lastPoint = points[points.length - 1];
-
-		// Ignore if it's not visible
-		const plotArea = this.context.layout.plotArea;
-		if (lastPoint.x < plotArea.left
-			|| lastPoint.x > plotArea.right
-			|| lastPoint.y < plotArea.top
-			|| lastPoint.y > plotArea.bottom)
-			return;
-
-		const leftPoint = {
-			x: this.context.layout.plotArea.left,
-			y: lastPoint.y
-		};
-		const bottomPoint = {
-			x: lastPoint.x,
-			y: this.context.layout.plotArea.bottom
-		};
-		this.context.writer.drawLine(
-			section.color,
-			MARKER_WIDTH,
-			{ x: leftPoint.x - MARKER_LENGTH, y: leftPoint.y },
-			{ x: leftPoint.x + MARKER_LENGTH, y: leftPoint.y });
-		this.context.writer.drawLine(
-			section.color,
-			MARKER_WIDTH,
-			{ x: bottomPoint.x, y: bottomPoint.y - MARKER_LENGTH },
-			{ x: bottomPoint.x, y: bottomPoint.y + MARKER_LENGTH });
 	}
 }

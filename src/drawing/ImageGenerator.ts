@@ -12,6 +12,7 @@ import PrePostAnimationLayer from './layers/PrePostAnimationLayer';
 import LinesLayer from './layers/LinesLayer';
 import BandLayer from './layers/BandLayer';
 import GridLayer from './layers/GridLayer';
+import SeriesMarkersLayer from './layers/SeriesMarkersLayer';
 
 export default class ImageGenerator
 {
@@ -24,6 +25,9 @@ export default class ImageGenerator
 
 			// Grid
 			new GridLayer(context),
+
+			// Markers
+			new SeriesMarkersLayer(context),
 
 			// Band
 			new BandLayer(context),
