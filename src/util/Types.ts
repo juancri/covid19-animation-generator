@@ -97,6 +97,10 @@ export interface ColorSchema {
 			font: string;
 			color: string;
 		}
+	},
+	grid: {
+		color: string;
+		lineWidth: number;
 	}
 }
 

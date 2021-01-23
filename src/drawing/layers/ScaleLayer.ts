@@ -106,6 +106,23 @@ export default class ScaleLayer implements Layer
 					pos + 50
 			};
 
+			// Grid
+			const gridFrom: Point = {
+				x: horizontal ? pos : area.left,
+				y: horizontal ? area.bottom : pos
+			};
+			const gridTo: Point = {
+				x: horizontal ? pos : area.right,
+				y: horizontal ? area.top : pos
+			};
+
+			this.context.writer.drawLine(
+				this.context.color.grid.color,
+				this.context.color.grid.lineWidth,
+				gridFrom,
+				gridTo);
+
+			// Point
 			this.context.writer.drawCircle(
 				CIRCLE_WIDTH,
 				this.context.color.scale.color,
@@ -113,6 +130,8 @@ export default class ScaleLayer implements Layer
 					x: horizontal ? pos : area.left,
 					y: horizontal ? area.bottom : pos
 				});
+
+			// Text
 			this.context.writer.drawBoxedText(
 				label.text,
 				this.context.color.scale.font,

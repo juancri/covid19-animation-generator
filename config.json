@@ -96,6 +96,10 @@
 					"font": "25px DejaVu Sans Mono",
 					"color": "white"
 				}
+			},
+			"grid": {
+				"color": "#464646",
+				"lineWidth": 1
 			}
 		},
 		"yachay":
