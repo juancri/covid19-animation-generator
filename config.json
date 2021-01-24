@@ -2630,10 +2630,10 @@
 					"icon": "fr"
 				},
 				{
-					"name": "Turkey",
-					"code": "Turquía",
-					"color": "#FF72CE",
-					"icon": "tr"
+					"name": "Spain",
+					"code": "España",
+					"color": "#FFBB72",
+					"icon": "es"
 				},
 				{
 					"name": "Italy",
@@ -2642,10 +2642,10 @@
 					"icon": "it"
 				},
 				{
-					"name": "Spain",
-					"code": "España",
-					"color": "#FFBB72",
-					"icon": "es"
+					"name": "Turkey",
+					"code": "Turquía",
+					"color": "#FF72CE",
+					"icon": "tr"
 				},
 				{
 					"name": "Germany",
