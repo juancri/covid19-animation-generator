@@ -2990,25 +2990,26 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-22/output.csv",
-			"nameColumn": "country",
-			"inputDateFormat": "ISO",
-			"preProcessor": {
-				"name": "fillZero",
-				"parameters":
-				{
-					"from": "2020-12-22"
+			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Dose"]
 				}
 			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"preProcessor": "dailyChange",
 			"series":
 			[
 				{
-					"name": "Chile2",
+					"name": "Total Second",
 					"code": "segunda dosis",
 					"color": "#B8F63E"
 				},
 				{
-					"name": "Chile",
+					"name": "Total First",
 					"code": "primera dosis",
 					"color": "#F63E3E"
 				}
@@ -3016,28 +3017,25 @@
 		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
-			"url": "https://github.com/juancri/covid19-vaccination/releases/download/2021-01-22/output.csv",
-			"nameColumn": "country",
+			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Region", "Dose"]
+				}
+			},
+			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"preProcessors": [
-				{
-					"name": "fillZero",
-					"parameters":
-					{
-						"from": "2020-12-22"
-					 }
-				},
-				{ "name": "runningTotal" }
-			],
 			"series":
 			[
 				{
-					"name": "Chile2",
+					"name": "Total Second",
 					"code": "segunda dosis",
 					"color": "#B8F63E"
 				},
 				{
-					"name": "Chile",
+					"name": "Total First",
 					"code": "primera dosis",
 					"color": "#F63E3E"
 				}
