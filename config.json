@@ -1235,7 +1235,6 @@
 							"preProcessor": {
 								"name": "rename",
 								"parameters": [
-									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Las Condes Total", "to": "Las Condes" },
 									{ "from": "Santiago Total", "to": "Santiago" },
 									{ "from": "Ñuñoa Total", "to": "Nunoa" },
@@ -1246,7 +1245,22 @@
 									{ "from": "Puente Alto Total", "to": "Puente Alto" },
 									{ "from": "La Florida Total", "to": "La Florida" },
 									{ "from": "La Granja Total", "to": "La Granja" },
-									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" }
+									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" },
+									{ "from": "Arica Urbana", "to": "Arica" },
+									{ "from": "Iquique Total", "to": "Iquique" },
+									{ "from": "Antofagasta Urbana", "to": "Antofagasta" },
+									{ "from": "Copiapó Total", "to": "Copiapo" },
+									{ "from": "Coquimbo Total", "to": "Coquimbo" },
+									{ "from": "Valparaiso Total", "to": "Valparaiso" },
+									{ "from": "Rancagua Total", "to": "Rancagua" },
+									{ "from": "Talca Urbana", "to": "Talca" },
+									{ "from": "Chillán Urbana", "to": "Chillan" },
+									{ "from": "Concepción Total", "to": "Concepcion" },
+									{ "from": "Temuco Total", "to": "Temuco" },
+									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
+									{ "from": "Valdivia Total", "to": "Valdivia" },
+									{ "from": "Coyhaique Total", "to": "Coyhaique" },
+									{ "from": "Punta Arenas Total", "to": "Punta Arenas" }
 								]
 							}
 						},
@@ -1262,6 +1276,105 @@
 			],
 			"series":
 			[
+				{
+					"name": "Arica",
+					"code": "Arica",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Copiapo",
+					"code": "Copiapó",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Coquimbo",
+					"code": "Coquimbo",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Rancagua",
+					"code": "Rancagua",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Talca",
+					"code": "Talca",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Concepcion",
+					"code": "Concepción",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Puerto Montt",
+					"code": "Puerto Montt",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Valdivia",
+					"code": "Valdivia",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Coyhaique",
+					"code": "Coyhaique",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
 				{
 					"name": "Santiago",
 					"code": "Santiago",
@@ -1367,23 +1480,9 @@
 					]
 				},
 				{
-					"name": "Chillán",
+					"name": "Chillan",
 					"code": "Chillán",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-03-30T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-04-23T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1751,16 +1850,6 @@
 					"name": "Iquique",
 					"code": "Iquique",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-16T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1793,24 +1882,6 @@
 					"name": "Antofagasta",
 					"code": "Antofagasta",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-05T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-05-30T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-06-23T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1843,20 +1914,6 @@
 					"name": "Punta Arenas",
 					"code": "Punta Arenas",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-04-01T00:00:00.000-07:00",
-							"color": "#FF3818"
-						},
-						{
-							"date": "2020-05-08T00:00:00.000-07:00",
-							"color": "#6DFF18"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -1950,15 +2007,9 @@
 					"color": "#6DFF18"
 				},
 				{
-					"name": "Valparaíso",
+					"name": "Valparaiso",
 					"code": "Valparaíso",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-06-12T00:00:00.000-08:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
