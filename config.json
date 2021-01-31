@@ -1258,6 +1258,7 @@
 									{ "from": "Talca Urbana", "to": "Talca" },
 									{ "from": "Chillán Urbana", "to": "Chillan" },
 									{ "from": "Chillán Viejo Urbana", "to": "Chillan Viejo" },
+									{ "from": "Los Ángeles Total", "to": "Los Angeles" },
 									{ "from": "Concepción Total", "to": "Concepcion" },
 									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
@@ -1509,6 +1510,17 @@
 				{
 					"name": "Chillan Viejo",
 					"code": "Chillán Viejo",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Los Angeles",
+					"code": "Los Ángeles",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -3063,7 +3075,7 @@
 				{
 					"name": "Total First",
 					"code": "primera dosis",
-					"color": "#F63E3E"
+					"color": "#F6DD3E"
 				}
 			]
 		},
@@ -3089,7 +3101,7 @@
 				{
 					"name": "Total First",
 					"code": "primera dosis",
-					"color": "#F63E3E"
+					"color": "#F6DD3E"
 				}
 			]
 		},
