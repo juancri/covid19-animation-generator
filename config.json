@@ -1250,11 +1250,14 @@
 									{ "from": "Iquique Total", "to": "Iquique" },
 									{ "from": "Antofagasta Urbana", "to": "Antofagasta" },
 									{ "from": "Copiapó Total", "to": "Copiapo" },
+									{ "from": "La Serena Total", "to": "La Serena" },
 									{ "from": "Coquimbo Total", "to": "Coquimbo" },
 									{ "from": "Valparaiso Total", "to": "Valparaiso" },
+									{ "from": "Viña del Mar Total", "to": "Vina del Mar" },
 									{ "from": "Rancagua Total", "to": "Rancagua" },
 									{ "from": "Talca Urbana", "to": "Talca" },
 									{ "from": "Chillán Urbana", "to": "Chillan" },
+									{ "from": "Chillán Viejo Urbana", "to": "Chillan Viejo" },
 									{ "from": "Concepción Total", "to": "Concepcion" },
 									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
@@ -1303,6 +1306,17 @@
 				{
 					"name": "Coquimbo",
 					"code": "Coquimbo",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "La Serena",
+					"code": "La Serena",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -1484,6 +1498,17 @@
 				{
 					"name": "Chillan",
 					"code": "Chillán",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Chillan Viejo",
+					"code": "Chillán Viejo",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -2000,15 +2025,9 @@
 					]
 				},
 				{
-					"name": "Viña del Mar",
+					"name": "Vina del Mar",
 					"code": "Viña del Mar",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-06-12T00:00:00.000-08:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
