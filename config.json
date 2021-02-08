@@ -379,7 +379,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
 				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
 				{ "name": "forceCode", "parameters": { "name": "Italy", "code": "Italia" } },
-				{ "name": "forceCode", "parameters": { "name": "Colombia", "code": "Colombia" } },
+				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
 				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
@@ -1170,7 +1170,7 @@
 		},
 		"chile-critic": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto23/PacientesCriticos.csv",
-			"nameColumn": "Casos",
+			"nameColumn": "Variable",
 			"inputDateFormat": "ISO",
 			"series": [
 				{
@@ -1260,7 +1260,17 @@
 									{ "from": "Chillán Viejo Urbana", "to": "Chillan Viejo" },
 									{ "from": "Los Ángeles Total", "to": "Los Angeles" },
 									{ "from": "Concepción Total", "to": "Concepcion" },
+									{ "from": "Talcahuano Total", "to": "Talcahuano" },
+									{ "from": "Chiguayante Total", "to": "Chiguayante" },
+									{ "from": "San Pedro de la Paz Total", "to": "San Pedro de la Paz" },
+									{ "from": "Hualpén Total", "to": "Hualpen" },
+									{ "from": "Penco Total", "to": "Penco" },
+									{ "from": "Tomé Total", "to": "Tome" },
+									{ "from": "Coronel Total", "to": "Coronel" },
+									{ "from": "Lota Total", "to": "Lota" },
+									{ "from": "Hualqui Total", "to": "Hualqui" },
 									{ "from": "Temuco Total", "to": "Temuco" },
+									{ "from": "Padre Las Casas Total", "to": "Padre Las Casas" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
 									{ "from": "Valdivia Total", "to": "Valdivia" },
 									{ "from": "Coyhaique Total", "to": "Coyhaique" },
@@ -1360,6 +1370,105 @@
 					]
 				},
 				{
+					"name": "Talcahuano",
+					"code": "Talcahuano",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Chiguayante",
+					"code": "Chiguayante",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "San Pedro de la Paz",
+					"code": "San Pedro",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Hualpen",
+					"code": "Hualpén",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Penco",
+					"code": "Penco",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Tome",
+					"code": "Tomé",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Coronel",
+					"code": "Coronel",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Lota",
+					"code": "Lota",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Hualqui",
+					"code": "Hualqui",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
 					"name": "Puerto Montt",
 					"code": "Puerto Montt",
 					"color": "#6DFF18",
@@ -1428,6 +1537,11 @@
 				{
 					"name": "Temuco",
 					"code": "Temuco",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "Padre Las Casas",
+					"code": "P. Las Casas",
 					"color": "#6DFF18"
 				},
 				{
