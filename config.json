@@ -1254,6 +1254,7 @@
 									{ "from": "Coquimbo Total", "to": "Coquimbo" },
 									{ "from": "Valparaiso Total", "to": "Valparaiso" },
 									{ "from": "Viña del Mar Total", "to": "Vina del Mar" },
+									{ "from": "Concón Total", "to": "Concon" },
 									{ "from": "Rancagua Total", "to": "Rancagua" },
 									{ "from": "Talca Urbana", "to": "Talca" },
 									{ "from": "Chillán Urbana", "to": "Chillan" },
@@ -1271,6 +1272,8 @@
 									{ "from": "Hualqui Total", "to": "Hualqui" },
 									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Padre Las Casas Total", "to": "Padre Las Casas" },
+									{ "from": "Villarrica Total", "to": "Villarrica" },
+									{ "from": "Pucón Total", "to": "Pucon" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
 									{ "from": "Valdivia Total", "to": "Valdivia" },
 									{ "from": "Coyhaique Total", "to": "Coyhaique" },
@@ -1328,6 +1331,17 @@
 				{
 					"name": "La Serena",
 					"code": "La Serena",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Concon",
+					"code": "Concón",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -1542,6 +1556,16 @@
 				{
 					"name": "Padre Las Casas",
 					"code": "P. Las Casas",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "Villarrica",
+					"code": "Villarrica",
+					"color": "#6DFF18"
+				},
+				{
+					"name": "Pucon",
+					"code": "Pucón",
 					"color": "#6DFF18"
 				},
 				{
