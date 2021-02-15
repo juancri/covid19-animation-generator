@@ -1248,13 +1248,16 @@
 									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" },
 									{ "from": "Arica Urbana", "to": "Arica" },
 									{ "from": "Iquique Total", "to": "Iquique" },
+									{ "from": "Alto Hospicio Total", "to": "Alto Hospicio" },
 									{ "from": "Antofagasta Urbana", "to": "Antofagasta" },
 									{ "from": "Copiapó Total", "to": "Copiapo" },
+									{ "from": "Diego de Almagro Total", "to": "Diego de Almagro" },
 									{ "from": "La Serena Total", "to": "La Serena" },
 									{ "from": "Coquimbo Total", "to": "Coquimbo" },
 									{ "from": "Valparaiso Total", "to": "Valparaiso" },
 									{ "from": "Viña del Mar Total", "to": "Vina del Mar" },
 									{ "from": "Concón Total", "to": "Concon" },
+									{ "from": "Petorca Total", "to": "Petorca" },
 									{ "from": "Rancagua Total", "to": "Rancagua" },
 									{ "from": "Talca Urbana", "to": "Talca" },
 									{ "from": "Chillán Urbana", "to": "Chillan" },
@@ -1270,6 +1273,7 @@
 									{ "from": "Coronel Total", "to": "Coronel" },
 									{ "from": "Lota Total", "to": "Lota" },
 									{ "from": "Hualqui Total", "to": "Hualqui" },
+									{ "from": "Laja Total", "to": "Laja" },
 									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Padre Las Casas Total", "to": "Padre Las Casas" },
 									{ "from": "Villarrica Total", "to": "Villarrica" },
@@ -1278,6 +1282,7 @@
 									{ "from": "Valdivia Total", "to": "Valdivia" },
 									{ "from": "Coyhaique Total", "to": "Coyhaique" },
 									{ "from": "Punta Arenas Total", "to": "Punta Arenas" },
+									{ "from": "Porvenir Total", "to": "Porvenir" },
 									{ "from": "Peñalolén Total", "to": "Penalolen" },
 									{ "from": "La Reina Total", "to": "La Reina" }
 								]
@@ -1318,6 +1323,17 @@
 					]
 				},
 				{
+					"name": "Diego de Almagro",
+					"code": "Diego de Almagro",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
 					"name": "Coquimbo",
 					"code": "Coquimbo",
 					"color": "#6DFF18",
@@ -1342,6 +1358,17 @@
 				{
 					"name": "Concon",
 					"code": "Concón",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Petorca",
+					"code": "Petorca",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -1483,8 +1510,30 @@
 					]
 				},
 				{
+					"name": "Laja",
+					"code": "Laja",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
 					"name": "Puerto Montt",
 					"code": "Puerto Montt",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Castro",
+					"code": "Castro",
 					"color": "#6DFF18",
 					"gaps": [
 						{
@@ -2028,16 +2077,6 @@
 					"name": "Alto Hospicio",
 					"code": "Alto Hospicio",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-05-16T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
@@ -2080,6 +2119,17 @@
 				{
 					"name": "Punta Arenas",
 					"code": "Punta Arenas",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Porvenir",
+					"code": "Porvenir",
 					"color": "#6DFF18",
 					"gaps": [
 						{
