@@ -3252,7 +3252,7 @@
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"preProcessor": "dailyChange",
+			"preProcessors": ["dailyChange", "avg7"],
 			"series":
 			[
 				{
@@ -3264,6 +3264,100 @@
 					"name": "Total First",
 					"code": "primera dosis",
 					"color": "#F6DD3E"
+				}
+			]
+		},
+		"chile-vaccination-age": {
+			"name": "Chile - Vaccination by age group",
+			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-ages.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Age", "Dose"]
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "15-17 First",
+					"code": "15 - 17",
+					"color": "#33A6FF",
+					"areaColor": "#33A6FF"
+				},
+				{
+					"name": "18-39 First",
+					"code": "18 - 39",
+					"color": "#33E2FF",
+					"areaColor": "#33E2FF"
+				},
+				{
+					"name": "40-49 First",
+					"code": "40 - 49",
+					"color": "#33FFCF",
+					"areaColor": "#33FFCF"
+				},
+				{
+					"name": "50-59 First",
+					"code": "50 - 59",
+					"color": "#33FF93",
+					"areaColor": "#33FF93"
+				},
+				{
+					"name": "60-69 First",
+					"code": "60 - 69",
+					"color": "#3AFF33",
+					"areaColor": "#3AFF33"
+				},
+				{
+					"name": "70-72 First",
+					"code": "70 - 72",
+					"color": "#9EFF33",
+					"areaColor": "#9EFF33"
+				},
+				{
+					"name": "73-74 First",
+					"code": "73 - 74",
+					"color": "#EAFF33",
+					"areaColor": "#EAFF33"
+				},
+				{
+					"name": "75-77 First",
+					"code": "75 - 77",
+					"color": "#FFBA33",
+					"areaColor": "#FFBA33"
+				},
+				{
+					"name": "78-80 First",
+					"code": "78 - 80",
+					"color": "#FF6233",
+					"areaColor": "#FF6233"
+				},
+				{
+					"name": "81-84 First",
+					"code": "81 - 84",
+					"color": "#FF3347",
+					"areaColor": "#FF3347"
+				},
+				{
+					"name": "85-86 First",
+					"code": "85 - 86",
+					"color": "#FF3372",
+					"areaColor": "#FF3372"
+				},
+				{
+					"name": "87-89 First",
+					"code": "87 - 89",
+					"color": "#FF33C8",
+					"areaColor": "#FF33C8"
+				},
+				{
+					"name": "90 y más First",
+					"code": "90+",
+					"color": "#C633FF",
+					"areaColor": "#C633FF"
 				}
 			]
 		},
