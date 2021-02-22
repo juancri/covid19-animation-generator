@@ -3361,6 +3361,58 @@
 				}
 			]
 		},
+		"chile-vaccination-groups": {
+			"name": "Chile - Vaccination by risk group",
+			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-groups.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": ["Group", "Dose"]
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"series":
+			[
+				{
+					"name": "Población vulnerable First",
+					"code": "Pob. vulnerable",
+					"color": "#800058",
+					"areaColor": "#FF00B0"
+				},
+				{
+					"name": "Personas en centros cerrados First",
+					"code": "Centros cerrados",
+					"color": "#00367F",
+					"areaColor": "#006CFF"
+				},
+				{
+					"name": "Personas Servicios infraestructura crítica First",
+					"code": "S. críticos",
+					"color": "#00836E",
+					"areaColor": "#00FFD5"
+				},
+				{
+					"name": "Población Sana First",
+					"code": "P. Sanas",
+					"color": "#008709",
+					"areaColor": "#00FF13"
+				},
+				{
+					"name": "Personas Servicios esenciales del estado First",
+					"code": "S. del estado",
+					"color": "#816200",
+					"areaColor": "#FFC100"
+				},
+				{
+					"name": "Personal de salud First",
+					"code": "P. de salud",
+					"color": "#770F00",
+					"areaColor": "#FF1F00"
+				}
+			]
+		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
 			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
