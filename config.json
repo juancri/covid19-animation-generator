@@ -382,7 +382,7 @@
 				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
 				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
 				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
-				{ "name": "forceCode", "parameters": { "name": "South Africa", "code": "Sudáfrica" } },
+				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
 				{ "name": "forceCode", "parameters": { "name": "France", "code": "Francia" } },
 				{ "name": "requireForcedCodes" }
 			]
@@ -2930,10 +2930,10 @@
 					"icon": "pl"
 				},
 				{
-					"name": "South Africa",
-					"code": "Sudáfrica",
+					"name": "Iran",
+					"code": "Irán",
 					"color": "#8672FF",
-					"icon": "za"
+					"icon": "ir"
 				},
 				{
 					"name": "Ecuador",
