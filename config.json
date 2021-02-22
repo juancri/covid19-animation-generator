@@ -400,6 +400,19 @@
 				}
 			]
 		},
+		"global-deaths-avg7": {
+			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+			"nameColumn": "Country/Region",
+			"preProcessors": ["sum", "dailyChange", "avg7" ],
+			"series":
+			[
+				{
+					"name": "sum",
+					"code": "Global",
+					"color": "#FF0005"
+				}
+			]
+		},
 		"southamerica-deaths": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
