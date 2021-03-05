@@ -3277,18 +3277,30 @@
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"preProcessors": ["dailyChange", "avg7"],
+			"preProcessors": [
+				{ "name": "dailyChange" },
+				{ "name": "avg7" },
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "total",
+						"filter": ["Total First", "Total Second"]
+					}
+				}
+			],
 			"series":
 			[
 				{
-					"name": "Total Second",
-					"code": "segunda dosis",
-					"color": "#B8F63E"
-				},
-				{
 					"name": "Total First",
 					"code": "primera dosis",
-					"color": "#F6DD3E"
+					"color": "#905D00",
+					"areaColor": "#FFC600"
+				},
+				{
+					"name": "Total Second",
+					"code": "segunda dosis",
+					"color": "#649B00",
+					"areaColor": "#A4FF00"
 				}
 			]
 		},
@@ -3453,14 +3465,14 @@
 			"series":
 			[
 				{
-					"name": "Total Second",
-					"code": "segunda dosis",
-					"color": "#B8F63E"
-				},
-				{
 					"name": "Total First",
 					"code": "primera dosis",
-					"color": "#F6DD3E"
+					"color": "#FFC600"
+				},
+				{
+					"name": "Total Second",
+					"code": "segunda dosis",
+					"color": "#A4FF00"
 				}
 			]
 		},
