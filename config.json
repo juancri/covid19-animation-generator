@@ -1233,6 +1233,7 @@
 									{ "from": "Iquique Total", "to": "Iquique" },
 									{ "from": "Alto Hospicio Total", "to": "Alto Hospicio" },
 									{ "from": "Antofagasta Urbana", "to": "Antofagasta" },
+									{ "from": "Calama Total", "to": "Calama" },
 									{ "from": "Copiapó Total", "to": "Copiapo" },
 									{ "from": "Diego de Almagro Total", "to": "Diego de Almagro" },
 									{ "from": "La Serena Total", "to": "La Serena" },
@@ -1281,7 +1282,6 @@
 									{ "from": "Talca Urbana", "to": "Talca" },
 									{ "from": "Chillán Urbana", "to": "Chillan" },
 									{ "from": "Chillán Viejo Urbana", "to": "Chillan Viejo" },
-									{ "from": "Los Ángeles Total", "to": "Los Angeles" },
 									{ "from": "Concepción Total", "to": "Concepcion" },
 									{ "from": "Talcahuano Total", "to": "Talcahuano" },
 									{ "from": "Chiguayante Total", "to": "Chiguayante" },
@@ -1292,12 +1292,14 @@
 									{ "from": "Coronel Total", "to": "Coronel" },
 									{ "from": "Lota Total", "to": "Lota" },
 									{ "from": "Hualqui Total", "to": "Hualqui" },
+									{ "from": "Los Ángeles Urbana", "to": "Los Angeles" },
 									{ "from": "Laja Total", "to": "Laja" },
 									{ "from": "Temuco Total", "to": "Temuco" },
 									{ "from": "Padre Las Casas Total", "to": "Padre Las Casas" },
 									{ "from": "Villarrica Total", "to": "Villarrica" },
 									{ "from": "Pucón Total", "to": "Pucon" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
+									{ "from": "Osorno Total", "to": "Osorno" },
 									{ "from": "Valdivia Total", "to": "Valdivia" },
 									{ "from": "Coyhaique Urbana", "to": "Coyhaique" },
 									{ "from": "Punta Arenas Total", "to": "Punta Arenas" },
@@ -1890,6 +1892,17 @@
 					]
 				},
 				{
+					"name": "Osorno",
+					"code": "Osorno",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
 					"name": "Castro",
 					"code": "Castro",
 					"color": "#6DFF18",
@@ -2087,6 +2100,17 @@
 					]
 				},
 				{
+					"name": "Calama",
+					"code": "Calama",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
 					"name": "Cerrillos",
 					"code": "Cerrillos",
 					"color": "#6DFF18",
@@ -2122,23 +2146,6 @@
 					"name": "Porvenir",
 					"code": "Porvenir",
 					"color": "#6DFF18",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
-				},
-				{
-					"name": "Calama",
-					"code": "Calama",
-					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-06-09T00:00:00.000-08:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
