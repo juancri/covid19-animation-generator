@@ -3260,82 +3260,70 @@
 			"series":
 			[
 				{
-					"name": "15-17 First",
-					"code": "15 - 17",
+					"name": "15-20 First",
+					"code": "15 - 20",
 					"color": "#33A6FF",
 					"areaColor": "#33A6FF"
 				},
 				{
-					"name": "18-39 First",
-					"code": "18 - 39",
+					"name": "21-30 First",
+					"code": "21 - 30",
 					"color": "#33E2FF",
 					"areaColor": "#33E2FF"
 				},
 				{
-					"name": "40-49 First",
-					"code": "40 - 49",
+					"name": "31-40 First",
+					"code": "31 - 40",
 					"color": "#33FFCF",
 					"areaColor": "#33FFCF"
 				},
 				{
-					"name": "50-59 First",
-					"code": "50 - 59",
+					"name": "41-50 First",
+					"code": "41 - 50",
 					"color": "#33FF93",
 					"areaColor": "#33FF93"
 				},
 				{
-					"name": "60-69 First",
-					"code": "60 - 69",
+					"name": "51-60 First",
+					"code": "51 - 60",
 					"color": "#3AFF33",
 					"areaColor": "#3AFF33"
 				},
 				{
-					"name": "70-72 First",
-					"code": "70 - 72",
+					"name": "61-70 First",
+					"code": "61 - 70",
 					"color": "#9EFF33",
 					"areaColor": "#9EFF33"
 				},
 				{
-					"name": "73-74 First",
-					"code": "73 - 74",
+					"name": "71-72 First",
+					"code": "71 - 72",
 					"color": "#EAFF33",
 					"areaColor": "#EAFF33"
 				},
 				{
-					"name": "75-77 First",
-					"code": "75 - 77",
+					"name": "73-74 First",
+					"code": "73 - 74",
 					"color": "#FFBA33",
 					"areaColor": "#FFBA33"
 				},
 				{
-					"name": "78-80 First",
-					"code": "78 - 80",
+					"name": "75-77 First",
+					"code": "75 - 77",
 					"color": "#FF6233",
 					"areaColor": "#FF6233"
 				},
 				{
-					"name": "81-84 First",
-					"code": "81 - 84",
+					"name": "78-79 First",
+					"code": "78 - 79",
 					"color": "#FF3347",
 					"areaColor": "#FF3347"
 				},
 				{
-					"name": "85-86 First",
-					"code": "85 - 86",
+					"name": "80 y más First",
+					"code": "80+",
 					"color": "#FF3372",
 					"areaColor": "#FF3372"
-				},
-				{
-					"name": "87-89 First",
-					"code": "87 - 89",
-					"color": "#FF33C8",
-					"areaColor": "#FF33C8"
-				},
-				{
-					"name": "90 y más First",
-					"code": "90+",
-					"color": "#C633FF",
-					"areaColor": "#C633FF"
 				}
 			]
 		},
@@ -3354,38 +3342,38 @@
 			"series":
 			[
 				{
-					"name": "Población vulnerable First",
-					"code": "Pob. vulnerable",
+					"name": "Adm. poyo no clinico FFAA y de orden First",
+					"code": "Ap. FFAA y orden",
 					"color": "#800058",
 					"areaColor": "#FF00B0"
 				},
 				{
-					"name": "Personas en centros cerrados First",
-					"code": "Centros cerrados",
+					"name": "Administrativo de apoyo no clinico sector privado First",
+					"code": "Ap. Privado",
 					"color": "#00367F",
 					"areaColor": "#006CFF"
 				},
 				{
-					"name": "Personas Servicios infraestructura crítica First",
-					"code": "S. críticos",
+					"name": "Administrativo de apoyo no clinico sector público First",
+					"code": "Ap. Publico",
 					"color": "#00836E",
 					"areaColor": "#00FFD5"
 				},
 				{
-					"name": "Población Sana First",
-					"code": "P. Sanas",
+					"name": "Alumnos en práctica sector público First",
+					"code": "Practica publico",
 					"color": "#008709",
 					"areaColor": "#00FF13"
 				},
 				{
-					"name": "Personas Servicios esenciales del estado First",
-					"code": "S. del estado",
+					"name": "Alumnos en práctica, sector privado First",
+					"code": "Practica privado",
 					"color": "#816200",
 					"areaColor": "#FFC100"
 				},
 				{
-					"name": "Personal de salud First",
-					"code": "P. de salud",
+					"name": "FFAA y de orden",
+					"code": "FFAA y orden",
 					"color": "#770F00",
 					"areaColor": "#FF1F00"
 				}
