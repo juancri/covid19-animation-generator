@@ -18,7 +18,7 @@ Generates an animation based on COVID-19 daily data.
 
 ## Requirements
 
-- Node 12.x
+- Node 14.x
 - GNU make
 
 ## Initialize
