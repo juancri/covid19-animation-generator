@@ -1299,6 +1299,7 @@
 									{ "from": "Villarrica Total", "to": "Villarrica" },
 									{ "from": "Pucón Total", "to": "Pucon" },
 									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
+									{ "from": "Puerto Varas Total", "to": "Puerto Varas" },
 									{ "from": "Osorno Total", "to": "Osorno" },
 									{ "from": "Valdivia Total", "to": "Valdivia" },
 									{ "from": "Coyhaique Urbana", "to": "Coyhaique" },
@@ -1891,6 +1892,17 @@
 						}
 					]
 				},
+				{
+                                        "name": "Puerto Varas",
+                                        "code": "Puerto Varas",
+                                        "color": "#6DFF18",
+                                        "gaps": [
+                                                {
+                                                        "from": "2020-06-16",
+                                                        "to": "2020-06-18"
+                                                }
+                                        ]
+                                },
 				{
 					"name": "Osorno",
 					"code": "Osorno",
