@@ -3342,7 +3342,7 @@
 			"series":
 			[
 				{
-					"name": "Adm. poyo no clinico FFAA y de orden First",
+					"name": "Adm. apoyo no clinico FFAA y de orden First",
 					"code": "Ap. FFAA y orden",
 					"color": "#800058",
 					"areaColor": "#FF00B0"
@@ -3372,7 +3372,7 @@
 					"areaColor": "#FFC100"
 				},
 				{
-					"name": "FFAA y de orden",
+					"name": "FFAA y de orden First",
 					"code": "FFAA y orden",
 					"color": "#770F00",
 					"areaColor": "#FF1F00"
