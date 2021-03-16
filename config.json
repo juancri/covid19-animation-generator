@@ -1488,6 +1488,10 @@
 										"to": "San Fernando"
 									},
 									{
+										"from": "Olivar Total",
+										"to": "Olivar"
+									},
+									{
 										"from": "Talca Urbana",
 										"to": "Talca"
 									},
@@ -2041,6 +2045,17 @@
 				{
 					"name": "San Fernando",
 					"code": "San Fernando",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Olivar",
+					"code": "Olivar",
 					"color": "#6DFF18",
 					"gaps": [
 						{
