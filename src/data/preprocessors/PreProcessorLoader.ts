@@ -20,9 +20,11 @@ import RunningTotalPreProcessor from './RunningTotalPreProcessor';
 import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
 import RemoveGapPreProcessor from './RemoveGapPreProcessor';
 import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
+import DatePlusPreProcessor from './DatePlusPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
+	datePlus: DatePlusPreProcessor.run,
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
 	forceGaps: ForceGapsPreProcessor.run,
