@@ -1,16 +1,12 @@
 {
-	"colorSchemas":
-	{
-		"dark":
-		{
+	"colorSchemas": {
+		"dark": {
 			"background": "#2E2E2E",
-			"debug":
-			{
+			"debug": {
 				"color": "yellow",
 				"font": "20px DejaVu Sans Mono"
 			},
-			"scale":
-			{
+			"scale": {
 				"color": "#ccc",
 				"font": "25px DejaVu Sans Mono",
 				"offset": 50
@@ -20,16 +16,19 @@
 				"font": "30px DejaVu Sans Mono",
 				"offset": 150
 			},
-			"series":
-			{
-				"label":
-				{
+			"series": {
+				"label": {
 					"font": "25px DejaVu Sans Mono",
 					"color": "white",
-					"offset": { "x": 10, "y": 10 },
-					"stackedArea":
-					{
-						"offset": { "x": 15, "y": 25 },
+					"offset": {
+						"x": 10,
+						"y": 10
+					},
+					"stackedArea": {
+						"offset": {
+							"x": 15,
+							"y": 25
+						},
 						"minYOffset": 35,
 						"minYDistance": 70,
 						"box": {
@@ -40,8 +39,7 @@
 						}
 					}
 				},
-				"colors":
-				[
+				"colors": [
 					"#9ca9de",
 					"#d5e84c",
 					"#ec9d3e",
@@ -56,8 +54,7 @@
 					"#e5571c"
 				]
 			},
-			"date":
-			{
+			"date": {
 				"font": "30px DejaVu Sans Mono",
 				"color": "#FF544F"
 			},
@@ -77,16 +74,13 @@
 				"lineWidth": 1
 			}
 		},
-		"yachay":
-		{
+		"yachay": {
 			"background": "#ffffff",
-			"debug":
-			{
+			"debug": {
 				"color": "yellow",
 				"font": "30px Montserrat"
 			},
-			"scale":
-			{
+			"scale": {
 				"color": "black",
 				"font": "30px Montserrat",
 				"offset": 50
@@ -96,17 +90,20 @@
 				"font": "35px Montserrat",
 				"offset": 150
 			},
-			"series":
-			{
-				"label":
-				{
+			"series": {
+				"label": {
 					"font": "30px Montserrat-Bold",
 					"color": "black",
-					"offset": { "x": 10, "y": 10 },
-					"stackedAreaOffset": { "x": 15, "y": 25 }
+					"offset": {
+						"x": 10,
+						"y": 10
+					},
+					"stackedAreaOffset": {
+						"x": 15,
+						"y": 25
+					}
 				},
-				"colors":
-				[
+				"colors": [
 					"#F06AFF",
 					"#FF6A6F",
 					"#72CDFF",
@@ -146,8 +143,7 @@
 					"#FFA600"
 				]
 			},
-			"date":
-			{
+			"date": {
 				"font": "40px Helvetica-Bold",
 				"color": "black"
 			},
@@ -164,12 +160,16 @@
 			}
 		}
 	},
-	"layouts":
-	{
-		"square":
-		{
-			"canvasSize": [1080, 1080],
-			"debugPosition": { "x": 10, "y": 30 },
+	"layouts": {
+		"square": {
+			"canvasSize": [
+				1080,
+				1080
+			],
+			"debugPosition": {
+				"x": 10,
+				"y": 30
+			},
 			"plotArea": {
 				"left": 125,
 				"right": 1000,
@@ -189,13 +189,14 @@
 				"bottom": 955
 			},
 			"circleSize": 6,
-			"datePosition": { "x": 850, "y": 100 },
-			"dateFont":
-			{
+			"datePosition": {
+				"x": 850,
+				"y": 100
+			},
+			"dateFont": {
 				"size": 20
 			},
-			"timebar":
-			{
+			"timebar": {
 				"left": 0,
 				"right": 1080,
 				"top": 1075,
@@ -215,8 +216,7 @@
 			"name": "Global (Chile + others)",
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "US",
 					"code": "EE.UU.",
@@ -283,8 +283,7 @@
 		"southamerica": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Argentina",
 					"code": "Argentina",
@@ -347,27 +346,96 @@
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
 			"preProcessors": [
-				{ "name": "sortDesc", "parameters": { "lastWeek": true } },
-				{ "name": "limit", "parameters": 10 },
-				{ "name": "forceCode", "parameters": { "name": "US", "code": "Estados Unidos" } },
-				{ "name": "forceCode", "parameters": { "name": "Russia", "code": "Rusia" } },
-				{ "name": "forceCode", "parameters": { "name": "Brazil", "code": "Brasil" } },
-				{ "name": "forceCode", "parameters": { "name": "Mexico", "code": "México" } },
-				{ "name": "forceCode", "parameters": { "name": "Italy", "code": "Italia" } },
-				{ "name": "forceCode", "parameters": { "name": "Spain", "code": "España" } },
-				{ "name": "forceCode", "parameters": { "name": "United Kingdom", "code": "Reino Unido" } },
-				{ "name": "forceCode", "parameters": { "name": "Germany", "code": "Alemania" } },
-				{ "name": "forceCode", "parameters": { "name": "Peru", "code": "Perú" } },
-				{ "name": "forceCode", "parameters": { "name": "France", "code": "Francia" } },
-				{ "name": "requireForcedCodes" }
+				{
+					"name": "sortDesc",
+					"parameters": {
+						"lastWeek": true
+					}
+				},
+				{
+					"name": "limit",
+					"parameters": 10
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "US",
+						"code": "Estados Unidos"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Russia",
+						"code": "Rusia"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Brazil",
+						"code": "Brasil"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Mexico",
+						"code": "México"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Italy",
+						"code": "Italia"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Spain",
+						"code": "España"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "United Kingdom",
+						"code": "Reino Unido"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Germany",
+						"code": "Alemania"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "Peru",
+						"code": "Perú"
+					}
+				},
+				{
+					"name": "forceCode",
+					"parameters": {
+						"name": "France",
+						"code": "Francia"
+					}
+				},
+				{
+					"name": "requireForcedCodes"
+				}
 			]
 		},
 		"global-deaths-sum": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
 			"preProcessor": "sum",
-			"series":
-			[
+			"series": [
 				{
 					"name": "sum",
 					"code": "Global",
@@ -378,9 +446,12 @@
 		"global-deaths-avg7": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
-			"preProcessors": ["sum", "dailyChange", "avg7" ],
-			"series":
-			[
+			"preProcessors": [
+				"sum",
+				"dailyChange",
+				"avg7"
+			],
+			"series": [
 				{
 					"name": "sum",
 					"code": "Global",
@@ -391,8 +462,7 @@
 		"southamerica-deaths": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Argentina",
 					"code": "Argentina",
@@ -458,8 +528,7 @@
 		"gdp": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Barbados",
 					"code": "Barbados",
@@ -520,8 +589,7 @@
 		"population": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Sri Lanka",
 					"code": "Sri Lanka",
@@ -583,8 +651,7 @@
 			"name": "Global (Chile + others)",
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
 			"nameColumn": "Country/Region",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Australia",
 					"code": "AU",
@@ -803,12 +870,10 @@
 				}
 			]
 		},
-		"washington":
-		{
+		"washington": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv",
 			"nameColumn": "Combined_Key",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Pierce, Washington, US",
 					"code": "Pierce",
@@ -875,8 +940,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Arica y Parinacota",
 					"code": "Arica",
@@ -1059,8 +1123,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total",
 					"code": "Chile",
@@ -1079,8 +1142,7 @@
 			"nameColumn": "Region",
 			"preProcessor": "sum",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "sum",
 					"code": "Chile",
@@ -1129,8 +1191,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto20/NumeroVentiladores.csv",
 			"nameColumn": "Ventiladores",
 			"inputDateFormat": "ISO",
-			"preProcessors":
-			[
+			"preProcessors": [
 				{
 					"name": "override",
 					"parameters": {
@@ -1140,8 +1201,7 @@
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "disponibles",
 					"code": "disponibles",
@@ -1204,116 +1264,362 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Comuna",
 			"preProcessors": [
-				{ "name": "fillInterpolation" },
+				{
+					"name": "fillInterpolation"
+				},
 				{
 					"name": "loadMilestones",
 					"parameters": {
-						"dataSource":
-						{
+						"dataSource": {
 							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv",
 							"inputDateFormat": "ISO",
 							"csvDataProcessor": {
 								"name": "joinColumns",
 								"parameters": {
 									"name": "col",
-									"columns": ["comuna_residencia", "zona"]
+									"columns": [
+										"comuna_residencia",
+										"zona"
+									]
 								}
 							},
 							"nameColumn": "col",
 							"preProcessor": {
 								"name": "rename",
 								"parameters": [
-									{ "from": "Arica Urbana", "to": "Arica" },
-									{ "from": "Iquique Total", "to": "Iquique" },
-									{ "from": "Alto Hospicio Total", "to": "Alto Hospicio" },
-									{ "from": "Antofagasta Urbana", "to": "Antofagasta" },
-									{ "from": "Calama Total", "to": "Calama" },
-									{ "from": "Copiapó Total", "to": "Copiapo" },
-									{ "from": "Diego de Almagro Total", "to": "Diego de Almagro" },
-									{ "from": "La Serena Total", "to": "La Serena" },
-									{ "from": "Coquimbo Total", "to": "Coquimbo" },
-									{ "from": "Valparaiso Total", "to": "Valparaiso" },
-									{ "from": "Viña del Mar Total", "to": "Vina del Mar" },
-									{ "from": "Concón Total", "to": "Concon" },
-									{ "from": "Petorca Total", "to": "Petorca" },
-									{ "from": "Colina Total", "to": "Colina" },
-									{ "from": "Quilicura Total", "to": "Quilicura" },
-									{ "from": "Pudahuel Total", "to": "Pudahuel" },
-									{ "from": "Cerrillos Total", "to": "Cerrillos" },
-									{ "from": "Estación Central Total", "to": "Estacion Central" },
-									{ "from": "Maipú Total", "to": "Maipu" },
-									{ "from": "Conchalí Total", "to": "Conchali" },
-									{ "from": "Huechuraba Total", "to": "Huechuraba" },
-									{ "from": "Renca Total", "to": "Renca" },
-									{ "from": "Cerro Navia Total", "to": "Cerro Navia" },
-									{ "from": "Lo Prado Total", "to": "Lo Prado" },
-									{ "from": "Quinta Normal Total", "to": "Quinta Normal" },
-									{ "from": "Independencia Total", "to": "Independencia" },
-									{ "from": "Recoleta Total", "to": "Recoleta" },
-									{ "from": "Santiago Total", "to": "Santiago" },
-									{ "from": "Ñuñoa Total", "to": "Nunoa" },
-									{ "from": "Providencia Total", "to": "Providencia" },
-									{ "from": "La Granja Total", "to": "La Granja" },
-									{ "from": "Macul Total", "to": "Macul" },
-									{ "from": "San Joaquín Total", "to": "San Joaquin" },
-									{ "from": "Las Condes Total", "to": "Las Condes" },
-									{ "from": "Lo Barnechea Total", "to": "Lo Barnechea" },
-									{ "from": "Vitacura Total", "to": "Vitacura" },
-									{ "from": "La Reina Total", "to": "La Reina" },
-									{ "from": "Peñalolén Total", "to": "Penalolen" },
-									{ "from": "La Florida Total", "to": "La Florida" },
-									{ "from": "Puente Alto Total", "to": "Puente Alto" },
-									{ "from": "La Pintana Total", "to": "La Pintana" },
-									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" },
-									{ "from": "El Bosque Total", "to": "El Bosque" },
-									{ "from": "La Cisterna Total", "to": "La Cisterna" },
-									{ "from": "San Ramón Total", "to": "San Ramon" },
-									{ "from": "Lo Espejo Total", "to": "Lo Espejo" },
-									{ "from": "Pedro Aguirre Cerda Total", "to": "Pedro Aguirre Cerda" },
-									{ "from": "San Miguel Total", "to": "San Miguel" },
-									{ "from": "Rancagua Total", "to": "Rancagua" },
-									{ "from": "San Fernando Total", "to": "San Fernando" },
-									{ "from": "Talca Urbana", "to": "Talca" },
-									{ "from": "Chillán Urbana", "to": "Chillan" },
-									{ "from": "Chillán Viejo Urbana", "to": "Chillan Viejo" },
-									{ "from": "Concepción Total", "to": "Concepcion" },
-									{ "from": "Talcahuano Total", "to": "Talcahuano" },
-									{ "from": "Chiguayante Total", "to": "Chiguayante" },
-									{ "from": "San Pedro de la Paz Total", "to": "San Pedro de la Paz" },
-									{ "from": "Hualpén Total", "to": "Hualpen" },
-									{ "from": "Penco Total", "to": "Penco" },
-									{ "from": "Tomé Total", "to": "Tome" },
-									{ "from": "Coronel Total", "to": "Coronel" },
-									{ "from": "Lota Total", "to": "Lota" },
-									{ "from": "Hualqui Total", "to": "Hualqui" },
-									{ "from": "Los Ángeles Urbana", "to": "Los Angeles" },
-									{ "from": "Laja Total", "to": "Laja" },
-									{ "from": "Temuco Total", "to": "Temuco" },
-									{ "from": "Padre Las Casas Total", "to": "Padre Las Casas" },
-									{ "from": "Villarrica Total", "to": "Villarrica" },
-									{ "from": "Pucón Total", "to": "Pucon" },
-									{ "from": "Puerto Montt Total", "to": "Puerto Montt" },
-									{ "from": "Puerto Varas Total", "to": "Puerto Varas" },
-									{ "from": "Osorno Total", "to": "Osorno" },
-									{ "from": "Valdivia Total", "to": "Valdivia" },
-									{ "from": "Coyhaique Urbana", "to": "Coyhaique" },
-									{ "from": "Punta Arenas Total", "to": "Punta Arenas" },
-									{ "from": "Porvenir Total", "to": "Porvenir" }
+									{
+										"from": "Arica Urbana",
+										"to": "Arica"
+									},
+									{
+										"from": "Iquique Total",
+										"to": "Iquique"
+									},
+									{
+										"from": "Alto Hospicio Total",
+										"to": "Alto Hospicio"
+									},
+									{
+										"from": "Antofagasta Urbana",
+										"to": "Antofagasta"
+									},
+									{
+										"from": "Calama Total",
+										"to": "Calama"
+									},
+									{
+										"from": "Copiapó Total",
+										"to": "Copiapo"
+									},
+									{
+										"from": "Diego de Almagro Total",
+										"to": "Diego de Almagro"
+									},
+									{
+										"from": "La Serena Total",
+										"to": "La Serena"
+									},
+									{
+										"from": "Coquimbo Total",
+										"to": "Coquimbo"
+									},
+									{
+										"from": "Valparaiso Total",
+										"to": "Valparaiso"
+									},
+									{
+										"from": "Viña del Mar Total",
+										"to": "Vina del Mar"
+									},
+									{
+										"from": "Concón Total",
+										"to": "Concon"
+									},
+									{
+										"from": "Petorca Total",
+										"to": "Petorca"
+									},
+									{
+										"from": "Colina Total",
+										"to": "Colina"
+									},
+									{
+										"from": "Quilicura Total",
+										"to": "Quilicura"
+									},
+									{
+										"from": "Pudahuel Total",
+										"to": "Pudahuel"
+									},
+									{
+										"from": "Cerrillos Total",
+										"to": "Cerrillos"
+									},
+									{
+										"from": "Estación Central Total",
+										"to": "Estacion Central"
+									},
+									{
+										"from": "Maipú Total",
+										"to": "Maipu"
+									},
+									{
+										"from": "Conchalí Total",
+										"to": "Conchali"
+									},
+									{
+										"from": "Huechuraba Total",
+										"to": "Huechuraba"
+									},
+									{
+										"from": "Renca Total",
+										"to": "Renca"
+									},
+									{
+										"from": "Cerro Navia Total",
+										"to": "Cerro Navia"
+									},
+									{
+										"from": "Lo Prado Total",
+										"to": "Lo Prado"
+									},
+									{
+										"from": "Quinta Normal Total",
+										"to": "Quinta Normal"
+									},
+									{
+										"from": "Independencia Total",
+										"to": "Independencia"
+									},
+									{
+										"from": "Recoleta Total",
+										"to": "Recoleta"
+									},
+									{
+										"from": "Santiago Total",
+										"to": "Santiago"
+									},
+									{
+										"from": "Ñuñoa Total",
+										"to": "Nunoa"
+									},
+									{
+										"from": "Providencia Total",
+										"to": "Providencia"
+									},
+									{
+										"from": "La Granja Total",
+										"to": "La Granja"
+									},
+									{
+										"from": "Macul Total",
+										"to": "Macul"
+									},
+									{
+										"from": "San Joaquín Total",
+										"to": "San Joaquin"
+									},
+									{
+										"from": "Las Condes Total",
+										"to": "Las Condes"
+									},
+									{
+										"from": "Lo Barnechea Total",
+										"to": "Lo Barnechea"
+									},
+									{
+										"from": "Vitacura Total",
+										"to": "Vitacura"
+									},
+									{
+										"from": "La Reina Total",
+										"to": "La Reina"
+									},
+									{
+										"from": "Peñalolén Total",
+										"to": "Penalolen"
+									},
+									{
+										"from": "La Florida Total",
+										"to": "La Florida"
+									},
+									{
+										"from": "Puente Alto Total",
+										"to": "Puente Alto"
+									},
+									{
+										"from": "La Pintana Total",
+										"to": "La Pintana"
+									},
+									{
+										"from": "Pedro Aguirre Cerda Total",
+										"to": "Pedro Aguirre Cerda"
+									},
+									{
+										"from": "El Bosque Total",
+										"to": "El Bosque"
+									},
+									{
+										"from": "La Cisterna Total",
+										"to": "La Cisterna"
+									},
+									{
+										"from": "San Ramón Total",
+										"to": "San Ramon"
+									},
+									{
+										"from": "Lo Espejo Total",
+										"to": "Lo Espejo"
+									},
+									{
+										"from": "Pedro Aguirre Cerda Total",
+										"to": "Pedro Aguirre Cerda"
+									},
+									{
+										"from": "San Miguel Total",
+										"to": "San Miguel"
+									},
+									{
+										"from": "Rancagua Total",
+										"to": "Rancagua"
+									},
+									{
+										"from": "San Fernando Total",
+										"to": "San Fernando"
+									},
+									{
+										"from": "Talca Urbana",
+										"to": "Talca"
+									},
+									{
+										"from": "Chillán Urbana",
+										"to": "Chillan"
+									},
+									{
+										"from": "Chillán Viejo Urbana",
+										"to": "Chillan Viejo"
+									},
+									{
+										"from": "Concepción Total",
+										"to": "Concepcion"
+									},
+									{
+										"from": "Talcahuano Total",
+										"to": "Talcahuano"
+									},
+									{
+										"from": "Chiguayante Total",
+										"to": "Chiguayante"
+									},
+									{
+										"from": "San Pedro de la Paz Total",
+										"to": "San Pedro de la Paz"
+									},
+									{
+										"from": "Hualpén Total",
+										"to": "Hualpen"
+									},
+									{
+										"from": "Penco Total",
+										"to": "Penco"
+									},
+									{
+										"from": "Tomé Total",
+										"to": "Tome"
+									},
+									{
+										"from": "Coronel Total",
+										"to": "Coronel"
+									},
+									{
+										"from": "Lota Total",
+										"to": "Lota"
+									},
+									{
+										"from": "Hualqui Total",
+										"to": "Hualqui"
+									},
+									{
+										"from": "Los Ángeles Urbana",
+										"to": "Los Angeles"
+									},
+									{
+										"from": "Laja Total",
+										"to": "Laja"
+									},
+									{
+										"from": "Temuco Total",
+										"to": "Temuco"
+									},
+									{
+										"from": "Padre Las Casas Total",
+										"to": "Padre Las Casas"
+									},
+									{
+										"from": "Villarrica Total",
+										"to": "Villarrica"
+									},
+									{
+										"from": "Pucón Total",
+										"to": "Pucon"
+									},
+									{
+										"from": "Puerto Montt Total",
+										"to": "Puerto Montt"
+									},
+									{
+										"from": "Puerto Varas Total",
+										"to": "Puerto Varas"
+									},
+									{
+										"from": "Osorno Total",
+										"to": "Osorno"
+									},
+									{
+										"from": "Valdivia Total",
+										"to": "Valdivia"
+									},
+									{
+										"from": "Coyhaique Urbana",
+										"to": "Coyhaique"
+									},
+									{
+										"from": "Punta Arenas Total",
+										"to": "Punta Arenas"
+									},
+									{
+										"from": "Porvenir Total",
+										"to": "Porvenir"
+									}
 								]
 							}
 						},
 						"colors": [
-							{ "value": 1, "color": "#F75C5C" },
-							{ "value": 2, "color": "#FFBF00" },
-							{ "value": 3, "color": "#FFF200" },
-							{ "value": 4, "color": "#338AD1" },
-							{ "value": 5, "color": "#82D133" }
+							{
+								"value": 1,
+								"color": "#F75C5C"
+							},
+							{
+								"value": 2,
+								"color": "#FFBF00"
+							},
+							{
+								"value": 3,
+								"color": "#FFF200"
+							},
+							{
+								"value": 4,
+								"color": "#338AD1"
+							},
+							{
+								"value": 5,
+								"color": "#82D133"
+							}
 						]
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "Arica",
 					"code": "Arica",
@@ -1887,16 +2193,16 @@
 					]
 				},
 				{
-                                        "name": "Puerto Varas",
-                                        "code": "Puerto Varas",
-                                        "color": "#6DFF18",
-                                        "gaps": [
-                                                {
-                                                        "from": "2020-06-16",
-                                                        "to": "2020-06-18"
-                                                }
-                                        ]
-                                },
+					"name": "Puerto Varas",
+					"code": "Puerto Varas",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
 				{
 					"name": "Osorno",
 					"code": "Osorno",
@@ -2332,8 +2638,7 @@
 				}
 			]
 		},
-		"death-rate":
-		{
+		"death-rate": {
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
 			"preProcessors": [
@@ -2348,8 +2653,7 @@
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "Argentina",
 					"code": "Argentina",
@@ -2422,13 +2726,10 @@
 				}
 			]
 		},
-		"deaths-by-population-southamerica":
-		{
+		"deaths-by-population-southamerica": {
 			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1683834887",
 			"nameColumn": "country",
-			"series":
-			[
-
+			"series": [
 				{
 					"name": "Argentina",
 					"code": "Argentina",
@@ -2505,8 +2806,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Arica y Parinacota",
 					"code": "Arica",
@@ -2722,8 +3022,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total",
 					"code": "Chile",
@@ -2746,28 +3045,31 @@
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
-				{ "name": "dailyChange" },
+				{
+					"name": "dailyChange"
+				},
 				{
 					"name": "removeGap",
-					"parameters":
-					{
+					"parameters": {
 						"from": "2020-06-07",
 						"to": "2020-06-07"
 					}
 				},
 				{
 					"name": "removeGap",
-					"parameters":
-					{
+					"parameters": {
 						"from": "2020-07-17",
 						"to": "2020-07-17"
 					}
 				},
-				{ "name": "fillInterpolation" },
-				{ "name": "avg7" }
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg7"
+				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": ">=90",
 					"code": "90+",
@@ -2815,8 +3117,7 @@
 		"population-rate": {
 			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1524414812",
 			"nameColumn": "country",
-			"series":
-			[
+			"series": [
 				{
 					"name": "US",
 					"code": "EE.UU.",
@@ -2957,13 +3258,17 @@
 				}
 			]
 		},
-		"chile-tests-rate":
-		{
+		"chile-tests-rate": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filter", "parameters": ["Total"] },
+				{
+					"name": "filter",
+					"parameters": [
+						"Total"
+					]
+				},
 				{
 					"name": "rename",
 					"parameters": {
@@ -2971,7 +3276,9 @@
 						"to": "sum"
 					}
 				},
-				{ "name": "dailyChange" },
+				{
+					"name": "dailyChange"
+				},
 				{
 					"name": "join",
 					"parameters": {
@@ -2980,15 +3287,16 @@
 							"inputDateFormat": "ISO",
 							"nameColumn": "Region",
 							"preProcessors": [
-								{ "name": "sum" }
+								{
+									"name": "sum"
+								}
 							]
 						},
 						"kind": "rate"
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "sum",
 					"code": "Chile",
@@ -3002,14 +3310,20 @@
 				}
 			]
 		},
-		"chile-tests-rate-regions":
-		{
+		"chile-tests-rate-regions": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filterOut", "parameters": ["Total"] },
-				{ "name": "dailyChange" },
+				{
+					"name": "filterOut",
+					"parameters": [
+						"Total"
+					]
+				},
+				{
+					"name": "dailyChange"
+				},
 				{
 					"name": "join",
 					"parameters": {
@@ -3028,9 +3342,21 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filterOut", "parameters": ["Total"] },
-				{ "name": "sum", "parameters": { "name": "positivos" } },
-				{ "name": "dailyChange" },
+				{
+					"name": "filterOut",
+					"parameters": [
+						"Total"
+					]
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "positivos"
+					}
+				},
+				{
+					"name": "dailyChange"
+				},
 				{
 					"name": "join",
 					"parameters": {
@@ -3039,7 +3365,12 @@
 							"inputDateFormat": "ISO",
 							"nameColumn": "Region",
 							"preProcessors": [
-								{ "name": "sum", "parameters": { "name": "total" } }
+								{
+									"name": "sum",
+									"parameters": {
+										"name": "total"
+									}
+								}
 							]
 						},
 						"kind": "merge"
@@ -3049,13 +3380,15 @@
 					"name": "formula",
 					"parameters": {
 						"operation": "substract",
-						"operands": ["total", "positivos"],
+						"operands": [
+							"total",
+							"positivos"
+						],
 						"name": "negativos"
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "positivos",
 					"code": "positivos",
@@ -3087,9 +3420,22 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filter", "parameters": ["Total"] },
-				{ "name": "rename", "parameters": { "from": "Total", "to": "asintomaticos" } },
-				{ "name": "avg7" },
+				{
+					"name": "filter",
+					"parameters": [
+						"Total"
+					]
+				},
+				{
+					"name": "rename",
+					"parameters": {
+						"from": "Total",
+						"to": "asintomaticos"
+					}
+				},
+				{
+					"name": "avg7"
+				},
 				{
 					"name": "join",
 					"parameters": {
@@ -3098,17 +3444,29 @@
 							"inputDateFormat": "ISO",
 							"nameColumn": "Region",
 							"preProcessors": [
-								{ "name": "filter", "parameters": ["Total"] },
-								{ "name": "rename", "parameters": { "from": "Total", "to": "sintomaticos" } },
-								{ "name": "avg7" }
+								{
+									"name": "filter",
+									"parameters": [
+										"Total"
+									]
+								},
+								{
+									"name": "rename",
+									"parameters": {
+										"from": "Total",
+										"to": "sintomaticos"
+									}
+								},
+								{
+									"name": "avg7"
+								}
 							]
 						},
 						"kind": "merge"
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "sintomaticos",
 					"code": "sintomáticos",
@@ -3128,7 +3486,12 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
-				{ "name": "filter", "parameters": ["Total"] },
+				{
+					"name": "filter",
+					"parameters": [
+						"Total"
+					]
+				},
 				{
 					"name": "join",
 					"parameters": {
@@ -3137,17 +3500,25 @@
 							"inputDateFormat": "ISO",
 							"nameColumn": "Region",
 							"preProcessors": [
-								{ "name": "filter", "parameters": ["Total"] },
-								{ "name": "dailyChange" }
+								{
+									"name": "filter",
+									"parameters": [
+										"Total"
+									]
+								},
+								{
+									"name": "dailyChange"
+								}
 							]
 						},
 						"kind": "rate"
 					}
 				},
-				{ "name": "avg7" }
+				{
+					"name": "avg7"
+				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total",
 					"code": "asintomáticos",
@@ -3158,8 +3529,7 @@
 		"chile-upc": {
 			"url": "https://docs.google.com/spreadsheets/d/1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA/export?format=csv&id=1CG9dMwug8mik68AbTaaA303lNy1stqpD0am-gNVp6QA&gid=2015870452",
 			"nameColumn": "series",
-			"series":
-			[
+			"series": [
 				{
 					"name": "libre",
 					"code": "Disponibles",
@@ -3184,8 +3554,7 @@
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto8/UCI.csv",
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Metropolitana",
 					"code": "Metropolitana",
@@ -3198,8 +3567,7 @@
 			"csvDataProcessor": "transpose",
 			"nameColumn": "date",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "predicted_new_infected_mean",
 					"code": "projection",
@@ -3219,24 +3587,33 @@
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Dose"]
+					"columns": [
+						"Region",
+						"Dose"
+					]
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
-				{ "name": "dailyChange" },
-				{ "name": "avg7" },
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "avg7"
+				},
 				{
 					"name": "sum",
 					"parameters": {
 						"name": "total",
-						"filter": ["Total First", "Total Second"]
+						"filter": [
+							"Total First",
+							"Total Second"
+						]
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total First",
 					"code": "primera dosis",
@@ -3251,6 +3628,50 @@
 				}
 			]
 		},
+		"chile-vaccination-late": {
+			"name": "Chile - Vaccination - Late",
+			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": [
+						"Region",
+						"Dose"
+					]
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "datePlus",
+					"parameters": {
+						"series": "Total First",
+						"plus": { "days": 28 },
+						"limit": true
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Total First",
+							"Total Second"
+						],
+						"name": "late"
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "late",
+					"code": "total",
+					"color": "#FF4527"
+				}
+			]
+		},
 		"chile-vaccination-age": {
 			"name": "Chile - Vaccination by age group",
 			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-ages.csv",
@@ -3258,13 +3679,15 @@
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Age", "Dose"]
+					"columns": [
+						"Age",
+						"Dose"
+					]
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "15-20 First",
 					"code": "15 - 20",
@@ -3340,13 +3763,15 @@
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Group", "Dose"]
+					"columns": [
+						"Group",
+						"Dose"
+					]
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Personas mayores de 60 años First",
 					"code": "60+ años",
@@ -3384,41 +3809,41 @@
 					"areaColor": "#ca392a"
 				},
 				{
-                                        "name": "Administración del Estado First",
-                                        "code": "Adm. Estado",
-                                        "color": "#9cdfbe",
-                                        "areaColor": "#9cdfbe"
-                                },
+					"name": "Administración del Estado First",
+					"code": "Adm. Estado",
+					"color": "#9cdfbe",
+					"areaColor": "#9cdfbe"
+				},
 				{
-                                        "name": "Población entre 50 a 59 años. First",
-                                        "code": "50 a 59",
-                                        "color": "#63a9a0",
-                                        "areaColor": "#63a9a0"
-                                },
+					"name": "Población entre 50 a 59 años. First",
+					"code": "50 a 59",
+					"color": "#63a9a0",
+					"areaColor": "#63a9a0"
+				},
 				{
-                                        "name": "Carabineros- PDI First",
-                                        "code": "Policía",
-                                        "color": "#fefd4c",
-                                        "areaColor": "#fefd4c"
-                                },
+					"name": "Carabineros- PDI First",
+					"code": "Policía",
+					"color": "#fefd4c",
+					"areaColor": "#fefd4c"
+				},
 				{
-                                        "name": "Población entre 18 a 39 años. First",
-                                        "code": "18 a 39",
-                                        "color": "#ec9d3e",
-                                        "areaColor": "#ec9d3e"
-                                },
+					"name": "Población entre 18 a 39 años. First",
+					"code": "18 a 39",
+					"color": "#ec9d3e",
+					"areaColor": "#ec9d3e"
+				},
 				{
-                                        "name": "Población entre 40 a 49 años. First",
-                                        "code": "40 a 49",
-                                        "color": "#d5e84c",
-                                        "areaColor": "#d5e84c"
-                                },
+					"name": "Población entre 40 a 49 años. First",
+					"code": "40 a 49",
+					"color": "#d5e84c",
+					"areaColor": "#d5e84c"
+				},
 				{
-                                        "name": "Fuerzas Armadas First",
-                                        "code": "FF.AA.",
-                                        "color": "#9ca9de",
-                                        "areaColor": "#9ca9de"
-                                }
+					"name": "Fuerzas Armadas First",
+					"code": "FF.AA.",
+					"color": "#9ca9de",
+					"areaColor": "#9ca9de"
+				}
 			]
 		},
 		"chile-vaccination-total": {
@@ -3428,13 +3853,15 @@
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Dose"]
+					"columns": [
+						"Region",
+						"Dose"
+					]
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total First",
 					"code": "primera dosis",
@@ -3447,15 +3874,17 @@
 				}
 			]
 		},
-		"chile-residencias":
-		{
+		"chile-residencias": {
 			"name": "Chile - Residencias",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto36/ResidenciasSanitarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Categoria"]
+					"columns": [
+						"Region",
+						"Categoria"
+					]
 				}
 			},
 			"nameColumn": "col",
@@ -3463,31 +3892,31 @@
 			"preProcessors": [
 				{
 					"name": "sum",
-					"parameters":
-					{
+					"parameters": {
 						"name": "total",
 						"filterRegex": "cupos totales$"
-					 }
+					}
 				},
 				{
 					"name": "sum",
-					"parameters":
-					{
+					"parameters": {
 						"name": "utilizados",
 						"filterRegex": "usuarios en residencia$"
-					 }
+					}
 				},
 				{
 					"name": "formula",
 					"parameters": {
 						"operation": "substract",
-						"operands": ["total", "utilizados"],
+						"operands": [
+							"total",
+							"utilizados"
+						],
 						"name": "disponibles"
 					}
 				}
 			],
-			"series":
-			[
+			"series": [
 				{
 					"name": "disponibles",
 					"code": "disponibles",
@@ -3502,30 +3931,33 @@
 				}
 			]
 		},
-		"chile-icu-beds":
-		{
+		"chile-icu-beds": {
 			"name": "Chile - Ocupación de camas UCI",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Total Camas UCI habilitadas", "Total Camas UCI ocupadas"],
+					"operands": [
+						"Total Camas UCI habilitadas",
+						"Total Camas UCI ocupadas"
+					],
 					"name": "Total Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Total Camas UCI disponibles",
 					"code": "disponibles",
@@ -3540,30 +3972,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-arica":
-		{
+		"chile-icu-beds-arica": {
 			"name": "Chile - Ocupación de camas UCI Arica",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Arica y Parinacota Camas UCI habilitadas", "Arica y Parinacota Camas UCI ocupadas"],
+					"operands": [
+						"Arica y Parinacota Camas UCI habilitadas",
+						"Arica y Parinacota Camas UCI ocupadas"
+					],
 					"name": "Arica y Parinacota Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Arica y Parinacota Camas UCI disponibles",
 					"code": "disponibles",
@@ -3578,30 +4013,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-tarapaca":
-		{
+		"chile-icu-beds-tarapaca": {
 			"name": "Chile - Ocupación de camas UCI Tarapaca",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Tarapacá Camas UCI habilitadas", "Tarapacá Camas UCI ocupadas"],
+					"operands": [
+						"Tarapacá Camas UCI habilitadas",
+						"Tarapacá Camas UCI ocupadas"
+					],
 					"name": "Tarapacá Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Tarapacá Camas UCI disponibles",
 					"code": "disponibles",
@@ -3616,30 +4054,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-antofagasta":
-		{
+		"chile-icu-beds-antofagasta": {
 			"name": "Chile - Ocupación de camas UCI Antofagasta",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Antofagasta Camas UCI habilitadas", "Antofagasta Camas UCI ocupadas"],
+					"operands": [
+						"Antofagasta Camas UCI habilitadas",
+						"Antofagasta Camas UCI ocupadas"
+					],
 					"name": "Antofagasta Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Antofagasta Camas UCI disponibles",
 					"code": "disponibles",
@@ -3654,30 +4095,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-atacama":
-		{
+		"chile-icu-beds-atacama": {
 			"name": "Chile - Ocupación de camas UCI Atacama",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Atacama Camas UCI habilitadas", "Atacama Camas UCI ocupadas"],
+					"operands": [
+						"Atacama Camas UCI habilitadas",
+						"Atacama Camas UCI ocupadas"
+					],
 					"name": "Atacama Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Atacama Camas UCI disponibles",
 					"code": "disponibles",
@@ -3692,30 +4136,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-coquimbo":
-		{
+		"chile-icu-beds-coquimbo": {
 			"name": "Chile - Ocupación de camas UCI Coquimbo",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Coquimbo Camas UCI habilitadas", "Coquimbo Camas UCI ocupadas"],
+					"operands": [
+						"Coquimbo Camas UCI habilitadas",
+						"Coquimbo Camas UCI ocupadas"
+					],
 					"name": "Coquimbo Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Coquimbo Camas UCI disponibles",
 					"code": "disponibles",
@@ -3730,30 +4177,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-valparaiso":
-		{
+		"chile-icu-beds-valparaiso": {
 			"name": "Chile - Ocupación de camas UCI Valparaíso",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Valparaíso Camas UCI habilitadas", "Valparaíso Camas UCI ocupadas"],
+					"operands": [
+						"Valparaíso Camas UCI habilitadas",
+						"Valparaíso Camas UCI ocupadas"
+					],
 					"name": "Valparaíso Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Valparaíso Camas UCI disponibles",
 					"code": "disponibles",
@@ -3768,30 +4218,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-metropolitana":
-		{
+		"chile-icu-beds-metropolitana": {
 			"name": "Chile - Ocupación de camas UCI Metropolitana",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Metropolitana Camas UCI habilitadas", "Metropolitana Camas UCI ocupadas"],
+					"operands": [
+						"Metropolitana Camas UCI habilitadas",
+						"Metropolitana Camas UCI ocupadas"
+					],
 					"name": "Metropolitana Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Metropolitana Camas UCI disponibles",
 					"code": "disponibles",
@@ -3806,30 +4259,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-ohiggins":
-		{
+		"chile-icu-beds-ohiggins": {
 			"name": "Chile - Ocupación de camas UCI O’Higgins",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["O’Higgins Camas UCI habilitadas", "O’Higgins Camas UCI ocupadas"],
+					"operands": [
+						"O’Higgins Camas UCI habilitadas",
+						"O’Higgins Camas UCI ocupadas"
+					],
 					"name": "O’Higgins Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "O’Higgins Camas UCI disponibles",
 					"code": "disponibles",
@@ -3844,30 +4300,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-maule":
-		{
+		"chile-icu-beds-maule": {
 			"name": "Chile - Ocupación de camas UCI Maule",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Maule Camas UCI habilitadas", "Maule Camas UCI ocupadas"],
+					"operands": [
+						"Maule Camas UCI habilitadas",
+						"Maule Camas UCI ocupadas"
+					],
 					"name": "Maule Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Maule Camas UCI disponibles",
 					"code": "disponibles",
@@ -3882,30 +4341,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-nuble":
-		{
+		"chile-icu-beds-nuble": {
 			"name": "Chile - Ocupación de camas UCI Ñuble",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Ñuble Camas UCI habilitadas", "Ñuble Camas UCI ocupadas"],
+					"operands": [
+						"Ñuble Camas UCI habilitadas",
+						"Ñuble Camas UCI ocupadas"
+					],
 					"name": "Ñuble Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Ñuble Camas UCI disponibles",
 					"code": "disponibles",
@@ -3920,30 +4382,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-biobio":
-		{
+		"chile-icu-beds-biobio": {
 			"name": "Chile - Ocupación de camas UCI Biobío",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Biobío Camas UCI habilitadas", "Biobío Camas UCI ocupadas"],
+					"operands": [
+						"Biobío Camas UCI habilitadas",
+						"Biobío Camas UCI ocupadas"
+					],
 					"name": "Biobío Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Biobío Camas UCI disponibles",
 					"code": "disponibles",
@@ -3958,30 +4423,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-araucania":
-		{
+		"chile-icu-beds-araucania": {
 			"name": "Chile - Ocupación de camas UCI Araucanía",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Araucanía Camas UCI habilitadas", "Araucanía Camas UCI ocupadas"],
+					"operands": [
+						"Araucanía Camas UCI habilitadas",
+						"Araucanía Camas UCI ocupadas"
+					],
 					"name": "Araucanía Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Araucanía Camas UCI disponibles",
 					"code": "disponibles",
@@ -3996,30 +4464,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-losrios":
-		{
+		"chile-icu-beds-losrios": {
 			"name": "Chile - Ocupación de camas UCI Los Ríos",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Los Ríos Camas UCI habilitadas", "Los Ríos Camas UCI ocupadas"],
+					"operands": [
+						"Los Ríos Camas UCI habilitadas",
+						"Los Ríos Camas UCI ocupadas"
+					],
 					"name": "Los Ríos Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Los Ríos Camas UCI disponibles",
 					"code": "disponibles",
@@ -4034,30 +4505,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-loslagos":
-		{
+		"chile-icu-beds-loslagos": {
 			"name": "Chile - Ocupación de camas UCI Los Lagos",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Los Lagos Camas UCI habilitadas", "Los Lagos Camas UCI ocupadas"],
+					"operands": [
+						"Los Lagos Camas UCI habilitadas",
+						"Los Lagos Camas UCI ocupadas"
+					],
 					"name": "Los Lagos Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Los Lagos Camas UCI disponibles",
 					"code": "disponibles",
@@ -4072,30 +4546,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-aysen":
-		{
+		"chile-icu-beds-aysen": {
 			"name": "Chile - Ocupación de camas UCI Aysén",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Aysén Camas UCI habilitadas", "Aysén Camas UCI ocupadas"],
+					"operands": [
+						"Aysén Camas UCI habilitadas",
+						"Aysén Camas UCI ocupadas"
+					],
 					"name": "Aysén Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Aysén Camas UCI disponibles",
 					"code": "disponibles",
@@ -4110,30 +4587,33 @@
 				}
 			]
 		},
-		"chile-icu-beds-magallanes":
-		{
+		"chile-icu-beds-magallanes": {
 			"name": "Chile - Ocupación de camas UCI Magallanes",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto58/Camas_UCI_diarias.csv",
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
 					"name": "col",
-					"columns": ["Region", "Serie"]
+					"columns": [
+						"Region",
+						"Serie"
+					]
 				}
 			},
-			"preProcessor":
-			{
+			"preProcessor": {
 				"name": "formula",
 				"parameters": {
 					"operation": "substract",
-					"operands": ["Magallanes Camas UCI habilitadas", "Magallanes Camas UCI ocupadas"],
+					"operands": [
+						"Magallanes Camas UCI habilitadas",
+						"Magallanes Camas UCI ocupadas"
+					],
 					"name": "Magallanes Camas UCI disponibles"
 				}
 			},
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
-			"series":
-			[
+			"series": [
 				{
 					"name": "Magallanes Camas UCI disponibles",
 					"code": "disponibles",
@@ -4149,8 +4629,7 @@
 			]
 		}
 	},
-	"defaults":
-	{
+	"defaults": {
 		"debug": false,
 		"schema": "dark",
 		"layout": "square",
