@@ -74,6 +74,9 @@ All parameters are optional.
   - ```plain```: Plain number
   - ```english```: Number in English format (#,###)
   - ```spanish```: Number in Spanish format (#.###)
+- ```--stackedAreaIncludePercentage```: Include percentage in the stacked area label. Default: ```true```. Possible values:
+  - ```true```: Display the percentage
+  - ```false```: Do not display the percentage
 - ```--horizontalJump```: Distance between scale labels (horizontal axis).
 - ```--verticalJump```: Distance between scale labels (vertical axis).
 - ```--horizontalLines```: Horizontal lines with format numericvalue:label (example: ```10:mylabel```, multiple lines separated by comma)
