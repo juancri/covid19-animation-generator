@@ -4,7 +4,7 @@ import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 // Local
-import { DataSource, TimeSeries, Options } from '../util/Types';
+import { DataSource, TimeSeries, Options, PreProcessorConfig } from '../util/Types';
 import Downloader from '../util/Downloader';
 import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
@@ -65,22 +65,58 @@ export default class DataLoader
 			}))
 			.toArray();
 
-		// Single pre processor
+		// Call all pre processors
+		const preProcessors = this.loadPreProcessors(dataSource, options);
 		const debug = options?.debug || false;
+		let tempData = rawData;
+		for (const preProcessor of preProcessors)
+			tempData = await PreProcessorLoader.load(preProcessor, tempData, debug);
+
+		// Done
+		return tempData;
+	}
+
+	private static* loadPreProcessors(dataSource: DataSource, options: Options | undefined): Generator<string | PreProcessorConfig>
+	{
+		// Single pre-processor
 		if (dataSource.preProcessor)
-			return await PreProcessorLoader.load(dataSource.preProcessor, rawData, debug);
+			yield dataSource.preProcessor;
 
-		// Multiple pre processors
+		// Multiple pre-processors
 		if (dataSource.preProcessors)
-		{
-			let tempData = rawData;
 			for (const preProcessor of dataSource.preProcessors)
-				tempData = await PreProcessorLoader.load(preProcessor, tempData, debug);
-			return tempData;
-		}
+				yield preProcessor;
 
-		// No pre processors
-		return rawData;
+		// Extra pre-processors
+		if (options && options.extraPreProcessors)
+		{
+			const extraPreProcessors = options.extraPreProcessors.split(';');
+			for (const extraPreProcessor of extraPreProcessors)
+				yield this.loadExtraPreProcessor(extraPreProcessor);
+		}
+	}
+
+	private static loadExtraPreProcessor(extra: string): string | PreProcessorConfig
+	{
+		try
+		{
+			if (!extra.includes(':'))
+				return extra;
+
+			const index = extra.indexOf(':');
+			const name = extra.substring(0, index);
+			const config = extra.substring(index + 1);
+			const preProcessor: PreProcessorConfig = {
+				name,
+				parameters: JSON.parse(config)
+			};
+
+			return preProcessor;
+		}
+		catch (e)
+		{
+			throw new Error(`Error loading extra pre-processor: ${extra}: ${e}`);
+		}
 	}
 
 	private static getDateFormat(format?: string): DateFormat

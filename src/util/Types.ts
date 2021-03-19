@@ -204,6 +204,7 @@ export interface Options
 	verticalMargin: number;
 	outputDirectory: string;
 	sample: boolean;
+	extraPreProcessors: string;
 }
 
 export interface Configuration {

@@ -34,6 +34,7 @@ const PARAMETERS: { [key: string]: string } = {
 	verticalLines: 'Vertical lines with format numericvalue:label (multiple lines separated by comma)',
 	configOverride: 'JSON to override specific configuration file sections',
 	type: 'Chart type',
+	extraPreProcessors: 'Load extra pre processors (multiple pre processors separated by comma)',
 	sample: 'Overrides frame configuration to output only one frame as a sample'
 };
 

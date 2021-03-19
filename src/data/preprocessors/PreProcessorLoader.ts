@@ -21,6 +21,7 @@ import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
 import RemoveGapPreProcessor from './RemoveGapPreProcessor';
 import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
 import DatePlusPreProcessor from './DatePlusPreProcessor';
+import RemoveDatePreProcessor from './RemoveDatePreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -41,6 +42,7 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg7: Avg7PreProcessor.run,
 	fillZero: FillZeroPreProcessor.run,
 	fillInterpolation: FillInterpolationPreProcessor.run,
+	removeDate: RemoveDatePreProcessor.run,
 	runningTotal: RunningTotalPreProcessor.run,
 	removeGap: RemoveGapPreProcessor.run,
 	loadMilestones: LoadMilestonesPreProcessor.run
