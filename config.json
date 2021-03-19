@@ -4669,6 +4669,7 @@
 		"scaleDateFormat": "MM/dd",
 		"scaleNumberFormat": "suffix",
 		"stackedAreaNumberFormat": "plain",
+		"stackedAreaIncludePercentage": true,
 		"horizontalJump": 1,
 		"verticalJump": 1,
 		"singleDynamicScale": false,

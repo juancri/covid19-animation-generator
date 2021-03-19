@@ -54,6 +54,11 @@ export default class ParametersLoader
 
 	public static load(defaultValues: Options): Options
 	{
-		return minimist(process.argv.slice(2), { default: defaultValues }) as unknown as Options;
+		return minimist(
+			process.argv.slice(2),
+			{
+				default: defaultValues,
+				boolean: 'stackedAreaIncludePercentage'
+			}) as unknown as Options;
 	}
 }

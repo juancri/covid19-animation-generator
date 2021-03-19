@@ -66,7 +66,9 @@ export default class StackSeriesLabelDrawer
 		const percent = Math.floor(rawNumber / total * 100);
 
 		// Draw label
-		const label = `${series.code}\n${formattedNumber} (${percent}%)`;
+		const label = context.options.stackedAreaIncludePercentage ?
+			`${series.code}\n${formattedNumber} (${percent}%)` :
+			`${series.code}\n${formattedNumber}`;
 		context.writer.drawText(
 			label,
 			context.color.series.label.font,
