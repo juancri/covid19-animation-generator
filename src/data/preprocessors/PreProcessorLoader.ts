@@ -22,6 +22,7 @@ import RemoveGapPreProcessor from './RemoveGapPreProcessor';
 import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
 import DatePlusPreProcessor from './DatePlusPreProcessor';
 import RemoveDatePreProcessor from './RemoveDatePreProcessor';
+import PercentagePreProcessor from './PercentagePreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	dailyChange: DailyChangePreProcessor.run,
@@ -42,6 +43,7 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg7: Avg7PreProcessor.run,
 	fillZero: FillZeroPreProcessor.run,
 	fillInterpolation: FillInterpolationPreProcessor.run,
+	percentage: PercentagePreProcessor.run,
 	removeDate: RemoveDatePreProcessor.run,
 	runningTotal: RunningTotalPreProcessor.run,
 	removeGap: RemoveGapPreProcessor.run,
