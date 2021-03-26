@@ -9,7 +9,8 @@ const DEFAULT_NAME = 'sum';
 interface SumParams {
 	name: string | null;
 	filter?: string[],
-	filterRegex?: string
+	filterRegex?: string,
+	remove?: boolean;
 }
 
 /**
@@ -25,7 +26,7 @@ export default class SumPreProcessor
 			return series;
 		const dates = Enumerable
 			.from(series)
-			.selectMany(serie => serie.data)
+			.selectMany(s => s.data)
 			.where(point => !!point)
 			.select(point => point.date)
 			.distinct(date => +date)
@@ -36,7 +37,8 @@ export default class SumPreProcessor
 			data: dates
 				.map(date => SumPreProcessor.getDataPoint(filteredSeries, date))
 		};
-		return [...series, sumSeries];
+		const baseSeries = SumPreProcessor.removeFiltered(series, sumParams, debug);
+		return [...baseSeries, sumSeries];
 	}
 
 	private static getFiltered(series: TimeSeries[], params: SumParams | null, debug: boolean): TimeSeries[]
@@ -57,6 +59,34 @@ export default class SumPreProcessor
 				logger.info(`Using regex filter: ${params.filterRegex}`);
 			const regex = new RegExp(params.filterRegex);
 			const found = series.filter(s => regex.test(s.name));
+			if (debug)
+				logger.info(`Found ${found.length} matches`);
+			return found;
+		}
+
+		if (debug)
+			logger.debug('No filter');
+		return series;
+	}
+
+	private static removeFiltered(series: TimeSeries[], params: SumParams | null, debug: boolean): TimeSeries[]
+	{
+		if (params && params.filter)
+		{
+			if (debug)
+				logger.info(`Using filter: ${params.filter}`);
+			const found = series.filter(s => !params.filter?.includes(s.name));
+			if (debug)
+				logger.info(`Found ${found.length} matches`);
+			return found;
+		}
+
+		if (params && params.filterRegex)
+		{
+			if (debug)
+				logger.info(`Using regex filter: ${params.filterRegex}`);
+			const regex = new RegExp(params.filterRegex);
+			const found = series.filter(s => !regex.test(s.name));
 			if (debug)
 				logger.info(`Found ${found.length} matches`);
 			return found;
