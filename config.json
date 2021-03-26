@@ -1231,55 +1231,19 @@
 				{
 					"name": "sum",
 					"parameters": {
-						"name": "0 - 19",
+						"name": "0 - 59",
 						"remove": true,
 						"filter": [
 							"00 - 04 años",
 							"05 - 09 años",
 							"10 - 14 años",
-							"15 - 19 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "20 - 29",
-						"remove": true,
-						"filter": [
+							"15 - 19 años",
 							"20 - 24 años",
-							"25 - 29 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "30 - 39",
-						"remove": true,
-						"filter": [
+							"25 - 29 años",
 							"30 - 34 años",
-							"35 - 39 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "40 - 49",
-						"remove": true,
-						"filter": [
+							"35 - 39 años",
 							"40 - 44 años",
-							"45 - 49 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "50 - 59",
-						"remove": true,
-						"filter": [
+							"45 - 49 años",
 							"50 - 54 años",
 							"55 - 59 años"
 						]
@@ -1288,31 +1252,13 @@
 				{
 					"name": "sum",
 					"parameters": {
-						"name": "60 - 60",
+						"name": "60+",
 						"remove": true,
 						"filter": [
 							"60 - 64 años",
-							"65 - 69 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "70 - 79",
-						"remove": true,
-						"filter": [
+							"65 - 69 años",
 							"70 - 74 años",
-							"75 - 79 años"
-						]
-					}
-				},
-				{
-					"name": "sum",
-					"parameters": {
-						"name": "80+",
-						"remove": true,
-						"filter": [
+							"75 - 79 años",
 							"80 y más años"
 						]
 					}
