@@ -1187,6 +1187,47 @@
 				}
 			]
 		},
+		"chile-icu-age-percentage": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto9/HospitalizadosUCIEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				"percentage",
+				"avg7"
+			],
+			"series": [
+				{
+					"name": ">=70",
+					"code": "70+",
+					"color": "#7F0008",
+					"areaColor": "#FF0011"
+				},
+				{
+					"name": "60-69",
+					"code": "60 - 69",
+					"color": "#822300",
+					"areaColor": "#FF4600"
+				},
+				{
+					"name": "50-59",
+					"code": "50 - 59",
+					"color": "#844800",
+					"areaColor": "#FF8B00"
+				},
+				{
+					"name": "40-49",
+					"code": "40 - 49",
+					"color": "#8F7F00",
+					"areaColor": "#FFE300"
+				},
+				{
+					"name": "<=39",
+					"code": "0 - 39",
+					"color": "#1E9700",
+					"areaColor": "#34FF00"
+				}
+			]
+		},
 		"chile-ventilators": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto20/NumeroVentiladores.csv",
 			"nameColumn": "Ventiladores",
@@ -3663,7 +3704,9 @@
 					"name": "datePlus",
 					"parameters": {
 						"series": "Total First",
-						"plus": { "days": 28 },
+						"plus": {
+							"days": 28
+						},
 						"limit": true
 					}
 				},
