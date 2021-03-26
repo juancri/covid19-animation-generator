@@ -1199,32 +1199,108 @@
 				{
 					"name": ">=70",
 					"code": "70+",
-					"color": "#7F0008",
-					"areaColor": "#FF0011"
+					"color": "#FF0011"
 				},
 				{
 					"name": "60-69",
 					"code": "60 - 69",
-					"color": "#822300",
-					"areaColor": "#FF4600"
+					"color": "#FF4600"
 				},
 				{
 					"name": "50-59",
 					"code": "50 - 59",
-					"color": "#844800",
-					"areaColor": "#FF8B00"
+					"color": "#FF8B00"
 				},
 				{
 					"name": "40-49",
 					"code": "40 - 49",
-					"color": "#8F7F00",
-					"areaColor": "#FFE300"
+					"color": "#FFE300"
 				},
 				{
 					"name": "<=39",
 					"code": "0 - 39",
-					"color": "#1E9700",
-					"areaColor": "#34FF00"
+					"color": "#34FF00"
+				}
+			]
+		},
+		"chile-age-percentage": {
+			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto16/CasosGeneroEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "0 - 39",
+						"remove": true,
+						"filter": [
+							"00 - 04 años",
+							"05 - 09 años",
+							"10 - 14 años",
+							"15 - 19 años",
+							"20 - 24 años",
+							"25 - 29 años",
+							"30 - 34 años",
+							"35 - 39 años"
+						]
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "40 - 49",
+						"remove": true,
+						"filter": [
+							"40 - 44 años",
+							"45 - 49 años"
+						]
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "50 - 59",
+						"remove": true,
+						"filter": [
+							"50 - 54 años",
+							"55 - 59 años"
+						]
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "60 - 60",
+						"remove": true,
+						"filter": [
+							"60 - 64 años",
+							"65 - 69 años"
+						]
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "70+",
+						"remove": true,
+						"filter": [
+							"70 - 74 años",
+							"75 - 79 años",
+							"80 y más años"
+						]
+					}
+				},
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "percentage"
+				},
+				{
+					"name": "avg7"
 				}
 			]
 		},
@@ -3167,6 +3243,82 @@
 					"code": "0 - 39",
 					"color": "#1E9700",
 					"areaColor": "#34FF00"
+				}
+			]
+		},
+		"chile-deaths-age-percentage": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "percentage"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": ">=90",
+					"code": "90+",
+					"color": "#DA00FF"
+				},
+				{
+					"name": "80-89",
+					"code": "80 - 89",
+					"color": "#FF0060"
+				},
+				{
+					"name": "70-79",
+					"code": "70 - 79",
+					"color": "#FF0011"
+				},
+				{
+					"name": "60-69",
+					"code": "60 - 69",
+					"color": "#FF4600"
+				},
+				{
+					"name": "50-59",
+					"code": "50 - 59",
+					"color": "#FF8B00"
+				},
+				{
+					"name": "40-49",
+					"code": "40 - 49",
+					"color": "#FFE300"
+				},
+				{
+					"name": "<=39",
+					"code": "0 - 39",
+					"color": "#34FF00"
 				}
 			]
 		},
