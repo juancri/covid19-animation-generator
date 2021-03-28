@@ -71,6 +71,9 @@ export default class SumPreProcessor
 
 	private static removeFiltered(series: TimeSeries[], params: SumParams | null, debug: boolean): TimeSeries[]
 	{
+		if (!params?.remove)
+			return series;
+
 		if (params && params.filter)
 		{
 			if (debug)
