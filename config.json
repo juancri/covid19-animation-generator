@@ -4172,17 +4172,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Total Camas UCI habilitadas",
-						"Total Camas UCI ocupadas"
-					],
-					"name": "Total Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Total Camas UCI ocupadas",
+						"filter": [
+							"Total Camas UCI ocupadas COVID-19",
+							"Total Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Total Camas UCI habilitadas",
+							"Total Camas UCI ocupadas"
+						],
+						"name": "Total Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4213,17 +4225,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Arica y Parinacota Camas UCI habilitadas",
-						"Arica y Parinacota Camas UCI ocupadas"
-					],
-					"name": "Arica y Parinacota Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Arica y Parinacota Camas UCI ocupadas",
+						"filter": [
+							"Arica y Parinacota Camas UCI ocupadas COVID-19",
+							"Arica y Parinacota Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Arica y Parinacota Camas UCI habilitadas",
+							"Arica y Parinacota Camas UCI ocupadas"
+						],
+						"name": "Arica y Parinacota Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4254,17 +4278,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Tarapacá Camas UCI habilitadas",
-						"Tarapacá Camas UCI ocupadas"
-					],
-					"name": "Tarapacá Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Tarapacá Camas UCI ocupadas",
+						"filter": [
+							"Tarapacá Camas UCI ocupadas COVID-19",
+							"Tarapacá Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Tarapacá Camas UCI habilitadas",
+							"Tarapacá Camas UCI ocupadas"
+						],
+						"name": "Tarapacá Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4295,17 +4331,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Antofagasta Camas UCI habilitadas",
-						"Antofagasta Camas UCI ocupadas"
-					],
-					"name": "Antofagasta Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Antofagasta Camas UCI ocupadas",
+						"filter": [
+							"Antofagasta Camas UCI ocupadas COVID-19",
+							"Antofagasta Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Antofagasta Camas UCI habilitadas",
+							"Antofagasta Camas UCI ocupadas"
+						],
+						"name": "Antofagasta Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4336,17 +4384,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Atacama Camas UCI habilitadas",
-						"Atacama Camas UCI ocupadas"
-					],
-					"name": "Atacama Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Atacama Camas UCI ocupadas",
+						"filter": [
+							"Atacama Camas UCI ocupadas COVID-19",
+							"Atacama Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Atacama Camas UCI habilitadas",
+							"Atacama Camas UCI ocupadas"
+						],
+						"name": "Atacama Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4377,17 +4437,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Coquimbo Camas UCI habilitadas",
-						"Coquimbo Camas UCI ocupadas"
-					],
-					"name": "Coquimbo Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Coquimbo Camas UCI ocupadas",
+						"filter": [
+							"Coquimbo Camas UCI ocupadas COVID-19",
+							"Coquimbo Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Coquimbo Camas UCI habilitadas",
+							"Coquimbo Camas UCI ocupadas"
+						],
+						"name": "Coquimbo Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4418,17 +4490,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Valparaíso Camas UCI habilitadas",
-						"Valparaíso Camas UCI ocupadas"
-					],
-					"name": "Valparaíso Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Valparaíso Camas UCI ocupadas",
+						"filter": [
+							"Valparaíso Camas UCI ocupadas COVID-19",
+							"Valparaíso Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Valparaíso Camas UCI habilitadas",
+							"Valparaíso Camas UCI ocupadas"
+						],
+						"name": "Valparaíso Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4459,17 +4543,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Metropolitana Camas UCI habilitadas",
-						"Metropolitana Camas UCI ocupadas"
-					],
-					"name": "Metropolitana Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Metropolitana Camas UCI ocupadas",
+						"filter": [
+							"Metropolitana Camas UCI ocupadas COVID-19",
+							"Metropolitana Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Metropolitana Camas UCI habilitadas",
+							"Metropolitana Camas UCI ocupadas"
+						],
+						"name": "Metropolitana Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4500,17 +4596,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"O’Higgins Camas UCI habilitadas",
-						"O’Higgins Camas UCI ocupadas"
-					],
-					"name": "O’Higgins Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "O’Higgins Camas UCI ocupadas",
+						"filter": [
+							"O’Higgins Camas UCI ocupadas COVID-19",
+							"O’Higgins Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"O’Higgins Camas UCI habilitadas",
+							"O’Higgins Camas UCI ocupadas"
+						],
+						"name": "O’Higgins Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4541,17 +4649,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Maule Camas UCI habilitadas",
-						"Maule Camas UCI ocupadas"
-					],
-					"name": "Maule Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Maule Camas UCI ocupadas",
+						"filter": [
+							"Maule Camas UCI ocupadas COVID-19",
+							"Maule Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Maule Camas UCI habilitadas",
+							"Maule Camas UCI ocupadas"
+						],
+						"name": "Maule Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4582,17 +4702,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Ñuble Camas UCI habilitadas",
-						"Ñuble Camas UCI ocupadas"
-					],
-					"name": "Ñuble Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Ñuble Camas UCI ocupadas",
+						"filter": [
+							"Ñuble Camas UCI ocupadas COVID-19",
+							"Ñuble Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Ñuble Camas UCI habilitadas",
+							"Ñuble Camas UCI ocupadas"
+						],
+						"name": "Ñuble Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4623,17 +4755,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Biobío Camas UCI habilitadas",
-						"Biobío Camas UCI ocupadas"
-					],
-					"name": "Biobío Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Biobío Camas UCI ocupadas",
+						"filter": [
+							"Biobío Camas UCI ocupadas COVID-19",
+							"Biobío Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Biobío Camas UCI habilitadas",
+							"Biobío Camas UCI ocupadas"
+						],
+						"name": "Biobío Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4664,17 +4808,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Araucanía Camas UCI habilitadas",
-						"Araucanía Camas UCI ocupadas"
-					],
-					"name": "Araucanía Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Araucanía Camas UCI ocupadas",
+						"filter": [
+							"Araucanía Camas UCI ocupadas COVID-19",
+							"Araucanía Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Araucanía Camas UCI habilitadas",
+							"Araucanía Camas UCI ocupadas"
+						],
+						"name": "Araucanía Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4705,17 +4861,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Los Ríos Camas UCI habilitadas",
-						"Los Ríos Camas UCI ocupadas"
-					],
-					"name": "Los Ríos Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Los Ríos Camas UCI ocupadas",
+						"filter": [
+							"Los Ríos Camas UCI ocupadas COVID-19",
+							"Los Ríos Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Los Ríos Camas UCI habilitadas",
+							"Los Ríos Camas UCI ocupadas"
+						],
+						"name": "Los Ríos Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4746,17 +4914,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Los Lagos Camas UCI habilitadas",
-						"Los Lagos Camas UCI ocupadas"
-					],
-					"name": "Los Lagos Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Los Lagos Camas UCI ocupadas",
+						"filter": [
+							"Los Lagos Camas UCI ocupadas COVID-19",
+							"Los Lagos Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Los Lagos Camas UCI habilitadas",
+							"Los Lagos Camas UCI ocupadas"
+						],
+						"name": "Los Lagos Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4787,17 +4967,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Aysén Camas UCI habilitadas",
-						"Aysén Camas UCI ocupadas"
-					],
-					"name": "Aysén Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Aysén Camas UCI ocupadas",
+						"filter": [
+							"Aysén Camas UCI ocupadas COVID-19",
+							"Aysén Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Aysén Camas UCI habilitadas",
+							"Aysén Camas UCI ocupadas"
+						],
+						"name": "Aysén Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -4828,17 +5020,29 @@
 					]
 				}
 			},
-			"preProcessor": {
-				"name": "formula",
-				"parameters": {
-					"operation": "substract",
-					"operands": [
-						"Magallanes Camas UCI habilitadas",
-						"Magallanes Camas UCI ocupadas"
-					],
-					"name": "Magallanes Camas UCI disponibles"
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "Magallanes Camas UCI ocupadas",
+						"filter": [
+							"Magallanes Camas UCI ocupadas COVID-19",
+							"Magallanes Camas UCI ocupadas no COVID-19"
+						]
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "substract",
+						"operands": [
+							"Magallanes Camas UCI habilitadas",
+							"Magallanes Camas UCI ocupadas"
+						],
+						"name": "Magallanes Camas UCI disponibles"
+					}
 				}
-			},
+			],
 			"nameColumn": "col",
 			"inputDateFormat": "ISO",
 			"series": [
