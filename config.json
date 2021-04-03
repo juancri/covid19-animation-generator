@@ -1631,6 +1631,10 @@
 										"to": "Talca"
 									},
 									{
+										"from": "Curicó Urbana",
+										"to": "Curico"
+									},
+									{
 										"from": "Chillán Urbana",
 										"to": "Chillan"
 									},
@@ -2202,6 +2206,17 @@
 				{
 					"name": "Talca",
 					"code": "Talca",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Curico",
+					"code": "Curicó",
 					"color": "#6DFF18",
 					"gaps": [
 						{
