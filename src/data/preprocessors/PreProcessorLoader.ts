@@ -23,31 +23,33 @@ import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
 import DatePlusPreProcessor from './DatePlusPreProcessor';
 import RemoveDatePreProcessor from './RemoveDatePreProcessor';
 import PercentagePreProcessor from './PercentagePreProcessor';
+import AvgPreProcessor from './AvgPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
+	avg: AvgPreProcessor.run,
+	avg7: Avg7PreProcessor.run,
 	dailyChange: DailyChangePreProcessor.run,
 	datePlus: DatePlusPreProcessor.run,
+	fillInterpolation: FillInterpolationPreProcessor.run,
+	fillZero: FillZeroPreProcessor.run,
+	filter: FilterPreProcessor.run,
+	filterOut: FilterOutPreProcessor.run,
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
 	forceGaps: ForceGapsPreProcessor.run,
-	limit: LimitPreProcessor.run,
-	sum: SumPreProcessor.run,
-	sortDesc: SortDescPreProcessor.run,
-	requireForcedCodes: RequireForcedCodes.run,
-	join: JoinPreProcessor.run,
-	filter: FilterPreProcessor.run,
-	filterOut: FilterOutPreProcessor.run,
-	rename: RenamePreProcessor.run,
 	formula: FormulaPreProcessor.run,
+	join: JoinPreProcessor.run,
+	limit: LimitPreProcessor.run,
+	loadMilestones: LoadMilestonesPreProcessor.run,
 	override: OverridePreProcessor.run,
-	avg7: Avg7PreProcessor.run,
-	fillZero: FillZeroPreProcessor.run,
-	fillInterpolation: FillInterpolationPreProcessor.run,
 	percentage: PercentagePreProcessor.run,
 	removeDate: RemoveDatePreProcessor.run,
-	runningTotal: RunningTotalPreProcessor.run,
 	removeGap: RemoveGapPreProcessor.run,
-	loadMilestones: LoadMilestonesPreProcessor.run
+	rename: RenamePreProcessor.run,
+	requireForcedCodes: RequireForcedCodes.run,
+	runningTotal: RunningTotalPreProcessor.run,
+	sortDesc: SortDescPreProcessor.run,
+	sum: SumPreProcessor.run,
 };
 
 export default class PreProcessorLoader
