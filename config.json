@@ -4166,6 +4166,12 @@
 			"inputDateFormat": "ISO",
 			"series": [
 				{
+					"name": "Personas mayores de 60 años First",
+					"code": "60+ años",
+					"color": "#e5571c",
+					"areaColor": "#e5571c"
+				},
+				{
 					"name": "Profesores y Parvularias First",
 					"code": "Profesores",
 					"color": "#407995",
@@ -4230,12 +4236,6 @@
 					"code": "Crónicos 18 - 59",
 					"color": "#60b8d9",
 					"areaColor": "#60b8d9"
-				},
-				{
-					"name": "Personas mayores de 60 años First",
-					"code": "60+ años",
-					"color": "#e5571c",
-					"areaColor": "#e5571c"
 				}
 			]
 		},
