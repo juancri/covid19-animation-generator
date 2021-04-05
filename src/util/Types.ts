@@ -76,6 +76,7 @@ export interface ColorSchema {
 			offset: Point;
 			stackedArea: {
 				offset: Point;
+				maxYOffset: number;
 				minYOffset: number;
 				minYDistance: number;
 				box: Box

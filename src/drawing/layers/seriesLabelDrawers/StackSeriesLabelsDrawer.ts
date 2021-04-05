@@ -58,7 +58,7 @@ export default class StackSeriesLabelDrawer
 		// Get percent
 		const total = Enumerable
 			.from(frame.series)
-			.select(serie => serie.points)
+			.select(s => s.points)
 			.select(points => points.find(p => +p.date === +lastPoint.date))
 			.where(p => !!p)
 			.select(p => StackSeriesLabelDrawer.getFirstParentY(p))
@@ -92,20 +92,33 @@ export default class StackSeriesLabelDrawer
 
 	private static getPoint(context: AnimationContext, frame: FrameInfo, seriesIndex: number): Point
 	{
+		// Helper variables
 		const stackedArea = context.color.series.label.stackedArea;
 		const series = frame.series[seriesIndex];
+
+		// Get x
 		const lastPoint = series.points[series.points.length - 1];
 		const x = lastPoint.x + stackedArea.offset.x;
+
+		// Move up
 		const lastIndex = context.series.length - 1;
 		const previousY = seriesIndex === lastIndex ?
 			0 :
 			StackSeriesLabelDrawer.getPoint(context, frame, seriesIndex + 1).y;
 		const minY = seriesIndex === lastIndex ?
-			context.layout.plotArea.bottom - stackedArea.minYOffset:
+			context.layout.plotArea.bottom - stackedArea.minYOffset :
 			previousY - stackedArea.minYDistance;
-		const y = Math.min(
+		const y1 = Math.min(
 			minY,
 			lastPoint.y + stackedArea.offset.y);
+
+		// Move down
+		const topOffset = context.layout.plotArea.top - stackedArea.maxYOffset;
+		const maxY = topOffset + seriesIndex * stackedArea.minYDistance;
+		const y2 = Math.max(maxY, y1);
+
+		// Done
+		const y = y2;
 		return { x, y };
 	}
 

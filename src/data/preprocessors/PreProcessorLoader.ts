@@ -24,6 +24,8 @@ import DatePlusPreProcessor from './DatePlusPreProcessor';
 import RemoveDatePreProcessor from './RemoveDatePreProcessor';
 import PercentagePreProcessor from './PercentagePreProcessor';
 import AvgPreProcessor from './AvgPreProcessor';
+import FilterRegexPreProcessor from './FilterRegexPreProcessor';
+import FilterOutRegexPreProcessor from './FilterOutRegexPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg: AvgPreProcessor.run,
@@ -34,6 +36,8 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	fillZero: FillZeroPreProcessor.run,
 	filter: FilterPreProcessor.run,
 	filterOut: FilterOutPreProcessor.run,
+	filterOutRegex: FilterOutRegexPreProcessor.run,
+	filterRegex: FilterRegexPreProcessor.run,
 	forceCode: ForceCodePreProcessor.run,
 	forceColor: ForceColorPreProcessor.run,
 	forceGaps: ForceGapsPreProcessor.run,

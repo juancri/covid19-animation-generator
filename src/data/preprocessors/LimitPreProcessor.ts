@@ -2,17 +2,41 @@
 import * as Enumerable from 'linq';
 
 import { TimeSeries } from '../../util/Types';
+import SumPreProcessor from './SumPreProcessor';
+
+interface LimitParams
+{
+	count: number;
+	others?: string;
+}
 
 /**
- * Limit the quantity of series to the provided parameter
+ * Limit the quantity of series
  */
 export default class LimitPreProcessor
 {
-	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], uParams: unknown): Promise<TimeSeries[]>
 	{
-		return Enumerable
+		const params = uParams as LimitParams;
+		if (!params.others)
+		{
+			return Enumerable
+				.from(series)
+				.take(params.count)
+				.toArray();
+		}
+
+		const otherNames = Enumerable
 			.from(series)
-			.take(params as number)
+			.skip(params.count)
+			.select(s => s.name)
 			.toArray();
+		const sumParams = {
+			name: params.others,
+			filter: otherNames,
+			remove: true
+		};
+
+		return SumPreProcessor.run(series, sumParams, false);
 	}
 }
