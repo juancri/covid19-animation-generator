@@ -5367,6 +5367,7 @@
 		"scaleNumberFormat": "suffix",
 		"stackedAreaNumberFormat": "plain",
 		"stackedAreaIncludePercentage": true,
+		"stackedAreaIncludeValue": true,
 		"horizontalJump": 1,
 		"verticalJump": 1,
 		"singleDynamicScale": false,

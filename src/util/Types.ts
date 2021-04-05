@@ -186,6 +186,7 @@ export interface Options
 	scaleNumberFormat: string;
 	stackedAreaNumberFormat: string;
 	stackedAreaIncludePercentage: boolean;
+	stackedAreaIncludeValue: boolean;
 	horizontalJump: number;
 	verticalJump: number;
 	singleDynamicScale: boolean;

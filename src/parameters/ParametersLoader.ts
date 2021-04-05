@@ -36,7 +36,9 @@ const PARAMETERS: { [key: string]: string } = {
 	type: 'Chart type',
 	extraPreProcessors: 'Load extra pre processors (multiple pre processors separated by comma)',
 	sample: 'Overrides frame configuration to output only one frame as a sample',
-	useAreaColor: 'Uses areaColor instead of color for line graphs'
+	useAreaColor: 'Uses areaColor instead of color for line graphs',
+	stackedAreaIncludePercentage: 'Include percentage is stack area labels',
+	stackedAreaIncludeValue: 'Include value in stack area labels'
 };
 
 export default class ParametersLoader
@@ -60,7 +62,10 @@ export default class ParametersLoader
 			process.argv.slice(2),
 			{
 				default: defaultValues,
-				boolean: 'stackedAreaIncludePercentage'
+				boolean: [
+					'stackedAreaIncludePercentage',
+					'stackedAreaIncludeValue',
+				]
 			}) as unknown as Options;
 	}
 }
