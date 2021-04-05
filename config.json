@@ -1202,27 +1202,32 @@
 				{
 					"name": ">=70",
 					"code": "70+",
-					"color": "#FF0011"
+					"color": "#850009",
+					"areaColor": "#FF0011"
 				},
 				{
 					"name": "60-69",
 					"code": "60 - 69",
-					"color": "#FF4600"
+					"color": "#942900",
+					"areaColor": "#FF4600"
 				},
 				{
 					"name": "50-59",
 					"code": "50 - 59",
-					"color": "#FF8B00"
+					"color": "#854800",
+					"areaColor": "#FF8B00"
 				},
 				{
 					"name": "40-49",
 					"code": "40 - 49",
-					"color": "#FFE300"
+					"color": "#938300",
+					"areaColor": "#FFE300"
 				},
 				{
 					"name": "<=39",
 					"code": "0 - 39",
-					"color": "#34FF00"
+					"color": "#1A7F00",
+					"areaColor": "#34FF00"
 				}
 			]
 		},
