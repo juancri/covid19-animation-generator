@@ -5289,6 +5289,7 @@
 		"horizontalMargin": 0.2,
 		"verticalMargin": 0.2,
 		"outputDirectory": "output",
-		"sample": false
+		"sample": false,
+		"useAreaColor": false
 	}
 }

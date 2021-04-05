@@ -88,6 +88,7 @@ All parameters are optional.
 - ```--outputDirectory```: Output directory. If the value starts with ```/```, it will be read as an absolute path. Otherwise, it will be relative to the project root. Default value: ```output```.
 - ```--debug```: Prints debugging information to the console and the output images.
 - ```--sample```: Overrides frame configuration to output only one frame as a sample.
+- ```--useAreaColor```: Uses `areaColor` instead of `color` to draw line graphs.
 
 #### Examples
 

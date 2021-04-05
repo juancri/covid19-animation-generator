@@ -35,7 +35,8 @@ const PARAMETERS: { [key: string]: string } = {
 	configOverride: 'JSON to override specific configuration file sections',
 	type: 'Chart type',
 	extraPreProcessors: 'Load extra pre processors (multiple pre processors separated by comma)',
-	sample: 'Overrides frame configuration to output only one frame as a sample'
+	sample: 'Overrides frame configuration to output only one frame as a sample',
+	useAreaColor: 'Uses areaColor instead of color for line graphs'
 };
 
 export default class ParametersLoader

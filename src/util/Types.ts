@@ -206,6 +206,7 @@ export interface Options
 	outputDirectory: string;
 	sample: boolean;
 	extraPreProcessors: string;
+	useAreaColor: boolean;
 }
 
 export interface Configuration {

@@ -74,7 +74,7 @@ export default class PlotSeriesLoader
 
 			return {
 				code: found.forceCode ?? seriesConf.code,
-				color: found.forceColor ?? seriesConf.color,
+				color: this.getColor(found, seriesConf, options),
 				areaColor: seriesConf.areaColor ?? seriesConf.color,
 				icon: seriesConf.icon ?? seriesConf.code,
 				points,
@@ -96,6 +96,20 @@ export default class PlotSeriesLoader
 
 		// Done
 		return series;
+	}
+
+	private static getColor(series: TimeSeries, seriesConf: SeriesConfiguration, options: Options): string
+	{
+		// Forced
+		if (series.forceColor)
+			return series.forceColor;
+
+		// Use area color
+		if (options.useAreaColor && seriesConf.areaColor)
+			return seriesConf.areaColor;
+
+		// Default
+		return seriesConf.color;
 	}
 
 	private static findSeries(timeSeries: TimeSeries[], name: string)
