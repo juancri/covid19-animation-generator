@@ -1,17 +1,22 @@
+
+import * as Enumerable from 'linq';
+
 import { TimeSeries } from '../../util/Types';
-import Substract from './operations/Substract';
+import Multiply from './operations/Multiply';
+import Subtract from './operations/Subtract';
 
 type operator = (operands: number[]) => number;
 
 interface FormulaParameters
 {
 	operation: string;
-	operands: string[];
+	operands: (string | number)[];
 	name: string
 }
 
 const OPERATORS: { [key: string]: operator } = {
-	substract: Substract.run
+	multiply: Multiply.run,
+	subtract: Subtract.run
 };
 
 /**
@@ -19,23 +24,32 @@ const OPERATORS: { [key: string]: operator } = {
  */
 export default class FormulaPreProcessor
 {
-	public static async run(series: TimeSeries[], params: unknown): Promise<TimeSeries[]>
+	public static async run(series: TimeSeries[], uParams: unknown): Promise<TimeSeries[]>
 	{
-		const formulaParams = params as FormulaParameters;
-		const operatorRunner = OPERATORS[formulaParams.operation];
+		// Get parameters
+		const params = uParams as FormulaParameters;
+
+		// Get runner
+		const operatorRunner = OPERATORS[params.operation];
 		if (!operatorRunner)
-			throw new Error(`Operation not found: ${formulaParams.operation}`);
-		const operandSeries = formulaParams.operands.map(o =>
+			throw new Error(`Operation not found: ${params.operation}`);
+
+		// Get operands
+		const operandSeries = params.operands.map(o =>
 		{
+			if (typeof o === 'number')
+				return o as number;
 			const found = series.find(s => s.name === o);
 			if (!found)
 				throw new Error(`Operand not found: ${o}`);
 			return found;
 		});
-		const dates = operandSeries[0].data.map(p => p.date);
+		const dates = FormulaPreProcessor.getDates(series, operandSeries);
 		const data = dates.map(date => {
 			const operands = operandSeries.map(s =>
 			{
+				if (typeof s === 'number')
+					return s;
 				const foundPoint = s.data.find(p => +p.date === +date);
 				return foundPoint?.value || 0;
 			});
@@ -43,10 +57,25 @@ export default class FormulaPreProcessor
 			return { date, value };
 		});
 		const newSeries: TimeSeries = {
-			name: formulaParams.name,
+			name: params.name,
 			data
 		};
 
 		return [...series, newSeries];
+	}
+
+	private static getDates(allSeries: TimeSeries[], operandSeries: (number | TimeSeries)[])
+	{
+		const filteredSeries = operandSeries
+			.filter(o => typeof o !== 'number') as TimeSeries[];
+		const series = filteredSeries.length > 0 ?
+			filteredSeries :
+			allSeries;
+		return Enumerable
+			.from(series)
+			.selectMany(s => s.data)
+			.select(p => p.date)
+			.distinct(date => +date)
+			.toArray();
 	}
 }

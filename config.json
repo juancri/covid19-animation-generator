@@ -3925,54 +3925,23 @@
 			]
 		},
 		"chile-tests-rate": {
-			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto55/Positividad_nacional.csv",
+			"csvDataProcessor": "transpose",
 			"inputDateFormat": "ISO",
-			"nameColumn": "Region",
-			"preProcessors": [
-				{
-					"name": "filter",
-					"parameters": [
-						"Total"
-					]
-				},
-				{
-					"name": "rename",
-					"parameters": {
-						"from": "Total",
-						"to": "sum"
-					}
-				},
-				{
-					"name": "dailyChange"
-				},
-				{
-					"name": "join",
-					"parameters": {
-						"dataSource": {
-							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR.csv",
-							"inputDateFormat": "ISO",
-							"nameColumn": "Region",
-							"preProcessors": [
-								{
-									"name": "sum"
-								}
-							]
-						},
-						"kind": "rate"
-					}
+			"nameColumn": "fecha",
+			"preProcessor": {
+				"name": "formula",
+				"parameters": {
+					"operation": "multiply",
+					"operands": ["positividad", 100],
+					"name": "positividadPerc"
 				}
-			],
+			},
 			"series": [
 				{
-					"name": "sum",
+					"name": "positividadPerc",
 					"code": "Chile",
-					"color": "#FF0066",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-17"
-						}
-					]
+					"color": "#FF0066"
 				}
 			]
 		},
@@ -4009,19 +3978,27 @@
 			"nameColumn": "Region",
 			"preProcessors": [
 				{
-					"name": "filterOut",
+					"name": "filter",
 					"parameters": [
 						"Total"
 					]
 				},
 				{
-					"name": "sum",
+					"name": "rename",
 					"parameters": {
-						"name": "positivos"
+						"from": "Total",
+						"to": "positivos"
 					}
 				},
 				{
 					"name": "dailyChange"
+				},
+				{
+					"name": "removeDate",
+					"parameters": "2020-06-17"
+				},
+				{
+					"name": "fillInterpolation"
 				},
 				{
 					"name": "join",
@@ -4045,13 +4022,16 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"total",
 							"positivos"
 						],
 						"name": "negativos"
 					}
+				},
+				{
+					"name": "avg7"
 				}
 			],
 			"series": [
@@ -4059,25 +4039,13 @@
 					"name": "positivos",
 					"code": "positivos",
 					"color": "#007973",
-					"areaColor": "#27FFF5",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
+					"areaColor": "#27FFF5"
 				},
 				{
 					"name": "negativos",
 					"code": "negativos",
 					"color": "#E43600",
-					"areaColor": "#FF5C27",
-					"gaps": [
-						{
-							"from": "2020-06-16",
-							"to": "2020-06-18"
-						}
-					]
+					"areaColor": "#FF5C27"
 				}
 			]
 		},
@@ -4323,7 +4291,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Total First",
 							"Total Second"
@@ -4591,7 +4559,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"total",
 							"utilizados"
@@ -4642,7 +4610,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Total Camas UCI habilitadas",
 							"Total Camas UCI ocupadas"
@@ -4695,7 +4663,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Arica y Parinacota Camas UCI habilitadas",
 							"Arica y Parinacota Camas UCI ocupadas"
@@ -4748,7 +4716,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Tarapacá Camas UCI habilitadas",
 							"Tarapacá Camas UCI ocupadas"
@@ -4801,7 +4769,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Antofagasta Camas UCI habilitadas",
 							"Antofagasta Camas UCI ocupadas"
@@ -4854,7 +4822,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Atacama Camas UCI habilitadas",
 							"Atacama Camas UCI ocupadas"
@@ -4907,7 +4875,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Coquimbo Camas UCI habilitadas",
 							"Coquimbo Camas UCI ocupadas"
@@ -4960,7 +4928,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Valparaíso Camas UCI habilitadas",
 							"Valparaíso Camas UCI ocupadas"
@@ -5013,7 +4981,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Metropolitana Camas UCI habilitadas",
 							"Metropolitana Camas UCI ocupadas"
@@ -5066,7 +5034,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"O’Higgins Camas UCI habilitadas",
 							"O’Higgins Camas UCI ocupadas"
@@ -5119,7 +5087,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Maule Camas UCI habilitadas",
 							"Maule Camas UCI ocupadas"
@@ -5172,7 +5140,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Ñuble Camas UCI habilitadas",
 							"Ñuble Camas UCI ocupadas"
@@ -5225,7 +5193,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Biobío Camas UCI habilitadas",
 							"Biobío Camas UCI ocupadas"
@@ -5278,7 +5246,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Araucanía Camas UCI habilitadas",
 							"Araucanía Camas UCI ocupadas"
@@ -5331,7 +5299,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Los Ríos Camas UCI habilitadas",
 							"Los Ríos Camas UCI ocupadas"
@@ -5384,7 +5352,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Los Lagos Camas UCI habilitadas",
 							"Los Lagos Camas UCI ocupadas"
@@ -5437,7 +5405,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Aysén Camas UCI habilitadas",
 							"Aysén Camas UCI ocupadas"
@@ -5490,7 +5458,7 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "substract",
+						"operation": "subtract",
 						"operands": [
 							"Magallanes Camas UCI habilitadas",
 							"Magallanes Camas UCI ocupadas"
