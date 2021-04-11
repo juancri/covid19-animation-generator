@@ -26,6 +26,7 @@ import PercentagePreProcessor from './PercentagePreProcessor';
 import AvgPreProcessor from './AvgPreProcessor';
 import FilterRegexPreProcessor from './FilterRegexPreProcessor';
 import FilterOutRegexPreProcessor from './FilterOutRegexPreProcessor';
+import MultiplyByPreProcessor from './MultiplyByPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg: AvgPreProcessor.run,
@@ -45,6 +46,7 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	join: JoinPreProcessor.run,
 	limit: LimitPreProcessor.run,
 	loadMilestones: LoadMilestonesPreProcessor.run,
+	multiplyBy: MultiplyByPreProcessor.run,
 	override: OverridePreProcessor.run,
 	percentage: PercentagePreProcessor.run,
 	removeDate: RemoveDatePreProcessor.run,

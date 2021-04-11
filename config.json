@@ -3949,31 +3949,25 @@
 			]
 		},
 		"chile-tests-rate-regions": {
-			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto55/Positividad_por_region.csv",
+			"csvDataProcessor": {
+				"name": "expand",
+				"parameters": {
+					"groupColumn": "Region",
+					"dateColumn": "fecha",
+					"valueColumn": "positividad"
+				}
+			},
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
-			"preProcessors": [
-				{
-					"name": "filterOut",
-					"parameters": [
-						"Total"
-					]
-				},
-				{
-					"name": "dailyChange"
-				},
-				{
-					"name": "join",
-					"parameters": {
-						"dataSource": {
-							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto7/PCR.csv",
-							"inputDateFormat": "ISO",
-							"nameColumn": "Region"
-						},
-						"kind": "rate"
-					}
-				}
-			]
+			"preProcessors": [{
+				"name": "multiplyBy",
+				"parameters": 100
+			},
+			{
+				"name": "avg7"
+			}
+		]
 		},
 		"chile-tests-stacked": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",

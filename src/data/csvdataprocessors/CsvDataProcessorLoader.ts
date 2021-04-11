@@ -1,8 +1,10 @@
 import TransposeCsvDataProcessor from './TransposeCsvDataProcessor';
 import { CsvDataProcessor, CsvDataProcessorConfig } from '../../util/Types';
 import JoinColumnsCsvDataProcessor from './JoinColumnsCsvDataProcessor';
+import ExpandDatesCsvDataProcessor from './ExpandDatesCsvDataProcessor';
 
 const PROCESSORS: { [key: string]: CsvDataProcessor } = {
+	expand: ExpandDatesCsvDataProcessor.run,
 	joinColumns: JoinColumnsCsvDataProcessor.run,
 	transpose: TransposeCsvDataProcessor.run
 };
