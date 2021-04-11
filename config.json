@@ -3933,7 +3933,10 @@
 				"name": "formula",
 				"parameters": {
 					"operation": "multiply",
-					"operands": ["positividad", 100],
+					"operands": [
+						"positividad",
+						100
+					],
 					"name": "positividadPerc"
 				}
 			},
