@@ -3071,6 +3071,59 @@
 				}
 			]
 		},
+		"chile-deaths-rm-7x3": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": "Metropolitana",
+					"code": "Metropolitana",
+					"color": "#ffa600",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				}
+			]
+		},
 		"chile-deaths-7x3": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"nameColumn": "Region",
