@@ -76,6 +76,7 @@ export default class FormulaPreProcessor
 			.selectMany(s => s.data)
 			.select(p => p.date)
 			.distinct(date => +date)
+			.orderBy(date => +date)
 			.toArray();
 	}
 }
