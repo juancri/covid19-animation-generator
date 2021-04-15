@@ -4422,8 +4422,8 @@
 			],
 			"series": [
 				{
-					"name": "Población entre 18 a 39 años. First",
-					"code": "18 - 39",
+					"name": "Población entre 40 a 49 años. First",
+					"code": "40 - 49",
 					"color": "#60b8d9",
 					"areaColor": "#60b8d9"
 				},
@@ -4440,16 +4440,16 @@
 					"areaColor": "#d5e84c"
 				},
 				{
-					"name": "Personas de funciones en empresas de servicios básicos First",
-					"code": "Serv. básicos",
-					"color": "#ec9d3e",
-					"areaColor": "#ec9d3e"
-				},
-				{
 					"name": "Atencion directa a la Ciudada First",
 					"code": "Aten. ciudadanía",
 					"color": "#fefd4c",
 					"areaColor": "#fefd4c"
+				},
+				{
+					"name": "Personas de funciones en empresas de servicios básicos First",
+					"code": "Serv. básicos",
+					"color": "#ec9d3e",
+					"areaColor": "#ec9d3e"
 				},
 				{
 					"name": "Enfermos crónicos desde los 16 a 59 años First",
