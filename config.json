@@ -3797,12 +3797,6 @@
 					"icon": "br"
 				},
 				{
-					"name": "India",
-					"code": "India",
-					"color": "#B272FF",
-					"icon": "in"
-				},
-				{
 					"name": "France",
 					"code": "Francia",
 					"color": "#FF729D",
@@ -3821,16 +3815,16 @@
 					"icon": "gb"
 				},
 				{
-					"name": "Italy",
-					"code": "Italia",
-					"color": "#5FB9E1",
-					"icon": "it"
-				},
-				{
 					"name": "Turkey",
 					"code": "Turquía",
 					"color": "#FF72CE",
 					"icon": "tr"
+				},
+				{
+					"name": "Italy",
+					"code": "Italia",
+					"color": "#5FB9E1",
+					"icon": "it"
 				},
 				{
 					"name": "Spain",
@@ -3845,10 +3839,10 @@
 					"icon": "de"
 				},
 				{
-					"name": "Colombia",
-					"code": "Colombia",
-					"color": "#72FFFF",
-					"icon": "co"
+					"name": "Argentina",
+					"code": "Argentina",
+					"color": "#F06AFF",
+					"icon": "ar"
 				},
 				{
 					"name": "Poland",
@@ -3857,10 +3851,10 @@
 					"icon": "pl"
 				},
 				{
-					"name": "Argentina",
-					"code": "Argentina",
-					"color": "#F06AFF",
-					"icon": "ar"
+					"name": "Colombia",
+					"code": "Colombia",
+					"color": "#72FFFF",
+					"icon": "co"
 				},
 				{
 					"name": "Mexico",
