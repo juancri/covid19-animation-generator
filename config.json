@@ -1719,6 +1719,10 @@
 										"to": "San Miguel"
 									},
 									{
+										"from": "Maria Pinto Total",
+										"to": "Maria Pinto"
+									},
+									{
 										"from": "Rancagua Total",
 										"to": "Rancagua"
 									},
@@ -2266,6 +2270,17 @@
 				{
 					"name": "San Miguel",
 					"code": "San Miguel",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Maria Pinto",
+					"code": "Maria Pinto",
 					"color": "#6DFF18",
 					"gaps": [
 						{
