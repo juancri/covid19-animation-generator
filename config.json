@@ -1739,6 +1739,10 @@
 										"to": "Talca"
 									},
 									{
+										"from": "Linares Total",
+										"to": "Linares"
+									},
+									{
 										"from": "Curicó Urbana",
 										"to": "Curico"
 									},
@@ -2336,6 +2340,17 @@
 				{
 					"name": "Curico",
 					"code": "Curicó",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Linares",
+					"code": "Linares",
 					"color": "#6DFF18",
 					"gaps": [
 						{
