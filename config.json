@@ -4329,6 +4329,55 @@
 				}
 			]
 		},
+		"chile-vaccination-late-avg7": {
+			"name": "Chile - Vaccination - Late",
+			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
+			"csvDataProcessor": {
+				"name": "joinColumns",
+				"parameters": {
+					"name": "col",
+					"columns": [
+						"Region",
+						"Dose"
+					]
+				}
+			},
+			"nameColumn": "col",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "datePlus",
+					"parameters": {
+						"series": "Total First",
+						"plus": {
+							"days": 28
+						},
+						"limit": true
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [
+							"Total First",
+							"Total Second"
+						],
+						"name": "late"
+					}
+				},
+				{
+					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": "late",
+					"code": "total",
+					"color": "#FF4527"
+				}
+			]
+		},
 		"chile-vaccination-age": {
 			"name": "Chile - Vaccination by age group",
 			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-ages.csv",
