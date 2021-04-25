@@ -2,6 +2,7 @@
 import * as Enumerable from 'linq';
 
 import { TimeSeries } from '../../util/Types';
+import Divide from './operations/Divide';
 import Multiply from './operations/Multiply';
 import Subtract from './operations/Subtract';
 
@@ -16,6 +17,7 @@ interface FormulaParameters
 
 const OPERATORS: { [key: string]: operator } = {
 	multiply: Multiply.run,
+	divide: Divide.run,
 	subtract: Subtract.run
 };
 
