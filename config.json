@@ -3577,6 +3577,79 @@
 				}
 			]
 		},
+		"chile-deaths-age-60-7x3": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "low",
+						"remove": true,
+						"filter": [
+							"<=39",
+							"40-49",
+							"50-59"
+						]
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "high",
+						"remove": true,
+						"filter": [
+							"60-69",
+							"70-79",
+							"80-89",
+							">=90"
+						]
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "high",
+					"code": "60+",
+					"color": "#FF3C00"
+				},
+				{
+					"name": "low",
+					"code": "0 - 59",
+					"color": "#92FF00"
+				}
+			]
+		},
 		"chile-deaths-age-14": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
 			"nameColumn": "Grupo de edad",
