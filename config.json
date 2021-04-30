@@ -3423,6 +3423,59 @@
 				}
 			]
 		},
+		"chile-deaths-sum-7x3": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				},
+				{
+					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": "Total",
+					"code": "Chile",
+					"color": "#FF4900",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				}
+			]
+		},
 		"chile-deaths-age": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
 			"nameColumn": "Grupo de edad",
@@ -4063,14 +4116,15 @@
 			},
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
-			"preProcessors": [{
-				"name": "multiplyBy",
-				"parameters": 100
-			},
-			{
-				"name": "avg7"
-			}
-		]
+			"preProcessors": [
+				{
+					"name": "multiplyBy",
+					"parameters": 100
+				},
+				{
+					"name": "avg7"
+				}
+			]
 		},
 		"chile-tests-stacked": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
