@@ -41,7 +41,8 @@ export default class LineSeriesLabelDrawer
 				context.options.seriesLineWidth,
 				lastPoint,
 				{ x, y },
-				frame.labelPositionRatio * LABEL_LINE_ALPHA);
+				frame.labelPositionRatio * LABEL_LINE_ALPHA,
+				true);
 	}
 
 	private static getLabelPosition(frame: FrameInfo, series: PlotSeries): number
