@@ -48,9 +48,9 @@ export default class CanvasWriter
 		this.drawPolyline(color, lineWidth, [from, to], box);
 	}
 
-	public drawLineAlpha(color: string, lineWidth: number, from: Point, to: Point, alpha: number): void
+	public drawLineAlpha(color: string, lineWidth: number, from: Point, to: Point, alpha: number, dashed = false): void
 	{
-		this.drawPolyline(color, lineWidth, [from, to], null, false, alpha);
+		this.drawPolyline(color, lineWidth, [from, to], null, dashed, alpha);
 	}
 
 	public drawPolyline(color: string, lineWidth: number, points: Point[], box: Box|null = null,
