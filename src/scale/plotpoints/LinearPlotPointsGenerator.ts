@@ -1,9 +1,10 @@
 
 import * as Enumerable from 'linq';
-
-import { DataPoint, PlotPoint, TimeGap } from '../../util/Types';
 import { DateTime } from 'luxon';
 import { Exception } from 'handlebars';
+
+import { DataPoint, PlotPoint, TimeGap } from '../../util/Types';
+import logger from '../../util/Logger';
 
 const START_DATE = DateTime.fromISO('2020-01-01', { zone: 'UTC' });
 
@@ -34,8 +35,10 @@ export default class LinearPlotPointsGenerator
 		});
 	}
 
+	// TODO: Remove method
 	public static generateAvg7(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
+		logger.warn('Scale type deprecated: linear-avg7. Please use linear and pre-processors.');
 		return points
 			.map((point, index) => ({ point, index }))
 			.filter(item => !gaps.find(g =>
@@ -58,8 +61,10 @@ export default class LinearPlotPointsGenerator
 			.filter(p => p.y < +Infinity);
 	}
 
+	// TODO: Remove method
 	public static generateAvg7Change(points: DataPoint[], gaps: TimeGap[]): PlotPoint[]
 	{
+		logger.warn('Scale type deprecated: linear-avg7-change. Please use linear and pre-processors.');
 		return points
 			.map((point, index) => ({ point, index }))
 			.filter(item => !gaps.find(g =>
@@ -83,8 +88,10 @@ export default class LinearPlotPointsGenerator
 			.filter(p => p.y < +Infinity);
 	}
 
+	// TODO: Remove method
 	public static generateAvg7ChangeCenter(points: DataPoint[], gaps: TimeGap[], seriesIndex: number): PlotPoint[]
 	{
+		logger.warn('Scale type deprecated: linear-avg7-change-center. Please use linear and pre-processors.');
 		if (seriesIndex > 1)
 			throw new Exception('Expected only two series for this scale');
 
