@@ -1719,6 +1719,10 @@
 										"to": "San Miguel"
 									},
 									{
+										"from": "San Bernardo Total",
+										"to": "San Bernardo"
+									},
+									{
 										"from": "Maria Pinto Total",
 										"to": "Maria Pinto"
 									},
@@ -2635,20 +2639,6 @@
 					"name": "San Bernardo",
 					"code": "San Bernardo",
 					"color": "#6DFF18",
-					"milestones": [
-						{
-							"date": "2020-01-01T00:00:00.000-08:00",
-							"color": "#6DFF18"
-						},
-						{
-							"date": "2020-04-16T00:00:00.000-07:00",
-							"color": "#FFDA18"
-						},
-						{
-							"date": "2020-05-15T00:00:00.000-07:00",
-							"color": "#FF3818"
-						}
-					],
 					"gaps": [
 						{
 							"from": "2020-06-16",
