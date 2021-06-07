@@ -450,9 +450,19 @@
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
 			"preProcessors": [
-				"sum",
-				"dailyChange",
-				"avg7"
+				{ "name": "sum" },
+				{ "name": "dailyChange" },
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2021-06-02",
+						"to": "2021-06-02"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{ "name": "avg7" }
 			],
 			"series": [
 				{
