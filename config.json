@@ -450,8 +450,12 @@
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
 			"nameColumn": "Country/Region",
 			"preProcessors": [
-				{ "name": "sum" },
-				{ "name": "dailyChange" },
+				{
+					"name": "sum"
+				},
+				{
+					"name": "dailyChange"
+				},
 				{
 					"name": "removeGap",
 					"parameters": {
@@ -462,7 +466,9 @@
 				{
 					"name": "fillInterpolation"
 				},
-				{ "name": "avg7" }
+				{
+					"name": "avg7"
+				}
 			],
 			"series": [
 				{
@@ -4298,118 +4304,116 @@
 		},
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
-			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Region",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
-				{
-					"name": "dailyChange"
-				},
-				{
-					"name": "avg7"
-				},
 				{
 					"name": "sum",
 					"parameters": {
-						"name": "total",
-						"filter": [
-							"Total First",
-							"Total Second"
-						]
+						"name": "first",
+						"remove": true
 					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "second",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_UnicaDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "unique",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "avg7"
 				}
 			],
 			"series": [
 				{
-					"name": "Total First",
-					"code": "primera dosis",
-					"color": "#905D00",
-					"areaColor": "#FFC600"
+					"name": "unique",
+					"code": "dosis unica",
+					"color": "#914600",
+					"areaColor": "#FF7B00"
 				},
 				{
-					"name": "Total Second",
+					"name": "second",
 					"code": "segunda dosis",
-					"color": "#649B00",
+					"color": "#598A00",
 					"areaColor": "#A4FF00"
-				}
-			]
-		},
-		"chile-vaccination-late": {
-			"name": "Chile - Vaccination - Late",
-			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Region",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
-			"inputDateFormat": "ISO",
-			"preProcessors": [
-				{
-					"name": "datePlus",
-					"parameters": {
-						"series": "Total First",
-						"plus": {
-							"days": 28
-						},
-						"limit": true
-					}
 				},
 				{
-					"name": "formula",
-					"parameters": {
-						"operation": "subtract",
-						"operands": [
-							"Total First",
-							"Total Second"
-						],
-						"name": "late"
-					}
-				}
-			],
-			"series": [
-				{
-					"name": "late",
-					"code": "total",
-					"color": "#FF4527"
+					"name": "first",
+					"code": "primera dosis",
+					"color": "#A17E00",
+					"areaColor": "#FFC600"
 				}
 			]
 		},
 		"chile-vaccination-late-avg7": {
 			"name": "Chile - Vaccination - Late",
-			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Region",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
 				{
+					"name": "sum",
+					"parameters": {
+						"name": "first",
+						"remove": true
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "second",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "runningTotal"
+				},
+				{
 					"name": "datePlus",
 					"parameters": {
-						"series": "Total First",
+						"series": "first",
 						"plus": {
 							"days": 28
 						},
@@ -4421,8 +4425,8 @@
 					"parameters": {
 						"operation": "subtract",
 						"operands": [
-							"Total First",
-							"Total Second"
+							"first",
+							"second"
 						],
 						"name": "late"
 					}
@@ -4441,24 +4445,42 @@
 		},
 		"chile-vaccination-late-avg7-percentage": {
 			"name": "Chile - Vaccination - Late",
-			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Region",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
 				{
+					"name": "sum",
+					"parameters": {
+						"name": "first",
+						"remove": true
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "second",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "runningTotal"
+				},
+				{
 					"name": "datePlus",
 					"parameters": {
-						"series": "Total First",
+						"series": "first",
 						"plus": {
 							"days": 28
 						},
@@ -4470,8 +4492,8 @@
 					"parameters": {
 						"operation": "divide",
 						"operands": [
-							"Total Second",
-							"Total First"
+							"second",
+							"first"
 						],
 						"name": "late"
 					}
@@ -4512,85 +4534,140 @@
 		},
 		"chile-vaccination-age": {
 			"name": "Chile - Vaccination by age group",
-			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-ages.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Age",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1.$",
+						"name": "12 - 19",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^2.$",
+						"name": "20 - 29",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^3.$",
+						"name": "30 - 39",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^4.$",
+						"name": "40 - 49",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^5.$",
+						"name": "50 - 59",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^6.$",
+						"name": "60 - 69",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^7.$",
+						"name": "70 - 79",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^8.$",
+						"name": "80 - 89",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^(9.|1..)$",
+						"name": "90+",
+						"remove": true
+					}
+				},
+				{
+					"name": "runningTotal"
+				}
+			],
 			"series": [
 				{
-					"name": "15-20 First",
-					"code": "15 - 20",
+					"name": "12 - 19",
+					"code": "12 - 19",
 					"color": "#e5571c",
 					"areaColor": "#e5571c"
 				},
 				{
-					"name": "21-30 First",
-					"code": "21 - 30",
+					"name": "20 - 29",
+					"code": "20 - 29",
 					"color": "#60b8d9",
 					"areaColor": "#60b8d9"
 				},
 				{
-					"name": "31-40 First",
-					"code": "31 - 40",
+					"name": "30 - 39",
+					"code": "30 - 39",
 					"color": "#407995",
 					"areaColor": "#407995"
 				},
 				{
-					"name": "41-50 First",
-					"code": "41 - 50",
+					"name": "40 - 49",
+					"code": "40 - 49",
 					"color": "#ead040",
 					"areaColor": "#ead040"
 				},
 				{
-					"name": "51-60 First",
-					"code": "51 - 60",
+					"name": "50 - 59",
+					"code": "50 - 59",
 					"color": "#e1998f",
 					"areaColor": "#e1998f"
 				},
 				{
-					"name": "61-70 First",
-					"code": "61 - 70",
+					"name": "60 - 69",
+					"code": "60 - 69",
 					"color": "#ca392a",
 					"areaColor": "#ca392a"
 				},
 				{
-					"name": "71-72 First",
-					"code": "71 - 72",
+					"name": "70 - 79",
+					"code": "70 - 79",
 					"color": "#9cdfbe",
 					"areaColor": "#9cdfbe"
 				},
 				{
-					"name": "73-74 First",
-					"code": "73 - 74",
+					"name": "80 - 89",
+					"code": "80 - 89",
 					"color": "#63a9a0",
 					"areaColor": "#63a9a0"
 				},
 				{
-					"name": "75-77 First",
-					"code": "75 - 77",
+					"name": "90+",
+					"code": "90+",
 					"color": "#fefd4c",
 					"areaColor": "#fefd4c"
-				},
-				{
-					"name": "78-79 First",
-					"code": "78 - 79",
-					"color": "#ec9d3e",
-					"areaColor": "#ec9d3e"
-				},
-				{
-					"name": "80 y más First",
-					"code": "80+",
-					"color": "#d5e84c",
-					"areaColor": "#d5e84c"
 				}
 			]
 		},
@@ -4702,29 +4779,72 @@
 		},
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
-			"url": "https://raw.githubusercontent.com/juancri/covid19-vaccination/master/output/chile-vaccination.csv",
-			"csvDataProcessor": {
-				"name": "joinColumns",
-				"parameters": {
-					"name": "col",
-					"columns": [
-						"Region",
-						"Dose"
-					]
-				}
-			},
-			"nameColumn": "col",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "first",
+						"remove": true
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "second",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_UnicaDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "unique",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "runningTotal"
+				}
+			],
 			"series": [
 				{
-					"name": "Total First",
+					"name": "first",
 					"code": "primera dosis",
 					"color": "#FFC600"
 				},
 				{
-					"name": "Total Second",
+					"name": "second",
 					"code": "segunda dosis",
 					"color": "#A4FF00"
+				},
+				{
+					"name": "unique",
+					"code": "dosis unica",
+					"color": "#FF7B00"
 				}
 			]
 		},
