@@ -4848,6 +4848,52 @@
 				}
 			]
 		},
+		"chile-vaccination-immunized": {
+			"name": "Chile - Vaccination",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_UnicaDosis.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO"
+						}
+					}
+				},
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "sum",
+						"remove": true
+					}
+				},
+				{
+					"name": "datePlus",
+					"parameters": {
+						"series": "sum",
+						"plus": {
+							"days": 14
+						},
+						"limit": true
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "sum",
+					"code": "total",
+					"color": "#FF7B00"
+				}
+			]
+		},
 		"chile-residencias": {
 			"name": "Chile - Residencias",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto36/ResidenciasSanitarias.csv",
