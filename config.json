@@ -217,7 +217,7 @@
 			"sources": {
 				"prefix": "Fuentes:",
 				"position": {
-					"x": 10,
+					"x": 30,
 					"y": 30
 				}
 			}
@@ -4028,6 +4028,7 @@
 		},
 		"chile-tests-rate": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto55/Positividad_nacional.csv",
+			"sources": ["ICOVID Chile", "Ministerio de Ciencia Chile"],
 			"csvDataProcessor": "transpose",
 			"inputDateFormat": "ISO",
 			"nameColumn": "fecha",
@@ -4052,6 +4053,7 @@
 		},
 		"chile-tests-rate-regions": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto55/Positividad_por_region.csv",
+			"sources": ["ICOVID Chile", "Ministerio de Ciencia Chile"],
 			"csvDataProcessor": {
 				"name": "expand",
 				"parameters": {
