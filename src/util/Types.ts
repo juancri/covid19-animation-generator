@@ -134,7 +134,10 @@ export interface Layout {
 		verticalAlign?: string;
 	},
 	sources: {
-		prefix: string;
+		prefixes: {
+			single: string;
+			multiple: string;
+		};
 		position: Point;
 	}
 }

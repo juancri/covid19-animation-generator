@@ -215,7 +215,10 @@
 				"verticalAlign": "right"
 			},
 			"sources": {
-				"prefix": "Fuentes:",
+				"prefixes": {
+					"single": "Fuente:",
+					"multiple": "Fuentes:"
+				},
 				"position": {
 					"x": 30,
 					"y": 30
@@ -969,6 +972,7 @@
 		},
 		"chile": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -1152,6 +1156,7 @@
 		},
 		"chile-sum": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
 			"series": [

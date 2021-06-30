@@ -16,7 +16,11 @@ export default class SourcesLayer implements Layer
 		if (!sources)
 			return;
 
-		const allTexts = [this.context.layout.sources.prefix, ...sources];
+		const isMultiple = sources.length > 1;
+		const prefix = isMultiple ?
+			this.context.layout.sources.prefixes.multiple :
+			this.context.layout.sources.prefixes.single;
+		const allTexts = [prefix, ...sources];
 		const text = allTexts.join('\n');
 		this.context.writer.drawText(
 			text,
