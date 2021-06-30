@@ -8,7 +8,7 @@ import { DateTime } from 'luxon';
 import ConfigLoader from '../configuration/ConfigLoader';
 import ParametersLoader from '../parameters/ParametersLoader';
 import CanvasWriter from '../drawing/CanvasWriter';
-import { AnimationContext, PlotSeries, Options } from './Types';
+import { AnimationContext, PlotSeries, Options, Configuration, DataSource } from './Types';
 import ColorSchemaLoader from './ColorSchemaLoader';
 import LayoutLoader from './LayoutLoader';
 import PlotSeriesLoader from './PlotSeriesLoader';
@@ -27,7 +27,8 @@ export default class AnimationContextCreator
 		const layout = LayoutLoader.load(config, options);
 		const outputPath = this.createOutputPath(options);
 		const writer = new CanvasWriter(layout, outputPath);
-		const series = await PlotSeriesLoader.load(config, options, color);
+		const dataSource = this.loadDataSource(config, options);
+		const series = await PlotSeriesLoader.load(dataSource, options, color);
 		const lines = LinesLoader.load(options);
 		const scaleLabelProvider = ScaleLabelProviderLoader.load(options);
 		const lastDate = this.getLastDate(series);
@@ -35,8 +36,8 @@ export default class AnimationContextCreator
 
 		return {
 			config, options, layout,
-			writer, series, color,
-			scaleLabelProvider,
+			writer, dataSource, series,
+			color, scaleLabelProvider,
 			firstDate, lastDate,
 			lines
 		};
@@ -49,6 +50,16 @@ export default class AnimationContextCreator
 		return isAbsolute ?
 			outputOption :
 			path.join(__dirname, '../..', outputOption);
+	}
+
+	private static loadDataSource(config: Configuration, options: Options): DataSource
+	{
+		// Load
+		const dataSource = config.dataSources[options.source];
+		if (!dataSource)
+			throw new Error(`Data source not found: ${options.source}`);
+
+		return dataSource;
 	}
 
 	private static getFirstDate(series: PlotSeries[],

@@ -102,6 +102,10 @@ export interface ColorSchema {
 	grid: {
 		color: string;
 		lineWidth: number;
+	},
+	sources: {
+		color: string;
+		font: string;
 	}
 }
 
@@ -128,6 +132,10 @@ export interface Layout {
 		verticalOffset: number;
 		horizontalAlign?: string;
 		verticalAlign?: string;
+	},
+	sources: {
+		prefix: string;
+		position: Point;
 	}
 }
 
@@ -148,6 +156,7 @@ export interface Line {
 
 export interface DataSource {
 	url: string;
+	sources?: string[];
 	nameColumn: string;
 	title?: string;
 	csvDataProcessor?: string | CsvDataProcessorConfig;
@@ -329,6 +338,7 @@ export interface Lines {
 export interface AnimationContext {
 	config: Configuration;
 	options: Options;
+	dataSource: DataSource;
 	series: PlotSeries[];
 	lines: Lines,
 	color: ColorSchema;

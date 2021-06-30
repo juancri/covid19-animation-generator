@@ -73,6 +73,10 @@
 			"grid": {
 				"color": "#464646",
 				"lineWidth": 1
+			},
+			"sources": {
+				"font": "15px DejaVu Sans Mono",
+				"color": "#ffffff"
 			}
 		},
 		"yachay": {
@@ -209,6 +213,13 @@
 				"verticalOffset": 30,
 				"horizontalAlign": "right",
 				"verticalAlign": "right"
+			},
+			"sources": {
+				"prefix": "Fuentes:",
+				"position": {
+					"x": 10,
+					"y": 30
+				}
 			}
 		}
 	},
@@ -216,6 +227,7 @@
 		"global": {
 			"name": "Global (Chile + others)",
 			"url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+			"sources": ["Johns Hopkins University"],
 			"nameColumn": "Country/Region",
 			"series": [
 				{

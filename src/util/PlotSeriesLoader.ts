@@ -2,7 +2,7 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { Configuration, Options, PlotSeries, ColorSchema, TimeSeries, PlotBand, SeriesConfiguration, Milestone } from './Types';
+import { Options, PlotSeries, ColorSchema, TimeSeries, PlotBand, SeriesConfiguration, Milestone, DataSource } from './Types';
 import DataSourceFilter from './DataSourceFilter';
 import DataLoader from '../data/DataLoader';
 import PlotPointsGenerator from '../scale/plotpoints/PlotPointsGenerator';
@@ -14,15 +14,10 @@ const OPTS = { zone: 'UTC' };
 export default class PlotSeriesLoader
 {
 	public static async load(
-		config: Configuration,
+		dataSource: DataSource,
 		options: Options,
 		colorSchema: ColorSchema): Promise<PlotSeries[]>
 	{
-		// Load
-		const dataSource = config.dataSources[options.source];
-		if (!dataSource)
-			throw new Error(`Data source not found: ${options.source}`);
-
 		// Load time series
 		const timeSeries = await DataLoader.load (dataSource, options);
 

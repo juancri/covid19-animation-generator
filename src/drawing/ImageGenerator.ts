@@ -13,6 +13,7 @@ import LinesLayer from './layers/LinesLayer';
 import BandLayer from './layers/BandLayer';
 import GridLayer from './layers/GridLayer';
 import SeriesMarkersLayer from './layers/SeriesMarkersLayer';
+import SourcesLayer from './layers/SourcesLayer';
 
 export default class ImageGenerator
 {
@@ -44,6 +45,7 @@ export default class ImageGenerator
 
 			// Extra
 			new DateLayer(context),
+			new SourcesLayer(context),
 			new PrePostAnimationLayer(context),
 			new TimeBarLayer(context),
 			new DebugLayer(context)
