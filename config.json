@@ -1188,6 +1188,7 @@
 		},
 		"chile-icu-age": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto9/HospitalizadosUCIEtario.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -1461,6 +1462,7 @@
 		},
 		"chile-ventilators": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto20/NumeroVentiladores.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Ventiladores",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -1502,6 +1504,7 @@
 		},
 		"chile-hospitalizations": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto24/CamasHospital_Diario.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Tipo de cama",
 			"inputDateFormat": "ISO",
 			"series": [
@@ -3126,6 +3129,7 @@
 		},
 		"chile-deaths-rm-7x3": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -3179,6 +3183,7 @@
 		},
 		"chile-deaths-7x3": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -3448,6 +3453,7 @@
 		},
 		"chile-deaths-sum-7x3": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Region",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -3575,6 +3581,7 @@
 		},
 		"chile-deaths-age-7x3": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4081,6 +4088,7 @@
 		},
 		"chile-tests-stacked": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto3/CasosTotalesCumulativo.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
@@ -4158,6 +4166,7 @@
 		},
 		"chile-symptoms": {
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto27/CasosNuevosSinSintomas.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
@@ -4224,6 +4233,7 @@
 		},
 		"chile-asymptomatic": {
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto27/CasosNuevosSinSintomas.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"inputDateFormat": "ISO",
 			"nameColumn": "Region",
 			"preProcessors": [
@@ -4324,6 +4334,7 @@
 		"chile-vaccination": {
 			"name": "Chile - Vaccination",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4398,6 +4409,7 @@
 		"chile-vaccination-late-avg7": {
 			"name": "Chile - Vaccination - Late",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4465,6 +4477,7 @@
 		"chile-vaccination-late-avg7-percentage": {
 			"name": "Chile - Vaccination - Late",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4554,6 +4567,7 @@
 		"chile-vaccination-age": {
 			"name": "Chile - Vaccination by age group",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4799,6 +4813,7 @@
 		"chile-vaccination-total": {
 			"name": "Chile - Vaccination",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4870,6 +4885,7 @@
 		"chile-vaccination-immunized": {
 			"name": "Chile - Vaccination",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4916,6 +4932,7 @@
 		"chile-vaccination-immunized-percentage": {
 			"name": "Chile - Vaccination",
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_2daDosis.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"nameColumn": "Edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -4973,6 +4990,7 @@
 		"chile-residencias": {
 			"name": "Chile - Residencias",
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto36/ResidenciasSanitarias.csv",
+			"sources": ["Ministerio de Ciencia Chile"],
 			"csvDataProcessor": {
 				"name": "joinColumns",
 				"parameters": {
