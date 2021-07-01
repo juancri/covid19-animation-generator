@@ -1267,6 +1267,7 @@
 		},
 		"chile-age": {
 			"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto16/CasosGeneroEtario.csv",
+			"sources": ["DEIS - MINSAL - Ministerio de Ciencia Chile"],
 			"nameColumn": "Grupo de edad",
 			"inputDateFormat": "ISO",
 			"preProcessors": [
@@ -1536,6 +1537,7 @@
 		},
 		"chile-comunas": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto1/Covid-19.csv",
+			"sources": ["DEIS - MINSAL - Ministerio de Ciencia Chile"],
 			"inputDateFormat": "ISO",
 			"nameColumn": "Comuna",
 			"preProcessors": [
