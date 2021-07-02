@@ -4706,6 +4706,218 @@
 				}
 			]
 		},
+		"chile-vaccination-age-pending": {
+			"name": "Chile - Vaccination pending by age group",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia", "populationpyramid.net", "ONU"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1.$",
+						"name": "12 - 19",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^2.$",
+						"name": "20 - 29",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^3.$",
+						"name": "30 - 39",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^4.$",
+						"name": "40 - 49",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^5.$",
+						"name": "50 - 59",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^6.$",
+						"name": "60 - 69",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^7.$",
+						"name": "70 - 79",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^8.$",
+						"name": "80 - 89",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^(9.|1..)$",
+						"name": "90+",
+						"remove": true
+					}
+				},
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [1994024, "12 - 19"],
+						"name": "rem 12 - 19"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [2995538, "20 - 29"],
+						"name": "rem 20 - 29"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [2945404, "30 - 39"],
+						"name": "rem 30 - 39"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [2578404, "40 - 49"],
+						"name": "rem 40 - 49"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [2352271, "50 - 59"],
+						"name": "rem 50 - 59"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [1791786, "60 - 69"],
+						"name": "rem 60 - 69"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [993126, "70 - 79"],
+						"name": "rem 70 - 79"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [436406, "80 - 89"],
+						"name": "rem 80 - 89"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [101315, "90+"],
+						"name": "rem 90+"
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "rem 90+",
+					"code": "90+",
+					"color": "#fefd4c",
+					"areaColor": "#fefd4c"
+				},
+				{
+					"name": "rem 80 - 89",
+					"code": "80 - 89",
+					"color": "#63a9a0",
+					"areaColor": "#63a9a0"
+				},
+				{
+					"name": "rem 70 - 79",
+					"code": "70 - 79",
+					"color": "#9cdfbe",
+					"areaColor": "#9cdfbe"
+				},
+				{
+					"name": "rem 60 - 69",
+					"code": "60 - 69",
+					"color": "#ca392a",
+					"areaColor": "#ca392a"
+				},
+				{
+					"name": "rem 50 - 59",
+					"code": "50 - 59",
+					"color": "#e1998f",
+					"areaColor": "#e1998f"
+				},
+				{
+					"name": "rem 40 - 49",
+					"code": "40 - 49",
+					"color": "#ead040",
+					"areaColor": "#ead040"
+				},
+				{
+					"name": "rem 30 - 39",
+					"code": "30 - 39",
+					"color": "#407995",
+					"areaColor": "#407995"
+				},
+				{
+					"name": "rem 20 - 29",
+					"code": "20 - 29",
+					"color": "#60b8d9",
+					"areaColor": "#60b8d9"
+				},
+				{
+					"name": "rem 12 - 19",
+					"code": "12 - 19",
+					"color": "#e5571c",
+					"areaColor": "#e5571c"
+				}
+			]
+		},
 		"chile-vaccination-groups": {
 			"name": "Chile - Vaccination by risk group",
 			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-groups.csv",
