@@ -4918,6 +4918,152 @@
 				}
 			]
 		},
+		"chile-vaccination-age-percentage": {
+			"name": "Chile - Vaccination by age group (percentage)",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_1eraDosis.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia", "populationpyramid.net", "ONU"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1.$",
+						"name": "12 - 19",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^2.$",
+						"name": "20 - 29",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^[34].$",
+						"name": "30 - 49",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^[56].$",
+						"name": "50 - 69",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^[78].$",
+						"name": "70 - 89",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^(9.|1..)$",
+						"name": "90+",
+						"remove": true
+					}
+				},
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["12 - 19", 19940.24],
+						"name": "perc 12 - 19"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["20 - 29", 29955.38],
+						"name": "perc 20 - 29"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["30 - 49", 55238.08],
+						"name": "perc 30 - 49"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["50 - 69", 41440.57],
+						"name": "perc 50 - 69"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["70 - 89", 14295.32],
+						"name": "perc 70 - 89"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["90+", 1013.15],
+						"name": "perc 90+"
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "perc 90+",
+					"code": "90+",
+					"color": "#fefd4c",
+					"areaColor": "#fefd4c"
+				},
+				{
+					"name": "perc 70 - 89",
+					"code": "70 - 89",
+					"color": "#9cdfbe",
+					"areaColor": "#9cdfbe"
+				},
+				{
+					"name": "perc 50 - 69",
+					"code": "50 - 69",
+					"color": "#e1998f",
+					"areaColor": "#e1998f"
+				},
+				{
+					"name": "perc 30 - 49",
+					"code": "30 - 49",
+					"color": "#407995",
+					"areaColor": "#407995"
+				},
+				{
+					"name": "perc 20 - 29",
+					"code": "20 - 29",
+					"color": "#60b8d9",
+					"areaColor": "#60b8d9"
+				},
+				{
+					"name": "perc 12 - 19",
+					"code": "12 - 19",
+					"color": "#e5571c",
+					"areaColor": "#e5571c"
+				}
+			]
+		},
 		"chile-vaccination-groups": {
 			"name": "Chile - Vaccination by risk group",
 			"url": "https://github.com/juancri/covid19-vaccination/raw/master/output/chile-vaccination-groups.csv",
