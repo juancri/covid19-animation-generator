@@ -185,7 +185,7 @@
 				"left": 125,
 				"right": 1050,
 				"top": 125,
-				"bottom": 955
+				"bottom": 1080
 			},
 			"seriesCirclesArea": {
 				"left": 125,
@@ -1541,6 +1541,22 @@
 			"inputDateFormat": "ISO",
 			"nameColumn": "Comuna",
 			"preProcessors": [
+				{
+					"name": "removeValue",
+					"parameters":
+					{
+						"series": "Temuco",
+						"date": "2021-07-09"
+					}
+				},
+				{
+					"name": "removeValue",
+					"parameters":
+					{
+						"series": "Padre Las Casas",
+						"date": "2021-07-09"
+					}
+				},
 				{
 					"name": "fillInterpolation"
 				},
