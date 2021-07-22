@@ -27,6 +27,7 @@ import AvgPreProcessor from './AvgPreProcessor';
 import FilterRegexPreProcessor from './FilterRegexPreProcessor';
 import FilterOutRegexPreProcessor from './FilterOutRegexPreProcessor';
 import MultiplyByPreProcessor from './MultiplyByPreProcessor';
+import RemoveValuePreProcessor from './RemoveValuePreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg: AvgPreProcessor.run,
@@ -51,6 +52,7 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	percentage: PercentagePreProcessor.run,
 	removeDate: RemoveDatePreProcessor.run,
 	removeGap: RemoveGapPreProcessor.run,
+	removeValue: RemoveValuePreProcessor.run,
 	rename: RenamePreProcessor.run,
 	requireForcedCodes: RequireForcedCodes.run,
 	runningTotal: RunningTotalPreProcessor.run,
