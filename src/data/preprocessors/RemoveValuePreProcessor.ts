@@ -22,7 +22,6 @@ export default class RemoveValuePreProcessor
 	{
 		if (series.name !== seriesName)
 			return series;
-		console.log("Removing from", seriesName);
 		const data = series.data.filter(p => +p.date !== +date);
 		return {
 			...series,
