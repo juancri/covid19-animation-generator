@@ -1893,6 +1893,10 @@
 										"to": "Valdivia"
 									},
 									{
+										"from": "Panguipulli Urbana",
+										"to": "Panguipulli"
+									},
+									{
 										"from": "Coyhaique Urbana",
 										"to": "Coyhaique"
 									},
@@ -2589,6 +2593,17 @@
 				{
 					"name": "Valdivia",
 					"code": "Valdivia",
+					"color": "#6DFF18",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-18"
+						}
+					]
+				},
+				{
+					"name": "Panguipulli",
+					"code": "Panguipulli",
 					"color": "#6DFF18",
 					"gaps": [
 						{
