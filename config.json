@@ -4419,10 +4419,34 @@
 					}
 				},
 				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_Refuerzo.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "reinforcement",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
 					"name": "avg7"
 				}
 			],
 			"series": [
+				{
+					"name": "reinforcement",
+					"code": "refuerzo",
+					"color": "#690010",
+					"areaColor": "#FF0028"
+				},
 				{
 					"name": "unique",
 					"code": "dosis unica",
@@ -5256,6 +5280,24 @@
 					}
 				},
 				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_Refuerzo.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "reinforcement",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
 					"name": "runningTotal"
 				}
 			],
@@ -5274,6 +5316,11 @@
 					"name": "unique",
 					"code": "dosis unica",
 					"color": "#FF7B00"
+				},
+				{
+					"name": "reinforcement",
+					"code": "refuerzo",
+					"color": "#FF0028"
 				}
 			]
 		},
