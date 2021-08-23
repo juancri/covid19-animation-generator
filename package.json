@@ -31,7 +31,7 @@
     "@types/jsonfile": "^6.0.1",
     "@types/luxon": "^2.0.0",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^16.6.2",
+    "@types/node": "^16.7.1",
     "@types/progress": "^2.0.5",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
