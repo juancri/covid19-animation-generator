@@ -28,7 +28,7 @@ const main = async () =>
 	{
 		try
 		{
-			logger.error('global error:' + e.stack);
+			logger.error('global error:' + e);
 		}
 		catch (e2)
 		{

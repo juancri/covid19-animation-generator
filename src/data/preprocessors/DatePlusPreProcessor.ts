@@ -1,5 +1,5 @@
 
-import { DurationObject } from 'luxon';
+import { DurationLike } from 'luxon';
 import * as Enumerable from 'linq';
 
 import { DataPoint, TimeSeries } from '../../util/Types';
@@ -7,7 +7,7 @@ import { DataPoint, TimeSeries } from '../../util/Types';
 interface DatePlusParameters
 {
 	series: string;
-	plus: DurationObject;
+	plus: DurationLike;
 	limit?: boolean
 }
 
@@ -42,7 +42,7 @@ export default class DatePlusPreProcessor
 		};
 	}
 
-	private static shiftPoint(point: DataPoint, plus: DurationObject): DataPoint
+	private static shiftPoint(point: DataPoint, plus: DurationLike): DataPoint
 	{
 		return {
 			...point,
