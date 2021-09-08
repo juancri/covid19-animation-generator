@@ -15,8 +15,8 @@ const FORMATTERS: { [key: string]: (n: number) => string } =
 const PERCENTAGE_FORMATTERS: { [key: string]: (n: number) => string } =
 {
 	plain: formatNumber({ truncate: 0 }),
-	english: formatNumber({ integerSeparator: ',', decimalsSeparator: '.', truncate: 1 }),
-	spanish: formatNumber({ integerSeparator: '.', decimalsSeparator: ',', truncate: 1 }),
+	english: formatNumber({ integerSeparator: ',', decimal: '.', truncate: 1 }),
+	spanish: formatNumber({ integerSeparator: '.', decimal: ',', truncate: 1 }),
 };
 const CENTER_OFFSET_TOP_Y = -40;
 const CENTER_OFFSET_BOTTOM_Y = 30;
