@@ -197,6 +197,7 @@ export interface Options
 	scaleDateFormat: string;
 	scaleNumberFormat: string;
 	stackedAreaNumberFormat: string;
+	stackedAreaPercentageFormat: string;
 	stackedAreaIncludePercentage: boolean;
 	stackedAreaIncludeValue: boolean;
 	horizontalJump: number;

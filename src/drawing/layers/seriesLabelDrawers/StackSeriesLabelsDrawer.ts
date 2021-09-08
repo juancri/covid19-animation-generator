@@ -8,9 +8,15 @@ import LineScaledPointsGenerator from '../../LineScaledPointsGenerator';
 
 const FORMATTERS: { [key: string]: (n: number) => string } =
 {
-	plain: n => n.toString(),
-	english: formatNumber({ integerSeparator: ',' }),
-	spanish: formatNumber({ integerSeparator: '.' }),
+	plain: formatNumber({ truncate: 0 }),
+	english: formatNumber({ integerSeparator: ',', truncate: 0 }),
+	spanish: formatNumber({ integerSeparator: '.', truncate: 0 }),
+};
+const PERCENTAGE_FORMATTERS: { [key: string]: (n: number) => string } =
+{
+	plain: formatNumber({ truncate: 0 }),
+	english: formatNumber({ integerSeparator: ',', decimalsSeparator: '.', truncate: 1 }),
+	spanish: formatNumber({ integerSeparator: '.', decimalsSeparator: ',', truncate: 1 }),
 };
 const CENTER_OFFSET_TOP_Y = -40;
 const CENTER_OFFSET_BOTTOM_Y = 30;
@@ -73,11 +79,11 @@ export default class StackSeriesLabelDrawer
 		const includePercentage = context.options.stackedAreaIncludePercentage;
 		const includeValue = context.options.stackedAreaIncludeValue;
 		if (includePercentage && includeValue)
-			return `${series.code}\n${this.getFormattedNumber(context, series)} (${this.getPercent(frame, series)}%)`;
+			return `${series.code}\n${this.getFormattedNumber(context, series)} (${this.getPercent(context, frame, series)}%)`;
 		if (includeValue)
 			return `${series.code}\n${this.getFormattedNumber(context, series)}`;
 		if (includePercentage)
-			return `${series.code}\n${this.getPercent(frame, series)}%`;
+			return `${series.code}\n${this.getPercent(context, frame, series)}%`;
 
 		throw new Error('stackedAreaIncludePercentage and stackedAreaIncludeValue are both false');
 	}
@@ -89,11 +95,14 @@ export default class StackSeriesLabelDrawer
 			throw new Error(`Stacked area number format not found: ${context.options.stackedAreaNumberFormat}`);
 		const lastPoint = series.points[series.points.length - 1];
 		const rawNumber = StackSeriesLabelDrawer.getFirstParentY(lastPoint);
-		return formatter(Math.floor(rawNumber));
+		return formatter(rawNumber);
 	}
 
-	private static getPercent(frame: FrameInfo, series: PlotSeries): number
+	private static getPercent(context: AnimationContext, frame: FrameInfo, series: PlotSeries): string
 	{
+		const formatter = PERCENTAGE_FORMATTERS[context.options.stackedAreaPercentageFormat];
+		if (!formatter)
+			throw new Error(`Stacked area percentage format not found: ${context.options.stackedAreaPercentageFormat}`);
 		const lastPoint = series.points[series.points.length - 1];
 		const total = Enumerable
 			.from(frame.series)
@@ -103,7 +112,8 @@ export default class StackSeriesLabelDrawer
 			.select(p => StackSeriesLabelDrawer.getFirstParentY(p))
 			.sum();
 		const rawNumber = StackSeriesLabelDrawer.getFirstParentY(lastPoint);
-		return Math.floor(rawNumber / total * 100);
+		const rawPercent = rawNumber / total * 100;
+		return formatter(rawPercent);
 	}
 
 	private static getPoint(context: AnimationContext, frame: FrameInfo, seriesIndex: number): Point
