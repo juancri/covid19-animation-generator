@@ -4075,6 +4075,83 @@
 				}
 			]
 		},
+		"population-rate-avg7": {
+			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/gviz/tq?tqx=out:csv&sheet=239683808",
+			"nameColumn": "Country/Region",
+			"inputDateFormat": "M/d/yyyy",
+			"preProcessors": [
+				"dailyChange",
+				"avg7"
+			],
+			"series": [
+				{
+					"name": "Brazil",
+					"code": "br",
+					"color": "#BAFF72",
+					"icon": "br"
+				},
+				{
+					"name": "Argentina",
+					"code": "ar",
+					"color": "#F06AFF",
+					"icon": "ar"
+				},
+				{
+					"name": "Colombia",
+					"code": "co",
+					"color": "#72FFFF",
+					"icon": "co"
+				},
+				{
+					"name": "Ecuador",
+					"code": "ec",
+					"color": "#FF2E86",
+					"icon": "ec"
+				},
+				{
+					"name": "Bolivia",
+					"code": "bo",
+					"color": "#E72EFF",
+					"icon": "bo"
+				},
+				{
+					"name": "Venezuela",
+					"code": "ve",
+					"color": "#7B2EFF",
+					"icon": "ve"
+				},
+				{
+					"name": "Uruguay",
+					"code": "uy",
+					"color": "#2E62FF",
+					"icon": "uy"
+				},
+				{
+					"name": "Paraguay",
+					"code": "py",
+					"color": "#2EE5FF",
+					"icon": "py"
+				},
+				{
+					"name": "Peru",
+					"code": "pe",
+					"color": "#FF2E7D",
+					"icon": "pe"
+				},
+				{
+					"name": "Chile",
+					"code": "cl",
+					"color": "#FFA600",
+					"icon": "cl",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
+				}
+			]
+		},
 		"chile-tests-rate": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto55/Positividad_nacional.csv",
 			"sources": ["ICOVID Chile", "MINSAL - Ministerio de Ciencia"],
