@@ -4076,9 +4076,8 @@
 			]
 		},
 		"population-rate-avg7": {
-			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/gviz/tq?tqx=out:csv&sheet=239683808",
-			"nameColumn": "Country/Region",
-			"inputDateFormat": "M/d/yyyy",
+			"url": "https://docs.google.com/spreadsheets/d/1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E/export?format=csv&id=1WaCm2tptd6zhU5z0xlPa3fGu7hd3IA4Sc1bMaSoSI3E&gid=1524414812",
+			"nameColumn": "country",
 			"preProcessors": [
 				"dailyChange",
 				"avg7"
