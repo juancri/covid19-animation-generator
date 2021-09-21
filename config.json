@@ -4711,7 +4711,15 @@
 				{
 					"name": "sum",
 					"parameters": {
-						"filterRegex": "^1.$",
+						"filterRegex": "^([6-9]|1[01])$",
+						"name": "6 - 11",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1[2-9]$",
 						"name": "12 - 19",
 						"remove": true
 					}
@@ -4786,6 +4794,12 @@
 			],
 			"series": [
 				{
+					"name": "6 - 11",
+					"code": "6 - 11",
+					"color": "#C0F783",
+					"areaColor": "#C0F783"
+				},
+				{
 					"name": "12 - 19",
 					"code": "12 - 19",
 					"color": "#e5571c",
@@ -4851,7 +4865,15 @@
 				{
 					"name": "sum",
 					"parameters": {
-						"filterRegex": "^1.$",
+						"filterRegex": "^([6-9]|1[01])$",
+						"name": "6 - 11",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1[2-9]$",
 						"name": "12 - 19",
 						"remove": true
 					}
@@ -4922,6 +4944,14 @@
 				},
 				{
 					"name": "runningTotal"
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [1512034, "6 - 11"],
+						"name": "rem 6 - 11"
+					}
 				},
 				{
 					"name": "formula",
@@ -5050,6 +5080,12 @@
 					"code": "12 - 19",
 					"color": "#e5571c",
 					"areaColor": "#e5571c"
+				},
+				{
+					"name": "rem 6 - 11",
+					"code": "6 - 11",
+					"color": "#C0F783",
+					"areaColor": "#C0F783"
 				}
 			]
 		},
@@ -5063,7 +5099,15 @@
 				{
 					"name": "sum",
 					"parameters": {
-						"filterRegex": "^1.$",
+						"filterRegex": "^([6-9]|1[01])$",
+						"name": "6 - 11",
+						"remove": true
+					}
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"filterRegex": "^1[2-9]$",
 						"name": "12 - 19",
 						"remove": true
 					}
@@ -5110,6 +5154,14 @@
 				},
 				{
 					"name": "runningTotal"
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": ["6 - 11", 15120.34],
+						"name": "perc 6 - 11"
+					}
 				},
 				{
 					"name": "formula",
@@ -5196,6 +5248,12 @@
 					"code": "12 - 19",
 					"color": "#e5571c",
 					"areaColor": "#e5571c"
+				},
+				{
+					"name": "perc 6 - 11",
+					"code": "6 - 11",
+					"color": "#C0F783",
+					"areaColor": "#C0F783"
 				}
 			]
 		},
