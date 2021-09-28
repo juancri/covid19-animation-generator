@@ -28,7 +28,8 @@ const main = async () =>
 	{
 		try
 		{
-			logger.error('global error:' + e);
+			const error = e as Error;
+			logger.error('global error:' + error.stack);
 		}
 		catch (e2)
 		{
