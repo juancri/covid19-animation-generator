@@ -1,4 +1,4 @@
-import { AnimationContext, FrameInfo, LabelArea, Point } from "@/util/Types";
+import { AnimationContext, FrameInfo, LabelArea, PlotSeries, Point } from "@/util/Types";
 
 export default class LabelsDrawerHelper
 {
@@ -6,13 +6,17 @@ export default class LabelsDrawerHelper
 		context: AnimationContext,
 		frame: FrameInfo,
 		labelArea: LabelArea,
-		seriesIndex: number): Point
+		seriesIndex: number,
+		customOrderSeries?: PlotSeries[]): Point
 	{
 		// Helper variables
-		const series = frame.series[seriesIndex];
+		const allSeries = customOrderSeries ?? frame.series;
+		const currentSeries = allSeries[seriesIndex];
+		if (!currentSeries)
+			throw new Error(`Series not found. Index: ${seriesIndex} Total: ${allSeries.length}`);
 
 		// Get x
-		const lastPoint = series.points[series.points.length - 1];
+		const lastPoint = currentSeries.points[currentSeries.points.length - 1];
 		const x = lastPoint.x + labelArea.offset.x;
 
 		// Move up

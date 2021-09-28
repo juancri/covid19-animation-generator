@@ -1,6 +1,8 @@
 
 import * as util from 'util';
 
+import * as Enumerable from 'linq';
+
 import { FrameInfo, PlotSeries, AnimationContext } from '../../../util/Types';
 import LabelsDrawerHelper from './LabelsDrawerHelper';
 
@@ -13,10 +15,14 @@ export default class LineSeriesLabelDrawer
 		const iconPath = util.format(context.options.seriesIconPathFormat, series.icon);
 		const lastPoint = series.points[series.points.length - 1];
 		const labelArea = context.color.series.label.linearArea;
-		const seriesIndex = frame.series.indexOf(series);
+		const customOrderSeries = Enumerable
+			.from(frame.series)
+			.orderBy(s => s.points[s.points.length - 1].y)
+			.toArray();
+		const seriesIndex = customOrderSeries.indexOf(series);
 		const labelPosition = LabelsDrawerHelper.getPoint(
 			context, frame,
-			labelArea, seriesIndex);
+			labelArea, seriesIndex, customOrderSeries);
 		const hasIcons = !!context.options.seriesIconPathFormat;
 		if (hasIcons)
 		{
