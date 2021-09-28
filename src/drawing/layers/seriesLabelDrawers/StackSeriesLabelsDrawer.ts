@@ -5,6 +5,7 @@ import * as Enumerable from 'linq';
 import { AnimationContext, FrameInfo, PlotSeries, PlotPoint, Point, Box } from '../../../util/Types';
 import CanvasPointsGenerator from '../../CanvasPointsGenerator';
 import LineScaledPointsGenerator from '../../LineScaledPointsGenerator';
+import LabelsDrawerHelper from './LabelsDrawerHelper';
 
 const FORMATTERS: { [key: string]: (n: number) => string } =
 {
@@ -26,7 +27,9 @@ export default class StackSeriesLabelDrawer
 	public static draw(context: AnimationContext, frame: FrameInfo, series: PlotSeries): void
 	{
 		const seriesIndex = frame.series.indexOf(series);
-		const point = StackSeriesLabelDrawer.getPoint(context, frame, seriesIndex);
+		const labelArea = context.color.series.label.stackedArea;
+		const point = LabelsDrawerHelper.getPoint(
+			context, frame, labelArea, seriesIndex);
 		StackSeriesLabelDrawer.drawInternal(context, frame, series, point, true);
 	}
 
@@ -114,38 +117,6 @@ export default class StackSeriesLabelDrawer
 		const rawNumber = StackSeriesLabelDrawer.getFirstParentY(lastPoint);
 		const rawPercent = rawNumber / total * 100;
 		return formatter(rawPercent);
-	}
-
-	private static getPoint(context: AnimationContext, frame: FrameInfo, seriesIndex: number): Point
-	{
-		// Helper variables
-		const stackedArea = context.color.series.label.stackedArea;
-		const series = frame.series[seriesIndex];
-
-		// Get x
-		const lastPoint = series.points[series.points.length - 1];
-		const x = lastPoint.x + stackedArea.offset.x;
-
-		// Move up
-		const lastIndex = context.series.length - 1;
-		const previousY = seriesIndex === lastIndex ?
-			0 :
-			StackSeriesLabelDrawer.getPoint(context, frame, seriesIndex + 1).y;
-		const minY = seriesIndex === lastIndex ?
-			context.layout.plotArea.bottom - stackedArea.minYOffset :
-			previousY - stackedArea.minYDistance;
-		const y1 = Math.min(
-			minY,
-			lastPoint.y + stackedArea.offset.y);
-
-		// Move down
-		const topOffset = context.layout.plotArea.top - stackedArea.maxYOffset;
-		const maxY = topOffset + seriesIndex * stackedArea.minYDistance;
-		const y2 = Math.max(maxY, y1);
-
-		// Done
-		const y = y2;
-		return { x, y };
 	}
 
 	private static getFirstParentY(point: PlotPoint|undefined): number

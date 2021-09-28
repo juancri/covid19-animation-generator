@@ -53,6 +53,14 @@ export interface SeriesConfiguration {
 	};
 }
 
+export interface LabelArea
+{
+	offset: Point;
+	maxYOffset: number;
+	minYOffset: number;
+	minYDistance: number;
+	box: Box
+}
 export interface ColorSchema {
 	background: string;
 	debug: {
@@ -74,13 +82,7 @@ export interface ColorSchema {
 			font: string;
 			color: string;
 			offset: Point;
-			stackedArea: {
-				offset: Point;
-				maxYOffset: number;
-				minYOffset: number;
-				minYDistance: number;
-				box: Box
-			}
+			stackedArea: LabelArea
 		},
 		colors: string[];
 	},
