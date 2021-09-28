@@ -59,7 +59,7 @@ export interface LabelArea
 	maxYOffset: number;
 	minYOffset: number;
 	minYDistance: number;
-	box: Box
+	box?: Box;
 }
 export interface ColorSchema {
 	background: string;
@@ -81,8 +81,8 @@ export interface ColorSchema {
 		label: {
 			font: string;
 			color: string;
-			offset: Point;
-			stackedArea: LabelArea
+			stackedArea: LabelArea;
+			linearArea: LabelArea;
 		},
 		colors: string[];
 	},

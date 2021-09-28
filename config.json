@@ -38,6 +38,15 @@
 							"right": 125,
 							"bottom": 40
 						}
+					},
+					"linearArea": {
+						"offset": {
+							"x": 30,
+							"y": 10
+						},
+						"maxYOffset": 0,
+						"minYOffset": 10,
+						"minYDistance": 35
 					}
 				},
 				"colors": [

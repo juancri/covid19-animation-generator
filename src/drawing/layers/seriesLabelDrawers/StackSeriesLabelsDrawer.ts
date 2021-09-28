@@ -67,6 +67,8 @@ export default class StackSeriesLabelDrawer
 		if (drawRectangle)
 		{
 			const boxConfig = context.color.series.label.stackedArea.box;
+			if (!boxConfig)
+				throw new Error('Box required for stacked area label configuration');
 			const box: Box = {
 				left: point.x + boxConfig.left,
 				right: point.x + boxConfig.right,
