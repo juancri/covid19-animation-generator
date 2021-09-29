@@ -23,7 +23,7 @@ export default class LabelsDrawerHelper
 		const lastIndex = context.series.length - 1;
 		const previousY = seriesIndex === lastIndex ?
 			0 :
-			LabelsDrawerHelper.getPoint(context, frame, labelArea, seriesIndex + 1).y;
+			LabelsDrawerHelper.getPoint(context, frame, labelArea, seriesIndex + 1, allSeries).y;
 		const minY = seriesIndex === lastIndex ?
 			context.layout.plotArea.bottom - labelArea.minYOffset :
 			previousY - labelArea.minYDistance;
