@@ -6490,6 +6490,172 @@
 					"areaColor": "#FF6300"
 				}
 			]
+		},
+		"chile-icu-by-vaccination-status":
+		{
+			"name": "Chile ICU by vaccination status",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto90/incidencia_en_vacunados.csv",
+			"csvDataProcessor": "transpose",
+			"nameColumn": "semana_epidemiologica",
+			"inputDateFormat": "EpidemiologicalWeek",
+			"preProcessors": [
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [
+							19276267,
+							"personas_con_una_dosis"
+						],
+						"name": "personas_sin_vac"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [
+							"personas_con_una_dosis",
+							"personas_con_pauta_completa"
+						],
+						"name": "personas_solo_con_una_dosis"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "subtract",
+						"operands": [
+							"personas_con_pauta_completa",
+							"personas_con_refuerzo"
+						],
+						"name": "personas_solo_con_pauta_completa"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"sin_vac_uci",
+							"personas_sin_vac"
+						],
+						"name": "sin_vac_uci_0_1"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters":
+					{
+						"operation": "multiply",
+						"operands": [
+							"sin_vac_uci_0_1",
+							100000
+						],
+						"name": "sin_vac_uci_per_100k"
+					}
+				},
+
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"una_dosis_uci",
+							"personas_solo_con_una_dosis"
+						],
+						"name": "una_dosis_uci_0_1"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters":
+					{
+						"operation": "multiply",
+						"operands": [
+							"una_dosis_uci_0_1",
+							100000
+						],
+						"name": "una_dosis_uci_per_100k"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"dos_dosis_uci",
+							"personas_solo_con_pauta_completa"
+						],
+						"name": "dos_dosis_uci_0_1"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters":
+					{
+						"operation": "multiply",
+						"operands": [
+							"dos_dosis_uci_0_1",
+							100000
+						],
+						"name": "dos_dosis_uci_per_100k"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"dosis_ref_comp_uci",
+							"personas_con_refuerzo"
+						],
+						"name": "refuerzo_uci_0_1"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters":
+					{
+						"operation": "multiply",
+						"operands": [
+							"refuerzo_uci_0_1",
+							100000
+						],
+						"name": "refuerzo_uci_per_100k"
+					}
+				},
+				{
+					"name": "avg",
+					"parameters": 30
+				}
+			],
+			"series":
+			[
+				{
+					"name": "sin_vac_uci_per_100k",
+					"code": "Sin vacuna",
+					"color": "#ff001f"
+				},
+				{
+					"name": "una_dosis_uci_per_100k",
+					"code": "Una dosis",
+					"color": "#ff6900"
+				},
+				{
+					"name": "dos_dosis_uci_per_100k",
+					"code": "Dos dosis",
+					"color": "#ffc700"
+				},
+				{
+					"name": "refuerzo_uci_per_100k",
+					"code": "Refuerzo",
+					"color": "#92ff00"
+				}
+			]
 		}
 	},
 	"defaults": {
