@@ -4,19 +4,22 @@ import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
 // Local
-import { DataSource, TimeSeries, Options, PreProcessorConfig } from '../util/Types';
+import { DataSource, TimeSeries, Options, PreProcessorConfig, DateParser } from '../util/Types';
 import Downloader from '../util/Downloader';
 import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
-import DateFormat from './DateFormat';
+import DateFormatParser from './dateparsers/DateFormatParser';
 import CsvDebug from '../util/CsvDebug';
 
-const DATE_FORMATS: { [key: string]: string } =
+const MONTH_DAY_YEAR_DATE_FORMAT_PARSER = new DateFormatParser('M/d/yy');
+const ISO_DATE_FORMAT_PARSER = new DateFormatParser('yyyy-MM-dd');
+const DEFAULT_DATE_PARSER = MONTH_DAY_YEAR_DATE_FORMAT_PARSER;
+const DATE_FORMATS: { [key: string]: DateParser } =
 {
-	ISO: 'yyyy-MM-dd',
-	MonthDayYear: 'M/d/yy',
+	ISO: ISO_DATE_FORMAT_PARSER,
+	MonthDayYear: MONTH_DAY_YEAR_DATE_FORMAT_PARSER,
 };
-const DEFAULT_DATE_FORMAT = DATE_FORMATS.MonthDayYear;
+
 
 export default class DataLoader
 {
@@ -119,13 +122,11 @@ export default class DataLoader
 		}
 	}
 
-	private static getDateFormat(format?: string): DateFormat
+	private static getDateFormat(format?: string): DateParser
 	{
 		if (!format)
-			return new DateFormat(DEFAULT_DATE_FORMAT);
-		const found = DATE_FORMATS[format];
-		if (found)
-			return new DateFormat(found);
-		return new DateFormat(format);
+			return DEFAULT_DATE_PARSER;
+		return DATE_FORMATS[format] ??
+			new DateFormatParser(format);
 	}
 }

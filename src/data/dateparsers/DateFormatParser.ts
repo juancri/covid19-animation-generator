@@ -1,9 +1,10 @@
 
+import { DateParser } from '@/util/Types';
 import { DateTime } from 'luxon';
 
 const OPTS = { zone: 'UTC' };
 
-export default class DateFormat
+export default class DateFormatParser implements DateParser
 {
 	private format: string;
 

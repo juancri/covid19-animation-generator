@@ -368,3 +368,8 @@ export interface Rotation
 		vertical: 'top' | 'center' | 'bottom'
 	}
 }
+
+export interface DateParser
+{
+	parse(text: string): DateTime | null;
+}
