@@ -10,6 +10,7 @@ import PreProcessorLoader from './preprocessors/PreProcessorLoader';
 import CsvDataProcessorLoader from './csvdataprocessors/CsvDataProcessorLoader';
 import DateFormatParser from './dateparsers/DateFormatParser';
 import CsvDebug from '../util/CsvDebug';
+import EpidemiologicalWeekParser from './dateparsers/EpidemiologicalWeekParser';
 
 const MONTH_DAY_YEAR_DATE_FORMAT_PARSER = new DateFormatParser('M/d/yy');
 const ISO_DATE_FORMAT_PARSER = new DateFormatParser('yyyy-MM-dd');
@@ -18,6 +19,7 @@ const DATE_FORMATS: { [key: string]: DateParser } =
 {
 	ISO: ISO_DATE_FORMAT_PARSER,
 	MonthDayYear: MONTH_DAY_YEAR_DATE_FORMAT_PARSER,
+	EpidemiologicalWeek: new EpidemiologicalWeekParser(),
 };
 
 
