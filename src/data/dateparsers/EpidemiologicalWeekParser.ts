@@ -10,6 +10,8 @@ export default class EpidemiologicalWeekParser implements DateParser
 	public parse(text: string): DateTime | null
 	{
 		const week = parseInt(text);
-		return BASE_DATE.plus({ weeks: week - 1 });
+		return isNaN(week) ?
+			null :
+			BASE_DATE.plus({ weeks: week - 1 });
 	}
 }
