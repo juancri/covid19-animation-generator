@@ -3,7 +3,7 @@
 import * as Enumerable from 'linq';
 import { DateTime } from 'luxon';
 
-import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint, Point } from '../../util/Types';
+import { FrameInfo, AnimationContext, Layer, PlotSeries, PlotPoint, Point, Box } from '../../util/Types';
 import CanvasPointsGenerator from '../CanvasPointsGenerator';
 import LineScaledPointsGenerator from '../LineScaledPointsGenerator';
 
@@ -130,11 +130,14 @@ export default class SeriesPlotLayer implements Layer
 			this.context.writer.drawPolygon(areaColor, polygonPoints, plotArea);
 		}
 
+		const safeArea = SeriesPlotLayer.getSafeArea(
+			this.context.layout.plotArea,
+			this.context.options.seriesLineWidth);
 		this.context.writer.drawPolyline(
 			color,
 			this.context.options.seriesLineWidth,
 			points,
-			this.context.layout.plotArea,
+			safeArea,
 			dashed);
 	}
 
@@ -156,5 +159,13 @@ export default class SeriesPlotLayer implements Layer
 			section.color,
 			lastPoint,
 			this.context.layout.seriesCirclesArea);
+	}
+
+	private static getSafeArea(baseArea: Box, lineWidth: number): Box
+	{
+		return {
+			...baseArea,
+			right: baseArea.right + lineWidth / 2
+		};
 	}
 }
