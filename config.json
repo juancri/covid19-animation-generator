@@ -5009,12 +5009,6 @@
 					"areaColor": "#63a9a0"
 				},
 				{
-					"name": "rem 70 - 79",
-					"code": "70 - 79",
-					"color": "#9cdfbe",
-					"areaColor": "#9cdfbe"
-				},
-				{
 					"name": "rem 60 - 69",
 					"code": "60 - 69",
 					"color": "#ca392a",
@@ -6505,34 +6499,27 @@
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "subtract",
+						"operation": "add",
 						"operands": [
-							19276267,
-							"personas_con_una_dosis"
+							"dos_dosis_uci",
+							"dos_dosis_comp_uci",
+							"dosis_unica_uci",
+							"dosis_unica_comp_uci"
 						],
-						"name": "personas_sin_vac"
+						"name": "total_dos_dosis_uci"
 					}
 				},
 				{
 					"name": "formula",
 					"parameters": {
-						"operation": "subtract",
+						"operation": "add",
 						"operands": [
-							"personas_con_una_dosis",
-							"personas_con_pauta_completa"
+							"sin_vac_uci",
+							"una_dosis_uci",
+							"total_dos_dosis_uci",
+							"dosis_ref_comp_uci"
 						],
-						"name": "personas_solo_con_una_dosis"
-					}
-				},
-				{
-					"name": "formula",
-					"parameters": {
-						"operation": "subtract",
-						"operands": [
-							"personas_con_pauta_completa",
-							"personas_con_refuerzo"
-						],
-						"name": "personas_solo_con_pauta_completa"
+						"name": "total_uci"
 					}
 				},
 				{
@@ -6541,45 +6528,20 @@
 						"operation": "divide",
 						"operands": [
 							"sin_vac_uci",
-							"personas_sin_vac"
+							"total_uci"
 						],
-						"name": "sin_vac_uci_0_1"
+						"name": "sin_vac_uci_ratio"
 					}
 				},
-				{
-					"name": "formula",
-					"parameters":
-					{
-						"operation": "multiply",
-						"operands": [
-							"sin_vac_uci_0_1",
-							100000
-						],
-						"name": "sin_vac_uci_per_100k"
-					}
-				},
-
 				{
 					"name": "formula",
 					"parameters": {
 						"operation": "divide",
 						"operands": [
 							"una_dosis_uci",
-							"personas_solo_con_una_dosis"
+							"total_uci"
 						],
-						"name": "una_dosis_uci_0_1"
-					}
-				},
-				{
-					"name": "formula",
-					"parameters":
-					{
-						"operation": "multiply",
-						"operands": [
-							"una_dosis_uci_0_1",
-							100000
-						],
-						"name": "una_dosis_uci_per_100k"
+						"name": "una_dosis_uci_ratio"
 					}
 				},
 				{
@@ -6587,22 +6549,10 @@
 					"parameters": {
 						"operation": "divide",
 						"operands": [
-							"dos_dosis_uci",
-							"personas_solo_con_pauta_completa"
+							"total_dos_dosis_uci",
+							"total_uci"
 						],
-						"name": "dos_dosis_uci_0_1"
-					}
-				},
-				{
-					"name": "formula",
-					"parameters":
-					{
-						"operation": "multiply",
-						"operands": [
-							"dos_dosis_uci_0_1",
-							100000
-						],
-						"name": "dos_dosis_uci_per_100k"
+						"name": "total_dos_dosis_uci_ratio"
 					}
 				},
 				{
@@ -6611,49 +6561,88 @@
 						"operation": "divide",
 						"operands": [
 							"dosis_ref_comp_uci",
-							"personas_con_refuerzo"
+							"total_uci"
 						],
-						"name": "refuerzo_uci_0_1"
+						"name": "dosis_ref_comp_uci_ratio"
+					}
+				},
+
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "multiply",
+						"operands": [
+							"sin_vac_uci_ratio",
+							100
+						],
+						"name": "sin_vac_uci_percent"
 					}
 				},
 				{
 					"name": "formula",
-					"parameters":
-					{
+					"parameters": {
 						"operation": "multiply",
 						"operands": [
-							"refuerzo_uci_0_1",
-							100000
+							"una_dosis_uci_ratio",
+							100
 						],
-						"name": "refuerzo_uci_per_100k"
+						"name": "una_dosis_uci_percent"
 					}
 				},
 				{
+					"name": "formula",
+					"parameters": {
+						"operation": "multiply",
+						"operands": [
+							"total_dos_dosis_uci_ratio",
+							100
+						],
+						"name": "total_dos_dosis_uci_percent"
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "multiply",
+						"operands": [
+							"dosis_ref_comp_uci_ratio",
+							100
+						],
+						"name": "dosis_ref_comp_uci_percent"
+					}
+				},
+
+
+				{
 					"name": "avg",
-					"parameters": 30
+					"parameters": 7
 				}
 			],
 			"series":
 			[
 				{
-					"name": "sin_vac_uci_per_100k",
-					"code": "Sin vacuna",
-					"color": "#ff001f"
-				},
-				{
-					"name": "una_dosis_uci_per_100k",
-					"code": "Una dosis",
-					"color": "#ff6900"
-				},
-				{
-					"name": "dos_dosis_uci_per_100k",
-					"code": "Dos dosis",
-					"color": "#ffc700"
-				},
-				{
-					"name": "refuerzo_uci_per_100k",
+					"name": "dosis_ref_comp_uci_percent",
 					"code": "Refuerzo",
-					"color": "#92ff00"
+					"color": "#325700",
+					"areaColor": "#92ff00"
+				},
+				{
+					"name": "total_dos_dosis_uci_percent",
+					"code": "Dos dosis",
+					"color": "#6f5700",
+					"areaColor": "#ffc700"
+				},
+				{
+					"name": "una_dosis_uci_percent",
+					"code": "Una dosis",
+					"color": "#793200",
+					"areaColor": "#ff6900"
+				},
+				{
+					"name": "sin_vac_uci_percent",
+					"code": "Sin vacuna",
+					"color": "#6c000d",
+					"areaColor": "#ff001f"
 				}
 			]
 		}
