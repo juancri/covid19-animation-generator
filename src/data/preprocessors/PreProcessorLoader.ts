@@ -1,39 +1,44 @@
+
 import { PreProcessor, PreProcessorConfig, TimeSeries } from '../../util/Types';
 import logger from '../../util/Logger';
-import SumPreProcessor from './SumPreProcessor';
-import LimitPreProcessor from './LimitPreProcessor';
-import SortDescPreProcessor from './SortDescPreProcessor';
-import ForceColorPreProcessor from './ForceColorPreProcessor';
-import ForceCodePreProcessor from './ForceCodePreProcessor';
-import RequireForcedCodes from './RequireForcedCodes';
-import JoinPreProcessor from './JoinPreProcessor';
-import ForceGapsPreProcessor from './ForceGapsPreProcessor';
-import DailyChangePreProcessor from './DailyChangePreProcessor';
-import FilterPreProcessor from './FilterPreProcessor';
-import FilterOutPreProcessor from './FilterOutPreProcessor';
-import RenamePreProcessor from './RenamePreProcessor';
-import FormulaPreProcessor from './FormulaPreProcessor';
-import OverridePreProcessor from './OverridePreProcessor';
-import Avg7PreProcessor from './Avg7PreProcessor';
-import FillZeroPreProcessor from './FillZeroPreProcessor';
-import RunningTotalPreProcessor from './RunningTotalPreProcessor';
-import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
-import RemoveGapPreProcessor from './RemoveGapPreProcessor';
-import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
-import DatePlusPreProcessor from './DatePlusPreProcessor';
-import RemoveDatePreProcessor from './RemoveDatePreProcessor';
-import PercentagePreProcessor from './PercentagePreProcessor';
+
 import AvgPreProcessor from './AvgPreProcessor';
-import FilterRegexPreProcessor from './FilterRegexPreProcessor';
+import Avg7PreProcessor from './Avg7PreProcessor';
+import DailyChangePreProcessor from './DailyChangePreProcessor';
+import DatePlusPreProcessor from './DatePlusPreProcessor';
+import DuplicatePreProcessor from './DuplicatePreProcessor';
+import FillInterpolationPreProcessor from './FillInterpolationPreProcessor';
+import FillZeroPreProcessor from './FillZeroPreProcessor';
+import FilterOutPreProcessor from './FilterOutPreProcessor';
 import FilterOutRegexPreProcessor from './FilterOutRegexPreProcessor';
+import FilterPreProcessor from './FilterPreProcessor';
+import FilterRegexPreProcessor from './FilterRegexPreProcessor';
+import ForceCodePreProcessor from './ForceCodePreProcessor';
+import ForceColorPreProcessor from './ForceColorPreProcessor';
+import ForceGapsPreProcessor from './ForceGapsPreProcessor';
+import FormulaPreProcessor from './FormulaPreProcessor';
+import JoinPreProcessor from './JoinPreProcessor';
+import LimitPreProcessor from './LimitPreProcessor';
+import LoadMilestonesPreProcessor from './LoadMilestonesPreProcessor';
 import MultiplyByPreProcessor from './MultiplyByPreProcessor';
+import OverridePreProcessor from './OverridePreProcessor';
+import PercentagePreProcessor from './PercentagePreProcessor';
+import RemoveDatePreProcessor from './RemoveDatePreProcessor';
+import RemoveGapPreProcessor from './RemoveGapPreProcessor';
 import RemoveValuePreProcessor from './RemoveValuePreProcessor';
+import RenamePreProcessor from './RenamePreProcessor';
+import RequireForcedCodes from './RequireForcedCodes';
+import RunningTotalPreProcessor from './RunningTotalPreProcessor';
+import SortDescPreProcessor from './SortDescPreProcessor';
+import SumPreProcessor from './SumPreProcessor';
+import SubsetPreProcessor from './SubsetPreProcessor';
 
 const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	avg: AvgPreProcessor.run,
 	avg7: Avg7PreProcessor.run,
 	dailyChange: DailyChangePreProcessor.run,
 	datePlus: DatePlusPreProcessor.run,
+	duplicate: DuplicatePreProcessor.run,
 	fillInterpolation: FillInterpolationPreProcessor.run,
 	fillZero: FillZeroPreProcessor.run,
 	filter: FilterPreProcessor.run,
@@ -57,6 +62,7 @@ const PRE_PROCESSORS: { [key: string]: PreProcessor } = {
 	requireForcedCodes: RequireForcedCodes.run,
 	runningTotal: RunningTotalPreProcessor.run,
 	sortDesc: SortDescPreProcessor.run,
+	subset: SubsetPreProcessor.run,
 	sum: SumPreProcessor.run,
 };
 
