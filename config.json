@@ -4935,7 +4935,25 @@
 							"preProcessor": {
 								"name": "sum",
 								"parameters": {
-									"name": "reinforcement",
+									"name": "booster",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_Cuarta.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "fourth",
 									"remove": true
 								}
 							}
@@ -4948,26 +4966,32 @@
 			],
 			"series": [
 				{
-					"name": "reinforcement",
+					"name": "fourth",
+					"code": "cuarta",
+					"color": "#004c61",
+					"areaColor": "#00c7ff"
+				},
+				{
+					"name": "booster",
 					"code": "refuerzo",
 					"color": "#690010",
 					"areaColor": "#FF0028"
 				},
 				{
 					"name": "unique",
-					"code": "dosis unica",
+					"code": "unica",
 					"color": "#914600",
 					"areaColor": "#FF7B00"
 				},
 				{
 					"name": "second",
-					"code": "segunda dosis",
+					"code": "segunda",
 					"color": "#598A00",
 					"areaColor": "#A4FF00"
 				},
 				{
 					"name": "first",
-					"code": "primera dosis",
+					"code": "primera",
 					"color": "#A17E00",
 					"areaColor": "#FFC600"
 				}
@@ -5848,7 +5872,25 @@
 							"preProcessor": {
 								"name": "sum",
 								"parameters": {
-									"name": "reinforcement",
+									"name": "booster",
+									"remove": true
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "join",
+					"parameters": {
+						"kind": "merge",
+						"dataSource": {
+							"url": "https://github.com/MinCiencia/Datos-COVID19/raw/master/output/producto78/vacunados_edad_fecha_Cuarta.csv",
+							"nameColumn": "Edad",
+							"inputDateFormat": "ISO",
+							"preProcessor": {
+								"name": "sum",
+								"parameters": {
+									"name": "fourth",
 									"remove": true
 								}
 							}
@@ -5876,9 +5918,14 @@
 					"color": "#FF7B00"
 				},
 				{
-					"name": "reinforcement",
+					"name": "booster",
 					"code": "refuerzo",
 					"color": "#FF0028"
+				},
+				{
+					"name": "fourth",
+					"code": "cuarta",
+					"color": "#00c7ff"
 				}
 			]
 		},
@@ -5965,6 +6012,132 @@
 							"days": 14
 						},
 						"limit": true
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"sum",
+							192762.67
+						],
+						"name": "percentage"
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "percentage",
+					"code": "total",
+					"color": "#FF7B00"
+				}
+			]
+		},
+		"chile-vaccination-booster": {
+			"name": "Chile - Vaccination",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_Refuerzo.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "sum",
+						"remove": true
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "sum",
+					"code": "total",
+					"color": "#FF7B00"
+				}
+			]
+		},
+		"chile-vaccination-booster-percentage": {
+			"name": "Chile - Vaccination",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_Refuerzo.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "sum",
+						"remove": true
+					}
+				},
+				{
+					"name": "formula",
+					"parameters": {
+						"operation": "divide",
+						"operands": [
+							"sum",
+							192762.67
+						],
+						"name": "percentage"
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "percentage",
+					"code": "total",
+					"color": "#FF7B00"
+				}
+			]
+		},
+		"chile-vaccination-fourth": {
+			"name": "Chile - Vaccination",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_Cuarta.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "sum",
+						"remove": true
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "sum",
+					"code": "total",
+					"color": "#FF7B00"
+				}
+			]
+		},
+		"chile-vaccination-fourth-percentage": {
+			"name": "Chile - Vaccination",
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto78/vacunados_edad_fecha_Cuarta.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "runningTotal"
+				},
+				{
+					"name": "sum",
+					"parameters": {
+						"name": "sum",
+						"remove": true
 					}
 				},
 				{
