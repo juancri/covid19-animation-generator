@@ -3133,7 +3133,7 @@
 				}
 			]
 		},
-		"chile-deaths-rm-7x3": {
+		"chile-deaths-rm-7-28": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
 			"sources": ["MINSAL - Ministerio de Ciencia"],
 			"nameColumn": "Region",
@@ -3160,24 +3160,68 @@
 					"name": "fillInterpolation"
 				},
 				{
-					"name": "avg7"
+					"name": "duplicate",
+					"parameters":
+					{
+						"from": "Metropolitana",
+						"to": "Metropolitana7"
+					}
 				},
 				{
-					"name": "avg7"
+					"name": "duplicate",
+					"parameters":
+					{
+						"from": "Metropolitana",
+						"to": "Metropolitana28"
+					}
 				},
 				{
-					"name": "avg7"
+					"name": "subset",
+					"parameters":
+					{
+						"filter": "Metropolitana7",
+						"preProcessors": [{
+							"name": "avg",
+							"parameters": 7
+						}]
+					}
+				},
+				{
+					"name": "subset",
+					"parameters":
+					{
+						"filter": "Metropolitana28",
+						"preProcessors": [{
+							"name": "avg",
+							"parameters": 28
+						}]
+					}
 				}
 			],
 			"series": [
 				{
-					"name": "Metropolitana",
-					"code": "Metropolitana",
+					"name": "Metropolitana7",
+					"code": "media 7d",
+					"color": "#646464",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Metropolitana28",
+					"code": "media 28d",
 					"color": "#ffa600",
 					"gaps": [
 						{
-							"from": "2020-06-16",
-							"to": "2020-06-17"
+							"from": "2020-06-06",
+							"to": "2020-06-07"
 						},
 						{
 							"from": "2020-07-16",
@@ -3221,6 +3265,249 @@
 				},
 				{
 					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": "Arica y Parinacota",
+					"code": "Arica",
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Tarapacá",
+					"code": "Tarapacá",
+					"color": "#3EB4EA",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Antofagasta",
+					"code": "Antofagasta",
+					"color": "#f95d6a",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Atacama",
+					"code": "Atacama",
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Coquimbo",
+					"code": "Coquimbo",
+					"color": "#AC83FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Valparaíso",
+					"code": "Valparaíso",
+					"color": "#AC83FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "O’Higgins",
+					"code": "O’Higgins",
+					"color": "#CC89C3",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Maule",
+					"code": "Maule",
+					"color": "#51B6E4",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
+				},
+				{
+					"name": "Ñuble",
+					"code": "Ñuble",
+					"color": "#E28888",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Biobío",
+					"code": "Biobío",
+					"color": "#9BFF84",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
+				},
+				{
+					"name": "Araucanía",
+					"code": "Araucanía",
+					"color": "#d45087",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Los Ríos",
+					"code": "Los Ríos",
+					"color": "#ff7c43",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
+				},
+				{
+					"name": "Los Lagos",
+					"code": "Los Lagos",
+					"color": "#00B0FF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Aysén",
+					"code": "Aysén",
+					"color": "#328CFF",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						}
+					]
+				},
+				{
+					"name": "Magallanes",
+					"code": "Magallanes",
+					"color": "#a05195",
+					"gaps": [
+						{
+							"from": "2020-06-16",
+							"to": "2020-06-17"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				}
+			]
+		},
+		"chile-deaths-28": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg",
+					"parameters": 28
 				}
 			],
 			"series": [
@@ -3511,6 +3798,104 @@
 				}
 			]
 		},
+		"chile-deaths-sum-7-28": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto14/FallecidosCumulativo.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Region",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "duplicate",
+					"parameters":
+					{
+						"from": "Total",
+						"to": "Total7"
+					}
+				},
+				{
+					"name": "duplicate",
+					"parameters":
+					{
+						"from": "Total",
+						"to": "Total28"
+					}
+				},
+				{
+					"name": "subset",
+					"parameters":
+					{
+						"filter": "Total7",
+						"preProcessors": [{
+							"name": "avg",
+							"parameters": 7
+						}]
+					}
+				},
+				{
+					"name": "subset",
+					"parameters":
+					{
+						"filter": "Total28",
+						"preProcessors": [{
+							"name": "avg",
+							"parameters": 28
+						}]
+					}
+				}
+			],
+			"series": [
+				{
+					"name": "Total7",
+					"code": "media 7d",
+					"color": "#646464",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				},
+				{
+					"name": "Total28",
+					"code": "media 28d",
+					"color": "#FF4900",
+					"gaps": [
+						{
+							"from": "2020-06-06",
+							"to": "2020-06-07"
+						},
+						{
+							"from": "2020-07-16",
+							"to": "2020-07-17"
+						}
+					]
+				}
+			]
+		},
 		"chile-deaths-age": {
 			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
 			"nameColumn": "Grupo de edad",
@@ -3619,6 +4004,82 @@
 				},
 				{
 					"name": "avg7"
+				}
+			],
+			"series": [
+				{
+					"name": ">=90",
+					"code": "90+",
+					"color": "#5C006B",
+					"areaColor": "#DA00FF"
+				},
+				{
+					"name": "80-89",
+					"code": "80 - 89",
+					"color": "#7A002E",
+					"areaColor": "#FF0060"
+				},
+				{
+					"name": "70-79",
+					"code": "70 - 79",
+					"color": "#7F0008",
+					"areaColor": "#FF0011"
+				},
+				{
+					"name": "60-69",
+					"code": "60 - 69",
+					"color": "#822300",
+					"areaColor": "#FF4600"
+				},
+				{
+					"name": "50-59",
+					"code": "50 - 59",
+					"color": "#844800",
+					"areaColor": "#FF8B00"
+				},
+				{
+					"name": "40-49",
+					"code": "40 - 49",
+					"color": "#8F7F00",
+					"areaColor": "#FFE300"
+				},
+				{
+					"name": "<=39",
+					"code": "0 - 39",
+					"color": "#1E9700",
+					"areaColor": "#34FF00"
+				}
+			]
+		},
+		"chile-deaths-age-28": {
+			"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto10/FallecidosEtario.csv",
+			"sources": ["MINSAL - Ministerio de Ciencia"],
+			"nameColumn": "Grupo de edad",
+			"inputDateFormat": "ISO",
+			"preProcessors": [
+				{
+					"name": "dailyChange"
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-06-07",
+						"to": "2020-06-07"
+					}
+				},
+				{
+					"name": "removeGap",
+					"parameters": {
+						"from": "2020-07-17",
+						"to": "2020-07-17"
+					}
+				},
+				{
+					"name": "fillInterpolation"
+				},
+				{
+					"name": "avg",
+					"parameters": 28
 				}
 			],
 			"series": [
