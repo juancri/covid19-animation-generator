@@ -5205,7 +5205,8 @@
 					}
 				},
 				{
-					"name": "avg7"
+					"name": "avg",
+					"parameters": 28
 				}
 			],
 			"series": [
