@@ -19,7 +19,7 @@
     "linq": "^3.2.4",
     "luxon": "^2.0.2",
     "merge-anything": "^4.0.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "progress": "^2.0.3",
     "request": "^2.88.2",
     "winston": "^3.3.3"
