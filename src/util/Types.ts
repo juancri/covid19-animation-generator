@@ -166,6 +166,7 @@ export interface DataSource {
 	nameColumn: string;
 	title?: string;
 	csvDataProcessor?: string | CsvDataProcessorConfig;
+	csvDataProcessors?: (string | CsvDataProcessorConfig)[];
 	preProcessor?: PreProcessorConfig | string;
 	preProcessors?: PreProcessorConfig[];
 	series?: SeriesConfiguration[];

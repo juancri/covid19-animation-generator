@@ -37,6 +37,15 @@ export default class DataLoader
 			if (options?.debug)
 				CsvDebug.print("Processed CSV", csvData);
 		}
+		else if (dataSource.csvDataProcessors)
+		{
+			for (const csvDataProcessor of dataSource.csvDataProcessors)
+			{
+				csvData = CsvDataProcessorLoader.load(csvDataProcessor, csvData);
+				if (options?.debug)
+					CsvDebug.print("Processed CSV", csvData);
+			}
+		}
 		const data = csvData.map(item => ({
 			name: item[dataSource.nameColumn],
 			data: Object
