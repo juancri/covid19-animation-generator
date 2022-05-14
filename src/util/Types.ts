@@ -12,6 +12,7 @@ export interface DataPoint {
 		upper: string;
 	};
 	value: number;
+	extra?: string;
 }
 
 export interface TimeSeries {

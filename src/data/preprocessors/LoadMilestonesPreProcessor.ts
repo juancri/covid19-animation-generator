@@ -92,7 +92,7 @@ export default class LoadMilestonesPreProcessor
 	{
 		const found = colors.find(c => c.value === point.value);
 		if (!found)
-			throw new Error(`No color found for value: ${point.value} date: ${point.date}`);
+			throw new Error(`No color found for value: ${point.value} date: ${point.date} extra: ${point.extra}`);
 		return found.color;
 	}
 }

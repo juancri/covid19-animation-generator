@@ -52,6 +52,7 @@ export default class DataLoader
 				}))
 		}));
 
+		const extra = JSON.stringify(dataSource);
 		const rawData: TimeSeries[] = Enumerable
 			.from(data)
 			.groupBy(x => x.name)
@@ -62,7 +63,8 @@ export default class DataLoader
 					.groupBy(x => (+x.date))
 					.select(group2 => ({
 						date: group2.first().date,
-						value: group2.sum(x => x.value)
+						value: group2.sum(x => x.value),
+						extra: extra
 					}))
 					.orderBy(x => x.date)
 					.toArray(),
