@@ -1575,16 +1575,31 @@
 						"dataSource": {
 							"url": "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv",
 							"inputDateFormat": "ISO",
-							"csvDataProcessor": {
-								"name": "joinColumns",
-								"parameters": {
-									"name": "col",
-									"columns": [
-										"comuna_residencia",
-										"zona"
+							"csvDataProcessors": [
+								{
+									"name": "joinColumns",
+									"parameters": {
+										"name": "col",
+										"columns": [
+											"comuna_residencia",
+											"zona"
+										]
+									}
+								},
+								{
+									"name": "mapValues",
+									"parameters": [
+										{
+											"from": "Medio",
+											"to": -2
+										},
+										{
+											"from": "Bajo",
+											"to": -1
+										}
 									]
 								}
-							},
+							],
 							"nameColumn": "col",
 							"preProcessor": {
 								"name": "rename",
@@ -1921,6 +1936,14 @@
 							}
 						},
 						"colors": [
+							{
+								"value": -2,
+								"color": "#EFA520"
+							},
+							{
+								"value": -1,
+								"color": "#60BF7B"
+							},
 							{
 								"value": 0,
 								"color": "#a0a0a0"
