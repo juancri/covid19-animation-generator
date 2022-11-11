@@ -1590,6 +1590,10 @@
 									"name": "mapValues",
 									"parameters": [
 										{
+											"from": "Escenario de Apertura",
+											"to": -3
+										},
+										{
 											"from": "Medio",
 											"to": -2
 										},
@@ -1936,6 +1940,10 @@
 							}
 						},
 						"colors": [
+							{
+								"value": -3,
+								"color": "#83aefd"
+							},
 							{
 								"value": -2,
 								"color": "#EFA520"
