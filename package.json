@@ -17,7 +17,7 @@
     "handlebars": "^4.7.7",
     "jsonfile": "^6.1.0",
     "linq": "^3.2.4",
-    "luxon": "^3.1.1",
+    "luxon": "^3.2.1",
     "merge-anything": "^5.1.4",
     "minimist": "^1.2.7",
     "progress": "^2.0.3",
