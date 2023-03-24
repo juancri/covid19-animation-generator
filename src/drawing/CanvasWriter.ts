@@ -159,7 +159,7 @@ export default class CanvasWriter
 	public async drawScaledImage(imagePath: string): Promise<void>
 	{
 		const image = await loadImage(imagePath);
-		this.ctx.drawImage(image, 0, 0, ...this.layout.canvasSize);
+		this.ctx.drawImage(image, 0, 0, this.layout.canvasSize[0], this.layout.canvasSize[1]);
 	}
 
 	public async save(forcedName: string|null = null): Promise<void>
